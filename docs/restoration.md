@@ -53,53 +53,6 @@ site no longer references (1997-era setups such as `fvwm-csuoq.gif`, the four
 `gwm-*.gif` shots, `LINUXDEMO2.gif`). They are not part of this republish but
 are candidates for recording earlier editions of the site.
 
-## 3. Replaying the whole thing from scratch
-
-The import is a one-off; `content/` is hand-maintained after it. To redo it,
-in this order, from the repo root:
-
-```
-wget --mirror --execute robots=off --page-requisites --wait 5 \
-     --adjust-extension --user-agent="friendly-spiderman" --no-parent \
-     --convert-links --directory-prefix=mirror https://xteddy.org/xwinman/
-rm -rf mirror/xteddy.org/xwinman/icons mirror/xteddy.org/robots.txt
-python3 tools/pullwayback.py -o mirror/archive \
-    https://web.archive.org/web/20050906104532/http://xwinman.org/archive
-# hand-recovered files go into mirror/xteddy.org/xwinman/ at their original paths
-just regenerate        # tools/migrate.py all: content/, static/archive/, data/autoindex/, collections/
-just verify            # public/ against the mirror
-just pixelcheck        # headless Chrome screenshots, mirror vs public/
-just linkcheck         # docs/links.md
-```
-
-`tools/migrate.py` carries the judgement calls: `FIXUPS` (broken markup and
-wget's absolute links), `PROTECT` (what stays raw HTML), `CORRUPT` (archive
-files dropped), `REF_OVERRIDES` and `TITLE_OVERRIDES` (Others entries that
-name an existing bundle, or need a better title than their link text), and
-the page tables at the top (sidebar order and labels, sibling window
-managers).
-
-What the import produces, beyond the page bundles:
-
-- `data/editions/latest/`: the 2018 site's ordering and labels as TOML
-  (`nav.toml`, `home.toml`, `wm-other.toml`, `de-other.toml`), parsed from
-  the sidebar, the home page logo grid and the two Others lists.
-- one stub bundle per Others entry (`content/wm/<slug>/`,
-  `content/desktop/<slug>/`) holding the entry's homepage and blurb, marked
-  `build.render: never`; the list files only reference them.
-- `_metadata.toml` in each archive directory: the original timestamps, parsed
-  from the mirrored Apache index pages, in the same `[[entry]]` shape as the
-  bundles' `_metadata.toml`. Nothing else about the directory listings is
-  stored; the build derives them from the files.
-
-## 4. Link check
-
-`just linkcheck` probes every link in the built site and writes
-`docs/links.md`: internal links against `public/`, links to the site's former
-hosts, and external links split into dead, moved to another host, and alive.
-The site is republished as it was, dead links included; the report is the
-record of which ones those are.
-
 ## 2. The source archive: Wayback Machine walk
 
 `tools/pullwayback.py` walks an Apache autoindex tree preserved in the
@@ -193,3 +146,50 @@ move it from `CORRUPT` to `SUBSTITUTED` in `tools/migrate.py`, and run
 
 `fluxbox/fluxbox-0.1.5.tar.gz` appears in the original listing but no Wayback
 capture of it exists. It is omitted from the listing.
+
+## 3. Replaying the whole thing from scratch
+
+The import is a one-off; `content/` is hand-maintained after it. To redo it,
+in this order, from the repo root:
+
+```
+wget --mirror --execute robots=off --page-requisites --wait 5 \
+     --adjust-extension --user-agent="friendly-spiderman" --no-parent \
+     --convert-links --directory-prefix=mirror https://xteddy.org/xwinman/
+rm -rf mirror/xteddy.org/xwinman/icons mirror/xteddy.org/robots.txt
+python3 tools/pullwayback.py -o mirror/archive \
+    https://web.archive.org/web/20050906104532/http://xwinman.org/archive
+# hand-recovered files go into mirror/xteddy.org/xwinman/ at their original paths
+just regenerate        # tools/migrate.py all: content/ (with _metadata.toml sidecars), data/editions/, static/archive/, collections/
+just verify            # public/ against the mirror
+just pixelcheck        # headless Chrome screenshots, mirror vs public/
+just linkcheck         # docs/links.md
+```
+
+`tools/migrate.py` carries the judgement calls: `FIXUPS` (broken markup and
+wget's absolute links), `PROTECT` (what stays raw HTML), `CORRUPT` (archive
+files dropped), `REF_OVERRIDES` and `TITLE_OVERRIDES` (Others entries that
+name an existing bundle, or need a better title than their link text), and
+the page tables at the top (sidebar order and labels, sibling window
+managers).
+
+What the import produces, beyond the page bundles:
+
+- `data/editions/latest/`: the 2018 site's ordering and labels as TOML
+  (`nav.toml`, `home.toml`, `wm-other.toml`, `de-other.toml`), parsed from
+  the sidebar, the home page logo grid and the two Others lists.
+- one stub bundle per Others entry (`content/wm/<slug>/`,
+  `content/desktop/<slug>/`) holding the entry's homepage and blurb, marked
+  `build.render: never`; the list files only reference them.
+- `_metadata.toml` in each archive directory: the original timestamps, parsed
+  from the mirrored Apache index pages, in the same `[[entry]]` shape as the
+  bundles' `_metadata.toml`. Nothing else about the directory listings is
+  stored; the build derives them from the files.
+
+## 4. Link check
+
+`just linkcheck` probes every link in the built site and writes
+`docs/links.md`: internal links against `public/`, links to the site's former
+hosts, and external links split into dead, moved to another host, and alive.
+The site is republished as it was, dead links included; the report is the
+record of which ones those are.
