@@ -1,0 +1,521 @@
+###########################################################################
+##                                                                       ##
+##  fvwm 1.24r resource file - by Geir Friestad <geir@origo.telenor.no>  ##
+##    Last update: March 03, 1996. Somewhat heavily inspired by 4Dwm,    ##
+##      with a bit of mwm and Magic Workbench (Amiga) thrown it.         ##
+##                                                                       ##
+###########################################################################
+# Set up the colors:
+  StdForeColor          Black
+  StdBackColor          LightGray
+
+  HiForeColor           Black
+  HiBackColor		#c1c1c1
+ 
+  StickyForeColor       Black
+  StickyBarColor        MidnightBlue
+
+  MenuForeColor         Black
+  MenuBackColor         SlateGray
+
+###########################################################################
+# Now the fonts - one for menus, another for window titles, another for
+# icons:
+Font		-adobe-helvetica-medium-o-*-*-12-*-*-*-*-*-*-*
+WindowFont	-adobe-helvetica-bold-o-*-*-14-*-*-*-*-*-*-*
+IconFont	-adobe-helvetica-bold-r-*-*-11-*-*-*-*-*-*-*
+
+###########################################################################
+# Set windows to auto-raise after 750 milliseconds:
+AutoRaise 750
+
+###########################################################################
+# Make Motif-applications pop up correctly.
+MWMDecorHints
+MWMFunctionHints
+
+###########################################################################
+# This should place icons along the lower left part of the screen:
+IconBox 10 -70 -140 -3
+StickyIcons
+
+###########################################################################
+# Flip by whole pages on the edge of the screen and include a modest delay
+# before flipping:
+EdgeScroll 100 100
+EdgeResistance 250 50
+
+###########################################################################
+# Creates a backing store for applications and decorations. This should
+# hopefully speed things up a little bit:
+AppsBackingStore
+BackingStore
+
+###########################################################################
+# SmartPlacement makes new windows pop-up in blank regions of screen 
+# if possible, or falls back to random or interactive placement:
+SmartPlacement
+
+###########################################################################
+# Set up the virtual desktop and pager:
+DeskTopSize 3x3
+DeskTopScale 32
+
+###########################################################################
+# Module path and paths to the icons:
+ModulePath  /usr/lib/X11/fvwm/
+PixmapPath  /usr/include/X11/3dpixmaps/:/usr/include/X11/pixmaps/
+IconPath    /usr/include/X11/bitmaps/
+
+###########################################################################
+# Set the decoration styles and window options:
+Style "*"		BorderWidth 7,HandleWidth 7,Color Black/LightSlateGray,Icon Multimedia.xpm
+Style "Fvwm*"		NoTitle,NoHandles,Sticky,WindowListSkip,BorderWidth 0
+Style "FvwmPager"	BorderWidth 7
+Style "GoodStuff"	NoTitle,NoHandles,Sticky,WindowListSkip,BorderWidth 0
+Style "NetStuff"	NoTitle,NoHandles,Sticky,WindowListSkip,BorderWidth 0
+Style "xload"		NoHandles
+Style "xbiff"		BorderWidth 7
+Style "*lock"		NoTitle,NoHandles,Sticky,WindowListSkip,BorderWidth 7
+Style "xsysinfo"	NoButton 2,Icon graphs.xpm
+Style "ghostview"	Icon ghostview.xpm
+Style "xfontsel"	Icon font.xpm
+Style "xcolorsel"	Icon color_chart.xpm
+Style "aXe"		Icon aXe.xpm
+Style "axe"		Icon aXe.xpm
+Style "rxvt"		Icon term.xpm
+Style "kterm"		Icon kterm.xpm
+Style "xterm"		Icon term.xpm
+Style "top"		Nohandles,BorderWidth 5,Icon pyramid.xpm
+Style "xcalc"		Icon xcalc.xpm,NoButton 2
+Style "xman"		Icon xman.xpm
+Style "xmag"		Icon mag_glass.xpm
+Style "Xwatch"		NoTitle,NoHandles
+Style "TkNet"		Icon tknetup.xpm
+Style "xanim"		Icon Moviemaker.xpm
+Style "Control"		Icon Animator.xpm
+Style "mapedit"		Icon write.next.xpm
+
+###########################################################################
+# Stuff to do at start-up:
+Function "InitFunction"
+	Exec	"I"	xli -quiet -onroot /usr/include/X11/backgrounds/blue_rock.gif &
+	Module	"I"	GoodStuff
+	Module	"I"	NetStuff
+	#Exec	"I"	nice xclock -digital -update 1 -fg black -bg "#908090" -padding 2 -fn "-adobe-helvetica-bold-r-*-*-12-*-*-*-*-*-*-*" -geometry 166x20-3+3 &
+	Exec	"I"	fclock &
+	Exec	"I"	rxvt -fat -fg white -bg black -ls -geometry 80x24+8+77 &
+	Exec	"I"	trash -ic &
+   	Module	"I"	FvwmPager 0
+   	Desk	"I"	0 0
+EndFunction
+
+###########################################################################
+# Stuff to do when restarting fvwm:
+Function "RestartFunction"
+   	Module	"I"	GoodStuff
+   	Module	"I"	NetStuff
+   	Module	"I"	FvwmPager 0
+	Exec	"I"	fclock &
+EndFunction
+
+###########################################################################
+# Now let's define some handy complex functions. This one moves and then
+# raises the window if you drag the mouse, only raises the window if you
+# click, or does a RaiseLower if you doubleclick:
+Function "Move-or-Raise"
+   	Move  		"Motion"
+   	Raise	   	"Motion"
+	Raise	   	"Click"
+   	RaiseLower	"DoubleClick" 
+EndFunction
+
+###########################################################################
+# This one maximizes vertically if you click or does a full maximization
+# if you doubleclick, or a true full vertical maximization if you just hold
+# the mouse button down:
+Function "maximize_func"
+   	Maximize 	"Motion" 0 100
+   	Maximize 	"Click" 0 80
+   	Maximize 	"DoubleClick" 100 100
+EndFunction
+
+###########################################################################
+# This one moves and then lowers the window if you drag the mouse, only
+# lowers the window if you click,  or does a RaiseLower if you doubleclick:
+Function "Move-or-Lower"
+   	Move 	   	"Motion"
+   	Lower	   	"Motion"
+   	Lower	   	"Click"
+   	RaiseLower	"DoubleClick"
+EndFunction
+
+###########################################################################
+# This one moves or (de)iconifies:
+Function "Move-or-Iconify"
+   	Move 	   	"Motion"
+   	Iconify		"DoubleClick"
+EndFunction
+
+###########################################################################
+# This one resizes and then raises the window if you drag the mouse, only
+# raises the window if you click, or does a RaiseLower if you doubleclick:
+Function "Resize-or-Raise"
+   	Resize 		"Motion"
+   	Raise	   	"Motion"
+   	Raise	   	"Click"
+   	RaiseLower	"DoubleClick"
+EndFunction
+
+###########################################################################
+# Now define the menus - defer bindings until later. First up is the quit
+# or restart menu:
+Popup "Quit-Verify"
+   	Title    	"Really quit fvwm?"
+   	Quit     	"Yeah, let's split!"
+   	Restart		"Restart fvwm"	   	fvwm
+	Restart		"Start amiwm"		amiwm
+   	Restart		"Start twm"	      	twm
+   	Nop      	""
+   	Nop      	"Absolutely not!"
+EndPopup
+
+###########################################################################
+# The right button/termlock menu - lots of xlock choices to lock the term:
+Popup "Xlock-Menu"
+	Title	"Xlock Menu"
+	Exec	"Bats"          exec xlock -nice 0 -mode bat -bg black -fg white &
+	Exec	"Blot"          exec xlock -nice 0 -mode blot -bg black -fg white &
+	Exec	"Bob"           exec xlock -nice 0 -mode bob -bg black -fg white &
+	Exec	"Bounce"        exec xlock -nice 0 -mode bounce -bg black -fg white &
+	Exec	"Clock"         exec xlock -nice 0 -mode clock -bg black -fg white &
+	Exec	"Flame"         exec xlock -nice 0 -mode flame -bg black -fg white &
+	Exec	"Forest"        exec xlock -nice 0 -mode forest -bg black -fg white &
+	Exec	"Galaxy"        exec xlock -nice 0 -mode galaxy -bg black -fg white &
+	Exec	"Geometry"      exec xlock -nice 0 -mode geometry -bg black -fg white &
+	Exec	"Grav"          exec xlock -nice 0 -mode grav -bg black -fg white &
+	Exec	"Helix"         exec xlock -nice 0 -mode helix -bg black -fg white &
+	Exec	"Hop"		exec xlock -nice 0 -mode hop -bg black -fg white &
+	Exec	"Hyper"         exec xlock -nice 0 -mode hyper -bg black -fg white &
+	Exec	"Kaleid"        exec xlock -nice 0 -mode kaleid -bg black -fg white &
+	Exec	"Laser"         exec xlock -nice 0 -mode laser -bg black -fg white &
+	Exec	"Life"		exec xlock -nice 0 -mode life -bg black -fg white &
+	Exec	"Life3d"        exec xlock -nice 0 -mode life3d -bg black -fg white &
+	Exec	"Mountain"      exec xlock -nice 0 -mode mountain -bg black -fg white &
+	Exec	"Maze"          exec xlock -nice 0 -mode maze -bg black -fg white &
+	Exec	"Pyro"          exec xlock -nice 0 -mode pyro -bg black -fg white &
+	Exec	"Qix"		exec xlock -nice 0 -mode qix -bg black -fg white &
+	Exec	"Random"	exec xlock -nice 0 -mode random -bg black -fg white &
+	Exec	"Rect"          exec xlock -nice 0 -mode rect -bg black -fg white &
+	Exec	"Rock"          exec xlock -nice 0 -mode rock -mono -bg black -fg white &
+	Exec	"Rotor"		exec xlock -nice 0 -mode rotor -bg black -fg white &
+	Exec	"Sphere"        exec xlock -nice 0 -mode sphere -bg black -fg white &
+	Exec	"Spiral"        exec xlock -nice 0 -mode spiral -bg black -fg white &
+	Exec	"Spline"        exec xlock -nice 0 -mode spline -bg black -fg white &
+	Exec	"Swarm"		exec xlock -nice 0 -mode swarm -bg black -fg white &
+	Exec	"Swirl"         exec xlock -nice 0 -mode swirl -bg black -fg white &
+	Exec	"Wator"         exec xlock -nice 0 -mode wator -bg black -fg white &
+	Exec	"Worm"		exec xlock -nice 0 -mode worm -bg black -fg white &
+EndPopup
+
+###########################################################################
+# Menu choices to set different backgrounds. Lots of neat ones:
+Popup "Backgrounds"
+	Title	"Backgrounds"
+        Exec    "Rough gray paper"      exec xli -quiet -onroot /usr/include/X11/backgrounds/bg1.gif &
+        Exec    "Blue rain"             exec xli -quiet -onroot /usr/include/X11/backgrounds/bg3.gif &
+        Exec    "Psychedelic blobs"     exec xli -quiet -onroot /usr/include/X11/backgrounds/bg2.gif &
+        Exec    "Gray hexagons"         exec xli -quiet -onroot /usr/include/X11/backgrounds/background1.xpm &
+        Exec    "Cool tiles"            exec xli -quiet -onroot /usr/include/X11/backgrounds/background2.xpm &
+        Exec    "A gray ocean"          exec xli -quiet -onroot /usr/include/X11/backgrounds/background3.xpm &
+        Exec    "Escher star tiles"     exec xli -quiet -onroot /usr/include/X11/backgrounds/background4.xpm &
+        Exec    "A purple ocean"        exec xli -quiet -onroot /usr/include/X11/backgrounds/background5.xpm &
+        Exec    "Tiled stone slabs"     exec xli -quiet -onroot /usr/include/X11/backgrounds/background6.xpm &
+        Exec    "Meshed glass"          exec xli -quiet -onroot /usr/include/X11/backgrounds/background7.xpm &
+        Exec    "Brown, uh, stuff"      exec xli -quiet -onroot /usr/include/X11/backgrounds/background8.xpm &
+        Exec    "A rainy day..."        exec xli -quiet -onroot /usr/include/X11/backgrounds/background9.xpm &
+        Exec    "Blue rock"		exec xli -quiet -onroot /usr/include/X11/backgrounds/blue_rock.gif &
+        Exec    "Boring default mesh"   exec xsetroot &
+EndPopup
+
+###########################################################################
+# Tycoon icon-manager stuff.
+PopUp "Tycoon"
+        Title   "Icon control"
+        Exec    "Remove selected icon"	exec tycoon -rm
+        Exec    "Shutdown tycoon"	exec tycoon -kill
+        Exec    "Run tycoon"		exec tycoon
+        Exec    "Add new icon"		exec newicon
+        Exec    "Edit selected icon"	exec editicon
+        Exec    "Lower icons"		exec tycoon -lower
+        Exec    "Raise icons"		exec tycoon -raise
+        Exec    "Unfreeze icons"	exec tycoon -unfreeze
+        Exec    "Freeze icons"		exec tycoon -freeze
+EndPopUp
+
+###########################################################################
+# A bunch of stuff handy for doing system-related things, like checking
+# the memory load, fonts and color databases, etc:
+Popup "System-Stuff"
+      	Title	"System stuff"
+	Exec	"Ddd"		exec ddd &
+	Exec	"Top"		exec rxvt -T top -n top -fg white -bg black -e top &
+      	Exec	"Xmag"		exec xmag &
+	Nop	""
+	Exec	"Xcolmix"	exec xcolmix &
+	Exec	"Xcolorsel"	exec xcolorsel &
+      	Exec	"Xfontsel"	exec xfontsel &
+	Exec	"Xsysinfo"	exec xsysinfo &
+	Exec	"Xvidtune"	exec xvidtune &
+	Nop	""
+	Exec	"TkMan"		exec tkman &
+      	Exec	"Xman"		exec xman &
+	Nop	""
+	Exec	"messages"	exec xwatch /var/adm/messages
+	Exec	"syslog"	exec xwatch /var/adm/syslog
+EndPopup
+
+###########################################################################
+# Games menu.
+Popup "Games"
+	Title	"Games'n'fun"
+	Exec	"Maelstrom"	exec maelstrom &
+	Exec	"Paranoia"	exec rxvt -fat -fg white -bg black -T paranoia -n paranoia -e paranoia &
+	Exec	"XQuake"	exec quake &
+EndPopup
+
+###########################################################################
+# "Serious" stuff. Miscellanous editors, calculators, wordprocessors and
+# such:
+Popup "Applications"
+	Title	"Applications"
+	Exec	"aXe"		exec axe &
+	Exec	"coaXe"		exec coaxe &
+	Exec	"Editor"	exec editor &
+	Nop	""
+	Exec	"Mapedit"	exec mapedit &
+	Exec	"Netscape"	exec nice netscape -install &
+	Exec	"Raplayer"	exec raplayer &
+	Nop	""
+	Exec	"Display"	exec display &
+	Exec	"Ghostview" 	exec ghostview &
+	Exec	"Gimp"		exec gimp &
+	Exec	"Xfractint"	exec rxvt -fg white -bg black -T xfractint -n xfractint -e xfractint &
+	Exec	"Xpaint"	exec xpaint &
+	Exec	"XV"		exec xv -8 -owncmap &
+	Nop	""
+	Exec	"Emiclock"	exec emiclock &
+	Exec	"Files"		exec files &
+	Exec	"Mfm"		exec mfm &
+	Exec	"Nufind"	exec nufind &
+	Exec	"Trashcan"	exec trash -ic &
+	Exec	"Xalarm"	exec xalarm &
+	Exec	"Xcalc"		exec xcalc &
+EndPopup
+
+###########################################################################
+# fvwm modules - not to be missed out:
+Popup "Module-Popup"
+	Title	"Modules"
+	Module	"GoodStuff" 	GoodStuff
+	Module	"NetStuff"	NetStuff
+	Module	"Clean-Up"  	FvwmClean
+	Module	"Identify"  	FvwmIdent
+	Module  "SaveDesktop"   FvwmSave
+	Module	"Debug"	   	FvwmDebug
+	Module  "Pager"         FvwmPager 0 0
+	Module	"FvwmAudio"	FvwmAudio
+	Module  "FvwmWinList"   FvwmWinList
+	Module	"FvwmIconBox"	FvwmIconBox
+EndPopup
+
+###########################################################################
+# The menu invoked by the left mouse button - the "main" menu:
+Popup "Utilities"
+	Title 	"Utilities"
+	Exec	"Rxvt"		exec rxvt -fat -fg white -bg black -ls &
+	Exec	"Xterm"	      	exec xterm -ls -fg white -bg black -sb &
+	Exec	"CXterm"	exec color_xterm -ls -fg white -bg black -sb -ls &
+	Exec	"Rxvt 80x40"	exec rxvt -fat -fg white -bg black -geometry 80x40 &
+	Exec	"Xterm 80x40"	exec xterm -ls -fg white -bg black -sb -geomtry 80x40 &
+	Exec	"CXterm 80x40"	exec color_xterm -ls -fg white -bg black -sb -geomtry 80x40 &
+	Nop	""
+	Popup	"Applications"	Applications
+	Popup	"Games"		Games
+	Popup	"System stuff"	System-Stuff
+	Popup	"Icon control"	Tycoon
+	Popup	"Fvwm modules"	Module-Popup
+	Nop	""
+	Popup	"Exit fvwm"	Quit-Verify
+EndPopup
+
+##########################################################################
+# The middle button menu - miscellanous useful windows functions:
+Popup "Window Ops"
+	Title		"Window Ops"
+	Function	"Move" 		Move-or-Raise
+	Function 	"Resize" 	Resize-or-Raise
+	Raise   	"Raise"
+	Lower   	"Lower"
+	Iconify 	"(De)Iconify" 
+	Stick		"(Un)Stick"
+	Function 	"(Un)Maximize"	maximize_func
+	Nop     	""
+	Destroy 	"Destroy"
+	Close	  	"Close"
+	Nop		""
+	Refresh		"Refresh Screen"
+EndPopup
+
+##########################################################################
+# A scaled-down version of the window options menu, this is to be
+# attached to the left window button:
+Popup "Window Ops2"
+        Function        "Move"          Move-or-Raise
+        Function        "Resize"        Resize-or-Raise
+        Raise           "Raise"
+        Lower           "Lower"
+        Iconify         "Iconify"
+        Stick           "(Un)Stick"
+        Nop             ""
+        Destroy         "Destroy"
+        Close           "Close"
+        Nop             ""
+        Module          "ScrollBar"     FvwmScroll 2 2
+EndPopup
+
+###########################################################################
+# This creates a motif-ish sticky menu for the title-bar window-ops
+# pop-up menu acts like normal twm menu if you just hold the button down,
+# but if you click instead, the menu stays up, motif style:
+Function "window_ops_func"
+	PopUp 	"Click"		Window Ops2
+	PopUp	"Motion"	Window Ops2
+	Close  "DoubleClick"  
+EndFunction
+
+###########################################################################
+# This defines the mouse bindings:
+#     Button	Context Modifi 	Function
+Mouse 1		R   	A       PopUp "Utilities"
+Mouse 2		R    	A      	PopUp "Window Ops"
+Mouse 3		R    	A      	PopUp "Xlock-Menu"
+Mouse 1		R	C	Popup "Backgrounds"
+Mouse 3		R	C	WindowList
+
+###########################################################################
+# Now the title bar buttons
+# Any button in the left title-bar button gives the window ops menu
+# Any button in the right title-bar button Iconifies the window
+# Any button in the rightmost title-bar button maximizes
+# Note the use of "Mouse 0" for AnyButton:
+#     Button	Context Modifi 	Function
+Mouse 0		1    	A      	Function "window_ops_func"
+Mouse 0		2    	A     	Function "maximize_func"
+Mouse 0		4    	A     	Iconify
+
+###########################################################################
+# Now the rest of the frame. Here I invoke my complex functions for
+# Move-or-lower, Move-or-raise and Resize-or-Raise. 
+# Button 1 in the window frame, with any modifiers, gives resize|raise.
+# This is similar to Motif-style resizing:
+Mouse 1		FS	A	Function "Resize-or-Raise"
+# Button 1 in the title, sides, or icon, w/ any modifiers, gives move|raise
+Mouse 1		T	A	Function "Move-or-Raise"
+
+###########################################################################
+# Button 1 in an icons gives move for a drag, de-iconify for a double-click,
+# nothing for a single click. Button 2 in an icon, w/ any modifiers, gives
+# de-iconify:
+Mouse 1		I	A	Function "Move-or-Iconify"
+Mouse 2		I	A	Iconify
+
+###########################################################################
+# Button 2 in the corners, sides, or title-bar gives the window ops menu:
+Mouse 2		F  	A	Function "window_ops_func"
+Mouse 2     TS    A  Function "Move-or-Iconify"
+
+###########################################################################
+# Button 3 anywhere in the decoration (except the title-bar buttons)
+# does a raise-lower:
+Mouse 3		TSIF	A	RaiseLower
+
+###########################################################################
+# Button 3 in the window, with the Modifier-1 key (usually alt or diamond)
+# gives Raise-Lower:
+Mouse 3         W       M       RaiseLower
+
+###########################################################################
+# Now some keyboard shortcuts. Arrow Keys + Control to scroll by 1 page:
+Key Left	A	C	Scroll -100 0
+Key Right	A	C	Scroll +100 +0
+Key Up		A	C	Scroll +0   -100
+Key Down	A	C	Scroll +0   +100
+
+
+###################### GoodStuff button-bar ###############################
+# Colors, font, geometry and layout:
+*GoodStuffFore		#000000
+*GoodStuffBack		#908090
+*GoodStuffFont		-adobe-helvetica-bold-r-*-*-10-*-*-*-*-*-*-*
+*GoodStuffGeometry	+3+3
+*GoodStuffRows		1
+
+# Define the buttons to use
+*GoodStuff	Shell		Shell.xpm		Exec "" rxvt -fat -fg white -bg black -geometry 80x24 -ls &
+*GoodStuff	coaXe		TextEditor.xpm		Exec "" coaxe &
+*GoodStuff	Gimp		Paint4.xpm		Exec "" gimp &
+*GoodStuff	Xpaint		Paint4.xpm		Exec "" xpaint &
+*GoodStuff	XV		ImageProcessing2.xpm	Exec "" xv -8 -owncmap &
+*GoodStuff	ScEd		Raytracer.xpm		Exec "" sced &
+*GoodStuff	Xtacy		Fractal.xpm		Exec "" xtacy &
+*GoodStuff	Mixer		xmix.xpm		Exec "" xfmix &
+*GoodStuff	XQuake		Diavolo.xpm		Exec "" quake &
+*GoodStuff	Ddd		AntiVirus.xpm		Exec "" ddd &
+*GoodStuff	Files		FileManager.xpm		Exec "" files &
+*GoodStuff	TkMan		man.next.xpm		Exec "" tkman &
+*GoodStuff  	Mapedit		write.next.xpm		Exec "" mapedit &
+*GoodStuff	-		-			Swallow "xload" nice xload -nolabel -fg black -bg "#908090" -hl "#c1c1c1" &
+*GoodStuff	Quit		exit.xpm		Quit
+
+
+###################### NetStuff button-bar ###############################
+# Colors, font, geometry and layout:
+*NetStuffFore		#000000
+*NetStuffBack		#908090
+*NetStuffFont		-adobe-helvetica-bold-r-*-*-10-*-*-*-*-*-*-*
+*NetStuffGeometry	-5+3
+*NetStuffColumns	1
+
+# Define the buttons to use
+*NetStuff	Pine		Mail.xpm		Exec "" rxvt -T pine -n pine -fg white -bg black -geometry 80x24 -e pine &
+*NetStuff	Tin		News.xpm		Exec "" rxvt -T tin - tin -fg white -bg black -geometry 80x24 -e tin &
+*NetStuff	Telnet		Terminal.xpm		Exec "" rxvt -T telnet -n telnet -fat -fg -white -bg black -geometry 80x24 -e telnet &
+*NetStuff	NcFtp		Terminal.xpm		Exec "" rxvt -T NcFtp -n NcFtp -fat -fg white -bg black -geometry 80x24 -e ncftp &
+*NetStuff	Netscape	Terminal.xpm		Exec "" nice netscape -install &
+*NetStuff	PPP		tknetup.xpm		Exec "" TkNet &
+
+########################## Window-Identifier ##############################
+# Just choose colors and a font:
+*FvwmIdentBack MidnightBlue
+*FvwmIdentFore Yellow
+*FvwmIdentFont -adobe-helvetica-medium-r-*-*-12-*-*-*-*-*-*-*
+
+########################### Pager #########################################
+*FvwmPagerBack #908090
+*FvwmPagerFore #484048
+*FvwmPagerFont -adobe-helvetica-bold-r-*-*-10-*-*-*-*-*-*-*
+*FvwmPagerHilight #cab3ca
+*FvwmPagerGeometry -3-3
+*FvwmPagerLabel 0 Desktop overview
+*FvwmPagerSmallFont 5x8
+
+########################## FvwmWinList#####################################
+*FvwmWinListBack #908090
+*FvwmWinListFore Black
+*FvwmWinListFont -adobe-helvetica-bold-r-*-*-10-*-*-*-*-*-*-*
+*FvwmWinListAction Click1 Iconify -1,Focus
+*FvwmWinListAction Click2 Iconify
+*FvwmWinListAction Click3 Module "FvwmIdent" FvwmIdent
+*FvwmWinListUseSkipList
+*FvwmWinListGeometry -3-96

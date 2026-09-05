@@ -1,0 +1,280 @@
+
+# this is used for non-selected windows, menus, and the panner
+#StdForeColor 		White
+#StdBackColor 		gray20
+
+StdForeColor            grey70
+StdBackColor            #000050
+
+MenuForeColor 		White
+MenuBackColor 		gray20
+
+StickyForeColor		yellow
+StickyBackColor		blue
+
+# this is used for the selected window
+#HiForeColor 		White
+#HiBackColor 		#700000
+
+HiForeColor             White
+HiBackColor             #000090
+
+#SaveUnders
+#AppsBackingStore
+
+#AutoRaise 1
+
+OpaqueResize
+
+ButtonStyle : 1 4 50x70@0 70x30@0 30x30@1 50x70@1
+#ButtonStyle : 2 7 50x65@1 65x35@1 35x35@0 50x70@0 70x30@0 30x30@1 50x70@1
+
+DecorateTransients
+
+Font			-adobe-helvetica-medium-r-*-*-18-*-*-*-*-*-*-*
+WindowFont		-adobe-helvetica-medium-r-*-*-18-*-*-*-*-*-*-*
+
+IconBox 740 0 -1 -1
+
+PixmapPath /usr/include/pixmaps
+
+SloppyFocus
+
+StubbornIconPlacement
+
+OpaqueMove 100
+
+Edgescroll 30 35
+
+DeskTopSize 2x2
+
+#EdgeResistance 2800 200
+EdgeResistance 10000 10000
+
+SmartPlacement
+RandomPlacement
+
+StubbornPlacement
+
+#NoPPosition
+
+PagingDefault 1
+
+MWMButtons
+
+DontMoveOff
+
+Function "InitFunction"
+        GotoPage "I"	1 1
+#	Module	"I"	FvwmAuto 600
+#	Module 	"I"	FvwmWinList
+	Module 	"I"	GoodStuff
+	Module 	"I"	FvwmPager 0 0
+EndFunction
+
+Function "RestartFunction"
+	GotoPage "I"	1 1
+#	Module	"I"	FvwmAuto 600
+#	Module 	"I"	FvwmWinList
+	Module 	"I"	GoodStuff
+	Module 	"I"	FvwmPager 0 0
+EndFunction
+
+Style "*" BorderWidth 0,HandleWidth 0
+Style "NoTitle" NoTitle,Sticky
+Style "Xcl*" NoTitle,Sticky
+Style "GoodStuff" NoTitle,StaysOnTop,Sticky,WindowListSkip
+Style "FvwmW*" NoTitle,Sticky,WindowListSkip
+Style "FvwmP*" NoTitle,Sticky,StaysOnTop,WindowListSkip
+Style "xosv*" NoTitle,Sticky
+Style "FvwmIdent" NoTitle,StaysOnTop,Sticky
+Style "MotifC*" NoTitle
+
+Style	"*"	Icon unknown1.xpm
+Style	"rxvt"	Icon xterm.xpm
+Style	"xter*"	Icon xterm.xpm
+Style	"Fvw*"	Icon fvwm.xpm
+Style	"*.c"	Icon page.xpm
+Style	"*.txt"	Icon page.xpm
+Style	"DOS*"	Icon dosemu.xpm
+
+#Style	"xv *"	StartsOnDesk
+
+Function "Move-or-Raise"
+	Move 		"Motion"
+	Raise		"Motion"
+	Raise		"Click"
+	RaiseLower	"DoubleClick" 
+EndFunction
+
+Function "Move-or-Lower"
+	Move 		"Motion"
+	Lower		"Motion"
+	Lower		"Click"
+	RaiseLower	"DoubleClick"
+EndFunction
+
+Function "Move-or-Iconify"
+	Move 		"Motion"
+	Iconify		"DoubleClick"
+EndFunction
+
+Function "Resize-or-Raise"
+	Resize 		"Motion"
+	Raise		"Motion"
+	Raise		"Click"
+	RaiseLower	"DoubleClick"
+EndFunction
+
+Popup "MyWinOps"
+	Function	"Move" 			Move-or-Raise
+	Function 	"Resize" 		Resize-or-Raise
+	Destroy 	"Destroy"
+	Delete  	"Delete"
+EndPopup
+
+Popup "Utilities"
+	PopUp	"Window"	MyWinOps
+	Nop	""
+	Restart	"Restart"	fvwm
+#	Refresh	"Refresh"
+	Nop	""
+	Quit	"Exit"
+EndPopup
+
+Popup "Window Ops"
+	Exec    "RXVTcol"               exec rxvt -fg white -bg black -font 9x15 -fat -T "" -n "          " &
+#	Exec	"Term204"	exec rxvt -geometry 80x24+736-0 -fat -sl 0 -fg gray70 -bg black -T NoTitle -e /usr/local/bin/term1 &
+#	Exec	"XV3.00a"	exec xv -cmap -bw 0 -lbrowse -nolimits -geometry +0+0 -rw -ninstall -slow24 -dir ~ -cgeometry -0+0 &
+#	Exec	"RMAIL"		exec emacs -bd navy -cr navy -fn 9x15 -rv -geometry 98x58+0+0 -f rmail &
+EndPopup
+
+Popup "RootPic"
+	Exec	"(LOCK)"	exec xlock -mode rotor
+	Exec	"(MEM)"		exec mem
+	Exec	"navy"		exec xsetroot -solid "#101040" &
+#	Exec	"'foxface'"	exec xli -fit -fork -cdither -colors 128 -onroot ~/startup/foxface.gif
+#	Exec	"'fox4'"	exec xli -fit -fork -cdither -onroot -colors 128 ~/startup/fox4.gif
+#	Exec	"'pizza'"	exec xli -fork -cdither -fit -onroot ~/startup/rootpic.gif
+#	Exec    "'robin'"	exec xli -fit -cdither -colors 160 -onroot -fork ~/startup/backg.gif
+EndPopup"
+
+# A trimmed down version of "Window Ops", good for binding to decorations
+Popup "Window Ops2"
+	Destroy 	"Destroy"
+	Delete  	"Delete"
+EndPopup
+
+# First, for the mouse in the root window
+# Button 1 gives the Utilities menu
+# Button 2 gives the Window Ops menu
+# Button 3 gives the WindowList (like TwmWindows)
+# I use the AnyModifier (A) option for the modifier field, so you can hold down
+# any shift-control-whatever combination you want!
+#     Button	Context Modifi 	Function
+Mouse 1		R   	A       PopUp "Utilities"
+Mouse 2		R    	A      	PopUp "Window Ops"
+Mouse 3		R    	A      	PopUp "RootPic"
+
+
+# Now the title bar buttons
+# Any button in the left title-bar button gives the window ops menu
+# Any button in the right title-bar button Iconifies the window
+# Any button in the rightmost title-bar button maximizes
+# Note the use of "Mouse 0" for AnyButton.
+
+#     Button	Context Modifi 	Function
+Mouse 0		1    	A      	Iconify
+Mouse 0		2    	A     	Resize
+#Mouse 0		4    	A     	Iconify
+
+# Now the rest of the frame
+# Here I invoke my complex functions for Move-or-lower, Move-or-raise,
+# and Resize-or-Raise. 
+# Button 1 in the corner pieces, with any modifiers, gives resize or raise
+#Mouse 1		F	A	Function "Resize-or-Raise"
+# Button 1 in the title, sides, or icon, w/ any modifiers, gives move or raise
+Mouse 1		T	A	Function "Move-or-Raise"
+#Mouse 2		T	A	Function "
+
+# Button 1 in an icons gives move for a drag, de-iconify for a double-click,
+# nothing for a single click
+# Button 2 in an icon, w/ any modifiers, gives de-iconify
+
+Mouse 1		I	A	Function "Move-or-Iconify"
+Mouse 2		I	A	Iconify
+
+# Button 3 anywhere in the decoration (except the title-bar buttons)
+# does a raise-lower
+Mouse 2		TSF	A	RaiseLower
+
+# Button 3 in the window, with the Modifier-1 key (usually alt or diamond)
+# gives Raise-Lower. Used to use control here, but that interferes with xterm
+#Mouse 3         W       M       RaiseLower
+
+# Keyboard accelerators
+#Key F1		A	M	Popup "Utilities"
+#Key F1		A	M	Popup "Utilities"
+#Key F2		A	M	Popup "Window Ops"
+#Key F3		A	M	WindowList
+#Key F4		A	M	Iconify
+#Key F5		A	M	Move
+#Key F6		A	M	Resize
+#Key F7		A	M	CirculateUp
+#Key F8		A	M	CirculateDown
+
+###################### GoodStuff button-bar ################################
+*GoodStuffFont -adobe-helvetica-medium-r-*-*-18-*-*-*-*-*-*-*
+#*GoodStuffFont -misc-fixed-medium-r-normal--15-140-*-*-c-*-*-1
+#*GoodStuffGeometry 112x224+912+576
+*GoodStuffGeometry 153x187+872+498
+*GoodStuffColumns 2
+#*GoodStuffRows 2
+#*GoodStuffFore gray70
+*GoodStuffFore grey70
+*GoodStuffBack #000050
+
+#*GoodStuff clk xxx Swallow "NoTitlex" xclk -title "NoTitlex" &
+#*GoodStuff(3x1) ... xxx Swallow "xosview@FoxBox" xos &
+*GoodStuff(2x1) RXVT xxx exec "rxvt" rxvt -fg white -bg black -fat -T "" -n "          " &
+*GoodStuff(2x1) EXIT xxx  Quit
+*GoodStuff Id xxx Module "FvwmIdent" FvwmIdent &
+*GoodStuff LOCK xxx exec "" nice -n 20 xlock -mode rotor
+*GoodStuff XV-3 xxx exec "xv" xv -nostat -imap -igeometry +2048+1600 -bw 0 -perfect -lbrowse -nolimits -geometry +0+0 -rw -ninstall -slow24 -dir ~ -cgeometry -0+0 &
+*GoodStuff MAIL xxx exec "emacs" emacs -bd navy -cr navy -fn 9x15 -rv -geometry 80x51+0+0 -f vm &
+*GoodStuff TERM xxx exec "rxvt" rxvt -geometry 80x24-0+0 -fat -sl 0 -fg gray70 -bg black -T FET -n FET -e fet essex1 &
+*GoodStuff refresh xxx Refresh
+*GoodStuff scroll xxx Module "FvwmScroll" FvwmScroll
+*GoodStuff MEM xxx exec "" mem
+*GoodStuff lower xxx  Lower
+*GoodStuff resize xxx   Resize
+*GoodStuff move    xxx	Move
+*GoodStuff kill    xxx  Destroy
+
+################################## FVWM SCROLL
+*FvwmScrollFore #000070
+*FvwmScrollBack black
+
+################################## FVWM PAGER
+#*FvwmPagerGeometry 204x160+821-25
+*FvwmPagerGeometry 153x116+872+685
+*FvwmPagerFont none
+*FvwmPagerFore gray70
+*FvwmPagerBack black
+*FvwmPagerHilight #101040
+*FvwmPagerSmallFont -*-*-*-r-*-*-*-80-*-*-*-*-*-*
+
+################################## FVWM WINLIST
+*FvwmWinListGeometry -2-138
+*FvwmWinListFont fixed
+*FvwmWinListFore white
+*FvwmWinListBack black
+*FvwmWinListUseIconNames
+*FvwmWinListAction Click1 Iconify -1,Raise
+*FvwmWinListAction Click2 Iconify
+*FvwmWinListAction Click3 Module "FvwmIdent" FvwmIdent
+*FvwmWinListUseSkipList
+
+################################## FVWM IDENT
+*FvwmIdentFore white
+*FvwmIdentBack black

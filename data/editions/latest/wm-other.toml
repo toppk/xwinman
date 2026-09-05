@@ -1,0 +1,290 @@
+# Ordered list; ref is a bundle. label, homepage and blurb override the bundle's front matter.
+
+[[entry]]
+ref = "wm/monsterwm"
+
+[[entry]]
+ref = "wm/subtle"
+
+[[entry]]
+ref = "wm/awesome"
+
+[[entry]]
+ref = "wm/xmonad"
+
+[[entry]]
+ref = "wm/beryl"
+
+[[entry]]
+ref = "wm/compiz"
+
+[[entry]]
+ref = "wm/dwm"
+
+[[entry]]
+ref = "wm/sithwm"
+
+[[entry]]
+ref = "wm/whim"
+
+[[entry]]
+ref = "wm/karmen"
+
+[[entry]]
+ref = "wm/integrity"
+
+[[entry]]
+ref = "wm/quarkwm"
+
+[[entry]]
+ref = "wm/badwm"
+
+[[entry]]
+ref = "wm/xige"
+
+[[entry]]
+ref = "wm/jwm"
+
+[[entry]]
+ref = "wm/wwm"
+
+[[entry]]
+ref = "wm/wmii"
+
+[[entry]]
+ref = "wm/stumpwm"
+
+[[entry]]
+ref = "wm/trswm"
+
+[[entry]]
+ref = "wm/kahakai"
+
+[[entry]]
+ref = "wm/pywm"
+
+[[entry]]
+ref = "wm/xwem"
+
+[[entry]]
+ref = "wm/miwm"
+
+[[entry]]
+ref = "wm/eclipse"
+
+[[entry]]
+ref = "wm/framer"
+
+[[entry]]
+ref = "wm/mavosxwm"
+
+[[entry]]
+ref = "wm/windowlab"
+
+[[entry]]
+ref = "wm/openbox"
+
+[[entry]]
+ref = "wm/hackedbox"
+
+[[entry]]
+ref = "wm/matchbox"
+
+[[entry]]
+ref = "wm/pekwm"
+
+[[entry]]
+ref = "wm/waimea"
+
+[[entry]]
+ref = "wm/clementine"
+
+[[entry]]
+ref = "wm/interface-wm"
+
+[[entry]]
+ref = "wm/zwm"
+
+[[entry]]
+ref = "wm/haze"
+
+[[entry]]
+ref = "wm/pawm"
+
+[[entry]]
+ref = "wm/aewmplusplus"
+
+[[entry]]
+ref = "wm/novawm"
+
+[[entry]]
+ref = "wm/golem"
+
+[[entry]]
+ref = "wm/oroborus"
+
+[[entry]]
+ref = "wm/treewm"
+
+[[entry]]
+ref = "wm/gwml"
+
+[[entry]]
+ref = "wm/heliwm"
+
+[[entry]]
+ref = "wm/5dwm"
+
+[[entry]]
+ref = "wm/mosquito"
+
+[[entry]]
+ref = "wm/maewm"
+
+[[entry]]
+ref = "wm/qlwm"
+
+[[entry]]
+ref = "wm/phluid"
+
+[[entry]]
+ref = "wm/alloywm"
+
+[[entry]]
+ref = "wm/amaterus"
+
+[[entry]]
+ref = "wm/evilwm"
+
+[[entry]]
+ref = "wm/ratpoison"
+
+[[entry]]
+ref = "wm/ion"
+
+[[entry]]
+ref = "wm/perlwm"
+
+[[entry]]
+ref = "wm/efsane-ii"
+
+[[entry]]
+ref = "wm/3dwm"
+
+[[entry]]
+ref = "wm/swm-small"
+label = "Swm"
+
+[[entry]]
+ref = "wm/puppet"
+
+[[entry]]
+ref = "wm/yawm"
+
+[[entry]]
+ref = "wm/w9wm"
+
+[[entry]]
+ref = "wm/larswm"
+
+[[entry]]
+ref = "wm/pwm"
+
+[[entry]]
+ref = "wm/plwm"
+
+[[entry]]
+ref = "wm/epiwm"
+
+[[entry]]
+ref = "wm/wmg"
+
+[[entry]]
+ref = "wm/aewm"
+
+[[entry]]
+ref = "wm/b4step"
+
+[[entry]]
+ref = "wm/flwm"
+
+[[entry]]
+ref = "wm/lwm"
+
+[[entry]]
+ref = "wm/mlvwm"
+
+[[entry]]
+ref = "wm/qvwm"
+
+[[entry]]
+ref = "wm/mwm"
+label = "mwm 2.0"
+blurb = "the 2.0 version of mwm includes support for multiple workspaces."
+
+[[entry]]
+ref = "wm/gwm"
+
+[[entry]]
+ref = "wm/9wm"
+
+[[entry]]
+ref = "wm/oswm"
+bare = true
+
+[[entry]]
+ref = "wm/awm"
+
+[[entry]]
+ref = "wm/rtl"
+
+[[entry]]
+ref = "wm/dxwm"
+
+[[entry]]
+ref = "wm/hpwm"
+
+[[entry]]
+ref = "wm/tekwm"
+
+[[entry]]
+ref = "wm/m_swm"
+
+[[entry]]
+ref = "wm/pswm"
+
+[[entry]]
+ref = "wm/swm"
+
+[[entry]]
+ref = "wm/tvtwm"
+
+[[entry]]
+ref = "wm/mvwm"
+
+[[entry]]
+ref = "wm/ncdwm"
+
+[[entry]]
+ref = "wm/xdswm"
+
+[[entry]]
+ref = "wm/vuewm"
+
+[[entry]]
+ref = "wm/4dwm"
+
+[[entry]]
+ref = "wm/piewm"
+
+[[entry]]
+ref = "wm/pmwm"
+
+[[entry]]
+ref = "wm/uwm"
+
+[[entry]]
+ref = "wm/wm"
+
+[[entry]]
+ref = "wm/xwm"

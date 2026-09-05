@@ -1,0 +1,29 @@
+# _metadata.toml describes the files in this directory: each [[entry]] names files and records
+# what is known about them (mtime, contributor, date, text...). Same shape everywhere.
+# Here: the timestamps Apache showed for xwinman.org/archive/ (Wayback Machine captures, see
+# docs/restoration.md), which git cannot keep; `migrate.py collections` applies them before a build.
+
+[[entry]]
+files = ["9wm-1.0.shar.Z"]
+mtime = 1996-02-09T00:00:00+00:00
+
+[[entry]]
+files = ["9wm-1.1.shar.Z"]
+mtime = 1996-02-09T00:00:00+00:00
+
+[[entry]]
+files = ["Announce"]
+mtime = 1996-02-09T00:00:00+00:00
+
+[[entry]]
+files = ["README"]
+mtime = 1996-02-09T00:00:00+00:00
+source = "https://web.archive.org/web/20141205045743/http://xwinman.org/archive/9wm/README"  # not yet in the 2005 listing; from a later capture
+
+[[entry]]
+files = ["amiwm0.19pl29.tar.gz"]
+mtime = 1996-02-09T00:00:00+00:00
+
+[[entry]]
+files = ["pre-9wm-1.2.shar.gz"]
+mtime = 1996-02-09T00:00:00+00:00

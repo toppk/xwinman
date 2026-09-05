@@ -1,0 +1,295 @@
+####################################################################
+#
+#    Original copy: /usr/dt/config/C/sys.dtwmrc
+#
+#    The Resource Description File for the TED Window Manager dtwm
+#
+#    (c) Copyright 1994, 1995 TriTeal Corporation
+#    (c) Copyright 1993, 1994 Hewlett-Packard Company.
+#    (c) Copyright 1993, 1994 International Business Machines Corp. 
+#    (c) Copyright 1993, 1994 Sun Microsystems, Inc.
+#    (c) Copyright 1993, 1994 Unix System Labs, Inc., a subsidiary
+#        of Novell, Inc.
+#
+#    $Revision: 1.3 $
+#
+####################################################################
+
+###
+#
+#  Please make a COPY of this file before editing it.
+#
+#  Personalized copies typically exist as:
+#
+#       $HOME/.dt/dtwmrc
+#
+###
+
+###
+#
+# Root Menu Description
+#
+###
+
+
+
+Menu DtRootMenu
+{
+    "Roots Workspace"			f.title
+     "Programs"				f.menu programs
+      no-label				f.separator
+     "Internet"				f.menu internet
+      no-label				f.separator
+     "Sys Admin"			f.menu admin
+      no-label				f.separator
+     "Telnets"				f.menu telnet
+     no-label                           f.separator
+     "Application List"		_A	f.show_app_list
+     "Shuffle Up"		_U	f.circle_up
+     "Shuffle Down"		_D	f.circle_down
+     "Refresh"			_f	f.refresh
+     "Minimize/Restore Front Panel" _R	f.toggle_frontpanel
+      no-label				f.separator
+     "Restart Workspace Manager..." _W	f.restart
+      no-label				f.separator
+     "Log out..."		_o	f.action ExitSession
+}
+
+
+Menu telnet
+{
+     "Telnets"				f.title
+     "Flatland telnet"			f.exec "dtterm -bg black -fg green -sb -e telnet flatland"
+     "Icewolf telnet"			f.exec "dtterm -bg black -fg green -sb -e telnet icewolf"
+     "Chamber telnet"			f.exec "dtterm -bg black -fg green -sb -e telnet chamber"
+     "Lab5 telnet"			f.exec "dtterm  -bg black -fg green -sb -e telnet lab5.ml.org"
+     "Holly telnet"			f.exec "dtterm  -bg black -fg green -sb -e telnet holly.colostate.edu"
+}
+Menu admin
+{
+     "Admin"				f.title
+     "Monitors"                         f.menu monitor
+      no-label				f.separator
+     "Shutdown"                         f.menu shutdown
+      no-label                          f.separator
+     "Control Panel"			f.exec control-panel
+     "Net config"			f.exec netcfg
+     "Glint"				f.exec glint
+     "User manager"			f.exec usercfg
+     "File systems"			f.exec fstool
+     "Print tool"			f.exec printtool
+}
+Menu shutdown
+{
+     "Shutdown"                         f.title
+     "Reboot"				f.exec "init 6"
+     "Halt"				f.exec "init 0"
+}
+Menu monitor
+{
+     "System Monitors"			f.title
+     "Top"				f.exec "xterm -geometry 62x59 -bg black -fg green -e top"
+     "Messages"				f.exec "xterm -geometry 70x25 -bg black -fg green -e tail -f /var/adm/messages"
+     "Syslog"				f.exec "xterm -geometry 70x25 -bg black -fg green -e tail -f /var/adm/syslog"
+}
+Menu internet
+{
+     "Internet"				f.title
+     "Netscape 3.01"			f.exec netscape
+     "Netscape 4.02b7"			f.exec Netscape
+      no-label                          f.separator
+     "MxMail"				f.exec mxmail
+     "MxFTP"   				f.exec mxftp
+      no-label                          f.separator
+     "CDE mail"				f.exec dtmail
+}
+Menu programs
+{
+     "Programs"				f.title
+     "DTTerm"				f.exec "dtterm -bg black -fg green"
+     "Rxvt"				f.exec "rxvt -ls -bg black -fg white -pixmap ~/back/back1.xpm"
+     "Xterm"                            f.exec "xterm -sb -ls -bg black -fg green" 
+     "Color Xterm"			f.exec "color-xterm -sb -ls -bg black -fg green"	
+     no-label				f.separator
+     "Windows"				f.exec "wine /win/windows/progman.exe"
+     "File Manager"			f.exec dtfile
+     "Calc"				f.exec dtcalc
+     "CD player"			f.exec xplaycd
+     "Mpeg player"			f.exec mtv
+     "XV"				f.exec xv
+     "Emacs"				f.exec emacs
+     "Ghost view"			f.exec ghostview
+      no-label				f.separator
+     "Movies"				f.menu movs
+}
+###
+#
+# Front panel Manu Description
+#
+###
+
+Menu DtPanelMenu
+{
+    Restore			_R	f.normalize
+    Move			_M	f.move
+    Minimize			_n	f.minimize
+    Lower			_L	f.lower
+    Refresh			_f	f.refresh
+     no-label				f.separator
+    "Log out..."		_o	f.action ExitSession
+}
+
+
+###
+#
+# Sample Window Menu Description
+# This menu description exists as a sample only.
+# The normal window manager menu is built in.
+#
+###
+
+Menu SampleWindowMenu
+{
+    "Restore"			_R			f.normalize
+    "Move"			_M			f.move
+    "Size"			_S			f.resize
+    "Minimize"			_n			f.minimize
+    "Maximize"			_x			f.maximize
+    "Lower"			_L			f.lower
+     no-label						f.separator
+    "Occupy Workspace..."	_O			f.workspace_presence
+    "Occupy All Workspaces"	_A			f.occupy_all
+    "Unoccupy Workspace"	_U			f.remove
+     no-label						f.separator
+    "Close"			_C	Alt<Key>F4	f.kill
+}
+
+###
+#
+# Alternate Window Menu Description without accelerators
+#
+###
+
+Menu NoAcceleratorWindowMenu
+{
+    "Restore"			_R	f.normalize
+    "Move"			_M	f.move
+    "Size"			_S	f.resize
+    "Minimize"			_n	f.minimize
+    "Maximize"			_x	f.maximize
+    "Lower"			_L	f.lower
+     no-label				f.separator
+    "Occupy Workspace..."	_O	f.workspace_presence
+    "Occupy All Workspaces"	_A	f.occupy_all
+    "Unoccupy Workspace"	_U	f.remove
+     no-label				f.separator
+    "Close"			_C	f.kill
+}
+
+
+###
+#
+# Window Menu Description WITH accelerators
+#
+###
+
+Menu AcceleratorWindowMenu
+{
+    "Restore"		_R	Alt<Key>F5  	f.restore
+	"Move"			_M	Alt<Key>F7  	f.move
+	"Size"			_S	Alt<Key>F8  	f.resize
+	"Minimize"		_n	Alt<Key>F9  	f.minimize
+	"Maximize"		_x	Alt<Key>F10 	f.maximize
+	"Lower"			_L	Alt<Key>F3  	f.lower
+	"no-label"		       		     	f.separator
+	"Occupy Workspace..."	_O	Alt<Key>F11	f.workspace_presence
+	"Occupy All Workspaces"	_A	Alt<Key>F12	f.occupy_all
+	"Unoccupy Workspace"	_U	Alt<Key>F6 	f.remove
+	"no-label"					f.separator
+	"Close"			_C	Alt<Key>F4	f.kill
+}
+
+
+###
+#
+# Key Bindings Description
+#
+###
+
+Keys DtKeyBindings
+{
+
+
+#   Alt<Key>Menu		root|icon|window	f.toggle_frontpanel 
+
+    Shift<Key>Escape		icon|window		f.post_wmenu
+    Alt<Key>space		icon|window		f.post_wmenu
+    Alt<Key>Tab			root|icon|window	f.next_key
+    Alt Shift<Key>Tab		root|icon|window	f.prev_key
+    Alt<Key>Escape		root|icon|window	f.next_key
+    Alt Shift<Key>Escape	root|icon|window	f.prev_key
+    Alt<Key>Down		root|icon|window	f.circle_down
+    Alt<Key>Up			root|icon|window	f.circle_up
+    Alt Ctrl Shift<Key>exclam	root|icon|window	f.set_behavior
+    Alt<Key>F6			window			f.next_key transient
+    Alt<Key>F10			root|icon|window	f.menu DtRootMenu
+    <Key>SunFront               ifkey|icon|window       f.raise_lower
+    <Key>SunOpen                ifkey|window            f.minimize
+    <Key>SunOpen                ifkey|icon              f.normalize
+
+}
+
+###
+#
+# Mouse Button Bindings Description
+#
+###
+
+Buttons DtButtonBindings
+{
+    <Btn1Down>		root			f.marquee_selection
+    <Btn3Down>		root			f.menu  DtRootMenu
+    <Btn1Down>		frame|icon		f.raise
+    <Btn3Down>		frame|icon		f.post_wmenu
+    Alt<Btn1Down>	icon|window		f.move
+    Alt<Btn3Down>	window			f.minimize
+}
+
+
+###
+#
+# Defaults:   Window menus, key bindings, and mouse button bindings
+#
+###
+
+Menu DefaultWindowMenu
+{
+    "Restore"	_R	Alt<Key>F5	f.normalize
+    "Move"	_M	Alt<Key>F7	f.move
+    "Size"	_S	Alt<Key>F8	f.resize
+    "Minimize"	_n	Alt<Key>F9	f.minimize
+    "Maximize"	_x	Alt<Key>F10	f.maximize
+    "Lower"	_L	Alt<Key>F3	f.lower
+    no-label				f.separator
+    "Close"	_C	Alt<Key>F4	f.kill
+}
+
+Keys DefaultKeyBindings
+{
+    Shift<Key>Escape		icon|window		f.post_wmenu
+    Alt<Key>space		icon|window		f.post_wmenu
+    Alt<Key>Tab		root|icon|window	f.next_key
+    Alt Shift<Key>Tab		root|icon|window	f.prev_key
+    Alt<Key>Escape		root|icon|window	f.next_key
+    Alt Shift<Key>Escape	root|icon|window	f.prev_key
+    Alt Ctrl Shift<Key>exclam	root|icon|window	f.set_behavior
+    Alt<Key>F6			window			f.next_key transient
+}
+
+Buttons DefaultButtonBindings
+{
+    <Btn1Down>		frame|icon	f.raise
+    <Btn3Down>		icon		f.post_wmenu
+}
+
+#################  End of the dtwmrc file   #####################

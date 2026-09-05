@@ -1,0 +1,1480 @@
+# -*-Fvwm-*- 
+# Place this file in ~/.fvwm/.fvwm2rc
+#.  Glen Lee Edwards 10/20/2001 for Fvwm2 version 2.4.3  Glen@fcwm.org
+#.
+#. Personal note - I'm frequently tweaking this file and experimenting.  As such, just because something
+#. is here doesn't mean it works.  It either means I'm experimenting with it, or it's something I don't use so
+#. it's here gathering dust.
+
+
+#. Well, it's easier than putting it all on one line!
+ImagePath /usr/share/pixmaps:/usr/share/icons:/usr/share/icons/large:/usr/share/icons/mini:+
+ImagePath /usr/share/wmakerconf:/usr/share/toolbar:/usr/lib/xbill/pixmaps:/usr/share/apps/kwm/pics:+
+ImagePath /usr/share/apps/kappfinder/pics:/usr/local/share/fvwm/images/16x16-general:+
+ImagePath /usr/share/apps/kappfinder/pics/mini:/usr/lib/linuxconf/images:/home/glenlee/.fvwm/pixmaps:+
+ImagePath /usr/share/apps/kpanel/pics/mini:+
+ImagePath /usr/local/share/WindowMaker/Icons:/usr/share/WindowMaker/Icons:+
+ImagePath /usr/share/opera:+
+
+ModulePath /usr/libexec/fvwm/2.4.3
+
+#. I'm currently not using the next 4 lines
+*FvwmTheme: Colorset 0 Blue Red VGradient 128 3 Blue 1000 Green 1 Yellow 1000 Red
+*FvwmTheme: Colorset 2 HGradient 100 4 rgb:60/40/ff 33 rgb:ff/ff/99 34 rgb:ff/ff/99 33 rgb:ff/00/ff
+*FvwmTheme: Colorset 6 fg black, bg rgb:b4/50/94
+ModuleSynchronous Timeout 5 FvwmTheme
+
+Emulate Fvwm
+EdgeResistance 0 10
+EdgeScroll 100 100
+ClickTime 750
+WindowShadeSteps 1p
+SnapAttraction 5 All Screen
+SnapGrid 1 35
+
+ColormapFocus FollowsFocus
+
+# Decor Styles:
+
+#Vector drawing - 0 is shadow, 1 is hilight, 2 is the background color, 3 is the foreground color (font color)
+AddToDecor Default
++ ButtonStyle All ActiveUp (-- Raised) Inactive (-- Raised)
++ ButtonStyle 2 8 35x15@1 20x50@1 40x50@0 30x80@1 75x40@0 50x40@1 75x15@0 35x15@1
++ ButtonStyle 4 17 20x20@1 30x20@1 50x40@1 70x20@1 80x20@1 80x30@0 60x50@0 80x70@1 \
+                     80x80@0 70x80@0 50x60@0 30x80@0 20x80@0 20x70@0 40x50@1 20x30@0 20x20@1
++ ButtonStyle 6 10 20x80@0 80x80@0 80x20@0 20x20@1 20x80@1 \
+                   30x70@1 70x70@1 70x30@1 30x30@0 30x70@0
++ ButtonStyle 8 ActiveUp 4 70x50@0 30x80@0 30x20@1 70x50@0
++ AddButtonStyle 8 ActiveDown 4 30x50@1 70x20@1 70x80@0 30x50@0
++ AddButtonStyle 8 Inactive 4 70x50@0 30x80@0 30x20@1 70x50@0
++ ButtonStyle 10 ActiveUp 4 30x50@1 70x20@1 70x80@0 30x50@0
++ AddButtonStyle 10 ActiveDown 4 70x50@0 30x80@0 30x20@1 70x50@0
++ AddButtonStyle 10 Inactive 4 30x50@1 70x20@1 70x80@0 30x50@0
++ ButtonStyle 1 12 10x23@0 90x23@0 90x28@0 10x28@1 10x47@1 \
+                 90x47@0 90x52@0 10x52@1 10x70@2 90x70@0 90x76@0 10x76@1
++ ButtonStyle 3 5 30x70@0 70x70@0 70x60@0 30x60@1 30x70@1
++ ButtonStyle 5 16 10x5@1 90x5@1 90x20@0 40x20@0 40x26@0 60x26@1 60x60@0 \
+                 80x60@0 50x90@0 20x60@1 40x60@1 40x26@1 60x26@1 60x20@0 10x20@0 10x5@1 -- Raised
++ AddButtonStyle 5 ActiveDown 16 10x5@0 90x5@0 90x20@1 40x20@1 40x26@1 60x26@0 60x60@1 \
+                 80x60@1 50x90@1 20x60@0 40x60@0 40x26@0 60x26@0 60x20@1 10x20@1 10x5@0 -- Flat
++ ButtonStyle 7 15 10x5@1 90x5@1 90x20@0 50x20@0 50x25@0 80x55@0 60x55@0 60x90@0 40x90@0 \
+                 40x55@1 20x55@1 50x25@1 50x20@0 10x20@0 10x5@1 -- Raised
++ AddButtonStyle 7 ActiveDown 15 10x5@0 90x5@0 90x20@1 50x20@1 50x25@1 80x55@1 60x55@1 60x90@1 \
+                 40x90@1 40x55@0 20x55@0 50x25@0 50x20@1 10x20@1 10x5@0 -- Flat
++ ButtonStyle 9 12 50x10@1 25x35@1 40x35@1 40x60@1 25x60@1 50x85@1 \
+                   75x60@0 60x60@0 60x35@0 75x35@0 50x10@0 50x10@1
++ BorderStyle Active TiledPixmap pk_marb_1.xpm
++ BorderStyle Inactive TiledPixmap wood-floor.xpm
++ TitleStyle ActiveUp VGradient 100 2 rgb:ff/ff/ff 30 rgb:ff/aa/aa 40 rgb:ff/00/00
++ TitleStyle ActiveDown VGradient 100 2 rgb:cc/33/33 20 rgb:ff/88/88 60 rgb:ff/ee/ee
++ TitleStyle Inactive VGradient 100 2 rgb:44/44/44 20 rgb:ff/ff/ff 60 rgb:00/00/00
+
+# Emacs decor:
+
+#Vector drawing - 0 is shadow, 1 is hilight, 2 is the background color, 3 is the foreground color (font color)
+AddToDecor Emacs
++ ButtonStyle All ActiveUp (-- Raised) Inactive (-- Raised)
++ ButtonStyle 2 8 35x15@1 20x50@1 40x50@0 30x80@1 75x40@0 50x40@1 75x15@0 35x15@1
++ ButtonStyle 4 17 20x20@1 30x20@1 50x40@1 70x20@1 80x20@1 80x30@0 60x50@0 80x70@1 \
+                     80x80@0 70x80@0 50x60@0 30x80@0 20x80@0 20x70@0 40x50@1 20x30@0 20x20@1
++ ButtonStyle 6 10 20x80@0 80x80@0 80x20@0 20x20@1 20x80@1 \
+                   30x70@1 70x70@1 70x30@1 30x30@0 30x70@0
++ ButtonStyle 8 ActiveUp 4 70x50@0 30x80@0 30x20@1 70x50@0
++ AddButtonStyle 8 ActiveDown 4 30x50@1 70x20@1 70x80@0 30x50@0
++ AddButtonStyle 8 Inactive 4 70x50@0 30x80@0 30x20@1 70x50@0
++ ButtonStyle 10 ActiveUp 4 30x50@1 70x20@1 70x80@0 30x50@0
++ AddButtonStyle 10 ActiveDown 4 70x50@0 30x80@0 30x20@1 70x50@0
++ AddButtonStyle 10 Inactive 4 30x50@1 70x20@1 70x80@0 30x50@0
++ ButtonStyle 1 12 10x23@0 90x23@0 90x28@0 10x28@1 10x47@1 \
+                 90x47@0 90x52@0 10x52@1 10x70@2 90x70@0 90x76@0 10x76@1
++ ButtonStyle 3 5 30x70@0 70x70@0 70x60@0 30x60@1 30x70@1
++ ButtonStyle 5 16 10x5@1 90x5@1 90x20@0 40x20@0 40x26@0 60x26@1 60x60@0 \
+                 80x60@0 50x90@0 20x60@1 40x60@1 40x26@1 60x26@1 60x20@0 10x20@0 10x5@1 -- Raised
++ AddButtonStyle 5 ActiveDown 16 10x5@0 90x5@0 90x20@1 40x20@1 40x26@1 60x26@0 60x60@1 \
+                 80x60@1 50x90@1 20x60@0 40x60@0 40x26@0 60x26@0 60x20@1 10x20@1 10x5@0 -- Flat
++ ButtonStyle 7 15 10x5@1 90x5@1 90x20@0 50x20@0 50x25@0 80x55@0 60x55@0 60x90@0 40x90@0 \
+                 40x55@1 20x55@1 50x25@1 50x20@0 10x20@0 10x5@1 -- Raised
++ AddButtonStyle 7 ActiveDown 15 10x5@0 90x5@0 90x20@1 50x20@1 50x25@1 80x55@1 60x55@1 60x90@1 \
+                 40x90@1 40x55@0 20x55@0 50x25@0 50x20@1 10x20@1 10x5@0 -- Flat
++ ButtonStyle 9 12 50x10@1 25x35@1 40x35@1 40x60@1 25x60@1 50x85@1 \
+                   75x60@0 60x60@0 60x35@0 75x35@0 50x10@0 50x10@1
++ BorderStyle Active TiledPixmap none
++ BorderStyle Inactive TiledPixmap none
++ TitleStyle ActiveUp VGradient 32 2 rgb:ff/ff/ff 50 rgb:00/00/ff 20 rgb:00/00/44
++ TitleStyle ActiveDown VGradient 100 2 rgb:00/00/44 20 rgb:00/00/ff 60 rgb:ff/ff/ff
++ TitleStyle Inactive VGradient 100 2 rgb:ff/ff/ff 30 rgb:ff/aa/ff 40 rgb:ff/00/ff
+
+DestroyDecor recreate RXVT
+AddToDecor RXVT
++ BorderStyle Active TiledPixmap none
++ BorderStyle Inactive TiledPixmap none
+
+SetAnimation 10 -.01 0 .01 .03 .08 .18 .3 .45 .6 .75 .85 .90 .94 .97 .99 1.0
+DeskTopSize 2x2
+MenuStyle * Fvwm
+MenuStyle * Animation
+MenuStyle * Foreground Black, Background gray40
+MenuStyle * Greyed gray70, ActiveFore Red
+MenuStyle * Font lucidasanstypewriter-14
+MenuStyle * MenuFace VGradient 128 3 orange 33 yellow 33 violet 34 lightblue
+MenuStyle * BorderWidth 7
+MenuStyle * Hilight3DThickness 5
+MenuStyle * RemoveSubmenus
+
+IconFont -adobe-helvetica-bold-r-*-*-10-*-*-*-*-*-*-*
+
+# default Styles:
+Style "*" Color rgb:ff/00/00/rgb:88/88/88, HilightFore rgb:00/00/00, HilightBack rgb:ff/aa/aa     # TitleBar
+#Style * StippledTitle                                                                                                                        # TitleBar
+Style "*" Font -adobe-times-bold-r-*-*-16-*-*-*-*-*-*-*
+Style "*" BorderWidth 7, HandleWidth 7
+Style "*" DecorateTransient, NoPPosition
+Style "*" IconBox 1000x100+0+10
+Style "*" ClickToFocus, DepressableBorder
+Style "*" RandomPlacement, SmartPlacement
+Style "*" ScatterWindowGroups
+
+# Styles for various Fvwm modules:
+Style "Fvwm*"       NoTitle,  Sticky, WindowListSkip
+Style "Fvwm*"       BorderWidth 2
+Style "FvwmPager"   StaysOnTop
+Style "FvwmBanner"  StaysOnTop, FocusFollowsMouse
+Style "FvwmButtons" WindowListSkip,MouseFocus,NoIcon
+Style "FvwmButtonsPanel" NoTitle, FocusFollowsMouse
+Style "MyBar1"      BorderWidth 0, HandleWidth 0
+Style "MyBar2"      BorderWidth 0, HandleWidth 0
+Style "MyBar3"      ClickToFocus,StartIconic
+Style "MyBar4"      ClickToFocus,StartIconic
+Style "MyBar5"      NeverFocus, StaysOnBottom, CirculateSkip
+Style "MyBar6"      NeverFocus, StaysOnBottom, CirculateSkip
+Style "MyBar7"      StaysOnBottom, CirculateSkip, FocusFollowsMouse
+
+# Styles for your common terminal emulator programs:
+Style "XTerm"       Icon xterm.xpm
+Style "rxvt"        UseDecor RXVT
+Style "rxvt"        Icon term.xpm, NoTitle, sticky
+Style "rxvt"        BorderWidth 0, HandleWidth 0            #Remove border
+
+
+# Styles for various common programs:
+Style "*lock"       NoTitle, NoHandles, Sticky, WindowListSkip
+Style "xbiff"       NoTitle, Sticky, WindowListSkip
+Style "xcalc"       Icon xcalc.xpm, RandomPlacement
+Style "xmh"         Icon mail1.xpm, NoIconTitle,StickyIcon
+Style "xmh"	    RandomPlacement, NoButton 2
+Style "xman"	    Icon xman.xpm, RandomPlacement
+Style "xmag"	    Icon mag_glass.xpm, RandomPlacement
+Style "xbuffy"      NoTitle
+Style "xedit"       ClickToFocus
+Style "emacs"     MouseFocus, UseDecor Emacs, Color rgb:ff/ff/ff/rgb:ff/aa/ff
+Style "emacs"     HilightFore rgb:ff/ff/00, HilightBack rgb:aa/aa/ff
+Style "xmixer"    Sticky
+Style "licq"       Sticky
+
+# some simple default mouse bindings:
+#   for the root window:
+Mouse 1	RS   	A       Menu RootMenu Nop
+Mouse 2	RS    	A      	Menu Window-Ops Nop
+Mouse 3	RS    	A      	WindowList
+
+#   for the title bar buttons:
+Mouse 1 1      A       Menu RootMenu Nop
+Mouse 2 1      A       Iconify
+Mouse 3 1      A      	Menu Window-Ops2 Close
+Mouse 1 3      A       Iconify
+Mouse 1 5      A       ResizeMove br -130p -135p keep w+35p
+Mouse 1 7      A       ResizeMove br -130p -65p keep w-35p
+Mouse 1 9      A       Resize br keep -1p
+Mouse 3 9      A       Resize br keep -100p
+Mouse 1 2      A       Destroy
+Mouse 1 4      A       Close
+Mouse 1 6      A     	Maximize
+Mouse 1 8      A       ResizeMove -1p -105p +0p +10p
+Mouse 3 8      A       ResizeMove -1p -10p +0p +10p
+Mouse 1 0      A       ResizeMove -130p -105p +0p +10p
+Mouse 3 0      A       ResizeMove 60 50 +0p +10p
+
+#   for other parts of the window/borders/icons:
+Mouse 1 F       A       Move
+Mouse 1 T       A       WindowShade toggle
+Mouse 1 I       A       Iconify
+Mouse 2 FT      A       Menu Window-Ops2 Nop
+Mouse 2 I       A       Delete
+Mouse 3 FTI     A       Resize-or-Raise
+
+# "3" stands for mod3 "4" for mod4 (xmodmap)
+# For combinations use M3 or M4, or S3 or S4.  C3 doesn't work on my system (acts like CM)
+
+# some simple default key bindings:
+Key Next         A       SCM     Next [*] Focus      # Page Down
+Key Prior        A       SCM     Prev [*] Focus      # Page Up
+Key Menu         A       N       Menu RootMenu Nop
+
+#   Special use for the F[x] keys
+Key F1    A     M3     ResizeMove 60 50 +0p +10p
+Key F2    A     M3     ResizeMove -135p -135p +0p +10p
+Key F3    A     M3     ResizeMove -1p -135p +0p +10p
+Key F4    A     M3     ResizeMove -1p -10p +0p +10p
+Key F5    A     M3     Maximize
+Key F6    A     M3     Lower
+Key F7    A     M3     Raise
+Key F8    A     M3       
+Key F9    A     M3       
+Key F10   A     M3     
+Key F11   A     M3     restart fvwm2
+Key F12   A     M3     Quit
+#Key e     A     3     Exec exec xearth
+Key e     A     3     Exec exec emacs
+Key f     A     3     Exec exec xterm -fg wheat -bg black -cr red \
+                        -fn -Adobe-Courier-Bold-R-Normal--14-140-75-75-M-90-ISO8859-1 \
+                        -geometry 109x39+0+9 -title "NcFTP" -e ncftp
+Key m     A     3     Exec exec /usr/local/mozilla/mozilla
+Key n     A     3     Exec exec netscape
+Key o     A     3     Exec exec opera
+Key p     A     3     Exec exec xterm -fg wheat -bg black -cr red \
+                        -fn -adobe-courier-bold-r-normal--14-140-75-75-m-90-koi8-r \
+                        -geometry 109x39+0+9 -title "Pine Email" -e pine
+Key r     A     3     Exec exec rxvt -fg wheat -bg black -cr yellow \
+                        -fn -Adobe-Courier-Bold-R-Normal--14-140-75-75-M-90-ISO8859-1 \
+                        -geometry 109x39+0+9
+Key s     A     3     Exec exec xsnow
+Key s     A     M3   Exec exec killall xsnow
+Key t     A     3     Exec exec xterm -fg wheat -bg black -cr yellow \
+                        -fn -Adobe-Courier-Bold-R-Normal--14-140-75-75-M-90-ISO8859-1 \
+                        -geometry 109x39+0+9
+Key x     A     3     Exec exec xemacs
+Key F1    A     S     Exec exec xemacs -geometry +0+10 -eval '(vm-visit-folder "~/inboxes/Inbox-personal")'
+Key F2    A     S     Exec exec xemacs -geometry +0+10 -eval '(vm-visit-folder "~/inboxes/Inbox-fcwm")'
+Key F3    A     S     Exec exec xemacs -geometry +0+10 -eval '(vm-visit-folder "~/inboxes/Inbox-jvh")'
+Key F4    A     S     Exec exec xemacs -geometry +0+10 -eval '(vm-visit-folder "~/inboxes/Inbox-nazarene")'
+Key F5    A     S     Exec exec xemacs -geometry +0+10 -eval '(vm-visit-folder "~/inboxes/Inbox-wesleyan")'
+
+Key F1    A     3      gotoDesk 0 0
+Key F2    A     3      gotoDesk 0 1
+Key F3    A     3      gotoDesk 0 2
+Key F4    A     3      gotoDesk 0 3
+Key F5    A     3      gotoDesk 0 4
+Key F6    A     3      gotoDesk 0 5
+Key F7    A     3      gotoDesk 0 6
+Key F8    A     3      gotoDesk 0 7
+Key F9    A     3      gotoDesk 0 8
+Key F10   A     3      gotoDesk 0 9
+Key F11   A     3      gotoDesk 0 10
+Key F12   A     3      gotoDesk 0 11
+#Key 1     A     3      gotoDesk 0 12
+#Key 2     A     3      gotoDesk 0 13
+#Key 3     A     3      gotoDesk 0 14
+#Key 4     A     3      gotoDesk 0 15
+#Key 5     A     3      gotoDesk 0 16
+#Key 6     A     3      gotoDesk 0 17
+#Key 7     A     3      gotoDesk 0 18
+#Key 8     A     3      gotoDesk 0 19
+#Key 9     A     3      gotoDesk 0 20
+#Key 0     A     3      gotoDesk 0 21
+#Key Home  A     3      gotoDesk 0 22
+#Key End   A     3      gotoDesk 0 23
+
+Key KP_Enter    A     3      GotoDeskAndPage Prev
+Key KP_Add      A     3      GotoDesk +1 0 12
+Key KP_Subtract A     3      GotoDesk -1 0 12
+
+Key F1    A     4     MoveToDesk 0 0
+Key F1    A     4     MoveToDesk 0 0
+Key F2    A     4     MoveToDesk 0 1
+Key F3    A     4     MoveToDesk 0 2
+Key F4    A     4     MoveToDesk 0 3
+Key F5    A     4     MoveToDesk 0 4
+Key F6    A     4     MoveToDesk 0 5
+Key F7    A     4     MoveToDesk 0 6
+Key F8    A     4     MoveToDesk 0 7
+Key F9    A     4     MoveToDesk 0 8
+Key F10   A     4     MoveToDesk 0 9
+Key F11   A     4     MoveToDesk 0 10
+Key F12   A     4     MoveToDesk 0 11
+#Key 1     A     4     MoveToDesk 0 12
+#Key 2     A     4     MoveToDesk 0 13
+#Key 3     A     4     MoveToDesk 0 14
+#Key 4     A     4     MoveToDesk 0 15
+#Key 5     A     4     MoveToDesk 0 16
+#Key 6     A     4     MoveToDesk 0 17
+#Key 7     A     4     MoveToDesk 0 18
+#Key 8     A     4     MoveToDesk 0 19
+#Key 9     A     4     MoveToDesk 0 20
+#Key 0     A     4     MoveToDesk 0 21
+#Key Home  A     4     MoveToDesk 0 22
+#Key End   A     4     MoveToDesk 0 23
+
+Key KP_End      A     3    GotoPage 0 0
+Key KP_Down     A     3    GotoPage 1 0
+Key KP_Next     A     3    GotoPage 1 1
+Key KP_Left     A     3    GotoPage 0 1
+
+Key Tab         A     M      WindowList 
+Key KP_Add      A     M3    Next (CurrentDesk !Iconic) Focus
+Key KP_Subtract A     M3    Prev (CurrentDesk !Iconic) Focus
+Key KP_Enter    A     M3    Prev FlipFocus
+Key Print       R     N      Exec exec xemacs -geometry +0+10 -f vm
+Key KP_Home     A     3      All (MyBar4) Iconify
+Key KP_Up       A     3      All (MyBar3) Iconify
+Key KP_Prior    A     3      All (MyBar7) Iconify
+Key KP_Begin    A     3      All (MyBar2) Iconify
+Key KP_Right    A     3      All (MyBar1) Iconify
+Key Up          A     M3    RaiseAndFocus
+Key Down        A     M3    Lower
+Key Right       A     M3    Next (!FvwmButtons) Focus
+Key Left        A     M3    Prev (!FvwmButtons) Focus
+
+
+
+######################## Initialization Functions ############################
+AddToFunc StartFunction	  "I" Module FvwmButtons
++			  "I" exec xsetroot -mod 2 2 -fg \#554055 -bg \#705070
++                         "I" exec display -size 1152x864 -window root `cat $HOME/.fvwm/desktop_background`
++                         "I" Module FvwmAuto 50
++                         "I" Module FvwmEvent
++                         "I" Module FvwmBanner
++                         "I" Module FvwmBacker
++                         "I" Module FvwmTaskBar
+#+                         "I" FvwmIconBox
+
+
+######################## Menus ###################
+AddToMenu RootMenu	"Root Menu"	Title
++                       "Xemacs"        Popup Xemacs
++			"XTerm"		Exec exec xterm -fg wheat -bg black -geometry 110x45+0+10\
+			-cr yellow -fn -Adobe-Courier-Bold-R-Normal--14-140-75-75-M-90-ISO8859-1
++			"Rxvt"		Exec exec rxvt\
+			-fg wheat -bg black -cr yellow -geometry 110x45+0+10\
+			-fn -Adobe-Courier-Bold-R-Normal--14-140-75-75-M-90-ISO8859-1
++			""		Nop
++                       "MyPrograms"    Popup MyPrograms
++                       "Programs"      Popup Red_Hat_Linux
++                       "Utilities"     Popup Utilities
++			""		Nop
++			"Fvwm Modules"	          Popup Module-Popup
++                       "Fvwm Window Ops"         Popup Window-Ops
++                       "Fvwm Simple Config Ops"  Popup Misc-Ops
++			""		Nop
++                       "Refresh Screen"   Refresh
++                       "Recapture Screen" Recapture
++			""		Nop
++                       "Backgrounds"          Popup BackgroundsMenu
++			"Exit Fvwm"	Popup Quit-Verify
+
+AddToMenu Red_Hat_Linux "Programs" Title
+PipeRead "wmconfig --output fvwm2"
+
+AddToMenu BackgroundsMenu
+PipeRead 'for i in $HOME/graphics/*; \
+do echo "+ $i Exec echo $i > $HOME/.fvwm/desktop_background && display -window root  $i"; done'
+
+AddToMenu Utilities     "Utilities" Title
++			"Top"		Exec exec xterm -T Top -n Top -e top
++			"Calculator"	Exec exec xcalc
++			"Xman"		Exec exec xman
++			"Xmag"		Exec exec xmag
++                       "Editres"       Exec exec editres
++			""		Nop
++			"Xemacs"	Exec exec xemacs
++                       "Mail"          MailFunction xmh "-font fixed"
++			""		Nop
++                       "XLock"         Exec exec xlock -mode random
++			""		Nop
++                       "Reset X defaults" Exec xrdb -load $HOME/.Xdefaults 
+
+AddToMenu Misc-Ops "Misc Config Opts" Title
++                  "Sloppy Focus"        ChangeDefaultFocus SloppyFocus
++                  "Click To Focus"      ChangeDefaultFocus ClickToFocus
++                  "Focus Follows Mouse" ChangeDefaultFocus FocusFollowsMouse
++                  "" Nop
++                  "Colormap Follows Mouse" ColormapFocus FollowsMouse
++                  "Colormap Follows Focus" ColormapFocus FollowsFocus
++                  "" Nop
++                  "Full Paging ON"         EdgeScroll 100 100
++                  "All Paging OFF"         EdgeScroll 0 0
++                  "Horizontal Paging Only" EdgeScroll 100 0
++                  "Vertical Paging Only"   EdgeScroll 0 100
++                  "Partial Paging"         EdgeScroll 50 50
++                  "Full Paging && Edge Wrap" EdgeScroll 100000 100000
+
+AddToMenu Window-Ops	"Window Ops"	Title		
++			"Delete"	        Delete
++			"Close"		Close
++			"Destroy"	Destroy
++			""		Nop
++			"Move"		Move
++			"Resize"	Resize
++			"Raise"		Raise
++			"Lower"		Lower 
++		 	"(De)Iconify"	Iconify
++			"(Un)Stick"	Stick		
++			"(Un)Maximize"	Maximize
++			""		Nop
++			"Refresh Window" RefreshWindow
+
+AddToMenu Window-Ops2	"Window Ops"    Title
++			"&Delete"	Delete	
++			"&Close"	Close
++			"Destroy"	Destroy 	
++			""		Nop
++                       "&Move"		Move
++			"&Resize"	Resize
++			"R&aise"	Raise   	
++			"&Lower"	Lower   	
++			"(De)&Iconify"	Iconify 	
++			"(Un)&Stick"	Stick		
++                       "(Un)Ma&ximize" Maximize
++			""		Nop     	
++			"ScrollBar" 	Module FvwmScroll 2 2	
++			"Print"         PrintFunction
++                       "Print Reverse" PrintReverseFunction
+
+AddToMenu Module-Popup	"FvwmModules"	Title
++                       "Console"       Module  FvwmConsole -e /usr/X11R6/lib/X11/fvwm2/FvwmConsoleC.pl
++			"Identify"	Module	FvwmIdent
++			"Talk"          Module	FvwmTalk
++			""		Nop
++			"Button-Bar"	Module	FvwmButtons
++			"Pager"		Module  FvwmPager 0 0
++			"Pager (2 desks)" Module  FvwmPager 0 1
++			"WinList"	Module  FvwmWinList
++			""		Nop
++			"Banner"	Module	FvwmBanner
++                       "ScrollBar"     Module  FvwmScroll 50 50
++			"Background"	Module  FvwmBacker
++                       "AutoRaise"     Module  FvwmAuto 200 Raise Nop
++                       "Stop AutoRaise" KillModule FvwmAuto
++			""		Nop
++			"IconBox"	Module	FvwmIconBox
++                       "IconMan"       Module  FvwmIconMan
++			""		Nop
++                       "Form - Rlogin"      Module FvwmForm Rlogin
++                       "Form - MyFvwmTalk"  Module FvwmForm MyFvwmTalk
++                       "Form - QuitVerify"  Module FvwmForm QuitVerify
+
+AddToMenu Quit-Verify 	"Really Quit Fvwm?" Title	
++		      	"Yes, Really Quit"  Quit	
++		      	""		    Nop	
++                       "Restart Fvwm2"     Restart fvwm2
++		      	"Restart Fvwm"	    Restart fvwm
++		      	""		    Nop	
++		      	"Start twm"         Restart twm
++		      	"Start mwm"    	    Restart mwm
++		      	""		    Nop	
++		      	"No, Don't Quit"    Nop	
+
+AddToMenu Xemacs        "Xemacs Files"      Title
++                       ".emacs"            Exec exec xemacs .emacs
++                       ".emacs.conf"       Exec exec xemacs ~/.emacs.conf
++                       ".fvwm2rc"          Exec exec xemacs ~/.fvwm/.fvwm2rc
++                       ".Xclients        " Exec exec xemacs .Xclients
++                       ".Xclients-default" Exec exec xemacs .Xclients-default
++                       ".Xdefaults"        Exec exec xemacs .Xdefaults
++                       ".xinitrc"          Exec exec xemacs .xinitrc
++                       "commands"          Exec exec xemacs commands
++                       "test.cgi"          Exec exec xemacs test.cgi
++                       "emacs"             Exec exec emacs
++                       "Xemacs"            Exec exec xemacs
++                       ".xemacs.conf"       Exec exec xemacs ~/.xemacs.conf
+
+AddToMenu MyPrograms    "My Programs"       Title
++                       "Text Editors%textedit.xpm%"     Popup TextEditors
++                       "Web Browsers%www.xpm%"    Popup WebBrowsers
++                       "Bible Time%bibletime.xpm%"        Exec exec bibletime
++                       "Control Panel%mini-panel.xpm%"     Exec exec control-panel
++                       "Endeavour%endeavour.xpm%"         Exec exec endeavour
++                       "KPM%kpm.xpm%"             Exec exec kpm
++                       "GFontSelector%fonts.xpm%"            Exec exec gfontsel
++                       "Gimp%gimp.xpm%"             Exec exec gimp
++                       "KFontManager%kfontmanager.xpm%"             Exec exec kfontmanager
++                       "KPM%kpm.xpm%"             Exec exec kpm
++                       "KVIRC%/usr/share/kvirc/pics/kvirc_2_16x16.xpm%"           Exec exec kvirc
++                       "Licq%/usr/share/licq/qt-gui/dock.kde2/sysmsg.xpm%"             Exec exec licq
++                       "Pine%mail.xpm%"              Exec exec pine
++                       "XCalc%xcalc.xpm%"             Exec exec xcalc
++                       "XMixer%mixer.xpm%"           Exec exec xmixer
+
+
+AddToMenu TextEditors    "Text Editors%textedit.xpm%"       Title
++                       "AbiWord%abiword_48.xpm%"         Exec exec AbiWord
++                       "Emacs%emacs.xpm%"           Exec exec emacs
++                       "GNotePad+%/usr/share/gnotepad+/xpm/gnp48x48.xpm%"       Exec exec gnp
++                       "KWrite%kwrite.xpm%"           Exec exec kwrite
++                       "LyX%lyx.xpm%"              Exec exec lyx
++                       "NEdit%nedit.xpm%"            Exec exec nedit
++                       "Pico%mini.edit.xpm%"             Exec exec pico
++                       "Star Office%/usr/share/WindowMaker/Icons/staroffice2.xpm%"      Exec exec /home/glenlee/soffice
++                       "XEdit%xedit.xpm%"             Exec exec xedit
++                       "Xemacs%xemacs.xpm%"           Exec exec xemacs
+
+AddToMenu WebBrowsers    "Web Browsers%www.xpm%"      Title Top
++                       "Mozilla%mozilla.xpm%"             Exec exec /usr/local/mozilla/mozilla
++                       "Netscape 4.7%netscape.xpm%"      Exec exec netscape
++                       "Netscape 6.0%mini.netscape.xpm%"  Exec exec /usr/local/netscape/netscape
++                       "Opera%opera_16x16.xpm%"        Exec exec /usr/bin/opera
+
+######################## Sample Functions ##########################
+# "I" = Immediate
+# "M" = on mouse motion
+# "C" = on click
+# "D" = on double click
+# "H" = on button held down
+
+AddToFunc MailFunction	   "I" Next [$0] Iconify -1
++		           "I" Next [$0] Focus
++			   "I" None [$0] Exec $0 $1
+
+AddToFunc Move-or-Raise		"I" Raise
++				"M" Move
++  				"D" Lower
+
+AddToFunc Move-or-Raise2	"M" Raise
++				"M" Move
++  				"D" Lower
+
+AddToFunc Maximize-Func		"M" Maximize	 0 100
++				"C" Maximize	 0 80
++				"D" Maximize	 100 100
+
+AddToFunc Move-or-Iconify	"I" Raise
++				"M" Move
++				"D" Iconify
+
+AddToFunc Resize-or-Raise	"D" Raise
++				"M" Resize
++				"C" Lower
+
+AddToFunc Resize-or-Raise2	"M" Raise
++				"M" Resize
++				"D" Lower
+
+AddToFunc PrintFunction		"I" Raise
++				"I" Exec xdpr -id $w
+
+AddToFunc PrintReverseFunction  "I" Raise
++                               "I" Exec xdpr 1/2 -h -rv -id $w
+
+AddToFunc Iconify-and-Raise     "I" Iconify
++                               "I" Raise
+
+# RLOGIN machine fg bg
+AddToFunc RLOGIN "I" Exec xterm -fg $1 -bg $2 -e rlogin $0 -8
+
+# TELNET machine fg bg
+AddToFunc TELNET "I" Exec xterm -fg $1 -bg $2 -e telnet $0
+
+AddToFunc FocusAndWarp "I" Focus
++                      "I" WarpToWindow 2p 2p
+
+AddToFunc DeiconifyFocusAndWarp "I" Iconify -1
++                               "I" FocusAndWarp
+
+AddToFunc ChangeDefaultFocus "I" Style "*" $0
++                            "I" Recapture
+
+AddToFunc MoveOrRaise
++ C Raise
++ M Raise
++ M Move
++ D Pick (Shaded) Raise
++ D WindowShade toggle
+
+################## FvwmButtons button-bars ################################
+
+#############################################################################################
+#################################  FVWMBUTTONS EMAIL PANEL  ###################################
+#############################################################################################
+
+# Screen resolution 1152x864
+
+FvwmButtons MyBar1
+
+#*MyBar1Geometry 125x712-0+10
+PipeRead 'echo "*MyBar1Geometry 128x`expr $[vp.height]  - 97`-0+0"'
+*MyBar1Back black
+#*MyBar1Pixmap none
+*MyBar1BoxSize smart
+*MyBar1Columns 1
+*MyBar1Rows 8
+
+*MyBar1(Frame 0 Container(Rows 10 Columns 1 Frame 0))
+#*MyBar1(1x2+0+0, Frame 4 Swallow(UseOld,NoClose,NoHints,Respawn) "xclock" \
+#   `Exec exec xclock -bg bisque3 -fg black -hd black -hl black -padding 0 -update 1`)
+*MyBar1(1x1+0+0, Padding 20 10 Frame 0 Swallow(UseOld,NoClose,NoHints,Respawn) "astime" \
+   `Exec exec astime -rc ~/.astimerc`)
+*MyBar1(1x1+0+1, Padding 20 0 Frame 0 Swallow(UseOld,NoClose,NoHints,Respawn) "astime" \
+   `Exec exec astime -rc ~/.astimerc1`)
+*MyBar1(1x6+0+2 Frame 0 Swallow(UseOld,NoClose,NoHints,Respawn) "xbuffy" \
+             `Exec exec xbuffy -fill -bg black -fg moccasin -boxfile /home/glenlee/.fvwm/xbuffy.conf`)
+*MyBar1(End)
+
+#############################################################################################
+###################################  FVWMBUTTONS MAIN PANEL  ##################################
+#############################################################################################
+
+FvwmButtons MyBar2
+
+#*MyBar2Geometry 1140x115+0-0
+PipeRead 'echo "*MyBar2Geometry `expr $[vp.width] - 0`x97+0-0"'
+*MyBar2Back black
+*MyBar2BoxSize Smart
+#*MyBar2Pixmap none
+*MyBar2: Fore white
+
+*MyBar2(Frame 0 Padding 2 0 Container(Rows 2 Columns 10 Frame 0 Padding 0 0))
+
+## Top row of buttons
+*MyBar2(1x1+0+0, Frame 0, Title "System Menu",  Icon fvwm.xpm, Action Menu RootMenu)
+*MyBar2(1x1+1+0, Frame 0, Title "Text Editors", Icon /usr/share/apps/kappfinder/pics/xedit.xpm, \
+    Panel(steps 0, position Module left -5p 0p) Editors "Module FvwmButtons -g -30000-30000 -transientpanel Editors")
+*MyBar2(1x1+2+0, Frame 0, Title "Xemacs" Icon /usr/share/apps/kappfinder/pics/xemacs.xpm, \
+    Panel(steps 0, up) Xemacs "Module FvwmButtons -g -30000-30000 -transientpanel Xemacs")
+*MyBar2(1x1+3+0, Frame 0, Title Network, Icon network.xpm, Panel(steps 0, up) \
+    Network "Module FvwmButtons -g -30000-30000 -transientpanel Network")
+
+## Bottom row of buttons
+*MyBar2(1x1+0+1, Frame 0 Swallow(UseOld,NoClose,Respawn) "xdaliclock" `Exec exec xdaliclock -geometry 100x25+0+0 -font -adobe-courier-bold-r-normal--14-140-75-75-m-90-koi8-r`)
+*MyBar2(1x1+1+1, Frame 0, Title "Web Browsers", Icon /usr/share/icons/www.xpm, \
+    Panel(steps 0, Position Module left -7p 0p) Netscape "Module FvwmButtons -g -30000-30000 -transientpanel Netscape")
+*MyBar2(1x1+2+1, Frame 0, Title "Misc Programs", Icon misc.xpm, \
+    Panel(steps 0, Position Module left -7p 60p) MiscP "Module FvwmButtons -g -30000-30000 -transientpanel MiscP")
+*MyBar2(1x1+3+1, Frame 0, Title Tools, Icon toolbox.xpm, Panel(steps 0, up) \
+    Tools "Module FvwmButtons -g -30000-30000 -transientpanel Tools")
+*MyBar2(6x2+4+0 Frame 0 Swallow(UseOld,NoClose) "Pager" "Module FvwmPager Pager 0 11")
+*MyBar2(End)
+
+
+#############################################################################################
+###################################  FVWMBUTTONS MISC MANAGER ################################
+#############################################################################################
+
+FvwmButtons MyBar3
+
+#*MyBar3Geometry 998x711+0-129
+PipeRead 'echo "*MyBar3Geometry `expr $[vp.width] - 154`x`expr $[vp.height] - 153`+0-129"'
+*MyBar3BoxSize fixed
+*MyBar3Pixmap /home/glenlee/.fvwm/paper/purple-blue.xpm
+*MyBar3Back bisque3
+*MyBar3Columns 12
+*MyBar3Rows 8
+
+
+*MyBar3(12x3+0+0, Frame 4 Swallow(UseOld,NoClose,NoHints,Respawn) "clipboard" \
+   `Exec exec nedit clipboard`)
+*MyBar3(2x5+0+3, Frame 4 Swallow(UseOld,NoClose,NoHints,Respawn) "licq" \
+   `Exec exec licq`)
+
+*MyBar3(4x3+2+3, Frame 4 Swallow(UseOld,NoClose,NoHints,Respawn) "aumix" \
+   `Exec exec aumix-X11`)
+*MyBar3(4x2+2+6, Frame 4 Swallow "FvwmIconMan" "Module FvwmIconMan")
+#*MyBar3(4x2+8+6, Back grey40, Frame 4 Padding 10 15, Swallow(UseOld,NoClose,NoHints,Respawn) "xmms" \
+#   `Exec exec xmms`)
+
+*MyBar3(6x5+8+3 Frame 0 Padding 0 0 Container(Rows 30 Columns 1 Frame 0 Padding 0 0))
+*MyBar3(1x13+0+0, Padding 63 12, Frame 4 Swallow(UseOld,NoClose,NoHints,Respawn) "xplaycd" \
+   `Exec exec xplaycd`)
+*MyBar3(1x8+0+13, Colorset 0, Padding 65 9, Frame 4 Swallow(UseOld,NoClose,NoHints,Respawn) "gqmpeg" \
+   `Exec exec gqmpeg`)
+*MyBar3(1x9+0+21, Padding 0 0, Frame 4 Swallow(UseOld,NoClose,NoHints,Respawn) "KTerm" \
+   `Exec exec kterm -fg wheat -bg black -cr yellow \
+       -fn -Adobe-Courier-Bold-R-Normal--14-140-75-75-M-90-ISO8859-1`)
+*MyBar3(End)
+
+
+
+#############################################################################################
+###################################  FVWMBUTTONS EDITORS MANAGER #############################
+#############################################################################################
+
+FvwmButtons MyBar4
+
+#*MyBar4Geometry 1138x836+0+10
+PipeRead 'echo "*MyBar4Geometry `expr $[vp.width] - 14`x`expr $[vp.height] - 28`+0+10"'
+*MyBar4Back bisque3
+*MyBar4BoxSize smart
+
+*MyBar4(Frame 2 Padding 2 2 Container(Rows 2 Columns 1 Frame 1))
+
+*MyBar4(1x1+0+0, Frame 4 Swallow(UseOld,NoClose,NoHints,Respawn) "commands" \
+   `Exec exec nedit commands`)
+*MyBar4(1x1+0+1, Frame 4 Swallow(UseOld,NoClose,NoHints,Respawn) "users" \
+   `Exec exec nedit users`)
+*MyBar4(End)
+
+
+
+#############################################################################################
+###################################                        FVWM ICON                    #############################
+#############################################################################################
+
+#FvwmButtons MyBar5
+
+#*MyBar5Geometry 70x280-0-129
+#*MyBar5Back bisque3
+#*MyBar5Pixmap none
+#*MyBar5BoxSize smart
+#*MyBar5Columns 1
+#*MyBar5Rows 1
+
+#*MyBar5(1x1+0+0, Icon side.fvwm2_1.xpm, Action Restart Fvwm2)
+
+#############################################################################################
+###################################                        FVWM ICON                    #############################
+#############################################################################################
+
+FvwmButtons MyBar6
+
+*MyBar6Geometry 70x280+0-129
+*MyBar6Back bisque3
+*MyBar6Pixmap none
+*MyBar6BoxSize smart
+*MyBar6Columns 1
+*MyBar6Rows 1
+
+*MyBar6(1x1+0+0, Icon side.fvwm2_2.xpm, Action Restart Fvwm2)
+
+
+#############################################################################################
+###################################  FVWMBUTTONS EDITORS MANAGER #############################
+#############################################################################################
+
+# Screen resolution 1152x864
+FvwmButtons MyBar7
+
+#*MyBar7Geometry 1015x225+0+7
+PipeRead 'echo "*MyBar7Geometry `expr $[vp.width] - 210`x`expr $[vp.height] - 659`+70-129"'
+*MyBar7BoxSize smart
+*MyBar7Pixmap none
+*MyBar7Columns 1
+*MyBar7Rows 1
+
+
+*MyBar7(Frame 0 Padding 2 2 Container(Rows 2 Columns 1 Frame 0))
+
+*MyBar7(1x1+0+0, Frame 0 Swallow(UseOld,NoClose,NoHints,Respawn) "rxvt" \
+   'Exec exec rxvt -fg wheat -cr yellow \
+   -fn -Adobe-Courier-Bold-R-Normal--14-140-75-75-M-90-ISO8859-1')
+*MyBar7(End)
+
+
+
+########## TOOLS PANEL
+*Tools(Icon toolbox.xpm, Title "Tools")
+*ToolsBack bisque3
+*Tools(Frame 2 Padding 2 2 Container(Rows 2 Columns 5 Frame 1 Padding 10 0))
+
+*Tools(1x1+0+0, Title Resize,Icon jresize.xpm,   Action Resize)
+*Tools(1x1+1+0, Title Move,  Icon arrows2.xpm,  Action Move  )
+*Tools(1x1+2+0, Title Lower, Icon down.xpm,     Action Lower )
+*Tools(1x1+3+0, Title Raise, Icon up.xpm,       Action Raise FlipFocus)
+*Tools(1x1+4+0, Title Iconize, Icon icon.xpm, Action Iconify)
+*Tools(1x1+0+1, Title Maximize, Icon maximize.xpm, Action Maximize)
+*Tools(1x1+1+1, Title Delete, Icon delete.xpm, Action Delete)
+*Tools(1x1+2+1, Title Destroy, Icon bomb.xpm, Action Destroy)
+*Tools(1x1+3+1, Title Previous, Icon prev.xpm, Action Prev Prev Prev FlipFocus)
+*Tools(1x1+4+1, Title Exit, Icon exit.xpm, Action Quit)
+*Tools(End)
+
+#####################################################################################################
+########## XEMACS PANEL #############################################################################
+#####################################################################################################
+*Xemacs(Icon /usr/share/xemacs-21.1.14/etc/xemacs-icon.xpm, Title "Emacs Files")
+*XemacsBack bisque3
+*Xemacs(Frame 2 Padding 2 2 Container(Rows 2 Columns 4 Frame 1 Padding 10 0))
+
+
+*Xemacs(1x1+0+0, Frame 4 Title Xedit, Icon /usr/share/apps/kappfinder/pics/xedit.xpm, \
+             Action `Exec exec xedit -geometry 870x592+0+8`)
+*Xemacs(1x1+1+0, Frame 4 Title XEmacs, Icon /usr/share/apps/kappfinder/pics/xemacs.xpm, \
+             Action `Exec exec xemacs -geometry +0+10`)
+*Xemacs(1x1+2+0, Frame 4, Title "Web Files", Icon /usr/share/icons/large/www.xpm, \
+    Panel(steps 0, position Button center 0p 0p) Web "Module FvwmButtons -g -30000-30000 -transientpanel Web")
+
+PipeRead ~/.fvwm/editor.fvwm
+
+*Xemacs(1x1+0+1, Frame 4, Title "FVWM2 files", Icon fvwm.xpm, \
+    Panel(steps 0, position Module left -5p 225p) FVWM2 "Module FvwmButtons -g -30000-30000 -transientpanel FVWM2")
+*Xemacs(1x1+1+1, Frame 4, Title "Home Directory", Icon home.xpm, \
+    Panel(steps 0, position Module left -5p 225p) Home "Module FvwmButtons -g -30000-30000 -transientpanel Home")
+*Xemacs(1x1+2+1, Frame 4, Title "Lisp Files", Icon /usr/X11R6/include/X11/pixmaps/computer.xpm, \
+    Panel(steps 0, position Button center 0p 0p) Lisp "Module FvwmButtons -g -30000-30000 -transientpanel Lisp")
+*Xemacs(1x1+3+1, Frame 4, Title "System Files", Icon /usr/lib/xbill/pixmaps/linux.xpm, \
+    Panel(steps 0, position Module left -75p 225p) System "Module FvwmButtons -g -30000-30000 -transientpanel System")
+
+#*Xemacs(1x1+3+0 Frame 0 Container(Rows 2 Columns 1 Frame 0))
+#*Xemacs(1x1+0+0 Frame 4 Title "Use Emacs", Action Exec exec xterm -e "/home/glenlee/.fvwm/emacs.cgi")
+#*Xemacs(1x1+0+1 Frame 4 Title "Use Xemacs", Action Exec exec xterm -e "/home/glenlee/.fvwm/xemacs.cgi)"
+#*Xemacs(1x1+3+0, Frame 4, Title "Test", Icon test.xpm, \
+#    Panel(steps 0, up) Test "Module FvwmButtons -g -30000-30000 -transientpanel Test")
+
+*Xemacs(End)
+
+
+########## INDUST PANEL
+*FVWM2(Icon fvwm.xpm, Title "Fvwm Files")
+*FVWM2Back bisque3
+*FVWM2(Frame 2 Padding 2 2 Container(Rows 10 Columns 3 Frame 1 Padding 10 0))
+
+PipeRead ~/.fvwm/fvwm.prl
+
+*FVWM2(End)
+
+
+########## Web Files
+#*Web()
+*WebBack bisque3
+*Web(Frame 2 Padding 2 2 Container(Rows 15 Columns 3 Frame 1 Padding 10 0))
+
+PipeRead ~/.fvwm/web.prl
+
+*Web(End)
+
+########## Home Files
+#*Home()
+*HomeBack bisque3
+*Home(Frame 2 Padding 2 2 Container(Rows 40 Columns 6 Frame 1 Padding 10 0))
+
+PipeRead ~/.fvwm/home.prl
+
+*Home(End)
+
+
+########## Lisp Files
+#*Lisp()
+*LispBack bisque3
+*Lisp(Frame 2 Padding 2 2 Container(Rows 10 Columns 2 Frame 1 Padding 10 0))
+
+PipeRead ~/.fvwm/lisp.prl
+
+*Lisp(End)
+
+########## System Files
+#*System()
+*SystemBack bisque3
+*System(Frame 2 Padding 2 2 Container(Rows 50 Columns 5 Frame 1 Padding 10 0))
+
+PipeRead ~/.fvwm/system_files.prl
+
+*System(End)
+
+
+####################################################################################################
+####################################################################################################
+
+
+####################################################################################################
+############# EDITORS PANEL ##########################################################################
+####################################################################################################
+
+*Editors(Icon /usr/share/apps/kappfinder/pics/xedit.xpm, Title "Text Editors")
+*EditorsBack bisque3
+*Editors(Frame 2 Padding 2 2 Container(Rows 2 Columns 9 Frame 1 Padding 10 0))
+
+*Editors(1x1+0+0, Frame 4 Title "AbiWord", Icon /usr/share/AbiSuite/icons/abiword_48.xpm,\
+             Action `Exec AbiWord -geometry 870x590+0+10`)
+*Editors(1x1+1+0, Frame 4 Title emacs, Icon /usr/share/apps/kappfinder/pics/emacs.xpm, \
+             Action `Exec emacs`)
+*Editors(1x1+2+0, Frame 4 Title KWrite, Icon /usr/share/icons/kwrite.xpm, \
+             Action `Exec exec kwrite -geometry 870x590+0+10`)
+*Editors(1x1+3+0, Frame 4 Title LyX, Icon /usr/share/apps/kappfinder/pics/lyx.xpm, \
+             Action `Exec exec lyx -geometry 870x590+0+10`)
+*Editors(1x1+4+0, Frame 4 Title Nedit, Icon kiconedit.xpm, \
+             Action `Exec exec nedit  -geometry 109x45+0+10 -foreground black -background moccasin \
+             -font -Adobe-Courier-Bold-R-Normal--14-140-75-75-M-90-ISO8859-1`)
+*Editors(1x1+5+0, Frame 4 Title "Star Office", Icon /usr/share/WindowMaker/Icons/staroffice2.xpm,\
+             Action `Exec /home/glenlee/soffice`)
+*Editors(1x1+6+0, Frame 4 Title Xedit, Icon /usr/share/apps/kappfinder/pics/xedit.xpm, \
+             Action `Exec xedit`)
+*Editors(1x1+7+0, Frame 4 Title Xemacs, Icon /usr/share/apps/kappfinder/pics/xemacs.xpm, \
+             Action `Exec xemacs`)
+
+*Editors(1x1+0+1, Frame 4 Title "GNotePad+", Icon /usr/share/gnotepad+/xpm/gnp48x48.xpm,\
+             Action `Exec gnp`)
+*Editors(1x1+1+1, Frame 4 Title "Spread Sheet", \
+             Icon /usr/local/share/afterstep/desktop/icons/16bpp/spreadsheet2.xpm,\
+             Action `Exec gnumeric`)
+*Editors(1x1+2+1, Frame 4 Title "Web Maker", Icon /usr/share/icons/webmaker.xpm,\
+             Action `Exec webmaker`)
+*Editors(1x1+3+1, Frame 4 Title "Dictionary", Icon jbook1.xpm,\
+             Action `Exec gdict -a`)
+*Editors(1x1+4+1, Frame 4 Title "Odd Fonts", Icon /usr/share/icons/font.xpm,\
+             Action `Exec gcharmap`)
+
+
+
+########## INDUST PANEL
+*Indust(Icon /home/glenlee/graphics/indlogo.xpm, Title "Industrial Design")
+*IndustBack bisque3
+*Indust(Frame 2 Padding 2 2 Container(Rows 10 Columns 1 Frame 1 Padding 10 0))
+
+PipeRead ~/.fvwm/industrial-design.prl
+
+*Indust(End)
+
+########## FIRELIGHT PANEL
+*Firelight (Icon /home/glenlee/graphics/firelight.xpm, Title "Firelight Glass")
+*FirelightBack bisque3
+*Firelight(Frame 2 Padding 2 2 Container(Rows 10 Columns 1 Frame 1 Padding 10 0))
+
+PipeRead ~/.fvwm/firelight.prl
+
+*Firelight(End)
+
+########## MEZZETTA PANEL
+*Mezzetta(Icon /home/glenlee/graphics/mezzetta.xpm, Title "Mezzetta Foods")
+*MezzettaBack bisque3
+*Mezzetta(Frame 2 Padding 2 2 Container(Rows 6 Columns 1 Frame 1 Padding 10 0))
+
+PipeRead ~/.fvwm/mezzetta.prl
+
+*Mezzetta(End)
+######################################################################################################
+######################################################################################################
+
+
+########## Netscape Panel
+*Netscape(Icon /usr/share/icons/www.xpm, Title "Web Browsers")
+*NetscapeBack bisque3
+*Netscape(Frame 2 Padding 2 2 Container(Rows 1 Columns 4 Frame 1 Padding 10 0))
+
+*Netscape(1x1+0+0, Frame 4 Title "Netscape 6", Icon /usr/local/netscape/icons/mozicon50.xpm, \
+             Action `Exec exec /usr/local/netscape/netscape`)
+*Netscape(1x1+1+0, Frame 4 Title "Mozilla", Icon /usr/share/apps/kappfinder/pics/mozilla.xpm, \
+             Action `Exec exec /usr/local/mozilla/mozilla`)
+*Netscape(1x1+2+0, Frame 4 Title "Netscape 4.7", Icon /usr/share/apps/kappfinder/pics/netscape.xpm,  \
+             Action `Exec exec netscape`)
+*Netscape(1x1+3+0, Frame 4 Title "Opera", Icon /usr/share/opera/opera.xpm, \
+             Action `Exec exec /usr/bin/opera`)
+*Netscape(End)
+
+########## Network Panel
+*Network(Icon network.xpm, Title "SSH and Telnet")
+*NetworkBack bisque3
+*Network(Frame 2 Padding 2 2 Container(Rows 6 Columns 3 Frame 1 Padding 10 0))
+
+*Network(1x1+0+0, Frame 4 Title "Ssh wesleyan.fcwm.org",   \
+             Action `Exec exec xterm -fg black -bg lightblue -cr red \
+             -fn -Adobe-Courier-Bold-R-Normal--14-140-75-75-M-90-ISO8859-1 \
+             -geometry 109x39+0+9 -title "SSH wesleyan.fcwm.org" \
+             -e ssh -l root wesleyan.fcwm.org`)
+*Network(1x1+0+1, Frame 4 Title "Telnet nazarene.fcwm.org",   \
+             Action `Exec exec xterm -fg black -bg lightblue -cr red \
+             -fn -Adobe-Courier-Bold-R-Normal--14-140-75-75-M-90-ISO8859-1 \
+             -geometry 109x39+0+9 -title "Telnet nazarene.fcwm.org" \
+             -e telnet nazarene.fcwm.org`)
+*Network(1x1+0+2, Frame 4 Title "NcFTP wesleyan.fcwm.org",   \
+             Action `Exec exec xterm -fg black -bg lightblue -cr red \
+             -fn -Adobe-Courier-Bold-R-Normal--14-140-75-75-M-90-ISO8859-1 \
+             -geometry 109x39+0+9 -title "NcFTP wesleyan.fcwm.org" \
+             -e ncftp -u glenlee wesleyan.fcwm.org`)
+*Network(1x1+0+3, Frame 4 Title "NcFTP nazarene.fcwm.org",   \
+             Action `Exec exec xterm -fg black -bg lightblue -cr red \
+             -fn -Adobe-Courier-Bold-R-Normal--14-140-75-75-M-90-ISO8859-1 \
+             -geometry 109x39+0+9 -title "NcFTP nazarene.fcwm.org" \
+             -e ncftp -u glenlee nazarene.fcwm.org`)
+*Network(1x1+1+0, Frame 4 Title "SSH glen.tenertech.com",   \
+             Action `Exec exec xterm -fg black -bg moccasin -cr red \
+             -fn -Adobe-Courier-Bold-R-Normal--14-140-75-75-M-90-ISO8859-1 \
+             -geometry 109x39+0+9 -title "SSH glen.tenertech.com" \
+             -e ssh -l glenlee glen.tenertech.com`)
+*Network(1x1+1+1, Frame 4 Title "SSH firelightglass.com",   \
+             Action `Exec exec xterm -fg black -bg moccasin -cr red \
+             -fn -Adobe-Courier-Bold-R-Normal--14-140-75-75-M-90-ISO8859-1 \
+             -geometry 109x39+0+9 -title "SSH firelightglass.com" \
+             -e ssh -l flight firelightglass.com`)
+*Network(1x1+1+2, Frame 4 Title "SSH industrial-design.com",   \
+             Action `Exec exec xterm -fg black -bg moccasin -cr red \
+             -fn -Adobe-Courier-Bold-R-Normal--14-140-75-75-M-90-ISO8859-1 \
+             -geometry 109x39+0+9 -title "SSH industrial-design.com" \
+             -e ssh -l indust industrial-design.com`)
+*Network(1x1+1+3, Frame 4 Title "Telnet mezzetta.com",   \
+             Action `Exec exec xterm -fg black -bg moccasin -cr red \
+             -fn -Adobe-Courier-Bold-R-Normal--14-140-75-75-M-90-ISO8859-1 \
+             -geometry 109x39+0+9 -title "Telnet mezzetta.com" \
+             -e telnet mezzetta.com`)
+*Network(1x1+1+4, Frame 4 Title SSH,   \
+             Action `Exec exec xterm -fg black -bg moccasin -cr red \
+             -fn -Adobe-Courier-Bold-R-Normal--14-140-75-75-M-90-ISO8859-1 \
+             -geometry 109x39+0+9 -title "SSH" \
+             -e ssh`)
+*Network(1x1+1+5, Frame 4 Title Telnet,   \
+             Action `Exec exec xterm -fg black -bg moccasin -cr red \
+             -fn -Adobe-Courier-Bold-R-Normal--14-140-75-75-M-90-ISO8859-1 \
+             -geometry 110x45+0+10 -title "Telnet" \
+             -e telnet`)
+*Network(1x1+2+0, Frame 4 Title "NcFTP glen.tenertech.com",   \
+             Action `Exec exec xterm -fg black -bg moccasin -cr red \
+             -fn -Adobe-Courier-Bold-R-Normal--14-140-75-75-M-90-ISO8859-1 \
+             -geometry 109x39+0+9 -title "NcFTP glen.tenertech.com" \
+             -e ncftp -u glenlee glen.tenertech.com`)
+*Network(1x1+2+1, Frame 4 Title "NcFTP firelightglass.com",   \
+             Action `Exec exec xterm -fg black -bg moccasin -cr red \
+             -fn -Adobe-Courier-Bold-R-Normal--14-140-75-75-M-90-ISO8859-1 \
+             -geometry 109x39+0+9 -title "NcFTP firelightglass.com" \
+             -e ncftp -u flight firelightglass.com`)
+*Network(1x1+2+2, Frame 4 Title "NcFTP industrial-design.com",   \
+             Action `Exec exec xterm -fg black -bg moccasin -cr red \
+             -fn -Adobe-Courier-Bold-R-Normal--14-140-75-75-M-90-ISO8859-1 \
+             -geometry 109x39+0+9 -title "NcFTP industrial-design.com" \
+             -e ncftp -u indust -p 999*3435. industrial-design.com`)
+*Network(1x1+2+3, Frame 4 Title "NcFTP mezzetta.com",   \
+             Action `Exec exec xterm -fg black -bg moccasin -cr red \
+             -fn -Adobe-Courier-Bold-R-Normal--14-140-75-75-M-90-ISO8859-1 \
+             -geometry 109x39+0+9 -title "NcFTP mezzetta.com" \
+             -e ncftp -u mezzetta mezzetta.com`)
+*Network(1x1+2+4, Frame 4 Title NcFTP,   \
+             Action `Exec exec xterm -fg black -bg moccasin -cr red \
+             -fn -Adobe-Courier-Bold-R-Normal--14-140-75-75-M-90-ISO8859-1 \
+             -geometry 109x39+0+9 -title "NcFTP" \
+             -e ncftp`)
+*Network(1x1+2+5, Frame 4 Title FTP,   \
+             Action `Exec exec xterm -fg black -bg moccasin -cr red \
+             -fn -Adobe-Courier-Bold-R-Normal--14-140-75-75-M-90-ISO8859-1 \
+             -geometry 109x39+0+9 -title "FTP" \
+             -e ftp`)
+*Network(End)
+
+
+## Panel Misc Programs
+*MiscP(Icon misc.xpm, Title "Miscellaneous Programs")
+*MiscPBack bisque3
+*MiscP(Frame 2 Padding 2 2 Container(Rows 2 Columns 9 Frame 1 Padding 10 0))
+
+*MiscP(1x1+0+0, Frame 4 Title Pine, Icon kmail.xpm, \
+             Action `Exec xterm -fg moccasin -bg black -cr red \
+             -fn -adobe-courier-bold-r-normal--14-140-75-75-m-90-koi8-r \
+	     -geometry 110x48+0+10 -title "Pine Email" -e pine`)
+*MiscP(1x1+4+0, Frame 4 Title "Dictionary", Icon /usr/share/toolbar/openbook.xpm,\
+             Action `Exec gdict -a`)
+*MiscP(1x1+5+0, Frame 4 Title "Odd Fonts", Icon /usr/share/icons/font.xpm,\
+             Action `Exec gcharmap`)
+*MiscP(1x1+6+0, Frame 4 Title "KVIRC", Icon /usr/share/kvirc/pics/kvirc_1_48x48.xpm,\
+             Action `Exec kvirc`)
+*MiscP(1x1+7+0, Frame 4 Title "Licq", Icon /usr/share/icons/iconLicq.xpm,\
+             Action `Exec licq -geometry 150x400+0-129`)
+
+*MiscP(1x1+0+1, Frame 4 Title "Xcalc", Icon rcalc.xpm, \
+             Action `Exec "Calculator" xcalc`)
+*MiscP(1x1+1+1, Frame 4 Title "Xterm", Icon xterm.xpm, \
+             Action `Exec xterm -fg wheat -bg black -cr red \
+             -fn -adobe-courier-bold-r-normal--14-140-75-75-m-90-koi8-r -geometry 110x48+0+10 -title Xterm`)
+*MiscP(1x1+2+1, Frame 4 Title "Bible Time", Icon /usr/share/icons/large/bibletime.xpm, \
+             Action `Exec /usr/bin/bibletime`)
+*MiscP(1x1+3+1, Frame 4 Title "Gimp", Icon /usr/share/apps/kappfinder/pics/large/gimp.xpm, \
+             Action `Exec gimp`)
+*MiscP(1x1+4+1, Frame 4 Title "KFontManager", Icon /usr/share/icons/kfontmanager.xpm,\
+             Action `Exec kfontmanager`)
+*MiscP(1x1+5+1, Frame 4 Title "Xman", Icon /usr/share/icons/xman.xpm,\
+             Action `Exec xman`)
+*MiscP(1x1+6+1, Frame 4 Title "KPM", Icon /usr/share/icons/kpm.xpm, \
+             Action `Exec exec kpm -geometry 1007x720+7+40`)
+*MiscP(1x1+7+1, Frame 4 Title "XMixer", Icon /usr/share/WindowMaker/Icons/mixer.xpm, \
+             Action `Exec exec xmixer`)
+*MiscP(1x1+8+1, Frame 4 Title "GFtp", Icon /usr/share/icons/ftp.xpm, \
+             Action `Exec exec gftp`)
+*MiscP(End)
+
+########################## Icon Manager ####################################
+# this FvwmIconMan setup is for swallowing in above button bar example
+*FvwmIconMan*numManagers 1
+*FvwmIconMan*Resolution  page
+*FvwmIconMan*background  bisque3
+*FvwmIconMan*foreground  black
+*FvwmIconMan*font        7x13bold
+*FvwmIconMan*format      "%t"
+*FvwmIconMan*action      Mouse   1 N sendcommand Focus, sendcommand "Iconify"
+*FvwmIconMan*action      Mouse   2 N sendcommand "Iconify 1"
+*FvwmIconMan*action      Mouse   3 N sendcommand "FvwmIdent"
+*FvwmIconMan*followfocus true
+*FvwmIconMan*sort        none
+*FvwmIconMan*plainbutton          up black bisque3
+*FvwmIconMan*selectbutton         down black bisque3
+*FvwmIconMan*focusbutton          up yellow firebrick
+*FvwmIconMan*focusandselectButton down yellow firebrick
+*FvwmIconMan*dontshow icon=Untitled
+#*FvwmIconMan*drawicons true
+*FvwmIconMan*buttongeometry  300x0
+*FvwmIconMan*managergeometry 1x5
+
+########################## Window-Identifier ###############################
+# Just choose colors and a fonts
+*FvwmIdentBack MidnightBlue
+*FvwmIdentFore Yellow
+*FvwmIdentFont -adobe-helvetica-medium-r-*-*-12-*-*-*-*-*-*-*
+
+########################### Pager #########################################
+*FvwmPagerBack #908090
+*FvwmPagerFore #484048
+*FvwmPagerFont -adobe-helvetica-bold-r-*-*-10-*-*-*-*-*-*-*
+# turn off desktop names for swallowing in above button bar example:
+#*FvwmPagerFont none
+*FvwmPagerHilight #cab3ca
+*FvwmPagerGeometry -1-1
+*FvwmPagerRows 2
+*FvwmPagerColumns 12
+*FvwmPagerLabel 0 F1
+*FvwmPagerLabel 1 F2
+*FvwmPagerLabel 2 F3
+*FvwmPagerLabel 3 F4
+*FvwmPagerLabel 4 F5
+*FvwmPagerLabel 5 F6
+*FvwmPagerLabel 6 F7
+*FvwmPagerLabel 7 F8
+*FvwmPagerLabel 8 F9
+*FvwmPagerLabel 9 F10
+*FvwmPagerLabel 10 F11
+*FvwmPagerLabel 11 F12
+*FvwmPagerLabel 12 1
+*FvwmPagerLabel 13 2
+*FvwmPagerLabel 14 3
+*FvwmPagerLabel 15 4
+*FvwmPagerLabel 16 5
+*FvwmPagerLabel 17 6
+*FvwmPagerLabel 18 7
+*FvwmPagerLabel 19 8
+*FvwmPagerLabel 20 9
+*FvwmPagerLabel 21 0
+*FvwmPagerLabel 22 Home
+*FvwmPagerLabel 23 End
+*FvwmPagerSmallFont 5x8
+*FvwmPagerBalloons            All
+*FvwmPagerBalloonBack         Yellow
+*FvwmPagerBalloonFore         Black
+*FvwmPagerBalloonFont         lucidasanstypewriter-12
+*FvwmPagerBalloonYOffset      +2
+*FvwmPagerBalloonBorderWidth  1
+*FvwmPagerBalloonBorderColor  Black
+
+########################### Pager #########################################
+*PagerBack Navy
+*PagerFore White
+*PagerFont -adobe-helvetica-bold-r-*-*-10-*-*-*-*-*-*-*
+*PagerHilightPixmap /home/glenlee/.fvwm/paper/grey.xpm
+*PagerPixmap /home/glenlee/.fvwm/xpm/bd.xpm
+*PagerHilight #cab3ca
+*PagerGeometry -1-1
+*PagerRows 1
+*PagerColumns 12
+*PagerSmallFont 5x8
+*PagerBalloons            All
+*PagerBalloonBack         Yellow
+*PagerBalloonFore         Black
+*PagerBalloonFont         lucidasanstypewriter-12
+*PagerBalloonYOffset      +2
+*PagerBalloonBorderWidth  1
+*PagerBalloonBorderColor  Black
+*PagerLabel 0 F1
+*PagerLabel 1 F2
+*PagerLabel 2 F3
+*PagerLabel 3 F4
+*PagerLabel 4 F5
+*PagerLabel 5 F6
+*PagerLabel 6 F7
+*PagerLabel 7 F8
+*PagerLabel 8 F9
+*PagerLabel 9 F10
+*PagerLabel 10 F11
+*PagerLabel 11 F12
+*PagerLabel 12 1
+*PagerLabel 13 2
+*PagerLabel 14 3
+*PagerLabel 15 4
+*PagerLabel 16 5
+*PagerLabel 17 6
+*PagerLabel 18 7
+*PagerLabel 19 8
+*PagerLabel 20 9
+*PagerLabel 21 0
+*PagerLabel 22 Home
+*PagerLabel 23 End
+
+##########################FvwmWinList##################################
+*FvwmWinListBack #908090
+*FvwmWinListFore Black
+*FvwmWinListFont -adobe-helvetica-bold-r-*-*-10-*-*-*-*-*-*-*
+*FvwmWinListAction Click1 Iconify -1,Focus
+*FvwmWinListAction Click2 Iconify
+*FvwmWinListAction Click3 Module "FvwmIdent" FvwmIdent
+*FvwmWinListUseSkipList
+*FvwmWinListGeometry +0-1
+                                      
+*FvwmScrollBack grey40
+*FvwmScrollFore green
+	
+############################################################
+############################################################
+# Note that icons are shown in the module
+#    only if NoIcon commnand is applied.
+#Style     "*"  NoIcon
+
+############################################################
+*FvwmIconBoxIconBack    #cfcfcf
+*FvwmIconBoxIconHiFore  black
+*FvwmIconBoxIconHiBack  LightSkyBlue
+*FvwmIconBoxBack        #5f9ea0
+#*FvwmIconBoxFore       blue
+*FvwmIconBoxGeometry    10x1+0+15
+*FvwmIconBoxMaxIconSize 64x38
+*FvwmIconBoxFont        -adobe-helvetica-medium-r-*-*-12-*-*-*-*-*-*-*
+*FvwmIconBoxSortIcons   IconName
+*FvwmIconBoxPadding     4
+*FvwmIconBoxLines       10
+*FvwmIconBoxSBWidth     11
+*FvwmIconBoxPlacement   Left Top
+*FvwmIconBoxPixmap      fvwm.xpm
+#*FvwmIconBoxHideSC Horizontal
+*FvwmIconBoxSetWMIconSize
+*FvwmIconBoxHilightFocusWin
+#*FvwmIconBoxResolution          Desk
+*FvwmIconBoxMouse       1       Click           RaiseLower
+*FvwmIconBoxMouse       1       DoubleClick     Iconify
+*FvwmIconBoxMouse       2       Click           Iconify -1, Focus
+*FvwmIconBoxMouse       3       Click           Module FvwmIdent
+*FvwmIconBoxKey         r       RaiseLower
+*FvwmIconBoxKey         space   Iconify
+*FvwmIconBoxKey         d       Close
+*FvwmIconBoxKey         n       Next
+*FvwmIconBoxKey         p       Prev
+*FvwmIconBoxKey         h       Left
+*FvwmIconBoxKey         j       Down
+*FvwmIconBoxKey         k       Up
+*FvwmIconBoxKey         l       Right
+#
+# Icon file specifications
+#
+# Mostly, you don't have to specify icon files, as FvwmIconBox now
+# reads icon files specified in Style commands.
+#
+*FvwmIconBox            "Fvwm*"         -
+
+# FvwmForm alias - rlogin or telnet to host via xterm
+*RloginWarpPointer
+*RloginFont         *helvetica*m*r*n*12*
+*RloginButtonFont   *helvetica*m*o*n*12*
+*RloginInputFont    *cour*m*r*n*12*
+*RloginFore         Black
+*RloginBack         Light Gray
+*RloginItemFore          Wheat
+*RloginItemBack          Gray50
+# begin items
+*RloginLine         center
+*RloginText         "Login to Remote Host"
+*RloginLine         center
+*RloginText         "Host:"
+*RloginInput        HostName  30   ""
+*RloginLine         center
+*RloginSelection    meth single
+*RloginChoice       TN TN off "telnet"
+*RloginChoice       RL RL on "rlogin"
+*RloginSelection    UserSel   single
+#*RloginChoice       Default   Default   on   "same user"
+#*RloginChoice       Custom    Custom    off  "user:"
+*RloginText         "(Userid:"
+*RloginInput        UserName  10   ""
+*RloginText         ")"
+*RloginLine         center
+*RloginText         "FG:"
+*RloginInput        FgColor 15 ""
+*RloginText         "BG:"
+*RloginInput        BgColor 15 ""
+*RloginLine         expand
+*RloginButton       quit "Login" ^M
+*RloginCommand Exec xterm  $(FgColor?-fg $(FgColor)) $(BgColor?-bg $(BgColor)) -T xterm@$(HostName) -e $(RL?rlogin) $(TN?telnet) $(HostName) $(RL?-8 $(UserName?-l $(UserName)))
+*RloginButton       restart   "Clear"
+*RloginCommand Beep
+*RloginButton       quit "Cancel"
+*RloginCommand Nop
+
+# FvwmForm alias - query exit ala mwm
+*QuitVerifyGrabServer
+*QuitVerifyWarpPointer
+*QuitVerifyFont          *helvetica*m*r*n*14*
+#*QuitVerifyButtonFont    *helvetica*m*o*n*14*
+*QuitVerifyButtonFont    7x13bold
+*QuitVerifyFore          Black
+*QuitVerifyBack          Light Gray
+*QuitVerifyItemFore Wheat
+*QuitVerifyItemBack Gray50
+# begin items
+*QuitVerifyLine          center
+*QuitVerifyText          "Do you really want to exit FVWM?"
+*QuitVerifyLine          expand
+*QuitVerifyButton   quit      " Exit "
+*QuitVerifyCommand  Quit
+*QuitVerifyButton   quit      "Cancel"
+*QuitVerifyCommand  Nop
+
+# MyTalk & MyFvwmTalk from Dave Goldberg
+# MyTalk Form - dissappears after use
+*MyTalkWarpPointer
+*MyTalkFont *helvetica*m*r*n*14*
+*MyTalkButtonFont *helvetica*m*o*n*14*
+*MyTalkInputFont *cour*m*r*n*14*
+*MyTalkFore Red
+*MyTalkBack Gray
+*MyTalkItemFore Blue
+*MyTalkItemBack Gray
+*MyTalkLine center
+*MyTalkText "Fvwm Function"
+*MyTalkInput Func 40 ""
+*MyTalkLine expand
+*MyTalkButton quit "Run" ^M
+*MyTalkCommand $(Func)
+*MyTalkButton restart "Clear" ^R
+*MyTalkButton quit "Cancel" ^C
+*MyTalkCommand Nop
+# MyFvwmTalk Form - sticks around
+*MyFvwmTalkWarpPointer
+*MyFvwmTalkFont *helvetica*m*r*n*14*
+*MyFvwmTalkButtonFont *helvetica*m*o*n*14*
+*MyFvwmTalkInputFont *cour*m*r*n*14*
+*MyFvwmTalkFore Red
+*MyFvwmTalkBack Gray
+*MyFvwmTalkItemFore Blue
+*MyFvwmTalkItemBack Gray
+*MyFvwmTalkLine center
+*MyFvwmTalkText "Fvwm Function"
+*MyFvwmTalkInput Func 40 ""
+*MyFvwmTalkLine expand
+*MyFvwmTalkButton restart "Run" ^M
+*MyFvwmTalkCommand $(Func)
+*MyFvwmTalkButton restart "Clear" ^R
+*MyFvwmTalkCommand Nop
+*MyFvwmTalkButton restart "Iconify" ^Z
+*MyFvwmTalkCommand Next [MyFvwmTalk] Iconify
+*MyFvwmTalkButton quit "Quit" ^C
+*MyFvwmTalkCommand Nop
+
+#########
+# FvwmTaskBar settings
+#########
+
+AddToFunc DeiconifyRaiseAndFocus
++ I Iconify off
++ I Raise
++ I Focus
+
+AddToFunc EditAndRestartXedit
++ I PipeRead `xterm -e /home/glenlee/.fvwm/xedit.cgi >/dev/null`
++ I Restart
+
+AddToFunc EditAndRestartLess
++ I PipeRead `xterm -e /home/glenlee/.fvwm/less.cgi >/dev/null`
++ I Restart
+
+AddToFunc EditAndRestartPico
++ I PipeRead `xterm -e /home/glenlee/.fvwm/pico.cgi >/dev/null`
++ I Restart
+
+AddToFunc EditAndRestartXemacs
++ I PipeRead `xterm -e /home/glenlee/.fvwm/xemacs.cgi >/dev/null`
++ I Restart
+
+Style "FvwmTaskBar" NoTitle,BorderWidth 4, HandleWidth 4,Sticky,StaysOnTop,WindowListSkip,CirculateSkip
+
+*FvwmTaskBarAutoHide
+*FvwmTaskBarBack bisque3
+*FvwmTaskBarFore black
+*FvwmTaskBarTipsBack bisque3
+*FvwmTaskBarTipsFore black
+*FvwmTaskBarGeometry +0+0
+*FvwmTaskBarFont -adobe-helvetica-medium-r-*-*-14-*-*-*-*-*-*-*
+*FvwmTaskBarSelFont -adobe-helvetica-bold-r-*-*-14-*-*-*-*-*-*-*
+*FvwmTaskBarStatusFont fixed
+
+*FvwmTaskBarAction Click1 DeiconifyRaiseAndFocus
+*FvwmTaskBarAction Click2 Close
+*FvwmTaskBarAction Click3 Iconify On
+
+*FvwmTaskBarDeskOnly
+*FvwmTaskBarShowTransients
+*FvwmTaskBarUseSkipList
+*FvwmTaskBarUseIconNames
+*FvwmTaskBarAutoStick
+*FvwmTaskBarShowTips
+*FvwmTaskBarNoIconAction SendToModule FvwmAnimate animate
+
+*FvwmTaskBarButtonWidth 180
+*FvwmTaskBarBellVolume 20
+*FvwmTaskBarMailBox /var/spool/mail/
+*FvwmTaskBarMailCommand Exec exec xterm -fg wheat -bg black -cr red \
+                        -fn -adobe-courier-bold-r-normal--14-140-75-75-m-90-koi8-r \
+                        -geometry 110x48+0+10 -title "Pine Email" -e pine
+*FvwmTaskBarClockFormat %I:%M %p
+
+*FvwmTaskBarStartName Start
+*FvwmTaskBarStartMenu Red_Hat_Linux
+*FvwmTaskBarStartIcon mini-exp.xpm
+
+#########
+# End FvwmTaskBar settings
+#########
+
+
+####
+# Set Up Backgrounds for different desktops.
+####
+*FvwmBacker: Command (Desk 0, Page 0 0) Exec display -size 1152x864 -window root $HOME/graphics/sat_sfc_map1.gif
+*FvwmBacker: Command (Desk 0, Page 1 0) Exec display -size 1152x864 -window root $HOME/graphics/bridge1.jpg
+*FvwmBacker: Command (Desk 0, Page 1 1) Exec display -size 1152x864 -window root $HOME/graphics/wp_saturn_PIA00349L.jpg
+*FvwmBacker: Command (Desk 0, Page 0 1) Exec display -size 1152x864 -window root $HOME/graphics/wp_saturn_PIA01143L.jpg
+
+*FvwmBacker: Command (Desk 1, Page 0 0) Exec display -size 1152x864 -window root $HOME/graphics/kernel2.jpg
+*FvwmBacker: Command (Desk 1, Page 1 0) Exec display -size 1152x864 -window root $HOME/graphics/wp_jupiter_PIA00343L.jpg
+*FvwmBacker: Command (Desk 1, Page 1 1) Exec display -size 1152x864 -window root $HOME/graphics/wp_hub_16_9920_L.jpg
+*FvwmBacker: Command (Desk 1, Page 0 1) Exec display -size 1152x864 -window root $HOME/graphics/wp_hub_17_NGC6543a_L.jpg
+
+*FvwmBacker: Command (Desk 2, Page 0 0) Exec display -size 1152x864 -window root $HOME/graphics/giant_1024.jpg
+*FvwmBacker: Command (Desk 2, Page 1 0) Exec display -size 1152x864 -window root $HOME/graphics/wp_hub_14_m8detail_L.jpg
+*FvwmBacker: Command (Desk 2, Page 1 1) Exec display -size 1152x864 -window root $HOME/graphics/wp_hub_09_0006_L.jpg
+*FvwmBacker: Command (Desk 2, Page 0 1) Exec display -size 1152x864 -window root $HOME/graphics/wp_hub_12_0004_L.jpg
+
+*FvwmBacker: Command (Desk 3, Page 0 0) Exec display -size 1152x864 -window root $HOME/graphics/wp_hub_08_0001_L.jpg
+*FvwmBacker: Command (Desk 3, Page 1 0) Exec display -size 1152x864 -window root $HOME/graphics/wp_hub_06_0007_L.jpg
+*FvwmBacker: Command (Desk 3, Page 1 1) Exec display -size 1152x864 -window root $HOME/graphics/wp_hub_04_M16Full_L.jpg
+*FvwmBacker: Command (Desk 3, Page 0 1) Exec display -size 1152x864 -window root $HOME/graphics/wp_hub_05_0010_L.jpg
+
+*FvwmBacker: Command (Desk 4, Page 0 0) Exec display -size 1152x864 -window root $HOME/graphics/wp_hub_03_96-23a_L.jpg
+*FvwmBacker: Command (Desk 4, Page 1 0) Exec display -size 1152x864 -window root $HOME/graphics/wp_hub_01_fullmosaic_L.jpg
+*FvwmBacker: Command (Desk 4, Page 1 1) Exec display -size 1152x864 -window root $HOME/graphics/shuttle_99_2_1024.jpg
+*FvwmBacker: Command (Desk 4, Page 0 1) Exec display -size 1152x864 -window root $HOME/graphics/shuttle_99_3_1024.jpg
+
+*FvwmBacker: Command (Desk 5, Page 0 0) Exec display -size 1152x864 -window root $HOME/graphics/shuttle_99_1_1024.jpg
+*FvwmBacker: Command (Desk 5, Page 1 0) Exec display -size 1152x864 -window root $HOME/graphics/shuttle_103_1_1024.jpg
+*FvwmBacker: Command (Desk 5, Page 1 1) Exec display -size 1152x864 -window root $HOME/graphics/saturn_family.jpg
+*FvwmBacker: Command (Desk 5, Page 0 1) Exec display -size 1152x864 -window root $HOME/graphics/shuttle_101_1_1024.jpg
+
+*FvwmBacker: Command (Desk 6, Page 0 0) Exec display -size 1152x864 -window root $HOME/graphics/satsats.gif
+*FvwmBacker: Command (Desk 6, Page 1 0) Exec display -size 1152x864 -window root $HOME/graphics/Saturn1.jpg
+*FvwmBacker: Command (Desk 6, Page 1 1) Exec display -size 1152x864 -window root $HOME/graphics/Saturn11.jpg
+*FvwmBacker: Command (Desk 6, Page 0 1) Exec display -size 1152x864 -window root $HOME/graphics/Saturn10.jpg
+
+*FvwmBacker: Command (Desk 7, Page 0 0) Exec display -size 1152x864 -window root $HOME/graphics/Saturn12.jpg
+*FvwmBacker: Command (Desk 7, Page 1 0) Exec display -size 1152x864 -window root $HOME/graphics/Saturn13.jpg
+*FvwmBacker: Command (Desk 7, Page 1 1) Exec display -size 1152x864 -window root $HOME/graphics/Saturn3.jpg
+*FvwmBacker: Command (Desk 7, Page 0 1) Exec display -size 1152x864 -window root $HOME/graphics/Saturn2.jpg
+
+*FvwmBacker: Command (Desk 8, Page 0 0) Exec display -size 1152x864 -window root $HOME/graphics/Saturn4.jpg
+*FvwmBacker: Command (Desk 8, Page 1 0) Exec display -size 1152x864 -window root $HOME/graphics/Saturn5.jpg
+*FvwmBacker: Command (Desk 8, Page 1 1) Exec display -size 1152x864 -window root $HOME/graphics/Saturn7.jpg
+*FvwmBacker: Command (Desk 8, Page 0 1) Exec display -size 1152x864 -window root $HOME/graphics/Saturn6.jpg
+
+*FvwmBacker: Command (Desk 9, Page 0 0) Exec display -size 1152x864 -window root $HOME/graphics/Saturn8.jpg
+*FvwmBacker: Command (Desk 9, Page 1 0) Exec display -size 1152x864 -window root $HOME/graphics/Saturn9.gif
+*FvwmBacker: Command (Desk 9, Page 1 1) Exec display -size 1152x864 -window root $HOME/graphics/edge_1024.jpg
+*FvwmBacker: Command (Desk 9, Page 0 1) Exec display -size 1152x864 -window root $HOME/graphics/deepfield_1024.jpg
+
+*FvwmBacker: Command (Desk 10, Page 0 0) Exec display -size 1152x864 -window root $HOME/graphics/kernel1.jpg
+*FvwmBacker: Command (Desk 10, Page 1 0) Exec display -size 1152x864 -window root $HOME/graphics/kernel3.jpg
+*FvwmBacker: Command (Desk 10, Page 1 1) Exec display -size 1152x864 -window root $HOME/graphics/wp_hub_15_9821w_L.jpg
+*FvwmBacker: Command (Desk 10, Page 0 1) Exec display -size 1152x864 -window root $HOME/graphics/kernel4.jpg
+
+*FvwmBacker: Command (Desk 11, Page 0 0) Exec display -size 1152x864 -window root $HOME/graphics/bridge1.jpg
+*FvwmBacker: Command (Desk 11, Page 1 0) Exec display -size 1152x864 -window root $HOME/graphics/edge_1024.jpg
+*FvwmBacker: Command (Desk 11, Page 1 1) Exec display -size 1152x864 -window root $HOME/graphics/deepfield_1024.jpg
+*FvwmBacker: Command (Desk 11, Page 0 1) Exec display -size 1152x864 -window root $HOME/graphics/giant_1024.jpg
+
+*FvwmBacker: Command (Desk 12, Page 0 0) Exec display -size 1152x864 -window root $HOME/graphics/kernel5.jpg
+*FvwmBacker: Command (Desk 12, Page 1 0) Exec display -size 1152x864 -window root $HOME/graphics/JamieHolms1.jpg
+*FvwmBacker: Command (Desk 12, Page 1 1) Exec display -size 1152x864 -window root $HOME/graphics/wp_hub_01_fullmosaic_L.jpg
+*FvwmBacker: Command (Desk 12, Page 0 1) Exec display -size 1152x864 -window root $HOME/graphics/pyr2_200.jpg

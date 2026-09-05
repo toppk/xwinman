@@ -1,0 +1,20 @@
+# _metadata.toml describes the files in this directory: each [[entry]] names files and records
+# what is known about them (mtime, contributor, date, text...). Same shape everywhere.
+# Here: the timestamps Apache showed for xwinman.org/archive/ (Wayback Machine captures, see
+# docs/restoration.md), which git cannot keep; `migrate.py collections` applies them before a build.
+
+[[entry]]
+files = ["icewm-0.8.5.src.tar.gz"]
+mtime = 2002-01-19T12:00:00+00:00
+
+[[entry]]
+files = ["ktaskbar-0.3.1.tgz"]
+mtime = 2002-01-19T12:00:00+00:00
+
+[[entry]]
+files = ["kwm-0.4.tgz"]
+mtime = 2002-01-19T12:00:00+00:00
+
+[[entry]]
+files = ["kwm_kwmclient_kpanel.tgz"]
+mtime = 2002-01-19T12:00:00+00:00

@@ -1,0 +1,42 @@
+# _metadata.toml describes the files in this directory: each [[entry]] names files and records
+# what is known about them (mtime, contributor, date, text...). Same shape everywhere.
+# Here: the contributed setups, who sent them and when; {{< contributions >}} is one view of it.
+
+[[entry]]
+from = "the project website"
+added = "1999-04"
+files = ["screenshots/gnome.jpg"]
+text = "a [screenshot](screenshots/gnome.jpg) (195k) of a GNOME desktop with the Enlightenment window manager."
+
+[[entry]]
+from = "matt@belgarath.org"
+added = "2000-10"
+files = ["screenshots/gnome-matt.jpg"]
+text = "This [screenshot](screenshots/gnome-matt.jpg) (208k) uses the \"microGUI\" theme of the Sawfish window manager."
+
+[[entry]]
+from = "anakin@arrakis.es"
+added = "2002-02"
+files = ["screenshots/gnome-anakin.jpg"]
+text = "This [screenshot](screenshots/gnome-anakin.jpg) (146k) shows the GNOME desktop running XMMS with the Nautilus plugin."
+
+[[entry]]
+from = "anakin@arrakis.es"
+added = "2002-10"
+files = ["screenshots/gnome2-anakin.png", "screenshots/gnome2-anakin-fsv.png"]
+text = "This [screenshot](screenshots/gnome2-anakin.png) (248k) shows the GNOME2 desktop running the Aisle Riots solitaire game, Gnumeric, and a GTK+2 demo. And this [screenshot](screenshots/gnome2-anakin-fsv.png) (136k) shows the same desktop running [fsv,](http://fsv.sourceforge.net/) a 3D file browser."
+list = 2
+
+[[entry]]
+from = "matt@belgarath.org"
+added = "2002-10"
+files = ["screenshots/gnome2-matt.jpg"]
+text = "This [screenshot](screenshots/gnome2-matt.jpg) (119k) shows GNOME2 in the \"Bumblebee\" theme, with the Metacity window manager in the \"Crux\" theme."
+list = 2
+
+[[entry]]
+from = "ascii.letter@gmail.com"
+added = "2005-01"
+files = ["screenshots/gnome2-ascii.png"]
+text = "This [screenshot](screenshots/gnome2-ascii.png) (280k) is of GNOME 2.8.1 using Redhat's Bluecurve theme."
+list = 2

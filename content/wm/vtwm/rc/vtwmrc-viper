@@ -1,0 +1,560 @@
+# General Stuff
+NoGrabServer
+RestartPreviousState
+RandomPlacement
+AutoRelativeResize
+SqueezeTitle
+
+MoveDelta			3
+ResizeRegion		"Centered"
+
+PanDistanceX 100
+PanDistanceY 100
+SnapRealScreen
+
+# Warping fun!
+WarpCursor
+WarpUnmapped
+WindowRing {
+	"rxvt" "xterm" "*Netscape*" "VIM*" "Vim" "bs" "plan*"
+}
+
+NailedDown
+{
+    "VTWM*"
+	"wm*" "as*" "*clock" 
+	"xosview"
+	"xneko"
+	"xmailbox" "xbiff"
+	"notifier"
+	"xman"
+	"Synaesthesia"
+}
+
+NoTitle
+{
+    "VTWM*"
+	"wm*" "as*" "*clock" "Note*"
+	"xosview"
+	"xneko"
+	"xmailbox" "xbiff"
+	"notifier"
+	"xconsole"
+	"xman"
+	"bs"
+	"Synaesthesia"
+}
+
+DontShowInDisplay
+{
+    "VTWM*"
+	"wm*" "as*" "*clock" 
+	"xosview"
+	"xneko"
+	"xmailbox" "xbiff"
+	"notifier"
+	"xman"
+	"Synaesthesia"
+}
+
+IconManagerDontShow { 
+    "VTWM*"
+	"wm*" "as*" "*clock" "Note*"
+	"xosview"
+	"xneko"
+	"xmailbox" "xbiff"
+	"notifier"
+	"xconsole"
+	"xman"
+	"bs"
+}
+
+
+# -- BEGIN city-vtwmrc --
+
+NoDefaults
+
+# Icon Manager
+ShowIconManager
+IconManagerGeometry "=272x38-0+62" 2
+SortIconManager
+IconManagerBevelWidth	1
+IconifyByUnmapping
+
+# Virtual Desktop
+VirtualDesktop	"4x1-0+5" 15 
+
+# General Windows and Menus
+RightHandSidePulldownMenus
+OldFashionedVtwmWindowsMenu
+
+# Window looks
+
+#ButtonColorIsFrame
+ShallowReliefWindowButton
+SunkFocusWindowTitle
+#NoHighlight
+
+BorderWidth				5
+
+BorderBevelWidth		2
+ButtonBevelWidth		1
+InfoBevelWidth			1
+MenuBevelWidth			1
+TitleBevelWidth			1
+
+ClearBevelContrast		40
+DarkBevelContrast		40
+
+# Fonts
+TitleFont		"-adobe-helvetica-bold-o-normal--*-120-*-*-*-*-*-*"
+ResizeFont		"-adobe-helvetica-bold-o-normal--*-120-*-*-*-*-*-*"
+MenuFont		"-adobe-helvetica-bold-o-normal--*-120-*-*-*-*-*-*"
+MenuTitleFont	"-adobe-helvetica-bold-o-normal--*-120-*-*-*-*-*-*"
+IconFont		"-adobe-helvetica-bold-o-normal--*-100-*-*-*-*-*-*"
+InfoFont		"-adobe-helvetica-bold-o-normal--*-100-*-*-*-*-*-*"
+IconManagerFont	"-adobe-helvetica-bold-o-normal--*-100-*-*-*-*-*-*"
+DoorFont		"-adobe-helvetica-bold-o-normal--*-100-*-*-*-*-*-*"
+VirtualDesktopFont "-adobe-helvetica-medium-o-normal--*-80-*-*-*-*-*-*"
+
+Function "VTWM Profile" {
+	f.exec		"xv -root backgrounds/gotham.jpg -q"
+}
+
+Doors
+{
+    "Home"		"72x25+665+5"		"+0+0"
+    "Work"		"72x25+665+40"		"+1096+0"
+    "Emuck"		"72x25+665+75"		"+2192+0"
+    "Misc"		"72x25+665+110"		"+3288+0"
+}
+
+# 9e9e a1a1 7c7c:%
+
+Color {
+	BorderColor                     "Black"
+	BorderTileBackground            "Black"
+	BorderTileForeground            "Black"
+	DefaultBackground               "Black"
+	DefaultForeground               "white"
+	TitleBackground                 "Black"
+	TitleForeground                 "white"
+	MenuBackground                  "Black"
+	MenuForeground                  "white"
+	MenuTitleBackground             "Black"
+	MenuTitleForeground             "white"
+	IconManagerBackground   "Black"
+	IconManagerForeground   "white"
+	VirtualBackground               "white"
+	VirtualForeground               "white"
+	DesktopDisplayForeground		"black"
+	DesktopDisplayBorder			"white"
+	DesktopDisplayBackground        "white"
+	DoorBackground 					"black"
+	DoorForeground					"white"
+}
+
+Pixmaps
+{
+	VirtualBackgroundPixmap "/home/viper/images/cityback.xpm"
+}
+
+LeftTitleButton "/home/viper/images/city-button1.xpm" = f.menu "window"
+RightTitleButton "/home/viper/images/city-button2.xpm" = f.iconify
+RightTitleButton "/home/viper/images/city-button3.xpm" = f.fullzoom
+
+Button1 = : frame : f.function "move-or-raiselower"
+Button2 = : frame : f.resize
+Button3 = : frame : f.iconify
+
+# -- END city-vtwmrc --
+#
+# Functions and Bindings
+#
+
+#InterpolateMenuColors
+
+Function "move-or-lower" { f.move f.deltastop f.lower }
+Function "move-or-raise" { f.move f.deltastop f.raise }
+Function "move-or-raiselower" { f.move f.deltastop f.raiselower }
+Function "move-or-iconify" { f.move f.deltastop f.iconify }
+
+# Set some useful bindings.  Sort of uwm-ish, sort of
+# simple-button-ish
+#
+Button1 = : root : f.menu "prg"
+Button2 = : root : f.menu "vtwm"
+Button3 = : root : f.menu "window"
+Button2 = m : root : f.menu "VTWM Windows"
+Button3 = m : root : f.version
+
+Button1 = : title : f.function "move-or-raiselower"
+Button2 = : title : f.iconify
+Button3 = : title : f.warpring "next"
+
+Button1 = m : window|icon : f.move
+Button2 = m : window|icon : f.raiselower
+Button3 = m : window|icon : f.resize
+
+Button1 = : iconmgr : f.iconify
+Button2 = : iconmgr : f.raiselower
+Button3 = : iconmgr : f.identify
+
+Button1 = : virtual|desktop : f.movescreen
+
+Button1 = : door : f.enterdoor
+
+# Set up useful keys.
+"Return" = : iconmgr : f.iconify
+
+"Up"	= m : all : f.panup "100"
+"Down"	= m : all : f.pandown "100"
+"Left"	= m : all : f.panleft "100"
+"Right"	= m : all : f.panright "100"
+
+"Left"	= s : all		  : f.backiconmgr
+"Right"	= s : all		  : f.forwiconmgr
+"Up"	= s : all		  : f.upiconmgr
+"Down"	= s : all		  : f.downiconmgr
+
+"Left"	= c : all		  : f.panleft "10"
+"Right"	= c : all		  : f.panright "10"
+"Up"	= c : all		  : f.panup "10"
+"Down"	= c : all		  : f.pandown "10"
+
+
+# MENUS
+
+menu "vtwm"
+{
+"vTwm"							f.title
+"vtwmrc"						f.menu "config"
+""								f.separator
+"All Windows"					f.menu "VTWM Windows"
+""								f.separator
+"Blank"							f.exec "xlock -nolock -mode blank -dpmsstandby 72000 -dpmssuspend 144000 &"
+"Braid"							f.exec "xlock -nolock -mode braid &"
+"Kaleid"						f.exec "xlock -nolock -mode kaleid &"
+"Marquee"						f.exec "xlock -nolock -mode marquee &"
+"Nose"							f.exec "xlock -nolock -mode nose &"
+""								f.separator
+"DPMS off"						f.exec "xset -dpms"
+"DPMS on"						f.exec "xset +dpms"
+"Standby"						f.exec "xset dpms force standby"
+""								f.separator
+"Restart"						f.restart
+"Redraw"       			    	 f.refresh
+"Quit"						    f.quit
+"wm2"							f.startwm "wm2"
+"gnome"							f.startwm "gnome-wm"
+}
+
+menu "config"
+{
+"vtwmrc"		f.title
+"vars"				f.exec "rxvt -e vim ~/.vtwm-themes/vtwm-standard-vars &"
+"lists"			f.exec "rxvt -e vim ~/.vtwm-themes/vtwm-standard-lists &"
+"rest"			f.exec "rxvt -e vim ~/.vtwm-themes/vtwm-standard-rest &"
+""				f.separator
+"edit themes"	f.menu "editThemes"
+"set theme"			f.menu "setTheme"
+}
+
+menu "editThemes"
+{
+"edit themes"	f.title
+"BE"			f.exec "rxvt -e vim ~/.vtwm-themes/BE-vtwmrc &"
+"city"			f.exec "rxvt -e vim ~/.vtwm-themes/city-vtwmrc &"
+"desire"		f.exec "rxvt -e vim ~/.vtwm-themes/desire-vtwmrc &"
+"mac"			f.exec "rxvt -e vim ~/.vtwm-themes/mac-vtwmrc &"
+"magic"			f.exec "rxvt -e vim ~/.vtwm-themes/magic-vtwmrc &"
+"motif"			f.exec "rxvt -e vim ~/.vtwm-themes/motif-vtwmrc &"
+"sgi"			f.exec "rxvt -e vim ~/.vtwm-themes/sgi-vtwmrc &"
+"seaside"		f.exec "rxvt -e vim ~/.vtwm-themes/seaside-vtwmrc &"
+}
+
+menu "setTheme"
+{
+"set theme"		f.title
+"BE"			f.exec "changeTheme BE"
+"city"			f.exec "changeTheme city"
+"desire"		f.exec "changeTheme desire"
+"mac"			f.exec "changeTheme mac"
+"magic"			f.exec "changeTheme magic"
+"motif"			f.exec "changeTheme motif"
+"sgi"			f.exec "changeTheme sgi"
+"seaside"		f.exec "changeTheme seaside"
+}
+
+menu "prg"
+{
+"Main"           f.title
+"rxvt"          f.exec "rxvt &"
+"xterm"			f.exec "xterm &"
+""              f.separator
+"plan"			f.exec "plan &"
+"xcalc"			f.exec "xcalc &"
+""              f.separator
+"xman"			f.exec "xman &"
+"tkinfo"		f.exec "tkinfo &"
+"xclipboard"	f.exec "xclipboard &"
+""              f.separator
+"Applications"	f.menu "applications"
+"Fun"			f.menu "fun"
+"Hosts"			f.menu "hosts"
+"System"		f.menu "system"
+"Permanents" 	f.menu "perm"
+}
+
+menu "perm"
+{
+"Permanents" 	f.title
+"asclock"		f.exec "asclock -shape -12 &"
+"asmail"		f.exec "asmail &"
+"pclock"		f.exec "pclock -w &"
+"wmnetselect"	f.exec "wmnetselect &"
+"wmGrabImage"	f.exec "rxvt -e wmGrabImage -h | less&"
+"wmMoonClock"	f.exec "wmMoonClock &"
+"wmWeather"		f.exec "wmWeather -s KCMI &"
+"xclock"		f.exec "xclock &"
+""				f.separator
+"asmodem"		f.exec "asmodem &"
+"asppp"			f.exec "asppp &"
+"wmfsm"			f.exec "wmfsm &"
+"wmifs"			f.exec "wmifs &"
+"wmmon"			f.exec "wmmon &"
+"wmmount"		f.exec "wmmount &"
+""				f.separator
+"asbutton"		f.exec "asbutton &"
+"aspostit"		f.exec "aspostit &"
+"wmcdplay"		f.exec "wmcdplay -s -a &"
+"wmpinboard"	f.exec "wmpinboard &"
+""				f.separator
+"wmglobe"		f.exec "wmglobe -bord 3 &"
+"xneko"	   		f.exec "xneko &"
+}
+
+menu "hosts"
+{
+"Hosts"			f.title
+"oed2"			f.exec "rxvt -T 'Oxford English Dictionary' -n oed2 -e oed2 &"
+"library"			f.exec "rxvt -T Library -n library -e telnet pac.ilcso.uiuc.edu &"
+""			f.separator
+"mtsthelens"	f.exec "rxvt -T mtsthelens -n mtsthelens -e ssh -l anle mtsthelens.cs.uiuc.edu &"
+"shasta"		f.exec "rxvt -T shasta -n shasta -e ssh -l anle shasta.cs.uiuc.edu &"
+""			f.separator
+"eads"			f.exec "rxvt -T eads -n eads -e ssh -l ale eads.ncsa.uiuc.edu &"
+"o2-2"			f.exec "rxvt -T o2-2 -n o2-2 -e ssh -l ale o2-2.ncsa.uiuc.edu &"
+"impact10"		f.exec "rxvt -T impact10 -n impact10 -e ssh -l ale impact10.ncsa.uiuc.edu &"
+""			f.separator
+"eesn10"		f.exec "rxvt -T eesn10 -n eesn10 -e ssh -l anle eesn10.ews.uiuc.edu &"
+"sparc1"		f.exec "rxvt -T sparc1 -n sparc1 -e ssh -l anle sparc1.cs.uiuc.edu &"
+"hp47"			f.exec "rxvt -T hp47 -n hp47 -e ssh -l anle hp47.cs.uiuc.edu &"
+""			f.separator
+"students"		f.exec "rxvt -T students -n students -e telnet students.uiuc.edu &"
+"amberthree"	f.exec "rxvt -T amberthree -n amberthree -e telnet game.emuck.com &"
+""			f.separator
+"Desire"		f.exec "rxvt -T Desire -n Desire -e tf emuck-de &"
+"Crowley"		f.exec "rxvt -T Crowley -n Crowley -e tf emuck-cr &"
+"Jaya-Ban"		f.exec "rxvt -T Jaya-Ban -n Jaya-Ban -e tf emuck-jb &"
+"Discworld"		f.exec "rxvt -T Discworld -n Discworld -e tf discworld &"
+}
+
+menu "system"
+{
+"System"			f.title
+"gitps-all"			f.exec "rxvt -e gitps ax &"
+"gitps-mine"		f.exec "rxvt -e gitps x &"
+"mempeak"			f.exec "rxvt -e mempeak &"
+"top"				f.exec "rxvt -e top &"
+"xload"				f.exec "xload &"
+"xosview"			f.exec "xosview &"
+""				f.separator
+"editres"			f.exec "editres &"
+"usernet"			f.exec "usernet &"
+"xcolorsel"			f.exec "xcolorsel &"
+"xfontsel"			f.exec "xfontsel &"
+"xmixer"			f.exec "xmixer &"
+"xtmix"				f.exec "xtmix &"
+}
+
+#-----APPLICATIONS-----
+menu "applications"
+{
+"Applications"	f.title
+"Editors"		f.menu "editors"
+"File"			f.menu "file"
+"Graphics"		f.menu "graphics"
+"Math"			f.menu "math"
+"Viewers"		f.menu "viewers"
+"Internet"		f.menu "internet"
+}
+
+menu "editors"
+{
+"Editors"		f.title
+"amaya"			f.exec "amaya &"
+"emacs"			f.exec "emacs &"
+"fluid"			f.exec "fluid &"
+"gvim"			f.exec "gvim &"
+"lyx"			f.exec "lyx &"
+"staroffice"	f.exec "/home/staroffice/bin/soffice &"
+"Ted"			f.exec "Ted &"
+"xedplus"		f.exec "xedplus &"
+"wordperfect"	f.exec "wordperfect &"
+}
+
+menu "file"
+{
+"File"		f.title
+"fr"		f.exec "fr &"
+"mc"		f.exec "xterm -e mc &"
+"xdir"		f.exec "xdir &"
+}
+
+menu "graphics"
+{
+"Graphics"      f.title
+"dia"			f.exec "dia &"
+"gimp"          f.exec "gimp &"
+"xbmbrowser"	f.exec "xbmbrowser &"
+"xfig"			f.exec "xfig &"
+"xpaint"        f.exec "xpaint &"
+"xv"            f.exec "xv &"
+}
+
+menu "math"
+{
+"Math"			f.title
+"cbb"			f.exec "cbb &"
+"gnucash"		f.exec "gnucash &"
+"gnuplot"		f.exec "xterm -e gnuplot &"
+"octave"		f.exec "xterm -e octave &"
+"teapot"		f.exec "xterm -e teapot -n &"
+"xesslite"		f.exec "xesslite &"
+"yacas"			f.exec "yacasnotepad &"
+}
+
+menu "sound"
+{
+"Sound"	        f.title
+"rvplayer"		f.exec "rvplayer &"
+"wmcdplay"		f.exec "wmcdplay &"
+"x11amp"        f.exec "x11amp &"
+"xsynaesthesia"	f.exec "/usr/games/xsynaesthesia cd &"
+"xplaycd"		f.exec "xplaycd &"
+}
+
+menu "viewers"
+{
+"Viewers"		f.title
+"ghostview"		f.exec "gv &"
+"xdvi"			f.exec "xdvi &"
+"xpdf"			f.exec "xpdf &"
+}
+
+menu "internet"
+{
+"Internet"    		f.title
+"appindex"			f.exec "rxvt -e appindex &"
+""					f.separator
+"gMOO"				f.exec "gMOO &"
+"gaim"				f.exec "gaim &"
+"tik"				f.exec "tik &"
+"xchat"             f.exec "xchat &"
+"ccso"				f.exec "rxvt -g 80x38 -e slrn -h news.cso.uiuc.edu &"
+"lspace"			f.exec "rxvt -g 80x38 -e slrn -h news.lspace.org &"
+""					f.separator
+"lynx"       		f.exec "rxvt -e lynx &"
+"netscape"      	f.exec "netscape &"
+"ncftp"				f.exec "rxvt -e ncftp &"
+""					f.separator
+"mutt"				f.exec "rxvt -e mutt &"
+}
+
+menu "fun"
+{
+"Fun"				f.title
+"Amusements"		f.menu "amuse"
+"Sound"				f.menu "sound"
+"Solitaire"			f.menu "sol"
+"Strategy Games"	f.menu "strategy"
+"Video Games"		f.menu "video"
+}
+
+menu "amuse"
+{
+"Amusements"	f.title
+"xeyes"			f.exec "xeyes &"
+"xfishtank"		f.exec "xfishtank &"
+"xlife"			f.exec "xlife &"
+"xneko"			f.exec "xneko &"
+"xshodo"		f.exec "xshodo &"
+"xsnow"			f.exec "xsnow &"
+}
+
+menu "sol"
+{
+"Solitaire"		f.title
+"freecell"		f.exec "freecell &"
+"golf"			f.exec "golf &"
+"gtkballs"			f.exec "gtkballs &"
+"minesweep"		f.exec "minesweeper &"
+"same-gnome"	f.exec "same-gnome &"
+"taipedit"		f.exec "taipedit &"
+"taipei"		f.exec "taipei &"
+"xpat2"			f.exec "xpat2 &"
+"xmahjongg"		f.exec "xmahjongg &"
+"xsokoban"		f.exec "xsok &"
+}
+
+menu "strategy"
+{
+"Strategy Games"	f.title
+"xamigo"			f.exec "xamigo &"
+"xboard"			f.exec "xboard &"
+"xgammon"			f.exec "xgammon &"
+"jester"			f.exec "jester &"
+"xscrabble"			f.exec "xscrabble &"
+"xshogi"			f.exec "xshogi &"
+}
+
+menu "video"
+{
+"Video Games"		f.title
+"xbill"				f.exec "xbill &"
+"xemeraldia"		f.exec "xemeraldia &"
+"xjewel"			f.exec "xjewel &"
+"xpipeman"			f.exec "xpipeman &"
+"xtetris"			f.exec "xtetris &"
+"xtrojka"			f.exec "xtrojka &"
+}
+#-----END APPLICATIONS----
+
+
+menu "window"
+{
+"X Windows"      f.title
+"Delete Window"  f.delete
+"Kill Window"    f.destroy
+"Identify"		 f.identify
+"Ring"			 f.ring
+""				 f.separator
+"Maximize"       f.fullzoom
+"Maxheight"		 f.zoom
+"Maxwidth"		 f.horizoom
+"Minimize"       f.iconify
+"Resize"         f.resize
+"Move"           f.move
+"Raise"          f.raise
+"Lower"          f.lower
+""               f.separator
+"Nail"			 f.nail
+"Above"			 f.nailedabove
+"Refresh"		 f.winrefresh
+"Snuggle"		 f.snugwindow
+""               f.separator
+"^--"			 f.squeezeleft
+"-^-"			 f.squeezecenter
+"--^"			 f.squeezeright
+}

@@ -1,0 +1,13 @@
+# _metadata.toml describes the files in this directory: each [[entry]] names files and records
+# what is known about them (mtime, contributor, date, text...). Same shape everywhere.
+# Here: the contributed setups, who sent them and when; {{< contributions >}} is one view of it.
+
+[[entry]]
+files = ["screenshots/icewm.gif"]
+text = "Added in September 1999, a [screenshot](screenshots/icewm.gif) (78k) showing the \"aesthetech\" theme."
+
+[[entry]]
+from = "covex@ahoj.fsik.cvut.cz"
+added = "2003-09"
+files = ["screenshots/icewm-covex.png"]
+text = "This [screenshot](screenshots/icewm-covex.png) (152k) shows the Kliin theme with [these icons.](http://sandbox.cz/~covex/icewm/iceicons/)"

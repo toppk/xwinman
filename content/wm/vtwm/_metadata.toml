@@ -1,0 +1,47 @@
+# _metadata.toml describes the files in this directory: each [[entry]] names files and records
+# what is known about them (mtime, contributor, date, text...). Same shape everywhere.
+# Here: the contributed setups, who sent them and when; {{< contributions >}} is one view of it.
+
+[[entry]]
+from = "cudcv@csv.warwick.ac.uk"
+added = "1996-06"
+files = ["rc/vtwmrc-cudcv", "screenshots/vtwm-cudcv.gif"]
+text = "[vtwmrc](rc/vtwmrc-cudcv), [screenshot](screenshots/vtwm-cudcv.gif) (16k)."
+
+[[entry]]
+from = "stuce@csv.warwick.ac.uk"
+added = "1996-06"
+files = ["rc/vtwmrc-stuce", "screenshots/vtwm-stuce.gif", "rc/xsession-stuce"]
+text = "[vtwmrc](rc/vtwmrc-stuce), [screenshot](screenshots/vtwm-stuce.gif) (233k). This setup is used with this [xsession](rc/xsession-stuce) file."
+
+[[entry]]
+from = "matt@belgarath.org"
+added = "1996-06"
+files = ["rc/vtwmrc-matt", "screenshots/vtwm-matt.gif"]
+text = "[vtwmrc](rc/vtwmrc-matt), [screenshot](screenshots/vtwm-matt.gif) (16k)."
+
+[[entry]]
+from = "viper@hh-threshold.csh.uiuc.edu"
+added = "1999-10"
+files = ["rc/vtwmrc-viper", "screenshots/vtwm-viper.jpg", "rc/xclients-viper"]
+text = "[vtwmrc](rc/vtwmrc-viper), [screenshot](screenshots/vtwm-viper.jpg) (215k). This setup also makes use of an [~/.Xclients](rc/xclients-viper) file."
+
+[[entry]]
+from = "richard_k@gmx.net"
+added = "2001-04"
+files = ["rc/vtwmrc-richard_k", "screenshots/vtwm-richard_k.png"]
+text = "[vtwmrc](rc/vtwmrc-richard_k), [screenshot](screenshots/vtwm-richard_k.png) (129k)."
+
+[[entry]]
+from = "hawkeyd@visi.com"
+added = "1997-10"
+files = ["rc/vtwmrc-hawkeyd", "screenshots/vtwm-hawkeyd.gif"]
+text = "This [vtwmrc](rc/vtwmrc-hawkeyd) and [screenshot](screenshots/vtwm-hawkeyd.gif) (100k) is from the first release of the vtwm-5.4.x series."
+list = 2
+
+[[entry]]
+from = "pronic@gmail.com"
+added = "2005-01"
+files = ["rc/vtwmrc-tronic", "screenshots/vtwm-tronic.jpg"]
+text = "This [vtwmrc](rc/vtwmrc-tronic) and [screenshot](screenshots/vtwm-tronic.jpg) (124k) is from vtwm-5.4.6b."
+list = 2

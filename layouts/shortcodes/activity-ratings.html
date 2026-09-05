@@ -1,0 +1,5 @@
+{{- /* data/activity.toml as the Notes page table */ -}}
+<table border=1>
+<tr> <th> Rating</th> <th>Explanation</th> </tr>
+{{ range hugo.Data.activity.rating }}<tr> <td>{{ .name }}</td> <td>{{ .explanation }}</td> </tr>
+{{ end }}</table>

@@ -1,0 +1,180 @@
+# _metadata.toml describes the files in this directory: each [[entry]] names files and records
+# what is known about them (mtime, contributor, date, text...). Same shape everywhere.
+# Here: the timestamps Apache showed for xwinman.org/archive/ (Wayback Machine captures, see
+# docs/restoration.md), which git cannot keep; `migrate.py collections` applies them before a build.
+
+[[entry]]
+files = ["."]
+mtime = 2005-07-03T20:52:00+01:00
+
+[[entry]]
+files = ["9wm"]
+mtime = 1996-02-09T00:00:00+00:00
+
+[[entry]]
+files = ["afterstep"]
+mtime = 2002-06-04T10:39:00+01:00
+
+[[entry]]
+files = ["amiwm"]
+mtime = 2002-11-11T21:28:00+00:00
+
+[[entry]]
+files = ["awm"]
+mtime = 2003-11-13T22:33:00+00:00
+
+[[entry]]
+files = ["blackbox"]
+mtime = 2002-11-11T21:31:00+00:00
+
+[[entry]]
+files = ["ctwm"]
+mtime = 2002-06-04T10:37:00+01:00
+
+[[entry]]
+files = ["cwm"]
+mtime = 2002-01-19T12:01:00+00:00
+
+[[entry]]
+files = ["dwim"]
+mtime = 2002-01-19T11:59:00+00:00
+
+[[entry]]
+files = ["enlightenment"]
+mtime = 2002-01-19T12:01:00+00:00
+
+[[entry]]
+files = ["fluxbox"]
+mtime = 2003-04-26T23:45:00+01:00
+
+[[entry]]
+files = ["fvwm"]
+mtime = 2002-06-04T10:38:00+01:00
+
+[[entry]]
+files = ["gwm"]
+mtime = 2002-01-19T11:59:00+00:00
+
+[[entry]]
+files = ["icewm"]
+mtime = 2005-07-03T20:52:00+01:00
+
+[[entry]]
+files = ["iwm"]
+mtime = 2002-01-19T11:59:00+00:00
+
+[[entry]]
+files = ["kde-kwm"]
+mtime = 2002-01-19T12:00:00+00:00
+
+[[entry]]
+files = ["kwm"]
+mtime = 2002-01-19T12:00:00+00:00
+
+[[entry]]
+files = ["lwm"]
+mtime = 2002-01-19T12:00:00+00:00
+
+[[entry]]
+files = ["m_swm"]
+mtime = 1996-02-09T00:00:00+00:00
+
+[[entry]]
+files = ["metacity"]
+mtime = 2002-11-11T21:29:00+00:00
+
+[[entry]]
+files = ["missing.txt"]
+mtime = 2002-01-19T12:03:00+00:00
+
+[[entry]]
+files = ["mosquito"]
+mtime = 2002-02-22T22:46:00+00:00
+
+[[entry]]
+files = ["olvwm"]
+mtime = 2002-01-19T12:03:00+00:00
+
+[[entry]]
+files = ["olwm"]
+mtime = 2002-01-19T12:03:00+00:00
+
+[[entry]]
+files = ["piewm"]
+mtime = 2002-01-19T11:58:00+00:00
+
+[[entry]]
+files = ["pstwm"]
+mtime = 2002-01-19T11:58:00+00:00
+
+[[entry]]
+files = ["qvwm"]
+mtime = 2002-01-19T11:58:00+00:00
+
+[[entry]]
+files = ["rtl"]
+mtime = 1996-02-09T00:00:00+00:00
+
+[[entry]]
+files = ["sawfish"]
+mtime = 2002-11-11T21:31:00+00:00
+
+[[entry]]
+files = ["scwm"]
+mtime = 2002-01-19T11:56:00+00:00
+
+[[entry]]
+files = ["swm"]
+mtime = 2002-01-19T11:56:00+00:00
+
+[[entry]]
+files = ["tekwm"]
+mtime = 1996-02-09T00:00:00+00:00
+
+[[entry]]
+files = ["tkwm"]
+mtime = 2002-01-19T11:57:00+00:00
+
+[[entry]]
+files = ["tvtwm"]
+mtime = 2002-01-19T11:57:00+00:00
+
+[[entry]]
+files = ["twm"]
+mtime = 2001-12-11T21:59:00+00:00
+
+[[entry]]
+files = ["uwm"]
+mtime = 2002-01-19T11:57:00+00:00
+
+[[entry]]
+files = ["vtwm"]
+mtime = 2002-06-04T10:37:00+01:00
+
+[[entry]]
+files = ["vwm"]
+mtime = 2002-01-19T11:57:00+00:00
+
+[[entry]]
+files = ["windowmaker"]
+mtime = 2002-11-11T21:32:00+00:00
+
+[[entry]]
+files = ["wm"]
+mtime = 1996-02-09T00:00:00+00:00
+
+[[entry]]
+files = ["wm2"]
+mtime = 2002-01-19T11:57:00+00:00
+
+[[entry]]
+files = ["wmx"]
+mtime = 2002-01-19T11:57:00+00:00
+
+[[entry]]
+files = ["xnwm"]
+mtime = 2002-01-19T11:57:00+00:00
+
+[[entry]]
+files = ["xwm"]
+mtime = 1996-02-09T00:00:00+00:00

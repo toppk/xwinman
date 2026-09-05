@@ -1,0 +1,48 @@
+FastQuit No
+SizeBorder None 
+IconPalette MagicWB
+#IconPalette System
+Bardetailpen "green"
+Backgroundpen "black"
+Barblockpen "black"
+Highlighttextpen "blue"
+Textpen "blue"
+Filltextpen "blue"
+Fillpen "black"
+Bartrimpen "green"
+Shadowpen "green"
+Shinepen "blue"
+Blockpen "yellow"
+Detailpen "red"
+DefaultIcon "def_tool.info"
+Screen "Matrix Desk"
+Module "Background" "-colors 256 -fullscreen /home/guibo/matrix_007.jpg"
+Screen "Mail Desk"
+Module "Background" "-colors 100 -fullscreen /home/guibo/matrix_015.jpg"
+Screen "Internet"
+#Module "Background" "-colors 200 -fullscreen /home/guibo/matrix_008.jpg"
+Module "Keyboard" "\
+	<F1>:all:rotatescreens\
+	<F2>:window|frame:iconify\
+	<F3>:window|frame:front\
+	<F4>:window|frame:back"
+AutoRaise Yes 
+ToolItem Separator
+ToolItem "Xterm" "xterm -reverse"
+ToolItem "Netscape" "netscape"
+ToolItem "Opera" "/usr/local/opera/opera"
+ToolItem Separator
+ToolItem "Gqview" "gqview"
+ToolItem "Gkrellm" "gkrellm"
+ToolItem "Sylpheed" "sylpheed"
+ToolItem "Gtkicq" "gtkicq > /dev/null"
+ToolItem "StarOffice" "/home/soffice5.2/soffice"
+ToolItem "Gftp" "gftp"
+ToolItem "DL"	"nt"
+ToolItem "Xchat" "xchat"
+ToolItem "Graphics"
+	{
+	ToolItem "xv" "xv"
+	ToolItem "Gqview" "gqview"
+	ToolItem "Dia" "dia"
+	}

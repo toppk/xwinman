@@ -1,0 +1,9 @@
+{{- $ref := .cell }}{{ $span := 0 }}
+{{- if reflect.IsMap .cell }}{{ $ref = .cell.ref }}{{ $span = .cell.colspan }}{{ end }}
+{{- $p := .site.GetPage (printf "/%s" $ref) }}
+{{- if not $p }}{{ errorf "home grid: %s not found" $ref }}{{ end }}
+{{- with $p.Params.logo_sm }}
+						<td{{ with $span }} colspan="{{ . }}"{{ end }}><a href="{{ path.Base $p.RelPermalink }}"><img
+								src="images/{{ .file }}" alt="{{ .alt }}" border=0
+								WIDTH="{{ .width }}"{{ with .height }} HEIGHT="{{ . }}"{{ end }}{{ with .extra }} {{ . | safeHTMLAttr }}{{ end }}></a></td>
+{{- else }}{{ errorf "home grid: %s has no logo_sm" $p.Path }}{{ end }}

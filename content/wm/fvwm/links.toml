@@ -1,0 +1,33 @@
+# Related sites, rendered by {{< links >}}.
+
+[[link]]
+name = "The Official FVWM Home Page"
+url = "http://www.fvwm.org"
+
+[[link]]
+name = "The Official FVWM Themes Home Page"
+url = "http://fvwm-themes.sourceforge.net/"
+
+[[link]]
+name = "Fvwm2 themes"
+url = "http://www.geocities.com/bluesmani/"
+
+[[link]]
+name = "AnotherLevelUp"
+url = "http://www.cs.man.ac.uk/~jtl/ALU/"
+
+[[link]]
+name = "Fvwm Configs"
+url = "http://www.igs.net/~tril/fvwm/configs/index.html"
+
+[[link]]
+name = "Fvwm themes, including a CDE emulation."
+url = "http://www.xs4all.nl/~josvanr/fvwm.html"
+
+[[link]]
+name = "Themes for FVWM 2.4.XX"
+url = "http://www.ilstu.edu/~mrgibso/"
+
+[[link]]
+name = "Eric's Big Blue-Steel Desktop"
+url = "http://www.catb.org/~esr/fvwm2/"

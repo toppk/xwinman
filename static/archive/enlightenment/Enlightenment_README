@@ -1,0 +1,129 @@
+                    INSTRUCTIONS FOR INSTALLING ENLIGHTENMENT
+
+-------------
+First creds::::
+--------------
+ME (Raster) .. Carsten HAitzler is behind this.. it's mine. okay?
+--------------
+Ben Buxton (bb@zip.com.au, Rifleman) is the great dude behind XawXPM :-)
+bb@zip.com.au
+http://www.zip.com.au/~bb/linux/
+-------------
+Joonas Lehtinen for the wonderful "Hotmarble" Render.. used 
+for the one of the backgrounds (the ball , flames & checkerboard)
+jojule@utu.fi
+http://cray.tuug.utu.fi/~phoenix/
+-------------
+-------------
+
+very simple:
+
+go to /usr/X11/bin
+
+cd /usr/X11/bin
+mv rxvt rxvt.old
+
+now go to / (root)
+and unarchive enlightenment1.0.alpha_test.tar.gz
+like:
+
+cd /
+tar zxvf enlightenment1.0.alpha_test.tar.gz
+
+now make sure rxvt is suid root.. so as root....
+
+cd /usr/local/enlightenment/bin
+chmod a+r+x+s rxvt
+
+and just check that un /usr/X11/bin there is a symbolic link from rxvt to
+/usr/local/enlightenment/bin/rxvt
+
+cd /usr/X11/bin
+
+ls -al rxvt
+
+gives you ...
+
+   0 lrwxrwxrwx   1 root     root           33 Oct 22 20:24 rxvt -> /usr/local/enlightenment/bin/rxvt*         
+
+then unless you already have XawXPM (from Rifleman.. Ben Buxton)...
+and you have a SHITLOAD of fonts (trust me this will give you  alot more
+fonts to chose from)
+
+cd /
+tar zxvf Xupgrade.tar.gz
+
+You have SHITLOADS OF FONTS??????
+if you do.. you will need to get the neuxsfont.tar.gz from me and manually
+install it. I assume you knwo how to install fonts and edit the fonnts.dir and
+fonts.alias properly (just find the nexus entry in the files provided).
+
+now for each user that wants to run enligthenment.. su to them (or log in as
+them) and then in their home direcory (~/):
+cd ~/
+tar zxvf Userfiles.tar.gz
+
+and you're done. This will have overwritten the users .xsession, .Xdefaults
+and .xpmrc if they have any of these. Don't worry. this is good. Now the
+next time you log in form xdm you'll be in enlightenment.
+
+HGave a play with it.
+
+quick user inteface guide:
+
+buttons along window title form left to right:
+button1 with left mouse = iconise
+button1 with middle mouse = iconise
+button1 with right mouse = iconise
+
+button2 with left mouse = kill
+button2 with middle mouse = kill
+button2 with right mouse = kill
+
+button3 with left mouse = max height toggle
+button3 with middle mouse = max width toggle
+button3 with right mouse = max size toggle
+
+button4 with left mouse = raise/lower
+button4 with middle mouse = raise/lower
+button4 with right mouse = raise/lower
+
+on the tilebar:
+
+left button = drag
+middle button = nothing
+right button = window actions menu
+
+on the border:
+
+left button = resize
+middle button = move
+right button = kill
+
+on an icon:
+
+left button = uniconise
+middle button = window actions menu
+right button = kill
+
+Just try clicking on the buttons on the buttonbar.. you'll fid they laod
+different stufff.. the bottom button brings up a logout menu.
+the linux button btings up a background selection menu.
+just take a look at the menus wiht left, middle and right button on the root
+window. left button bring sup the main menu, middle brings up widnopw
+actions menu and right birngs up a windows menu. selecting any entry in thsi
+window menu wil warp you to that window.. if that window is iconised.. it
+will uniconiuse it. very windowsish .. ;-( but i had it liek this long
+before win95 ever existed.
+the top left is your pager for changing workspaces, and below that is your
+system load.
+
+Enjoy!
+
+Cya!
+
+The Rasterman.... you can call me raster
+
+raster@zip.com.au
+s2154962@cse.unsw.edu.au
+

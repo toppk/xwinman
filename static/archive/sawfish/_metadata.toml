@@ -1,0 +1,16 @@
+# _metadata.toml describes the files in this directory: each [[entry]] names files and records
+# what is known about them (mtime, contributor, date, text...). Same shape everywhere.
+# Here: the timestamps Apache showed for xwinman.org/archive/ (Wayback Machine captures, see
+# docs/restoration.md), which git cannot keep; `migrate.py collections` applies them before a build.
+
+[[entry]]
+files = ["sawfish-1.1-gtk1.tar.gz"]
+mtime = 2002-11-11T21:31:00+00:00
+
+[[entry]]
+files = ["sawfish-1.1a-gtk2.tar.gz"]
+mtime = 2002-11-11T21:30:00+00:00
+
+[[entry]]
+files = ["sawmill-0.15.tar.gz"]
+mtime = 2002-11-11T21:31:00+00:00

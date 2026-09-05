@@ -1,0 +1,506 @@
+###############################################################################
+#
+# Icon Path
+#
+IconPath /usr/include/X11/pixmaps
+
+###############################################################################
+# Module Path
+ModulePath /usr/X11/lib/X11/fvwm2
+
+##############################################################################
+# FvwmPager
+##############################################################################
+#
+Module FvwmPager 0 1
+*FvwmPagerGeometry +0+0
+*FvwmPagerBack white
+*FvwmPagerFore #484048
+*FvwmPagerFont -adobe-helvetica-bold-r-*-*-11-*-*-*-*-*-*-*
+*FvwmPagerHilight snow4
+*FvwmPagerGeometry -1-1
+*FvwmPagerLabel 0 Oreos
+*FvwmPagerLabel 1 The World
+#*FvwmPagerLabel 2 Nscape
+#*FvwmPagerLabel 3 Faser
+#*FvwmPagerLabel 4 ZMail
+#*FvwmPagerLabel 5 Other
+*FvwmPagerSmallFont 5x8
+
+
+###############################################################################
+# The Identify Module...
+###############################################################################
+#
+*FvwmIdentBack  MidnightBlue
+*FvwmIdentFore  Yellow
+*FvwmIdentFont  -bitstream-charter-medium-r-*-*-*-160-*-*-*-*-*-*
+
+###############################################################################
+# The Window List Module
+###############################################################################
+#
+*FvwmWinListBack        #908090
+*FvwmWinListFore        Black
+*FvwmWinListFont        -bitstream-charter-medium-r-*-*-*-160-*-*-*-*-*-*
+*FvwmWinListAction Click1 Iconify -1,Raise
+*FvwmWinListAction Click2 Iconify 1
+*FvwmWinListAction Click3 Module "FvwmIdent" FvwmIdent
+*FvwmWinListUseSkipList
+*FvwmWinListGeometry +0-1
+
+###############################################################################
+# The IconBox
+###############################################################################
+#
+# Module FvwmIconBox
+#*FvwmIconBoxSortIcons
+#*FvwmIconBoxPlacement Top Left
+#*FvwmIconBoxGeometry +1-1
+
+###############################################################################
+#
+# This ends the module descriptions ... not much here but I am working on it.
+# Very soon I should have this FvwmForm worked out ... as well as the
+# FvwmScroll module and FvwmPrompt ...
+#
+###############################################################################
+
+###############################################################################
+#
+# Now the fonts -one for menus/icons, another for window titles
+###############################################################################
+WindowFont          "-*-new century schoolbook-medium-r-*-*-14-*-75-75-*-*"
+IconFont            "-*-new century schoolbook-medium-r-*-*-14-*-75-75-*-*"
+###############################################################################
+#
+# Set up the major operating modes
+#
+
+OpaqueMoveSize 70
+XORvalue 5
+ClickTime 150
+HilightColor MediumAquamarine DarkOrchid
+###############################################################################
+#
+# Set up the virtual desktop and pager
+#
+
+#set the desk top size in units of physical screen size
+DeskTopSize 1x1
+# and the reduction scale used for the panner/pager
+
+# Use the Fvwm Pager
+#Pager -5 -5
+
+#The pager is automatically sticky, but I like it to StayOnTop
+#StaysOnTop Fvwm Pager
+
+# flip by whole pages on the edge of the screen.
+EdgeScroll 100 100
+EdgeResistance 10000 0
+
+##############################################################################
+#
+# Styles
+##############################################################################
+# Menu Style ....
+#
+MenuStyle  black  Gray65 grey "-*-new century schoolbook-medium-r-*-*-14-*-75-75-*-*-*-*" 
+###############################################################################
+#
+# Fvwm main style declarations ... can you stick fonts here ... ?
+
+Style "*" IconBox 0 -100 -1 -1
+Style "*" ClickToFocus
+Style "*" MWMBorder, MWMButtons, MWMFunctions, MWMDecor, HintOverride
+Style "*" ForeColor Black, BackColor aquamarine4
+Style "*" RandomPlacement
+
+#
+# Fvwm program styles
+#
+Style "tkgoodstuff" NoTitle, NoHandles, Sticky
+Style "tkgoodstuff" BorderWidth 0, CirculateSkipIcon, CirculateSkip
+
+ButtonStyle 6 13 20x20@1 40x20@1 50x50@0 60x20@1 80x20@1 60x50@0 80x80@0 60x80@0 50x50@1 40x80@0 20x80@0 40x50@1 20x20@1
+
+Style "xclock"       Sticky, NoTitle
+Style "xload"        Sticky, NoTitle
+Style "xeyes"        NoTitle, WindowListSkip
+Style "oclock"       NoTitle
+Style "xbiff"        NoTitle, Sticky
+Style "Fvwm Pager"   NoTitle, Sticky
+Style "*Buttons"     NoTitle, Sticky
+Style "FvwmIconBox"  Sticky
+Style "FvwmPa*" Notitle, Sticky
+# Icons
+Style "color_xterm"   Icon term.xpm
+Style "xterm*"	Icon term.xpm
+Style "FvwmPa*" Icon fvwm.xpm
+Style "xcalc"   Icon Calculator.xpm
+Style "xman"    Icon xman.xpm
+Style ""        Icon koala.xpm
+Style "xrn"     Icon xrn.goodnews.xpm
+Style "xv"      Icon xv.color.xpm
+Style "xpaint"  Icon daisy.xpm
+Style "xgopher" Icon hagar.xpm
+Style "xemacs"  Icon xemacs.xpm
+Style "gimp"	Icon paint.xpm
+Style "*Programming*"	Icon C.xpm
+Style "*ack*" Icon CompactDisk.xpm
+Style "xconsole" Icon Diavolo.xpm
+###############################################################################
+#
+# Thats all for styles ... refer to the man page for more info as well as the
+# /usr/lib/X11/fvwm/sample.fvwmrc or .fvwmrc file ...
+#
+###############################################################################
+
+###############################################################################
+#
+# Functions and menus are next ... it's kinda haphazard in the way it's set up
+# but I know it 'like the back of my hand' ...
+#
+
+###############################################################################
+#
+# Stuff to do at start-up
+#
+AddToFunc InitFunction
++ "I"	Exec exec /usr/local/lib/tkgoodstuff/tkgoodstuff.tcl &
++ "I"	Exec exec xeyes &
+ "I"   Module FvwmPager
+#+ "I"   Exec exec xrsh scunix4 -ls -fg MediumAquamarine -bg black -iconic -xrm "*Desk:1" -d park6.student.harvard.edu:0.0
+
+AddToFunc RestartFunction
+#+ "I"	Exec exec /usr/local/lib/tkgoodstuff/tkgoodstuff.tcl &
+#+ "I"   Exec exec /usr/X11/bin/xrsh scunix4 -ls -fg MediumAquamarine -bg black -iconic -xrm "*Desk:1" -d park6.student.harvard.edu:0.0
+
+###############################################################################
+#
+# Now define the menus - defer bindings until later
+#
+
+#
+AddToMenu Modules "Fvwm Modules"  Title
++       ""              Nop
++       "FvwmButtons"   Module FvwmButtons
++       "IconBox"       Module FvwmIconBox
++       "WinList"       Module FvwmWinList
++       "Audio"         Module FvwmAudio
++       "Save Desk"     Module FvwmSaveDesk
++       "Identify"      Module FvwmIdent
++       "Pager"         Module FvwmPager 0 5
++       ""              Nop
+
+#
+# Thanks ftp.rrzn.uni-hannover.de:/pub/unix/xwpe ...
+# and of course GNU, w/o gcc and g++ I don't think I could
+# live with myself...
+#
+
+# The main Default Menu
+#
+# This defines the most common window operations
+
+AddToMenu WindowOps "Window Ops"   Title
++       ""             Nop
++       "Move"         Move
++       "Resize"       Resize
++       "Raise"        Raise
++       "Lower"        Lower
++       "(De)Iconify"  Iconify
++       "(Un)Stick"    Stick
++       "Maximize" Maximize 100 100
++       "Maximize Vertical" Maximize 0 100
++       ""             Nop
++       "Destroy"      Destroy
++       "Delete"       Delete
++       ""             Nop
+
+
+
+AddToMenu Module-Popup "Modules!" Title
++      "FvwmButtons"    Module FvwmButtons
++      "SideButtons"    Module SideButtons
++      "FileMgr"        Module FvwmFileMgr
++      "IconBox"        Module FvwmIconBox
++      "Ident"          Module FvwmIdent
++      "Pager"          Module FvwmPager 0 5
++      "WinList"        Module FvwmWinList
++      "Audio"          Module FvwmAudio
+
+AddToMenu WindowOps1 "WindowOps1"       Title
++        "Move" Move
++        "Resize" Resize
++        "Raise" Raise
++        "Lower" Lower
++        "(De)Iconify" Iconify
++        "(Un)Stick" Stick
++        "Maximize" Maximize
++        "Maximize  Vertical" Maximize    0 100
++        ""        Nop
++        "Destroy" Destroy
++        "Delete"  Delete
+
+
+
+# This menu checks to make sure you REALLY want to log out,
+# assuming killing the WM will kick you out of X.
+AddToMenu       Logout-Verify "Logout-Verify"   Title
++       ""                 Nop
++       "Yes, log me out." Quit
++       "No, cancel that." Nop
+
+# This defines the most common window operations
+# As with the key bindings (see below), these were appropriated from
+# a stock SGI .4Dwmrc file --tabaer@magnus
+AddToMenu Window-ops "Window Ops"
++       "Restore  (Alt-F5)"     Raise
++       "Move     (Alt-F7)"     Move
++       "Resize   (Alt-F8)"     Resize
++       "Minimize (Alt-F9)"     Iconify
++       "Maximize (Alt-F10)"    Maximize 100 100
++       "Raise    (Alt-F1)"     Raise
++       "Lower    (Alt-F3)"     Lower
++       "WinList  (Alt-F6)"     WindowList
++       ""                      Nop
++       "Close    (Alt-F4)"     Destroy
++       "Quit     (Alt-F2)"     Delete
+
+ 
+AddToMenu ProgTools "XWpe"  Title
++       ""            Nop
++	"*C.xpm*"	
++       "XWpe"        Exec exec xwpe -fn 10x20 &
++       "XWe"         Exec exec xwe -fn 10x20 &
++       ""            Nop
+
+AddToMenu Xterms ""
++	"park6" Exec exec color_xterm -sb -sl 48 -fg cyan -bg black -ls -T park6 -n park6 &
++	Exec exec xrsh -l park6 -auth xauth -pass ENV scws35 xterm -d park6.student.harvard:0.0
++	"scunix4 (park6)" Exec exec /usr/X11/bin/xrsh -l park6 scunix4 xterm -fg orange -bg black -ls -d park6.student.harvard:0.0 
++	"scws35" Exec exec color_xterm -fg cyan -bg black -ls -T scws35 -n scws35 -e telnet scws35 &
++	"scunix4" Exec exec color_xterm -fg cyan -bg black -ls -T scunix4 -n scunix4 -e telnet scunix4 & 
+
+AddToMenu NetApps ""
++ 	"Xterms"  Popup	Xterms
++	"Netscape" Exec exec netscape &
++	"Ftp"	Exec exec xftp &
+
+AddToMenu Utils "Utilities" Title
++	""	Nop
++	"Calculator" Exec exec xcalc &
++	"Xcolorsel" Exec exec xcolorsel &
++	"Xfontsel" Exec exec xfontsel &
+
+AddToMenu Multimedia "Multimedia" Title
++	""	Nop
++	"Workman" Exec exec workman &
++	"Xview" Exec exec xv &
++	"Gimp"	Exec exec gimp &
+
+AddToMenu Misc "Miscellaneous" Title
++       "Restart fvwm"  Restart fvwm2
+#+       "Quit fvwm"     Popup   Quit-Verify
++       "Refresh All"   Refresh
+#+       "Blank Xlock"   Exec    exec xlock -remote -mode blank &
++       "Daemon Xlock"  Exec    exec xlock -remote -mode life3d &
++       "Log Out"       Popup   Logout-Verify
+
+#4dwm-ish long root window --tabaer@magnus
+AddToMenu LongRootMenu "Oreos" Title
+#+       ""      Nop
++       "*x.xpm*"  Exec exec color_xterm -sb -sl 48 -fg cyan -bg black -ls -T park6 -n park6 &
+ 
+#+       "Shuffle Up"    CirculateUp
+#+       "Shuffle Down"  CirculateDown
+
++       ""      Nop
++	"Network Apps"   Popup NetApps
++	"Programming"	Popup ProgTools
++	"Multimedia"	Popup Multimedia
++	"Utilities"	Popup Utils
++	"Modules"	Popup Modules
++	"" Nop
+
+###############################################################################
+#
+# Here lies the key binding functions as well as the mouse functions
+#
+#
+# This raises or lowers based on RaiseLower but will also do the Move
+AddToFunc Raise-or-Lower-or-Move "C"    RaiseLower
++                                "M"    Move
+#
+# This one resizes and then raises the window if you drag the mouse,
+# only raises the window if you click,  or does a RaiseLower if you double
+# click
+#AddToFunc Resize-or-Raise "M"   Resize
+#+                         "C"   Raise
+#+                         "D"   RaiseLower
+
+# This one moves and then raises the window if you drag the mouse,
+# only raises the window if you click,  or does a RaiseLower if you
+#double
+# click
+AddToFunc Move-or-Raise "M"     Move
++               "M"     Raise
++               "C"     Raise
++               "D"     RaiseLower
+
+
+# This one moves and then lowers the window if you drag the mouse,
+# only lowers the window if you click,  or does a RaiseLower if you
+#double
+# click
+#AddToFunc "Move-or-Lower "M"    Move
+#+                       "M"     Lower
+#+                       "C"     Lower
+#+                       "D"     RaiseLower
+
+
+# This one resizes and then raises the window if you drag the mouse,
+# only raises the window if you click,  or does a RaiseLower if you
+#double
+# click
+AddToFunc Resize-or-Raise "M"   Resize
++                       "M"     Raise
++                       "C"     Raise
++                       "D"     RaiseLower
+
+
+AddToFunc Move-or-Iconify "M"   Move
++                       "C"     Popup Window-ops
++                       "D"     Iconify
+
+
+# This does the Motif/MSWin thing of killing the window when you
+# double-click the top left button.  Very useful if you're used
+# to Windows 3.1, SGI machines, or both (like me).  --tabaer@magnus
+AddToFunc Die-on-DoubleClick "D"        Delete
++                       "I"     Menu Window-ops
+
+
+
+###############################################################################
+#
+# This defines the mouse bindings
+
+# First, for the mouse in the root window
+# I use the AnyModifier option for the modifier field, so you can hold down
+# any shift-control-whatever combination you want!
+
+#     Button    Context Modifi  Function
+Mouse 1         R       A       Menu "LongRootMenu"
+#Mouse 1          R       C       PopUp "Utilities"
+#Mouse 2         R       A       PopUp "Utilities1"
+Mouse 2		R	A	Menu "Misc"
+#Mouse 2         R       C       PopUp "WindowOps1"
+Mouse 3         R       A       WindowList
+#Mouse 3         R       C       PopUp "locallogins"
+
+# Now the title bar buttons
+# Any button in the left title-bar button gives the window ops menu
+# Any button in the right title-bar button Iconifies the window
+# Note the use of "Mouse 0" for AnyButton.
+
+#     Button    Context Modifi  Function
+Mouse 0         1       A       Function "Die-on-DoubleClick"
+Mouse 0         2       A       Maximize 100 100
+Mouse 0         3       A       Menu "LongRootMenu"
+#Mouse 0         5       A       PopUp "WindowOps1"
+Mouse 0         4       A       Iconify
+Mouse 0		6	A	Delete
+
+# Now the rest of the frame
+# Here I invoke my complex functions for Move-or-lower, Move-or-raise,
+# and Resize-or-Raise.
+# Button 1 in the corner pieces, with any modifiers, gives resize or raise
+Mouse 1         FS      A       Function "Resize-or-Raise"
+Mouse 2         FS      A       Function "Resize-or-Raise"
+Mouse 1         T       A       Function "Move-or-Raise"
+Mouse 2         T       A       Function "Move-or-Raise"
+Mouse 1         I       A       Function "Move-or-Iconify"
+Mouse 2         I       A       Function "Move-or-Iconify"
+
+Mouse 1 	W	M 	Raise
+Mouse 3		W	M	Lower
+
+###############################################################################
+#
+# Now some keyboard shortcuts.
+#
+# I don't use (or compile in, for that matter) the virtual stuff,
+# so the Scroll keybindings are pretty useless to me.  I shut them
+# off.  --tabaer@magnus
+
+# press arrow + control anywhere, and scroll by 1 page
+Key Left        A       C       Scroll -100 0
+Key Right       A       C       Scroll +100 +0
+Key Up          A       C       Scroll +0   -100
+Key Down        A       C       Scroll +0   +100
+
+# press arrow + meta key, and scroll by 1/10 of a page
+Key Left        A       M       Scroll -10 +0
+Key Right       A       M       Scroll +10 +0
+Key Up          A       M       Scroll +0   -10
+Key Down        A       M       Scroll +0   +10
+
+# press shift arrow + control anywhere, and move the pointer by 1% of
+# a page
+Key Left        A       SC      CursorMove -1 0
+Key Right       A       SC      CursorMove +1 +0
+Key Up          A       SC      CursorMove +0   -1
+Key Down        A       SC      CursorMove +0   +1
+
+# press shift arrow + meta key, and move the pointer by 1/10 of a page
+Key Left        A       SM      CursorMove -10 +0
+Key Right       A       SM      CursorMove +10 +0
+Key Up          A       SM      CursorMove +0   -10
+Key Down        A       SM      CursorMove +0   +10
+
+# Keyboard accelerators
+# These are "borrowed" from the .4Dwmrc file on an SGI I use,
+# except for AltF2 and AltF6 which I added for completeness.
+# I think the other are standard Motif.  --tabaer@magnus
+Key F1          WFST    M       Iconify
+Key F2          WFST    M       Delete
+Key F3          WFST    M       Lower
+Key F4          WFST    M       Destroy
+Key F5          WFST    M       Raise
+Key F6          A       M       WindowList
+Key F7          WFST    M       Move
+Key F8          WFST    M       Resize
+Key F9          WFST    M       Iconify
+Key F10         WFST    M       Maximize
+Key Tab		A	M	WindowList
+
+#to scroll between Desks! CTRL-<Function Key X> to go to Desk X
+#Key F1  A       C       Desk 0 0
+#Key F2  A       C       Desk 0 1
+#Key F3  A       C       Desk 0 2
+#Key F4  A       C       Desk 0 3
+#Key F5  A       C       Desk 0 4
+#Key F6  A       C       Desk 0 5
+
+#alternate keys to move between Desks
+# This is number keypad 6
+#Key KP_6        A       A       Desk 1 1
+# Here is number 4
+#Key KP_4        A       A       Desk -1 0
+# This is number keypad 8
+#Key KP_8        A       A       Scroll +0   -100
+# Here is number 2
+#Key KP_2        A       A       Scroll +0   +100
+
+Key F1          R       N       Desk  0 0
+Key F2          R       N       Desk  0 1
+Key F3          R       N       Desk  0 2
+Key F4          R       N       Desk  0 3
+Key F5          R       N       Desk  0 4
+Key F6          R       N       Desk  0 5
+
+
+

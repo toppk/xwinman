@@ -1,0 +1,10 @@
+{{- /* the resource requirements table of the Comparisons page, from its front matter */ -}}
+<table border=1 cellpadding=3>
+  <tr align=center>
+    <th width=80>Window<br>Manager</th>
+{{ range .Page.Params.resources.columns }}    <th>{{ .label }}{{ with .note }}<sup><font size=-1>{{ . }}</font></sup>{{ end }}{{ with .sub }}<br>{{ . }}{{ end }}</th>
+{{ end }}  </tr>
+{{ range .Page.Params.resources.rows }}  <tr align=center>
+    <td>{{ .name }}{{ with .note }}<sup><font size=-1>{{ . }}</font></sup>{{ end }}{{ with .sub }}<br>{{ . }}{{ end }}</td>{{ range .values }}<td>{{ . }}</td>{{ end }}
+  </tr>
+{{ end }}</table>

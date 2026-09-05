@@ -1,0 +1,9 @@
+{{ range .Resources }}
+{{- $n := .Name -}}
+{{- $target := "" -}}
+{{- if or (hasPrefix $n "rc/") (hasPrefix $n "screenshots/") }}{{ $target = $n }}
+{{- else if or (hasSuffix $n ".tar.gz") (hasSuffix $n ".zip") (in ($.Params.root_files | default slice) $n) }}{{ $target = $n }}
+{{- else if eq .ResourceType "image" }}{{ $target = printf "images/%s" $n }}
+{{- end -}}
+{{- if $target }}{{ $_ := (resources.Copy $target .).RelPermalink }}{{ end -}}
+{{ end }}

@@ -1,0 +1,8 @@
+{{- /* one view of the bundle's _metadata.toml: the contributed files as the 2018 site phrased them */ -}}
+{{- $n := int (.Get 0 | default "1") }}
+{{- with .Page.Resources.Get "_metadata.toml" }}
+<ul>
+{{ range (. | transform.Unmarshal).entry }}{{ if eq (.list | default 1) $n }}{{ $e := . }}
+<li>{{ with .from }}{{ $e.lead | default "From" }} {{ . }}, added in {{ (time.AsTime (printf "%s-01" $e.added)) | time.Format "January 2006" }}: {{ end }}{{ .text | $.Page.RenderString }}
+{{ end }}{{ end }}</ul>
+{{- else }}{{ errorf "%s: {{< contributions >}} but no _metadata.toml" .Page.Path }}{{ end }}

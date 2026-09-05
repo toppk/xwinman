@@ -1,0 +1,17 @@
+{{- with .Params.logo }}
+{{- if eq $.Params.heading_style "table" }}
+	 <table border=0 cellpadding=6><tr>
+		  <td><img src="images/{{ .file }}" alt="{{ .alt }}" align=middle WIDTH="{{ .width }}"
+		  HEIGHT="{{ .height }}"></td>
+		  <td><h2>{{ $.Params.heading }}</h2></td>
+		</tr></table>
+{{- else }}
+	 <h2><img src="images/{{ .file }}" alt="{{ .alt }}" align=middle WIDTH="{{ .width }}" HEIGHT="{{ .height }}">{{ with $.Params.heading }}{{ $.Params.heading_sep | default " " | safeHTML }}{{ . }}{{ end }}</h2>
+{{- end }}
+{{- end }}
+
+<p align=right>License: <a href="notes.html#license">{{ .Params.license }}</a>{{ with .Params.license_note }} {{ . }}{{ end }}<br>
+Activity Rating: <a href="notes.html#activity">{{ .Params.activity }}</a></p>
+
+{{ .Content }}
+{{- partial "publish-resources.html" . -}}

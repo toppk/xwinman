@@ -1,0 +1,95 @@
+!!! .Xresources file !!!
+! Comments start with !, C style #define statements can be used only if
+! this file is processed with xrdb -merge $HOME/.Xresources
+
+#ifdef COLOR
+*customization:	-color
+#endif
+
+! my preferred font - specified exactly, just to make sure
+#define FONT -b&h-lucidatypewriter-bold-r-normal-sans-12-120-75-75-m-70-iso8859-1
+
+XTerm*font: FONT
+XTerm*background:       white
+XTerm*cursorColor:      black
+XTerm.vt100.geometry:   79x25
+XTerm*reverseWrap:      true
+XTerm*scrollKey:        true
+XTerm*saveLines:        2000
+XTerm*scrollBar:        true
+XTerm*scrollTtyOutput:  false
+
+XLock.qix.delay:	20000
+XLock.qix.batchcount:	32
+XLock.qix.saturation:	1
+XLock.mode:	qix
+XLock.background:	black
+XLock.foreground:	red
+
+xman*font:				FONT
+xman*manualFontNormal:	-b&h-lucidatypewriter-medium-r-*-*-12-*
+xman*manualFontBold:	FONT
+xman*manualFontItalic:	FONT
+
+emacs-19*font:	FONT
+emacs*font: 	FONT
+
+MXTerm*fontList: FONT
+! enable PageUp and PageDown keys
+MXTerm*vt100*translations: #override\n\
+	<Key>osfPageUp: scroll-back(1,halfpage)\n\
+	<Key>osfPageDown: scroll-forw(1,halfpage)
+
+editres.geometry:	380x450
+
+YTalk.font: -b&h-lucidatypewriter-medium-r-*-*-10-*
+YTalk.geometry: 40x13
+
+Fig*background: gray80
+
+XRload*background: gray65
+XRload*font: -adobe-times-*-r-normal-*-12-*-*-*-*-75-*-*
+
+Ghostview*showDate:      false
+Ghostview*showLocator:   false
+Ghostview*magstep:       -2
+Ghostview.palette:       Monochrome
+Ghostview.Labels:        False
+
+Pixmap.geometry: 653x758
+
+Axe*font: FONT
+Axe*buttonList: sftext sline ipaste dcut mundo mform mpref wfull fload fsave fsvas qsvclw
+Axe*tabEvery:      4
+Axe*undoLevel:             1000
+
+Netscape*XmTextField.background:        steelblue3
+Netscape*XmText.background:             steelblue3
+Netscape*XmList.background:             steelblue3
+Netscape*animRate:                      60
+!Netscape*defaultBackgroundImage:
+! change document font to helvetica
+Netscape*documentFonts.latin1.variable*family: helvetica
+Netscape*documentFonts.latin1.variable.normal*weight:   bold
+Netscape*documentFonts.latin1.variable.italic*slant:            o
+Netscape*documentFonts.latin1.variable.boldItalic*slant:        o
+! change link colours
+Netscape*vlinkForeground:               green4
+Netscape*linkForeground:                blue
+Netscape*alinkForeground:               red
+
+arena.normalfont: -adobe-helvetica-bold-r-normal-*-12-*
+arena.labelfont:  FONT
+
+Mosaic*homeDocument:	 http://www.csv.warwick.ac.uk/~csuoq
+
+! Framemaker - use a more tasteful gray
+Maker*vertSB.background:        gray65
+Maker*vertSB.troughColor:       gray70
+Maker*horizSB.background:       gray65
+Maker*horizSB.troughColor:      gray70
+Maker*foreground:               black
+Maker*background:               gray70
+Maker.makerkit.geometry:        322x66-0-0
+Maker.positionIsFrame:          True
+Maker.USPosition:               False

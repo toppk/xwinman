@@ -1,0 +1,28 @@
+# _metadata.toml describes the files in this directory: each [[entry]] names files and records
+# what is known about them (mtime, contributor, date, text...). Same shape everywhere.
+# Here: the contributed setups, who sent them and when; {{< contributions >}} is one view of it.
+
+[[entry]]
+added = "1998-08"
+files = ["screenshots/kde-george.jpg"]
+text = "[From the 1.0 release](screenshots/kde-george.jpg) (97k) added in August 1998."
+
+[[entry]]
+added = "1999-04"
+files = ["screenshots/kde-matt.jpg"]
+text = "[From the 1.1 release](screenshots/kde-matt.jpg) (216k) added in April 1999."
+
+[[entry]]
+added = "2000-10"
+files = ["screenshots/kde-kopernicus.jpg"]
+text = "[From the 2.0 release](screenshots/kde-kopernicus.jpg) (165k) add in October 2000."
+
+[[entry]]
+from = "anakin@arrakis.es"
+added = "2002-02"
+files = ["screenshots/kde-anakin.jpg"]
+text = "A [screenshot](screenshots/kde-anakin.jpg) (156k)."
+
+[[entry]]
+files = []
+text = "Many more screenshots are available from the [KDE screenshots page.](http://www.kde.org/screenshots/)"

@@ -1,0 +1,6 @@
+olvwm.DefaultIconImage: /home/csuoq/xpm/xterm.xpm
+olvwm.DefaultIconMask: /home/csuoq/bitmaps/xtermmask.xbm
+olvwm.VirtualBackgroundMap: /home/csuoq/xpm/textures/Virtual Pager
+olvwm.UseImages: UseAll
+olvwm.PopupJumpCursor: False
+olvwm.Use3DFrames: True

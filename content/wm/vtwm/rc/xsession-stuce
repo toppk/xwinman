@@ -1,0 +1,48 @@
+#!/bin/sh
+
+xrdb -retain -merge $HOME/.Xdefaults
+xmodmap -e "keysym BackSpace = Delete"
+xhost - > /dev/null &
+
+vtwm &
+WM=$!
+
+VENDOR=`xrdb -symbols | fgrep VENDOR | sed -e '2,$d' -e 's/.*-DVENDOR="\([a-zA-Z0-9 .,]*\)".*/\1/'`
+
+case "$VENDOR" in
+  'Control Data')
+# Exceed/W for PCs
+	xterm -ut -geometry 80x34+0-0 &
+	xterm -C -ls -name Console -title Console -geometry 80x18+0+0 &
+	xsetroot -solid gray30 &
+  ;;
+
+  'Tektronix, Inc.')
+	xterm -ut -geometry 80x35+0-0 &
+	xterm -C -ls -name Console -title Console -geometry 80x18+0+0 &
+	xbiff -bg black -fg white -geometry 76x58-0-28 -update 9 &
+	xclock -name myclock -bg black -fg white -digital -geometry 300x25-0-0 -fn "-*-charter-*-*-*-*-*-140-*-*-*-*-*-*" &
+	xsetroot -solid black &
+  ;;
+
+  'MIT X Consortium')
+# Sun SPARCs
+	xterm -C -name Console -title Console -geometry 80x18+0+0 -bg black -fg cyan -cr violet &
+	xterm -ut -geometry 80x35+0+285 -bg black -fg cyan -cr violet &
+	nice xsetbg -colors 24 /home/stuce/pics/tiles.et/teal_paper.gif &
+	nice xbiff -bg black -fg cyan -geometry 76x58-0-28 -update 9 &
+	xclock -name myclock -bg black -fg cyan -digital -geometry 300x25-0-0 -fn "-*-charter-*-*-*-*-*-150-*-*-*-*-*-*" -padding 0 &
+	nice xterm -ut +sb -fn "-misc-fixed-medium-*-*-*-*-100-*-*-*-*-*-*" -name Monitor -title Monitor -geometry 80x12-134+0 -bg black -fg cyan -cr violet -e /bin/sh /home/crocus5/st/uce/OPEN/mon3 &
+	nice xset s off &
+	nice xset r on &
+  ;;
+
+  *)
+	xterm -ut -geometry 80x35+0-0 &
+	xterm -C -ls -name Console -title Console -geometry 80x18+0+0 &
+  ;;
+esac
+
+
+wait $WM
+

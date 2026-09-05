@@ -1,0 +1,9 @@
+{{- $ed := index hugo.Data.editions site.Params.edition -}}
+<div id="sidebar">
+{{ range $ed.nav.sidebar }}{{ $g := index $ed.nav . }}<h4>{{ $g.title }}</h4>
+
+<div class="category">
+{{ range $g.entries }}{{ $p := site.GetPage (printf "/%s" .ref) }}{{ if not $p }}{{ errorf "nav: %s not found" .ref }}{{ end }}<a href="{{ if $p.IsHome }}index.html{{ else }}{{ path.Base $p.RelPermalink }}{{ end }}" class="{{ if eq $p.Path $.Path }}curr{{ else }}side{{ end }}">{{ .label | default $p.Title }}</a><br>
+{{ end }}</div>
+
+{{ end }}</div>

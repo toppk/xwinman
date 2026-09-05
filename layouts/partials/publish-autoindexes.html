@@ -1,0 +1,4 @@
+{{- /* Apache-style listings for every directory under the collections and the source archive that has no index.html of its own */ -}}
+{{- range slice "collections/icons" "collections/textures" "collections/tiles" "static/archive" }}
+{{- partial "autoindex-dir.html" (dict "fs" . "dir" (path.Base .)) }}
+{{- end }}

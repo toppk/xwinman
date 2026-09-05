@@ -1,0 +1,11 @@
+{{- /* the feature matrix of the Comparisons page, from its front matter */ -}}
+<table border=1 cellpadding=2>
+  <tr align=center>
+    <th width=75><font size=-1>Window<br>Manager</font></th>
+{{ range .Page.Params.features.columns }}    <th width=75><font size=-1>{{ delimit . "<br>" | safeHTML }}</font></th>
+{{ end }}  </tr>
+{{ range .Page.Params.features.rows }}  <tr align=center>
+    <td>{{ .name }}{{ with .note }}<sup><font size=-1>{{ . }}</font></sup>{{ end }}{{ with .sub }}<br>{{ . }}{{ end }}</td>
+{{ range .has }}    <td>{{ if . }}<img src="images/dot.gif" alt="*" width=6 height=6>{{ else }}-{{ end }}</td>
+{{ end }}  </tr>
+{{ end }}</table>

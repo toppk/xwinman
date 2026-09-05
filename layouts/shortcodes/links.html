@@ -1,0 +1,8 @@
+{{- /* the bundle's links.toml: related sites */ -}}
+{{- $n := int (.Get 0 | default "1") }}
+{{- with .Page.Resources.Get "links.toml" }}
+<ul>
+{{ range (. | transform.Unmarshal).link }}{{ if eq (.list | default 1) $n }}
+<li><a href="{{ .url | safeURL }}">{{ .name }}</a>{{ with .blurb }} {{ . | $.Page.RenderString }}{{ end }}
+{{ end }}{{ end }}</ul>
+{{- else }}{{ errorf "%s: {{< links >}} but no links.toml" .Page.Path }}{{ end }}

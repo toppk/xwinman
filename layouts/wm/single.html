@@ -1,0 +1,11 @@
+{{ define "main" }}
+{{- $members := .Params.members | default (slice .File.ContentBaseName) -}}
+{{- range $i, $m := $members }}
+{{- $p := $.Site.GetPage (printf "%s/%s" $.CurrentSection.Path $m) }}
+{{- if not $p }}{{ errorf "member bundle %q not found for %s" $m $.Path }}{{ end }}
+{{- if $i }}
+    <p><hr noshade>
+{{ end }}
+{{- partial "wm-body.html" $p }}
+{{- end }}
+{{ end }}

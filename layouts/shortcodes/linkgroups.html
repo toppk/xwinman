@@ -1,0 +1,9 @@
+{{- /* the Links page: titled groups of Markdown items, laid out as the 2018 site did */ -}}
+<table width="70%">
+{{ range .Page.Params.groups }}<tr><td>
+<p>{{ .title }}
+<ul>
+{{ range .items }}<li>{{ . | $.Page.RenderString }}
+{{ end }}</ul>
+</td></tr>
+{{ end }}</table>

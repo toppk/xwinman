@@ -1,0 +1,5 @@
+{{- /* data/licenses.toml: "osi" lists the OSI-approved ones, anything else the rest */ -}}
+{{- $osi := eq (.Get 0) "osi" }}
+<ul>
+{{ range hugo.Data.licenses.license }}{{ if eq .osi $osi }}<li>{{ with .url }}<a href="{{ . }}" target="osi">{{ end }}{{ .name }}{{ if .url }}</a>{{ end }}
+{{ end }}{{ end }}</ul>

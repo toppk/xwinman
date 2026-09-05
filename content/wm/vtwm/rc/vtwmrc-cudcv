@@ -1,0 +1,553 @@
+#**********************************************************************
+#
+#    Cudcv's .twmrc (with vtwm extensions)
+#
+#**********************************************************************
+
+############################################################################
+# Font Section
+############################################################################
+ResizeFont	"*new century schoolbook-medium-i-*--24-*-iso8859-*"
+IconManagerFont	"*new century schoolbook-medium-r-*--12-*-iso8859-*"
+MenuFont	"*new century schoolbook-medium-r-*--16-*-iso8859-*"
+TitleFont	"*new century schoolbook-medium-r-*--14-*-iso8859-*"
+IconFont	"*new century schoolbook-medium-r-*--12-*-iso8859-*"
+DoorFont	"*new century schoolbook-medium-r-*--12-*-iso8859-*"
+VirtualDesktopFont	"*fixed-medium-r-*--8-*-iso8859-*"
+
+############################################################################
+# Variables Section
+############################################################################
+#
+# TWM Boolean Variables
+#
+AutoRelativeResize	# Allow resize from any point within the window
+ClientBorderWidth	# Take border width from initial border width of window
+DecorateTransients	# Transient windows should have titlebars
+DontMoveOff		# Do not allow windows to be moved of the screen
+# ForceIcons		# Force use of "Icons" list instead of client-supplied one
+InterpolateMenuColors	# Gradually changing menu colors
+# NoBackingStore	# Backing store for twm's menus
+NoCaseSensitive		# For sorting icon names in icon manager
+# NoDefaults		# Needed when building own title buttons and bindings
+NoGrabServer		# When popping up menus or moving opaque windows
+# NoIconManagers	# Don't create icon managers
+# NoMenuShadows		# Don't draw drop shadows behind menus
+# NoRaiseOnDeiconify	# Don't automatically raise windows on de-iconify
+NoRaiseOnMove		# Don't automatically raise when windows are moved
+NoRaiseOnResize		# Don't automatically raise when windows are resized
+# NoRaiseOnWarp		# Don't automatically raise window when f.warpto
+# NoSaveUnders		# Repaint instead of save-under for menu selection
+# NoTitleFocus		# Don't set input focus when window is entered
+OpaqueMove		# F.move window instead of just an outline
+RandomPlacement		# Don't give ouline-drag for no-geometry windows
+RestartPreviousState	# 'Remember' previous state when window manager is restarted
+ShowIconManager		# Show icon manager on startup
+SortIconManager		# Sort icons alphabetically in iconmanager
+WarpUnmapped		# Allow f.warpto to de-iconify windows
+
+#
+# VTWM Boolean Variables
+#
+DeiconifyToScreen	# De-iconifying puts window on physical screen instead of old position
+#NotVirtualGeometries	# Geometries relative to screen, not over whole desktop
+# SnapRealScreen	# Snap to grid defined in PanDistanceX and PanDistanceY
+WarpWindows		# move window to real screen instead of moveing real screen
+
+#
+# TWM Numeric Variables
+#
+BorderWidth		2	# Frame border width in pixels
+ButtonIndent		1	# 0, Title button indentation in pixels
+ConstrainedMoveTime	400	# Time (msec) in which double click allows only move in hor or vert direction
+FramePadding		2	# Pixelwidth between titlebar decorations and the window frame
+IconBorderWidth		2	# Border of icons in pixels
+MoveDelta		3	# Number of pixels to move before f.move starts working (also f.deltastop)
+TitleButtonBorderWidth	1	# 0, Distance between title buttons
+TitlePadding		8	# 16, Distance between title buttons, text and highlight area
+# XorValue		1	# Outline color setter for move and resize
+Zoom			16	# Iconify/de-iconfy outline show count
+
+#
+# VTWM Numeric Variables
+#
+# AutoPan		5	# Pan when mouse is with <arg>% range of edge of screen
+# AutoRaiseDelay		30000	#  == RaiseDelay ?
+# PanDistanceX		3?	# Grid of screens for f.snap
+# PanDistanceY		3?	# Move real screan to closest grid location
+RaiseDelay		3000	# Milliseconds to delay before AutoRaise/f.autoraise
+
+#
+# TWM String Variables
+#
+# Path to look for bitmaps if they cannot be found in "bitmapFilePath" resource
+# IconDirectory		"/usr/include/X11/bitmaps"
+IconDirectory		"/usr/local/include/X11/bitmaps:/usr/openwin/include/X11/bitmaps"
+# IconDirectory		"/usr/local/X11/bitmaps"
+MaxWindowSize		"30000x30000"
+UnknownIcon		"icon"		# icon bitmap to use when no other found
+UsePPosition		"on"		# program requested location, "on" "off" "nonzero"
+#
+# VTWM String Variables
+#
+# RealScreenPixmap	"realscr.bm"	# decorate virt. desktop realscreen (panner)
+# VirtualBackgroundPixmap "something"	# decoration for virtual desktop
+
+#
+# TWM Complex Variables
+#
+# IconManagerGeometry	"=100x250-0+0" 1	# 1 column
+IconManagerGeometry	"=164x10-0+35" 1
+# Define regions to put icons (multiple lines allowed)
+# IconRegion	geomstring	# define geometry)
+#		vgrav		# North or South fill direction
+#		hgrav		# East for West fill direction
+#		gridwidth	# grid dimensions to put icons in
+#		gridheight
+IconRegion		"=300x300+200-0" North East 30 30
+
+#
+# VTWM Complex Variables
+#
+#VirtualDesktop		"150x100-0-0" 20	# Panner geometry and scale
+VirtualDesktop		"=2x2-0-0" 20	# Panner geometry and scale
+
+Color
+{
+	# TWM Simple Color
+	DefaultBackground	"white"		# "maroon" Sizing and information windows
+	DefaultForeground	"black"		# "gray85"
+
+	MenuBackground		"LightSteelBlue"
+	MenuForeground		"Black"		# "gray85"
+	MenuShadowColor		"black"
+	MenuTitleForeground	"Black"		# "red"		# f.title color
+	MenuTitleBackground	"white"		# "black"
+
+	# TWM Complex Color
+        BorderColor		"Black" { }	#"slategrey"
+        BorderTileForeground	"black" { }	# Unhighlighted window borders
+        BorderTileBackground	"white" { }
+
+        IconBackground		"LightSteelBlue" { }	# "white"  black
+        IconBorderColor		"Black" { }	# "gray85"white
+        IconForeground		"black" { }	# "gray85" white
+
+        IconManagerBackground	"LightSteelBlue" { }	# "maroon"
+        IconManagerForeGround	"Black" { }	# "gray85"
+        IconManagerHighlight	"Black" { }
+
+        TitleBackground		"LightSteelBlue" { }
+        TitleForeground		"Black" { }
+
+	# VTWM Simple Color
+	RealScreenBackground	"orange"	# virtual desktop realscreen indicator
+	RealScreenForeground	"yellow"	# needs RealScreenPixmap
+	VirtualBackground	"grey"
+	VirtualForeground	"red"
+
+	# VTWM Complex Color
+	DesktopDisplayBackground "White" {	# color of windows in virtual desktop windows and in iconmanager
+		"emacs" "LightSteelBlue"
+		"/dev/console" "LightSteelBlue"
+		"Console" "LightSteelBlue"
+		"XTerm" "LightSteelBlue"
+	}
+	DesktopDisplayBorder	"black" {}
+	DesktopDisplayForeground	"black" { }
+
+	DoorBackGround		"orange" { }
+	DoorForeGround		"black"   { }
+}
+
+Monochrome {
+    # TWM Simple Color
+    DefaultBackground		"white"
+    DefaultForeground		"black"
+    MenuBackground		"white"
+    MenuForeground		"black"
+    MenuShadowColor		"black"
+    MenuTitleBackground		"white"		# black, f.title color
+    MenuTitleForeground		"black"		# white
+
+    # TWM Complex Color
+    BorderColor			"black" { }
+    BorderTileBackground	"white" { }
+    BorderTileForeground	"black" { }
+    IconBackground		"white" { }	# black
+    IconBorderColor		"black" { }	# white
+    IconForeground		"black" { }	# white
+    IconManagerBackground	"white" { }
+    IconManagerForeground	"black" { }
+    IconManagerHighlight	"black" { }
+    TitleBackground		"black" { }
+    TitleForeground		"white" { }
+
+    # VTWM Simple Color
+    RealScreenBackground	"black"		# virtual desktop realscreen indicator
+    RealScreenForeground	"white"		# needs RealScreenPixmap
+    VirtualBackground		"white"
+    VirtualForeground		"black"
+
+    # VTWM Complex Color
+    DesktopDisplayBackground	"black"	{ }	# color of windows in virtual desktop windows and in iconmanager
+    DesktopDisplayBorder	"white"	{ }	# border color of windows in virtual desktop window
+    DesktopDisplayForeground	"white"	{ }	# color of text in windows in virtual desktop window and iconmanager, needs VirtualDesktopFont
+    DoorBackGround		"white"	{ }
+    DoorForeGround		"black"	{ }
+}
+
+AutoRaise {
+  "nothing"	# I don't like auto-raise
+}
+
+Cursors	{
+    # cursorname	"string" for names in include/X11/cursorfont.h
+    # cursoname		"image" "mask" for cursors taken from bitmap files
+    Frame		"top_left_arrow"	# "spider"
+    Title		"top_left_arrow"
+    Icon		"top_left_arrow"
+    IconMgr		"top_left_arrow"
+    Move		"fleur"
+    Resize		"fleur"
+    Menu		"sb_left_arrow"
+    Button		"hand2"
+    Wait		"watch"
+    Select		"dot"
+    Destroy		"pirate"
+
+    # VTWM
+    Door		"exchange"
+    Virtual		"rtl_logo"
+    Desktop		"dotbox"
+}
+
+DontIconifyByUnmapping {
+	"cm"
+	"filemgr"
+	"Kaleidoscope"
+	"sunclock"
+	"Xjewel"
+}
+IconifyByUnMapping
+
+IconManagerDontShow {
+#	"names of things which you don't want to see in the icon manager"
+	"cm"
+	"filemgr"
+	"oclock"
+	"swissclock"
+	"swisswatch"
+	"Virtual Desktop"
+	"xcpustate"
+	"xdaliclock"
+	"Xman"
+	"xmeter"
+	"xpbiff"
+    "Virtual Desktop"
+    "VTWM Icon Manager"
+    "TWM Icon Manager"
+    "Twm Door"
+	"Xjewel"
+}
+
+IconManagers {			# Definition of iconmanagers...
+    # "winname" ["iconname"]	"geometry"	columns
+    # "XTerm"			"=300x5+800+5"	5
+}
+
+# IconManagerShow	{ }
+
+#ForceIcons
+Icons {
+#	"name"	"name.icon"
+	"xterm"	"terminal"
+}
+
+NoHighlight {
+    "Virtual Desktop"
+    "VTWM Icon Manager"
+    "TWM Icon Manager"
+    "Twm Door"
+}
+
+NoStackMode { }		# ignore stacking request for these windows
+
+# MakeTitle	{ }	# Create title bars even when NoTitle has been specified
+NoTitle {
+#	"names of things for which you don't want a title bar"
+	"oclock"
+	"swissclock"
+	"swisswatch"
+	"Twm Door"
+	"TWM Icon Manager"
+	"Virtual Desktop"
+	"VTWM Icon Manager"
+	"xcb"
+	"xcmap"
+	"xcpustate"
+	"xdaliclock"
+	"xeyes"
+	"Xman"
+	"xmeter"
+	"xpbiff"
+	"xpostit"
+}
+
+NoTitleHighlight { }	# don't highlight titlebar when focused in window
+
+Pixmaps {
+ 	TitleHighlight	"hlines2"
+    # TitleHighlight		"gray1"
+    # VTWM
+    # RealScreenPixmap		"something"
+    # VirtualBackgroundPixmap	"something else"
+}
+
+# SaveColor { <colors-list> }
+
+# titlebar is only as large as is needed for decorations
+# 	{ "name"	left|center|right	nominator denominator }
+SqueezeTitle	{ }
+
+# DontSqueezeTitle	{ }	# Don't make title bar as short a possible
+
+StartIconified	{
+#    "console"
+}
+
+WarpCursor {		# warp cursor in window when de-iconified
+#    "xterm"
+}
+
+WindowRing {		# windows to cycle through by f.warpring
+#    "xterm"
+}
+
+#
+# VTWM List Variables
+#
+
+DontShowInDisplay	{	# Don't show in virtual desktop window
+    "swissclock"
+    "XBiff"
+    "xclock"
+    # TVTWM VTWM
+    "Twm Door"
+    "TWM Icon Manager"
+    "TWM Windows"
+    "Virtual Desktop"
+    "VTWM Icon Manager"
+}
+
+Doors	{	# remember to set DoorFont
+    # "winname"	"location"	"jumpTo"
+    "Home"	"80x15+985+1"	"+0+0"		# 1152-164-60-60
+    "Screen 1"	"80x15+1066+1"	"+1152+0"
+    "Screen 2"	"80x15+985+17"	"+0+1024"
+    "News & Mail"	"80x15+1066+17"	"+1152+1024"
+}
+
+# NailedDown {
+Sticky {
+#	"names of things which are automatically nailed down"
+	"cm"
+	"/dev/console"
+	"oclock"
+	"swissclock"
+	"Twm Door"
+	"TWM Icon Manager"
+	"Virtual Desktop"
+	"VTWM Icon Manager"
+	"xcb"
+	"xcmap"
+	"xmeter"
+	"Xman"
+}
+
+#DefaultFunction f.menu "default-menu"
+#WindowFunction f.function "blob"
+
+
+#
+# Put these two in at end of variable section, before bindings section
+#
+DefaultFunction		f.beep	# for non-bound keys or buttons
+WindowFunction	f.deiconify	# function to perform when window is selected from "TwmWindows" menu
+
+######################################################################
+# End of Variable Section
+######################################################################
+
+# Functions ...
+# f.circledown
+# f.circleup
+
+# f.deiconify
+
+
+# f.saveyourself	FKEYWORD F_SAVEYOURSELF
+# f.setrealscreen	FSKEYWORD F_SETREALSCREEN
+# f.snap		FKEYWORD F_SNAP
+# f.snugdesktop		FKEYWORD F_SNUGDESKTOP
+# f.snugwindow		FKEYWORD F_SNUGWINDOW
+
+# f.nexticonmgr		FKEYWORD F_NEXTICONMGR
+# f.previconmgr		FKEYWORD F_PREVICONMGR
+
+# f.warptoiconmgr	FSKEYWORD F_WARPTOICONMGR
+# f.warptoscreen	FSKEYWORD F_WARPTOSCREEN
+
+######################################################################
+# Titlebuttons
+######################################################################
+# bitmaps are stored in /usr/include/X11/bitmaps
+# ":bitmap" uses internal bitmap
+#         (:dot, :xlogo, :iconify, :resize, :question, :delete, :menu)
+#---------------------------------------------------------------------
+RightTitlebutton	":delete"	= f.delete
+# RightTitleButton	":menu"		= f.menu "WindowSettings"
+# RightTitleButton	":iconify"	= f.iconify
+# RightTitleButton	"jpzoom"	= f.zoom
+# LeftTitleButton		":xlogo"		= f.menu "XSettings"
+
+#Button = KEYS : CONTEXT : FUNCTION
+#----------------------------------
+Button1 =      : root   : f.menu "button1"
+Button2 =      : root   : f.menu "TwmWindows"
+Button3 =      : root   : f.menu "button3"
+
+Button1 =	: door			: f.enterdoor
+# Button1 = c	: door			: f.deletedoor
+
+Button1 =      : title  : f.raiselower
+Button2 =      : title  : f.move
+Button3 =      : title  : f.menu "titlemenu"
+
+Button1 =      : frame  : f.raiselower
+Button2 =      : frame  : f.move
+Button3 =      : frame  : f.menu "titlemenu"
+
+Button1 =      : icon   : f.iconify
+Button2 =      : icon   : f.move
+Button3 =      : icon   : f.menu "titlemenu"
+
+"Left"	= 	: iconmgr		: f.lefticonmgr		# f.backiconmgr
+"Right"	=	: iconmgr		: f.righticonmgr	# f.forwiconmgr
+"Down"	=	: iconmgr		: f.downiconmgr
+"Up"	=	: iconmgr		: f.upiconmgr
+"Left"	= m	: all			: f.backiconmgr
+"Right"	= m 	: all			: f.forwiconmgr
+"Up"	= m	: all			: f.upiconmgr
+"Down"	= m 	: all			: f.downiconmgr
+#
+#
+# VTWM Desktop Scroll
+#
+"Left"	=	: root			: f.panleft "100"
+"Right"	=	: root			: f.panright "100"
+"Up"	=	: root			: f.panup "100"
+"Down"	=	: root			: f.pandown "100"
+"Left"	= s	: all			: f.panleft "100"
+"Right"	= s	: all			: f.panright "100"
+"Up"	= s	: all			: f.panup "100"
+"Down"	= s	: all			: f.pandown "100"
+
+Function "blob" {
+    f.deiconify
+    f.raise
+    f.focus
+    f.lower
+}
+
+
+menu "button1" {
+"Programs"	f.title
+"xterm"		!"xterm_s -n `hostname` -T `hostname` &"
+"xman"		!"xman &"
+"emacs"		!"/usr/local/bin/emacs -f server-start &"
+"mush"		!"xterm -geometry 80x40 -n 'mush -C' -T 'mush -C' -e mush -C &"
+#"xfig"		!"xfig &"
+"Demos"		f.menu "demos"
+"Logins"	f.title
+# Skeletons for X and non-X machines:
+#"X"		!"xrsh  X xterm_s -ls -n user@X -T user@X &"
+#"non-X"	!"xterm_s -ls -n user@non-X -T user@non-X -e rsh non-X -l user &"
+#"bash-X"	!"xrsh -auth environment X xterm_s -ls &"
+"crocus"	!"xrsh crocus xterm -ls -n crocus -T crocus &"
+"holly"		!"xrsh holly xterm -ls -n holly -T holly &"
+"lily"		!"xrsh lily xterm -ls -n lily -T lily &"
+"lupin"		!"xrsh lupin xterm -ls -n lupin -T lupin &"
+}
+
+menu "button3" {
+"VTWM Control"		f.title
+"Source .twmrc"		f.twmrc
+"Window Ops"		f.menu "titlemenu"
+"Keyboard Mode"		f.menu "kbdmenu"
+    "Hide Icon Manager"		f.hideiconmgr
+    "Show Icon Manager"		f.showiconmgr
+    "Sort Icon Manager"		f.sorticonmgr
+    "Hide Virtual Desktop"	f.hidedesktopdisplay
+    "Show Virtual Desktop"	f.showdesktopdisplay
+#     "Toggle Virtual Geometries"	f.virtualgeometries
+#     "Create Door"		f.newdoor
+#     "Delete Door"		f.deletedoor
+    "Focus on Root"		f.unfocus
+    "Toggle Autopan"		f.autopan
+"windows"		f.menu "TwmWindows"
+"identify"		f.identify
+"next screen"		f.warptoscreen "next"
+"unfocus"		f.unfocus
+"refresh"		f.refresh
+#  "lock"			!"xlock -mode random &"
+"save"			!"sleep 5 ; xscreensaver-command -activate"
+"lock"			!"sleep 5 ; xscreensaver-command -lock"
+"resources"		!"xrdb -merge ${HOME}/.Xresources"
+"restart"		f.restart
+"quit"			("red":"white") f.quit
+}
+
+menu "demos" {
+"Maze"			!"nice -5 maze &"
+"Eyes"			!"xeyes &"
+"Plaid"	                !"nice -5 plaid &"
+"Kaleidoscope"		!"nice -5 kaleid &"
+"Icosahedron"		!"nice -5 ico &"
+}
+
+menu "kbdmenu" {
+#it would be nice to be able to inverse video the one that's currently set
+"-u"			!"kbd_mode -u"
+"-e"			!"kbd_mode -e"
+"-n"			!"kbd_mode -n"
+"-a"			!"kbd_mode -a"
+}
+
+menu "titlemenu" {
+"Window Ops"		f.title
+"Refresh"		f.winrefresh
+"AutoRaise"		f.autoraise
+"(De)Iconify"		f.iconify
+"DeIconify"		f.deiconify
+"Move"			f.move
+"Force Move"		f.forcemove
+"Resize"		f.resize
+"Identify"		f.identify
+"Raise"			f.raise
+"Lower"			f.lower
+"Zoom"			f.zoom
+"FullZoom"		f.fullzoom
+"Toggle in WarpRing"	f.ring
+"Toggle Nail"		f.nail
+"Squeeze Title Center"	f.squeezecenter
+"Squeeze Title Left"	f.squeezeleft
+"Squeeze Title Right"	f.squeezeright
+"Focus"			f.focus
+"Caution"		f.title
+"Quit"			("red":"white")f.delete
+"Destroy"		("red":"white")f.destroy
+}
+
+"L7" = : all : f.iconify
+"L5" = : all : f.raiselower

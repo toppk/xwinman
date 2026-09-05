@@ -1,0 +1,27 @@
+# _metadata.toml describes the files in this directory: each [[entry]] names files and records
+# what is known about them (mtime, contributor, date, text...). Same shape everywhere.
+# Here: the contributed setups, who sent them and when; {{< contributions >}} is one view of it.
+
+[[entry]]
+from = "matt@belgarath.org"
+added = "1996-06"
+files = ["screenshots/twm-system.gif", "rc/twmrc-system"]
+text = "[screenshot](screenshots/twm-system.gif) (14k), [twmrc](rc/twmrc-system)."
+
+[[entry]]
+from = "brummelufs@hotmail.com"
+added = "1998-03"
+files = ["screenshots/twm-thomas.jpg", "rc/twmrc-thomas"]
+text = "[screenshot](screenshots/twm-thomas.jpg) (42k), [twmrc](rc/twmrc-thomas)."
+
+[[entry]]
+from = "cjmckenzie@ucdavis.edu"
+added = "2001-02"
+files = ["screenshots/twm-cjmckenzie.gif", "rc/twmrc-cjmckenzie"]
+text = "[screenshot](screenshots/twm-cjmckenzie.gif) (21k), [twmrc](rc/twmrc-cjmckenzie)."
+
+[[entry]]
+from = "keppler@satimex.tvnet.hu"
+added = "2001-08"
+files = ["screenshots/twm-keppler.gif", "rc/twmrc-keppler"]
+text = "[screenshot](screenshots/twm-keppler.gif) (31k), [twmrc](rc/twmrc-keppler)."

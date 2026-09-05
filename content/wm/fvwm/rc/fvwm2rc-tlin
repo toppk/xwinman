@@ -1,0 +1,390 @@
+##############################################
+# FVWM2 Configuration			     
+# You need to make two symbolic links to FvwmButtons
+# ln -s FvwmButtons System
+# ln -s FvwmButtons NetSites
+# ... because this .fvwm2rc uses 3 occurences of fvwmbuttons
+
+########################Initialization Functions ############################
+AddToFunc InitFunction 	  "I" Module FvwmPager 0 0
+AddToFunc InitFunction	  "I" Module FvwmButtons
+AddToFunc InitFunction	  "I" Module System
+AddToFunc InitFunction	  "I" Module NetSites
+AddToFunc InitFunction	  "I" Exec exec oclock -geometry 80x80-0+0 &
+AddtoFunc RestartFunction "I" Module FvwmPager 0 0
+AddtoFunc RestartFunction "I" Module FvwmButtons
+AddToFunc RestartFunction "I" Module System
+AddToFunc RestartFunction "I" Module NetSites
+AddToFunc RestartFunction "I" Exec exec oclock -geometry 80x80-0+0 &
+
+
+######################### Desktop Settings ##################################
+
+WindowFont		-adobe-helvetica-bold-r-*-*-12-*-*-*-*-*-*-*
+IconFont		-adobe-helvetica-medium-r-*-*-12-*-*-*-*-*-*-*
+
+# Sun (darkgray) appearance
+#HilightColor black orange2
+#MenuStyle White gray25 slategray -adobe-helvetica-bold-r-*-*-14-*-*-*-*-*-*-* MWMMenus
+#Style "*"           Icon unknown1.xpm, Color lightgray/gray25
+
+# Motif Configuration
+HilightColor black orange
+MenuStyle black gray85 SlateGray -adobe-helvetica-medium-r-*-*-12-*-*-*-*-*-*-* MWMMenus
+Style "*"           Icon unknown1.xpm, Color Black/#40a0c0
+
+# Miscallaneous Decorations
+Style "*"           BorderWidth 7, HandleWidth 7
+Style "*"           ActivePlacement, SmartPlacement
+Style "*"           MWMFunctions,MWMDecor,HintOverride,MWMBorder,MWMbuttons
+Style "*"           DecorateTransient,IconBox 0 -10 -280 -1
+
+# Miscallaneous Settings
+EdgeResistance 125 10
+EdgeScroll 100 100
+ClickTime 250
+ColormapFocus FollowsMouse
+
+# Desktop Size
+DeskTopSize 2x2
+
+
+################## FvwmButtons button-bar ################################
+###################### GoodStuff ###########################################
+	*FvwmButtonsFore black
+	*FvwmButtonsBack gray85
+	*FvwmButtonsGeometry -0+120
+	*FvwmButtonsColumns 1
+	*FvwmButtonsFont -adobe-helvetica-medium-r-normal--12-*-*-*-*-*-*-*
+
+	*FvwmButtons - whatever Swallow "xload" exec xload -nolabel -geometry -1500-1500 &
+	*FvwmButtons Shell Shell4.xpm	exec "" color_xterm -T "bash" -sb &
+	*FvwmButtons Xv	  paint3.xpm	exec "" xv &
+	*FvwmButtons Netscape netscape.xpm 	exec "" netscape &	
+	*FvwmButtons News news.xpm	exec "" xterm -title "Tin NewsReader" -e rtin -n -q &
+	*FvwmButtons IRC editor.xpm	exec "" xterm -sb -title "Internet Relay Chat" -e irc &
+
+	*SystemFore black
+	*SystemBack gray85
+	*SystemGeometry 200x20+0-0
+	*SystemRows 1
+	*SystemFont -adobe-helvetica-bold-r-normal--12-*-*-*-*-*-*-*
+
+	*System Quit	whatever Popup Verify
+	*System Restart whatever Restart
+	*System Lock	whatever exec "" xlock -bg white -fg darkslateblue -mode worm &
+
+	*NetSitesFore black
+	*NetSitesBack   gray85
+	*NetSitesGeometry 80x120-0-0
+	*NetSitesColumns 1
+	*NetSitesFont	-adobe-helvetica-medium-r-normal--14-*-*-*-*-*-*-*
+	
+	*NetSites Cyber2 whatever exec "" xterm -title "Cyber1" -sb -e ttelnet cyber1.servtech.com
+	*NetSites Larva	 whatever exec "" xterm -title "Larva " -sb -e ttelnet larva.forestry.utoronto.ca
+	*NetSites Sunsite whatever exec "" xterm -title "Sunsite" -sb -e ncftp -r -d 2 sunsite.unc.edu
+	*NetSites Tsx-11  whatever exec "" xterm -title "Tsx-11" -sb -e ncftp -r -d 2 tsx-11.mit.edu
+	*NetSites CD-ROM  whatever exec "" xterm -title "CD-ROM" -sb -e ncftp -r -d 2 ftp.cdrom.com
+
+########################### Pager #########################################
+
+*FvwmPagerBack darkslateblue
+*FvwmPagerFore cyan
+*FvwmPagerFont -adobe-helvetica-bold-r-*-*-12-*-*-*-*-*-*-*
+*FvwmPagerHilight slateblue
+*FvwmPagerGeometry +0+0
+*FvwmPagerLabel 0 Workplace
+*FvwmPagerSmallFont 5x8
+
+
+#################### Window TitleBar Buttons Settings #####################
+
+# up triangle
+#ButtonStyle 2 4 50x35@1 65x65@0 35x65@0 50x35@1
+# down triangle
+#ButtonStyle 4 4 50x65@1 35x35@1 65x35@1 50x65@0
+# an X
+ButtonStyle 3 13 26x29@1 34x21@1 50x35@1 70x21@1 79x29@1 63x48@0 79x65@1 70x75@0 50x61@0 34x75@0 26x65@0 44x48@1 26x29@0
+
+# Other buttons that are not used (commented out for future use)
+# large up triangle
+#ButtonStyle 2 4 50x25@1 75x75@0 25x75@0 50x25@1
+# large down triangle
+#ButtonStyle 4 4 50x75@1 25x25@1 75x25@1 50x75@0
+# big box
+ButtonStyle 2 4 25x25@1 25x75@1 75x75@0 75x25@0 25x25@1
+# little box
+ButtonStyle 4 4 40x40@1 60x40@1 60x60@0 40x60@0 40x40@1
+# tall box
+#ButtonStyle 6 5 40x25@1 60x25@1 60x75@0 40x75@0 40x25@1
+# dot
+#ButtonStyle 4 5 45x45@1 55x45@1 55x55@0 45x55@0 45x45@1
+# an up arrow:
+#ButtonStyle 2 8 40x80@1 40x50@1 20x50@1 50x20@1 80x50@0 60x50@0 60x80@0 40x80@0
+
+
+ModulePath /usr/lib/X11/fvwm2
+PixmapPath /usr/include/X11/pixmaps/
+IconPath   /usr/include/X11/bitmaps/
+
+######################## Application specific Settings ######################
+
+Style "Fvwm*"       NoTitle, NoHandles, Sticky, WindowListSkip,
+Style "Fvwm*"       CirculateSkipIcon
+Style "Fvwm Pager"  StaysOnTop
+Style "FvwmPager"   StaysOnTop
+Style "FvwmBanner"  StaysOnTop
+Style "FvwmButtons" NoTitle, NoHandles, Sticky, WindowListSkip
+Style "FvwmButtons" BorderWidth 5, CirculateSkip, Color black/lightgray
+Style "FvwmButtons" Icon toolbox.xpm
+Style "System" NoTitle, NoHandles, Sticky, WindowListSkip
+Style "System" BorderWidth 3, CirculateSkip, Color black/lightgray
+Style "System" Icon toolbox.xpm
+Style "NetSites" NoTitle, NoHandles, Sticky, WindowListSkip
+Style "NetSites" BorderWidth 3, CirculateSkip, Color black/lightgray
+Style "NetSites" Icon toolbox.xpm
+Style "tkgoodstuff" NoTitle, NoHandles, Sticky, WindowListSkip, StaysOnTop
+Style "tkgoodstuff" BorderWidth 0, CirculateSkipIcon, CirculateSkip
+Style "*lock"       NoTitle, NoHandles, Sticky, WindowListSkip
+Style "*lock"	    RandomPlacement
+Style "xbiff"       NoTitle, Sticky, WindowListSkip,ClickToFocus
+Style "rxvt"        Icon  term.xpm,SloppyFocus,IconBox -70 1 -1 -140
+Style "XTerm"       Icon Shell4.xpm,IconBox -70 1 -1 -140
+Style "xcalc"       Icon xcalc.xpm, NoButton 2,RandomPlacement,ClickToFocus
+Style "xman"	    Icon xman.xpm,RandomPlacement,ClickToFocus
+Style "xmag"	    Icon mag_glass.xpm,RandomPlacement, ClickToFocus
+
+####################### Keyboard bindings ###############################
+Key Left	A	C	Scroll -100 0
+Key Right	A	C	Scroll +100 +0
+Key Up		A	C	Scroll +0   -100
+Key Down	A	C	Scroll +0   +100
+Key Left	A	M	Scroll -10 +0
+Key Right	A	M	Scroll +10 +0
+Key Up		A	M	Scroll +0   -10
+Key Down	A	M	Scroll +0   +10
+Key Left	A	SC	CursorMove -1 0
+Key Right	A	SC	CursorMove +1 +0
+Key Up		A	SC	CursorMove +0   -1
+Key Down	A	SC	CursorMove +0   +1
+Key Left	A	SM	CursorMove -10 +0
+Key Right	A	SM	CursorMove +10 +0
+Key Up		A	SM	CursorMove +0   -10
+Key Down	A	SM	CursorMove +0   +10
+Key KP_F1	A	M	Popup "Workplace"
+Key KP_F2	A	M	Popup "Window-Ops"
+Key KP_F3	A	M	Module FvwmWinList 
+Key KP_F4	A	M	Iconify
+Key F5	A	M	Move        100p 100p
+Key F6	A	M	Resize   10 10
+Key F7	A	M	Next [*] focus
+Key F8	A	M	Prev [*] focus
+Key F10 	A	A	Next [CurrentDesk rxvt]Focus
+Key F11 	A	A	Prev [CurrentDesk rxvt]Focus
+Key F15		FTIWS	A	Raise
+
+# Mouse Settings
+Mouse 1	R   	A       Menu Workplace Nop
+Mouse 2	R    	A      	Menu Window-Ops Nop
+Mouse 3	R    	A      	WindowList
+Mouse 0	1    	A      	Menu Window-Ops2 Close
+Mouse 0	2    	A     	Maximize-Func
+Mouse 0	4    	A     	Iconify
+Mouse 1	F	A	Resize-or-Raise
+Mouse 1	TS	A	Move-or-Raise
+Mouse 1	I	A	Move-or-Iconify
+Mouse 2	I	A	Iconify
+Mouse 2	FST	A	Menu Window-Ops Nop
+Mouse 3	TSIF	A	RaiseLower
+
+
+######################## Menus ########################################
+AddToMenu Workplace	"WorkPlace"	Title
++			"Console"	Exec  exec xterm -sb -title "Shell Window" &
++			"Shells"	Popup Shells
++			""		Nop
++			"Applications"  Popup xapps-Popup
++			"Utilities"	Popup xutils-Popup
++			"Modules"	Popup Module-Popup
++			""		Nop
++			"Properties"	Popup Settings
++			""		Nop
++			"Restart"	Restart		
++			"Exit X-Windows" Popup Verify
+AddToMenu Shells	"Bash"		Popup Bash-Shell
++			"Tcsh"		Popup Tcsh-Shell
+AddToMenu Bash-Shell	"Xterm (no color)"	Exec exec xterm -sb -title "bash" &
++			"CXterm (color)"	Exec exec color_exterm -sb -title "bash (color) &"
++			"Rxvt (vt100)"		Exec exec rxvt -sb -title "bash(vt100)" &
+AddToMenu Tcsh-Shell	"Xterm (no color)"	Exec exec xterm -sb -title "tcsh" -e tcsh &
++			"CXterm (color)"	Exec exec color_exterm -sb -title "tcsh(color) -e tcsh &"
++			"Rxvt (vt100)"		Exec exec rxvt -sb -title "tcsh(vt100)" -e tcsh &
+AddToMenu Verify        "Confirm Exit"  Title
++			"Quit"		Quit
++			""		Nop
++			"Cancel"	Nop
+AddtoMenu xapps-Popup	"Seyon"		Exec exec seyon -modem /dev/modem &
++			"XV"		Exec exec xv &
++			"Networked"	Popup Networked-Popup
+AddToMenu Networked-Popup	"Netscape 2.0b4"	Exec exec netscape &
++			""		Nop
++			"Knews"
++			"Tin"		Exec exec xterm -sb -e rtin -q &
++			""		Nop
++			"IRC"		Exec exec xterm -sb -e irc &
+AddToMenu xutils-Popup	"X-filemanager"		Exec exec xfm &
++			""		Nop
++			"TkMan"		Exec exec tkman &
++			"Xman"		Exec exec xman &
++			""		Nop
++			"Editres"	Exec exec editres &
++			""		Nop
++			"Xmag"		Exec exec xman &
++			""		Nop
++			"Bitmap"	Exec exec bitmap &
+AddToMenu Settings	"Window Manager" Exec exec xterm -title "Configure Window Manager (.fvwm2rc)" -e /home/tlin/fvwmcfg &
++			"Application Defaults"	Exec exec xterm -title "Configure App-Defaults (.Xdefaults) -e joe /home/tlin/.Xdefaults &
++			"Backgrounds"	Popup Backgrounds
+AddToMenu Backgrounds	"(None)"	 Exec exec xsetroot &
++			"Chrono Trigger" Exec exec xv -root -quit /home/tlin/backgrounds/ctpostr2-big.gif
++			"Ocean"		 Exec exec xv -root -quit /home/tlin/backgrounds/ocean03.gif
++			"Psycho"	 Exec exec xv -root -quit /home/tlin/backgrounds/Desert2.jpg
++			"Marble"	 Exec exec xv -root -quit /home/tlin/backgrounds/marble6.gif
+AddToMenu Window-Ops	"Window Ops"	Title		
++			"Move"		Move-or-Raise2
++			"Resize"	Resize-or-Raise2
++			"Raise"		Raise
++			"Lower"		Lower 
++		 	"(De)Iconify"	Iconify
++			"(Un)Stick"	Stick		
++			"(Un)Maximize"	maximize_func
++			"Delete"	Delete	 
++			"Close"		Close	 
++			"Destroy"	Destroy
++			"Refresh Screen" Refresh		
+AddToMenu Window-Ops2	"Move          "		Move-or-Raise
++			"Resize"	Resize-or-Raise
++			""		Nop
++			"Raise"		Raise
++			"Lower"		Lower
++			""		Nop 
++			"Iconify"	Iconify
++			""		Nop
++			"(Un)Stick"	Stick
++			""		Nop
++			"Kill"		Delete
++			"Close"		Close
++			"Destroy"	Destroy
++			""		Nop 	
++			"ScrollBar" 	Module FvwmScroll 2 2
++			""		Nop
++			"Print"         PrintFunction
+
+AddToMenu Module-Popup	"Modules"	Title	
++			"Button-Bar"	Module	FvwmButtons
++			"Clean-Up"	Module	FvwmClean
++			"Identify"	Module	FvwmIdent
++			"SaveDesktop"	Module  FvwmSave
++			"Debug"		Module	FvwmDebug
++			"Pager"		Module  FvwmPager 0 1
++			"WinList"	Module  FvwmWinList
++			"Background"	Module  FvwmBacker
++			"IconBox"	Module	FvwmIconBox
++			"Banner"	Module	FvwmBanner
++			"Talk"  	Module	FvwmTalk
++			"Prompt"	Module	FvwmPrompt "hello" raise
+
+######################## Functions ########################################
+
+AddToFunc MailFunction	   "I" Next [$0] Iconify -1
++		           "I" Next [$0] focus
++			   "I" None [$0] Exec $0 $1
+
+AddToFunc Move-or-Raise		"I" Raise
++				"M" Move
++  				"D" Lower
+
+AddToFunc Move-or-Raise2	"M" Raise
++				"M" Move
++  				"D" Lower
+
+AddToFunc Maximize-Func		"M" Maximize	 0 100
++				"C" Maximize	 0 80
++				"D" Maximize	 100 100
+
+AddToFunc Move-or-Iconify	"I" Raise
++				"M" Move
++				"D" Iconify
+
+AddToFunc Resize-or-Raise	"I" Raise
++				"M" Resize
++				"D" Lower
+
+AddToFunc Resize-or-Raise2	"M" Raise
++				"M" Resize
++				"D" Lower
+
+AddToFunc PrintFunction		"I" Raise
++				"I" Exec xdpr -id $w
+
+
+########################## Window-Identifier ###############################
+*FvwmIdentBack MidnightBlue
+*FvwmIdentFore Yellow
+*FvwmIdentFont -adobe-helvetica-medium-r-*-*-12-*-*-*-*-*-*-*
+
+##########################FvwmWinList##################################
+*FvwmWinListBack darkslateblue
+*FvwmWinListFore white
+*FvwmWinListFont -adobe-helvetica-bold-r-*-*-10-*-*-*-*-*-*-*
+*FvwmWinListAction Click1 Iconify -1,Focus
+*FvwmWinListAction Click2 Iconify
+*FvwmWinListAction Click3 Module "FvwmIdent" FvwmIdent
+*FvwmWinListUseSkipList
+*FvwmWinListGeometry +0-1
+                                      	
+############################################################
+############################################################
+# Note that icons are shown in the module
+#    only if NoIcon commnand is applied.
+#Style     "*"  NoIcon
+
+############################################################
+*FvwmIconBoxIconBack    #cfcfcf
+*FvwmIconBoxIconHiFore  black
+*FvwmIconBoxIconHiBack  LightSkyBlue
+*FvwmIconBoxBack        #5f9ea0
+#*FvwmIconBoxFore       blue
+*FvwmIconBoxGeometry    5x1+0+0
+*FvwmIconBoxMaxIconSize 64x38
+*FvwmIconBoxFont        -adobe-helvetica-medium-r-*-*-12-*-*-*-*-*-*-*
+*FvwmIconBoxSortIcons
+*FvwmIconBoxPadding     4
+*FvwmIconBoxLines       10
+*FvwmIconBoxSBWidth     11
+*FvwmIconBoxPlacement   Left Top
+*FvwmIconBoxPixmap      fvwm.xpm
+#*FvwmIconBoxHideSC Horizontal
+*FvwmIconBoxSetWMIconSize
+*FvwmIconBoxHilightFocusWin
+*FvwmIconBoxMouse       1       Click           RaiseLower
+*FvwmIconBoxMouse       1       DoubleClick     Iconify
+*FvwmIconBoxMouse       2       Click           Iconify -1, Focus
+*FvwmIconBoxMouse       3       Click           Module "FvwmIdent" Fvw
+*FvwmIconBoxKey         r       RaiseLower
+*FvwmIconBoxKey         space   Iconify
+*FvwmIconBoxKey         d       Close
+*FvwmIconBoxKey         n       Next
+*FvwmIconBoxKey         p       Prev
+*FvwmIconBoxKey         h       Left
+*FvwmIconBoxKey         j       Down
+*FvwmIconBoxKey         k       Up
+*FvwmIconBoxKey         l       Right
+#
+# Icon file specifications
+#
+# Mostly, you don't have to specify icon files, as FvwmIconBox now
+# reads icon files specified in Style commands.
+#
+*FvwmIconBox            "Fvwm*"         -
+

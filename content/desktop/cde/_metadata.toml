@@ -1,0 +1,36 @@
+# _metadata.toml describes the files in this directory: each [[entry]] names files and records
+# what is known about them (mtime, contributor, date, text...). Same shape everywhere.
+# Here: the contributed setups, who sent them and when; {{< contributions >}} is one view of it.
+
+[[entry]]
+files = ["screenshots/dtwm.gif"]
+text = "The standard setup of the CDE, running under Solaris, can be seen in this [screenshot](screenshots/dtwm.gif) (64k)."
+
+[[entry]]
+added = "1997-09"
+files = ["screenshots/dtwm-jrutt.gif", "rc/dtwmrc-jrutt"]
+text = "Here is a customized setup from jrutt@dimensional.com, added in September 1997: 1280x1024 [screenshot](screenshots/dtwm-jrutt.gif) (78k), and [dtwmrc.](rc/dtwmrc-jrutt)"
+
+[[entry]]
+from = "lally@hsingh.campus.vt.edu"
+added = "1998-03"
+files = ["screenshots/dtwm-lally.gif"]
+text = "A Linux [screenshot](screenshots/dtwm-lally.gif) (204k)."
+
+[[entry]]
+from = "donner@sturm.org"
+added = "1998-03"
+files = ["screenshots/cde-donner.jpg"]
+text = "1280x1024 [screenshot](screenshots/cde-donner.jpg) (374k). Again the platform is Linux: RedHat 4.2 with TriTeal CDE."
+
+[[entry]]
+from = "050812@altavista.com"
+added = "2000-05"
+files = ["screenshots/cde-edward.png"]
+text = "A heavily customized 1024x768 [screenshot](screenshots/cde-edward.png) (89k) of CDE running on Solaris x86."
+
+[[entry]]
+from = "jzaremski@alpine-usa.com"
+added = "2000-12"
+files = ["screenshots/cde-jzaremski.jpg"]
+text = "A [screenshot](screenshots/cde-jzaremski.jpg) (232k) of Xi Graphics' DeXtop CDE running on RedHat Linux 6.2."

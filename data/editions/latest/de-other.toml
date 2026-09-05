@@ -1,0 +1,52 @@
+# Ordered list; ref is a bundle. label, homepage and blurb override the bundle's front matter.
+
+[[entry]]
+ref = "desktop/lxde"
+
+[[entry]]
+ref = "desktop/ede"
+
+[[entry]]
+ref = "desktop/fvwm-crystal"
+
+[[entry]]
+ref = "desktop/athene-desktop"
+
+[[entry]]
+ref = "desktop/metisse"
+
+[[entry]]
+ref = "desktop/jd4x"
+
+[[entry]]
+ref = "desktop/3d-desktop"
+
+[[entry]]
+ref = "desktop/xd640"
+
+[[entry]]
+ref = "desktop/xpde"
+
+[[entry]]
+ref = "desktop/rox"
+
+[[entry]]
+ref = "desktop/flowe-desktop"
+
+[[entry]]
+ref = "wm/5dwm"
+
+[[entry]]
+ref = "desktop/foxdesktop"
+
+[[entry]]
+ref = "desktop/ede"
+homepage = "http://ede.sf.net/"
+blurb = "the Equinox Desktop Environment. This is the beginnings of a small, fast, low memory environment, based on the Fast Light Toolkit."
+
+[[entry]]
+ref = "desktop/ude"
+
+[[entry]]
+ref = "desktop/great-desktop"
+bare = true

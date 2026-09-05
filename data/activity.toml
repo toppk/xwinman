@@ -1,0 +1,13 @@
+# The activity ratings of the Notes page; bundles' `activity` fields refer to these by name.
+
+[[rating]]
+name = "High"
+explanation = "An active project, where an updated version has been released within the last 6 months or so, with fairly frequent releases before that."
+
+[[rating]]
+name = "Medium"
+explanation = "The most recent release was between approximately 6 and 18 months go, so either the project isn't being developed anymore, or as is quite often the case, just undergoing a protracted release cycle."
+
+[[rating]]
+name = "Low"
+explanation = "The project appears to be static, with no release for over 18 months. This could be due to a lack of interest, or it could just be that the goals of the project were reached and it is considered finished."

@@ -1,0 +1,345 @@
+#########################################################################
+##                                                                     #
+##                 Rick's  .ctwmrc  19971212-19980210
+##  PLIG.ORG SUBMISSION
+##  PLIG.ORG SUBMISSION
+##      OK, I just took the screenshot, so what you see there is what you
+##	see here. It's time to stop fooling with this anyway.   slat  is 
+## 	available on my web page.  http://cqi.com/~humbubba. Check me out :o)
+##	xcolorize is buried in the X source distro, but it's just a script,
+##	i.e. you don't have to compile all of X as one wad for xcolorize.
+##	Or you can remove it from this file easily enough.
+##	If you extend the PixmapDirectory list to include where your TkDesk
+##	pixmaps are you'll pick up several of the example backgrounds.
+##	I renamed files4ever.xpm, but it's a TkDesk icon.
+##	Uh, on second thought, I'm gonna add some comments to this file, but
+##	I won't change anything that would have effected the screenshot.
+##      You'll see a  ## by my comments.    ## Rick Hohensee :o)
+##	humbubba@cqi.com     colorg on EFnet IRC
+
+##  ABOUT the screenshot, the WorkSpaceManager is a size-able window.
+##  the images in the sections of it are the root window images of
+##  the corresponding workspaces in full scale.
+##  The blackened workspace is the current screen.
+##  That's my version of xpaint, see my webpage.
+##  There's a couple of my fonts in view. Not for distribution.
+##  Doing a screenshot didn't allow me to have an active window,
+##   in which case a border would be hilited. I would have liked
+##   to have shown the menu  pulled down a level or two also.
+##  I did all this at 16 bit x 800 x 600. I hope it looks good where
+##  you're at.
+
+
+## dependancies   slat  xcolorize  pico    several other apps in menu   
+##  	icons from "various"
+##           
+########################################################################
+
+PixmapDirectory "/usr/X11R6/include/X11/pixmaps":"/usr/X11R6/include/X11/bitmaps"
+## note the slight syntax difference from unix PATH
+
+
+UnknownIcon			"xpm:unknown.xpm"
+
+## dont use the default titlebar buttons. We'll specify.
+NoDefaults
+
+RightTitleButton "%xpm:resize" = f.resize 
+## Didja notice they're different in the screenshot? That's because
+## they're animated. The animation came in handy for
+## telling a screenshot from a screen.       
+
+LeftTitleButton			"xpm:xlogo.xpm" = f.iconify
+## this one is not animated.
+
+RandomPlacement			"all"
+UsePPosition			"non-zero"
+TitlePadding			4
+TitleJustification		"left"
+
+## start the WorkSpaceManager with maps instead of buttons
+StartInMapState
+
+WindowRing
+StayUpMenus
+
+## This one is real handy if your X can survive killing the wm
+## i.e. if you don't use xinit. It let's you restart ctwm 
+## without all your windows piling up in the first workspace
+## on re-start. It's real handy for editing/testing this file.
+RestartPreviousState
+
+ButtonIndent			0
+ReverseCurrentWorkSpace
+## in the map in the WorkSpaceManager
+
+WMgrVertButtonIndent		5
+WMgrHorizButtonIndent		5
+WMgrButtonShadowDepth		3
+MaxIconTitleWidth		64
+AnimationSpeed			7
+IconBorderWidth			2
+ThreeDBorderWidth		3
+MenuShadowDepth			3
+XORvalue			1
+TransientOnTop			30
+DefaultFunction                 f.menu     "ctwm menu"
+NoStackMode
+NoTitleHighlight
+OpaqueMove 
+DontMoveOff
+Zoom
+#
+MaxWindowSize   		"800x600"
+SqueezeTitle
+ShowWorkSpaceManager
+#NoShowOccupyAll
+#AutoOccupy
+NoMenuShadows
+UseThreeDMenus
+UseThreeDTitles
+UseThreeDIconManagers
+UseThreeDBorders
+SunkFocusWindowTitle
+##ChangeWorkspaceFunction	!"cat ~/sounds/bom.au   2>/dev/null 1>/dev/audio&"
+##IconifyFunction		 	!"cat ~/sounds/splat.au 2>/dev/null 1>/dev/audio&"
+##DeIconifyFunction		!"cat ~/sounds/drip.au  2>/dev/null 1>/dev/audio&"
+#
+IconRegion			"200x300+600+300" North East 40 40
+#IconRegion			"320x650+100+0" South East 320 1
+#
+#
+WorkSpaceManagerGeometry 	"270x35-0-0" 9
+## initially anyway.
+
+WorkSpaces
+{
+ "X"      {"#686B9F" "pink"   "DeepSkyBlue3" "white" "xpm:xdesigner.xpm"}
+ "Mona"	  {"#619AAE" "pink"   "firebrick"    "white" "xpm:mona_lisa.xpm"}
+ "city"	  {"#619AAE" "pink"   "DeepSkyBlue3" "white" "xpm:city.xpm"}
+ "knot"	  {"#727786" "pink"   "DeepSkyBlue3" "black" "escherknot"}
+ "flake"  {"#559999" "pink"   "MidnightBlue" "Pink"  "xpm:jolifond.xpm" }
+ "file"   {"#8C5b7A" "pink"   "Black"        "white" "xpm:files4ever.xpm"}
+ "c0de"   {"#5C8b7A" "pink"   "MidnightBlue" "white" "xpm:source.xpm"}
+ "chill"  {"#729786" "pink"   "DeepSkyBlue3" "white" "xpm:martini.xpm"}
+ "iris"   {"#445544" "pink"   "chartreuse4"  "black" "xpm:iris07.xpm"}
+}
+## The first workspace, named X here, is where ctwm starts.
+## Hmmm, I wonder if the escherknot pic is compiled in.  ?
+
+#MapWindowCurrentWorkSpace {"#ff00ff"  "#2233ff"   "pink"}
+#
+#OccupyAll {
+#}
+#
+
+##Occupy {
+##    "xmailtool"	{"all"}
+##}
+## this is how you clone a window into several workspaces on startup,
+## by workspace name, or "all".
+
+#cursors{   "image.xbm"  "samesizemask.xbm"
+#  move
+#}
+
+
+########################################################################
+##                                                                     #
+##                        Declare some nice colors                     #
+##                                                                     #
+########################################################################
+#
+Color {
+    DefaultBackground     "blue"
+    DefaultForeground     "gray85"
+    BorderColor           "#ff44ff"
+    BorderTileForeground  "#ffff22"
+    BorderTileBackground  "#222222"
+    TitleBackground       "#0f0f0f" {"*" "DeepSkyBlue1"}
+    TitleForeground       "#333311" {"*" "#555511"}
+    MenuBackground        "#002211"
+    MenuForeground        "#ccaaaa"
+    MenuTitleBackground   "#111122"
+    MenuTitleForeground   "maroon"
+    IconBackground        "#554433"
+    IconForeground        "gray85"
+    IconBorderColor       "gray70"
+    IconManagerBackground "gray70"
+    IconManagerForeground "Black"
+    MapWindowBackground   "White" {
+#	"root*" "DarkSlateBlue"
+#	"Axe"   "White"
+    }
+    MapWindowForeground   "Black" {
+#	"xterm" "Black"
+#	"Axe"   "Black"
+    }
+#    PointerForeground    "maroon" { "root" "maroon"  "*" "maroon" }
+#    PointerBackground    "green"
+}
+
+##	This supman stuff was an animated titlebar. Animations work by
+##	wildcarding a set of image filenames. supman1.xbm, supman2.xbm....	
+#
+# Warning : You should copy supman*.xbm into your IconDirectory in order to use this
+#
+## irrelevant with tabbed titlebars
+# Pixmaps {
+#    TitleHighlight "supman%.xbm"
+#}
+#
+
+AutoRaise { "*" }
+## Most dynamic, I think.
+
+#AutoRelativeResize { "*" }
+## I'm not an icons guy. I didn't use em on my Amiga either.
+Icons {
+    "rxvt"	"xpm:xterm.xpm"
+#    "nothing"	"xpm:xrn.xpm"
+}
+#
+NoBorder { "WorkSpaceManager" }
+NoTitle  { "slat" "slat *" "main menu" }
+#
+LeftTitleButton   	"xpm:rbomb.xpm"  =	f.delete		
+#
+AlwaysOnTop { "WorkSpaceManager" "main menu" "IconManager" }
+## I can't find an AlwaysOnBottom, which I'd like for slats,
+##  so they'd act like active floorboards.
+
+###AutoSqueeze { "WorkSpaceManager" }
+#
+#########################################################################
+### function bindings section
+##
+#
+Button1  = : title 	: f.move
+Button1  = : frame		: f.resize
+#
+Button1   =    : icon         : f.iconify
+Button1   =    : iconmgr      : f.iconify
+#                                                            
+#"F1"       =    : root		: f.speedupanimation
+#"F2"       =    : root		: f.slowdownanimation
+"F1"        =    : all		: f.warpring
+#"F9"       =    : window	: f.vanish
+#"F2"       =    : all		: f.nextworkspace
+#"F12"      =    : root		: f.prevworkspace
+#
+##  I don't have warpring working yet. Or vanish, or.....
+
+#######################################################################################
+###  menu section
+##
+#
+
+##   My menus are pretty well laid out. I like em, anyway.
+##   One tree of menus mapped to "default function" 
+##   so you can usually get at em somehow.
+##   Don't laugh at the pointer speed menu, REAL handy for 
+##   painting. That's why it's prominent in the menu tree.
+
+menu "ctwm menu" {
+    "(un)pin me"                f.pin                            
+    "pointer"			f.menu "pointer"
+    "window moves"		f.menu "windowmenu"
+    "utils & apps"		f.menu "apps"
+    "vterms"			f.menu "vt's"
+    "wm controls"		f.menu "Rick's ctwm"
+    "Kill"			f.menu "Kill"
+    "icon mgr"			f.menu "iconmgr"
+    "mapper"    		f.menu 	"panner"
+    "windowlist"                f.menu "TwmWindows"             
+}
+#
+menu "iconmgr"{
+	"Icon Manager"		f.title
+	"hide"			f.hideiconmgr
+	"show"			f.showiconmgr
+}
+#
+menu "panner"{
+    "maps/buttons"		f.togglestate
+    "ShowWorkspaceManager"	f.showWorkspaceMgr
+    "HideWorkspaceManager"	f.hideWorkspaceMgr
+}
+##  panner==WorkspaceManager
+
+
+menu "windowmenu" {
+    "slide"             f.move              
+    "winfo"		f.identify
+    "slip"		f.forcemove
+    "(de)Iconify"	f.iconify
+    "RaiseLower"	f.raiselower
+    "lower"		f.circledown
+    "Refresh"		f.winrefresh
+    "(un)pin focus"	f.focus
+    "clone"		f.occupy
+    "all clones"	f.occupyall
+    "hide"		f.vanish
+    "stretch"		f.menu "Zoom"
+    "Kill"		f.menu "Kill"
+}
+#
+menu "Kill" {
+    "Kill Window"	f.destroy
+    "Send Delete"	f.delete
+}
+#
+menu "Zoom" {
+    "full"		f.fullzoom
+    "Horizontal"	f.horizoom
+    "Vertical"		f.zoom
+    "to Left"		f.leftzoom
+    "to Top"		f.topzoom
+    "to Right"		f.rightzoom
+    "to Bottom"		f.bottomzoom
+}
+#
+menu "Rick's ctwm"{
+	"Rick's ctwm"	f.title
+	"edit .rc"	f.exec "xcolorize rxvt -e pico ~/.ctwmrc &"
+	"beep"		f.beep
+	"HELP!"		f.exec "xterm -e man ctwm &"
+	"Restart"	f.restart
+	"Save"		f.saveyourself	
+	"kill wm"	f.exec "killall ctwm"
+}
+#
+menu "pointer"{
+	"SPEEDS"	f.title
+	"8/1"		f.exec "xset m 8/1"
+	"4/1"		f.exec "xset m 4/1"
+	"2/1"		f.exec "xset m 2/1"
+	"3/2"		f.exec "xset m 3/2"	
+	"std speed"	f.exec "xset m 1/1"
+	"2/3"		f.exec "xset m 2/3"
+	"1/2"  		f.exec "xset m 1/2"
+	"1/4"		f.exec "xset m 1/4"
+	"1/8"		f.exec "xset m 1/8"
+}
+
+menu "vt's"{
+	"slat"		f.exec "slat 2"
+	"rxvt"		f.exec "xcolorize rxvt -ls -sl 200 &"
+	"slurper"	f.exec "xcolorize rxvt -ls -T slurper -sl 3000 &" 
+	"xterm"		f.exec "xterm -ls &"
+	"slats"		f.exec "slat plural"
+}
+
+menu "apps"{
+	"run me"	f.title
+	"netscape3"   	f.exec "ns3 &"
+	"xv"		f.exec "xv &"
+	"mMosaic"	f.exec "mosaic -geometry 600x400+0+0 &"
+	"xearth" 	f.exec "xearth &"
+## An app that runs on the root window, like xearth, clobbers
+## the default root picture, but the default comes back when
+## you switch workspaces. Setting xearth to a long time interval
+## might make a nice blend. 
+	"login"		f.exec "xcolorize rxvt -e login &"
+	"bugs"		f.exec "xroach -speed 1.0 &"	
+}

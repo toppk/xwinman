@@ -1,0 +1,54 @@
+# Sidebar and navbar of this edition. ref is a content path; label overrides the bundle title.
+sidebar = ["wm", "desktop", "other"]
+
+[wm]
+title = "Window Managers"
+entries = [
+  {ref = "wm/fvwm"},
+  {ref = "wm/fvwm95"},
+  {ref = "wm/vtwm", label = "TWM/VTWM"},
+  {ref = "wm/mwm"},
+  {ref = "wm/ctwm"},
+  {ref = "wm/olvwm", label = "OLWM/OLVWM"},
+  {ref = "wm/wm2", label = "wm2/wmx"},
+  {ref = "wm/afterstep"},
+  {ref = "wm/amiwm"},
+  {ref = "wm/enlightenment"},
+  {ref = "wm/wmaker", label = "WindowMaker"},
+  {ref = "wm/scwm"},
+  {ref = "wm/icewm"},
+  {ref = "wm/sawfish"},
+  {ref = "wm/blackbox"},
+  {ref = "wm/fluxbox"},
+  {ref = "wm/metacity"},
+  {ref = "wm/others", label = "Others..."},
+]
+
+[desktop]
+title = "Desktops"
+entries = [
+  {ref = "desktop/gnome"},
+  {ref = "desktop/kde"},
+  {ref = "desktop/cde"},
+  {ref = "desktop/xfce", label = "XFce"},
+  {ref = "desktop/otherdesktops", label = "Others..."},
+]
+
+[other]
+title = "Other Info"
+entries = [
+  {ref = "icons", label = "Icons"},
+  {ref = "resource", label = "X Resources"},
+  {ref = "comparisons"},
+  {ref = "notes"},
+  {ref = "links"},
+]
+
+[top]
+title = ""
+entries = [
+  {ref = "", label = "Home"},
+  {ref = "intro", label = "Intro"},
+  {ref = "basics"},
+  {ref = "feedback", label = "Contact"},
+]

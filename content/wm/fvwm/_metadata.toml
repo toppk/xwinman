@@ -1,0 +1,110 @@
+# _metadata.toml describes the files in this directory: each [[entry]] names files and records
+# what is known about them (mtime, contributor, date, text...). Same shape everywhere.
+# Here: the contributed setups, who sent them and when; {{< contributions >}} is one view of it.
+
+[[entry]]
+from = "matt@belgarath.org"
+added = "1996-06"
+files = ["rc/fvwmrc-matt", "screenshots/fvwm-matt.gif"]
+text = "[fvwmrc,](rc/fvwmrc-matt) [screenshot](screenshots/fvwm-matt.gif) (118k)."
+
+[[entry]]
+from = "adam@unipalm.pipex.com"
+added = "1996-06"
+files = ["rc/fvwmrc-adam", "screenshots/LINUXDEMO1.gif"]
+text = "[fvwmrc,](rc/fvwmrc-adam) [screenshot](screenshots/LINUXDEMO1.gif) (k). This setup shows fvwm being run on a Linux machine - a popular combination."
+
+[[entry]]
+from = "geir@origo.telenor.no"
+added = "1996-06"
+files = ["rc/fvwmrc-geir", "screenshots/fvwm-geir.gif"]
+text = "[fvwmrc,](rc/fvwmrc-geir) [screenshot](screenshots/fvwm-geir.gif) (238k). This setup uses the [3d pixmap](ftp://pc50.zrz.tu-berlin.de/pub/3dpixmaps/) collection, which contains icons converted from the Amiga's MagicWB collection. It is also available from [sunsite.unc.edu.](ftp://sunsite.unc.edu/pub/Linux/X11/icons/)"
+
+[[entry]]
+from = "brummelufs@hotmail.com"
+added = "1998-12"
+files = ["rc/fvwmrc-thomas", "screenshots/fvwm-thomas.jpg"]
+text = "[fvwmrc,](rc/fvwmrc-thomas) [screenshot](screenshots/fvwm-thomas.jpg) (77k)."
+
+[[entry]]
+from = "r3@wlug.westbo.se"
+added = "1998-12"
+files = ["rc/fvwmrc-wlug", "screenshots/fvwm-wlug.jpg"]
+text = "[fvwmrc,](rc/fvwmrc-wlug) [screenshot](screenshots/fvwm-wlug.jpg) (141k)."
+
+[[entry]]
+from = "mautv@csv.warwick.ac.uk"
+added = "1996-06"
+files = ["rc/fvwm2rc-mautv", "screenshots/fvwm2-mautv.gif"]
+text = "[fvwm2rc,](rc/fvwm2rc-mautv) and a [screenshot](screenshots/fvwm2-mautv.gif) (26k)."
+list = 2
+
+[[entry]]
+from = "tlin@servtech.com"
+added = "1996-06"
+files = ["rc/fvwm2rc-tlin", "screenshots/fvwm2-tlin.gif"]
+text = "[fvwm2rc,](rc/fvwm2rc-tlin) and a [screenshot](screenshots/fvwm2-tlin.gif) (143k)."
+list = 2
+
+[[entry]]
+from = "james@park6.student.harvard.edu"
+added = "1996-06"
+files = ["rc/fvwm2rc-oreos", "screenshots/fvwm2-oreos.jpg"]
+text = "[fvwm2rc,](rc/fvwm2rc-oreos) and a [screenshot](screenshots/fvwm2-oreos.jpg) (139k jpeg)."
+list = 2
+
+[[entry]]
+from = "jirka@5z.com"
+added = "1997-04"
+files = ["rc/fvwm2rc-franz", "screenshots/fvwm2-franz.gif"]
+text = "[fvwm2rc,](rc/fvwm2rc-franz) and a [screenshot](screenshots/fvwm2-franz.gif) (269k). Note, this requires fvwm pre-2.0 patchlevel 45 or later."
+list = 2
+
+[[entry]]
+from = "root@sword.lightspeed.bc.ca"
+added = "1997-06"
+files = ["rc/fvwm2rc-karl", "screenshots/fvwm2-karl.jpg"]
+text = "[fvwm2rc,](rc/fvwm2rc-karl) and a [800x600 screenshot](screenshots/fvwm2-karl.jpg) (124k)."
+list = 2
+
+[[entry]]
+from = "slack@neosoft.com"
+added = "1998-01"
+files = ["rc/fvwm2rc-loki", "screenshots/fvwm2-loki.jpg"]
+text = "[fvwm2rc,](rc/fvwm2rc-loki) and a [screenshot](screenshots/fvwm2-loki.jpg) (290k)."
+list = 2
+
+[[entry]]
+from = "duck@multi.fi"
+added = "2000-10"
+files = ["rc/fvwm2rc-duck", "screenshots/fvwm2-duck.gif", "rc/icons-duck.tar.gz"]
+text = "[fvwm2rc,](rc/fvwm2rc-duck) a [screenshot](screenshots/fvwm2-duck.gif) (57k), and the [icons](rc/icons-duck.tar.gz) used by this configuration."
+list = 2
+
+[[entry]]
+from = "dadou350@caramail.com"
+added = "2001-10"
+files = ["rc/fvwm2rc-dadou", "screenshots/fvwm2-dadou.png"]
+text = "[fvwm2rc,](rc/fvwm2rc-dadou) and a [screenshot](screenshots/fvwm2-dadou.png) (59k)."
+list = 2
+
+[[entry]]
+from = "glen@fcwm.org"
+added = "2001-10"
+files = ["rc/fvwm2rc-glen", "screenshots/fvwm2-glen.jpg"]
+text = "[fvwm2rc,](rc/fvwm2rc-glen) and a [screenshot](screenshots/fvwm2-glen.jpg) (227k)."
+list = 2
+
+[[entry]]
+from = "horen@mail.iucc.ac.il"
+added = "2003-11"
+files = ["screenshots/fvwm2-horen.jpg", "screenshots/fvwm2-config-horen.tar.gz", "screenshots/fvwm2-icons-horen.tar.gz"]
+text = "This [screenshot](screenshots/fvwm2-horen.jpg) (273k) shows fvwm2 configured to look very much like Windows XP. The [configuration files](screenshots/fvwm2-config-horen.tar.gz) (216k) for this are available, as are the numerous [icons](screenshots/fvwm2-icons-horen.tar.gz) (3052k)."
+list = 2
+
+[[entry]]
+from = "taviso@spamcop.net"
+added = "2004-08"
+files = ["rc/fvwm2rc-taviso", "screenshots/fvwm2-taviso.png"]
+text = "[fvwm2rc,](rc/fvwm2rc-taviso) and a [screenshot](screenshots/fvwm2-taviso.png) (254k)."
+list = 2

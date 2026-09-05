@@ -1,0 +1,99 @@
+"Needful Things" TITLE
+
+"X Clients" MENU
+	"XTerm"				exec /usr/bin/X11/xterm
+	"Window Programming Environment" exec /usr/bin/xwpe
+	"FTE 0.45"			exec /usr/X11R6/bin/xfte
+	"Netscape Navigator 3.01"	exec /usr/X11R6/bin/navigator -xrm "Netscape.Navigator.geometry: 1024x768+20+155"
+	"Netscape Communicator 4.04"	exec /usr/X11R6/bin/communicator -xrm "Netscape.Navigator.geometry: 1024x768+20+155"
+	"StarCalc 3.1"			exec /usr/local/StarOffice-3.1/linux-x86/bin/scalc3 /home/nyetter/sheet/Pending.sdc
+	"XPlaycd 2.3"			exec /usr/X11R6/bin/xplaycd
+	"Adobe Acrobat Reader 3.0"	exec /usr/X11R6/bin/acroread
+	"Calculator"			exec /usr/bin/X11/xcalc
+	"Man Pages"			exec xman -bg purple4 -fg orange -g 150x100-2+2
+	"XLoad"				exec xload
+"X Clients" END PIN
+
+"Programs" MENU
+	"PINE 3.96"			exec xterm -T "PINE 3.96" -e pine
+	"NcFTP 2.4.2"			exec xterm -T "NcFTP 2.4.2" -e ncftp
+	"Lynx 2.7.1"			exec xterm -T "Lynx 2.7.1"-e lynx
+	"top 2.00"			exec xterm -T "top 2.00" -e top
+"Programs" END PIN
+
+"Tools" MENU
+	"X Font Selector"		exec /usr/bin/X11/xfontsel
+	"Kill X Client..."		exec /usr/bin/X11/xkill
+	"Client Access Control" MENU
+		"Disable"		exec xhost +
+		"Enable"		exec xhost -
+	"Client Access Control" END PIN
+	"Magnify..."			exec /usr/bin/X11/xmag
+	"Tune X Server"			exec /usr/bin/X11/xvidtune
+"Tools" END PIN
+
+
+"PPP" MENU
+	"Link UP"			/etc/ppp/scripts/ppp-on
+	"Link DOWN"			/etc/ppp/scripts/ppp-off
+"PPP" END PIN
+
+"Lock Display" MENU
+	"Lock" MENU
+		"Iterated Function System"	xlock -mode ifs
+		"Cosmic Flame Fractals"		xlock -mode flame
+		"Drifting Cosmic Flame Fractals" xlock -mode drift
+		"Strange Attractors"		xlock -mode strange
+		"Kaleidoscope"			xlock -mode kaleid
+		"Lasers"			xlock -mode laser
+		"Lightning"			xlock -mode lightning
+	"Lock" END PIN
+	"NoLock" MENU
+		"Iterated Function System"	xlock -mode ifs -nolock
+		"Cosmic Flame Fractals"		xlock -mode flame -nolock 
+		"Drifting Cosmic Flame Fractals" xlock -mode drift -nolock
+		"Strange Attractors"		xlock -mode strange -nolock
+		"Kaleidoscope"			xlock -mode kaleid -nolock
+		"Lasers"			xlock -mode laser -nolock
+		"Lightning"			xlock -mode lightning -nolock
+	"NoLock" END PIN
+	"InRoot" MENU
+		"Iterated Function System"	xlock -mode ifs -nolock -inroot
+		"Cosmic Flame Fractals"		xlock -mode flame -nolock -inroot
+		"Drifting Cosmic Flame Fractals" xlock -mode drift -nolock -inroot
+		"Strange Attractors"		xlock -mode strange -nolock -inroot
+		"Kaleidoscope"			xlock -mode kaleid -nolock -inroot
+		"Lasers"			xlock -mode laser -nolock -inroot
+		"Lightning"			xlock -mode lightning -nolock -inroot
+	"InRoot" END PIN
+	"InWindow" MENU
+		"Iterated Function System"	xlock -mode ifs -nolock -inwindow
+		"Cosmic Flame Fractals"		xlock -mode flame -nolock -inwindow
+		"Drifting Cosmic Flame Fractals" xlock -mode drift -nolock -inwindow
+		"Strange Attractors"		xlock -mode strange -nolock -inwindo
+		"Kaleidoscope"			xlock -mode kaleid -nolock -inwindow
+		"Lasers"			xlock -mode laser -nolock -inwindow
+		"Lightning"			xlock -mode lightning -nolock -inwindow 
+	"InWindow" END PIN
+"Lock Display" END PIN
+
+SEPARATOR
+
+"Window List"				WINMENU
+
+"WM Utilities" MENU
+        "Refresh" DEFAULT		REFRESH
+        "Window Controls" MENU
+                "Open/Close" DEFAULT    OPEN_CLOSE_SELN
+                "Full/Restore Size"     FULL_RESTORE_SIZE_SELN
+                "Back"                  BACK_SELN   
+                "Quit"                  QUIT_SELN
+        "Window Controls" END PIN
+        "Restart olvwm"                 RESTART
+"WM Utilities" END PIN
+
+"X Binaries..,"				DIRMENU /usr/bin/X11
+
+SEPARATOR
+
+"Exit from X..."			EXIT

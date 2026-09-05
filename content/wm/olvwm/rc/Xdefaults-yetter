@@ -1,0 +1,81 @@
+#ifdef COLOR
+*customization: -color
+#endif
+
+Seyon.modems: /dev/ttyS0
+
+olwm.BorderColor:		DarkBlue
+olwm.AutoInputFocus: 		false
+olwm.WindowColor:		DarkRed
+olwm.BasicLocale: 		C
+olwm.Beep:			never
+olwm.DragWindow:		true
+olwm.Foreground:		White
+olwm.IconLocation:		left-bt
+olwm.PaintWorkspace:		false
+olwm.SelectDisplaysMenu:	false
+olwm.SetInput:			followmouse
+olwm.ShowMoveGeometry:		true
+olwm.ShowResizeGeometry:	true
+olwm.SnapToGrid:		true
+olwm.Use3DResize:		true
+olwm.InvertFocusHighlighting:	true
+
+olvwm.VirtualDesktop:		2x2
+olvwm.PannerScale:		20
+olvwm.VirtualFontColor:		White
+olvwm.VirtualBackgroundColor:	Black
+olvwm.VirtualGridColor:		White
+olvwm.UseImages:		UseAll
+olvwm.StickyIcons:		true
+olvwm.FreeIconSlots:		true
+olvwm.UniqueIconSlots:		true
+olvwm.InputFocusColor:		DarkGreen
+olvwm.ResizeMoveGeometry:	center
+olvwm.CursorSpecialResize:	true
+olvwm.VirtualGeometry:		+15+15
+olvwm.AutoShowRootMenu:		true
+olvwm.AutoRootMenuX:		2
+olvwm.AutoRootMenuY:		106
+#olvwm.CursorBasic:
+#olvwm.CursorMove:
+olvwm.VirtualSticky:		xload xman Needful PPP
+olvwm.FullSizeZoomX:		true
+
+#xterm*geometry:	80x24+153+147
+#xterm*font:	-*-*-*-r-*-*-14-0-75-75-*-*-*-*
+xterm*font:	10x20
+xterm*background: Black
+xterm*foreground: goldenrod1
+xterm*cursorColor: Orchid
+xterm*scrollBar: true
+xterm*jumpScroll: true
+xterm*saveLines: 5000
+xterm*reverseWrap: true
+xterm*fullCursor: true
+xterm*scrollTtyOutput: off
+xterm*scrollKey: on
+xterm*VT100.Translations: #override\n\
+	<KeyPress>Prior : scroll-back(1,page)\n\
+	<KeyPress>Next : scroll-forw(1,page)
+xterm*titleBar: true
+xterm*title:	Debian GNU/Linux 1.3 : /bin/bash
+xterm*loginshell: false
+
+xload*background:	black
+xload*foreground:	green
+xload.geometry:		301x102+153+15
+xload*load.jumpScroll:	1
+
+xlock*mode:		ifs
+
+#xman*geometry:		150x100-2+2
+
+xwpe*font:		-*-fixed-bold-r-*-*-12-*-*-*-*-*-*-*
+
+Knews.editCommand:	xterm -e pico -t +%i %s
+Knews.readActiveFile:	false
+Knews.retrieveDescriptions:	false
+
+#Netscape.Navigator.geometry:	1024x768+15+150
+#Netscape.Mail.geometry:		800x600-0-0

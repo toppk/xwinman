@@ -1,0 +1,420 @@
+define(taillemax, translit(eval(WIDTH)*eval(HEIGHT-110),*,x))
+
+#**********************************************************************
+#
+#    .ctwmrc
+#
+#**********************************************************************
+
+
+LeftTitleButton "menu12" = f.menu "windowmenu"	# add a menu to each window
+#TitleButtonBorderWidth 0	# don't want to see box around button
+#ButtonIndent 0			# button doesn't have to be smaller
+
+
+UsePPosition "on"		# use program-specified size hints accepted
+#NoHighlight			# do not flash borders on enter events
+#OpaqueMove			# actually move window instead of outline
+AutoRelativeResize		# don't require resize to cross border to start
+#RestartPreviousState		# reiconify iconified things on startup
+ClientBorderWidth		# use the application border width on frameBorderWidth 5			                            
+		                # width of top level windows created by twm
+NoGrabServer			# don't grab server during menus, etc.
+NoRaiseOnMove			# allow moving under other windows
+NoRaiseOnResize			# allow resizing under other windows
+NoTitleFocus			# avoid keystrokes in wrong window cause of lag
+DecorateTransients		# put titlebars on transients
+NoSaveUnders			# faster to just repaint then save
+XORvalue 1			# tend to use visually distinct adjacent colors
+ConstrainedMoveTime 0		# turn off horizontal/vertical only moving
+NoCaseSensitive			# turn off case-sensitivity in sorting icons
+#Warpmapped			# allow warping to unmapped windows
+BorderResizeCursors              # curseurs d'agrandissement aux coins des fenetres
+#WarpRingOnScreen	
+
+
+MaxWindowSize	"taillemax"
+ShowIconManager
+UseThreeDIconManagers
+UseThreeDMenus
+UseThreeDTitles
+UseThreeDBorders
+
+IconifyByUnmapping
+ShowWorkSpaceManager
+UseThreeDWMap
+#SortIconManager
+StartInMapState
+NoShowOccupyAll
+#ReallyMoveInWorkSpaceManager
+MapWindowDefaultWorkSpace { "black" "black" "Ivory"} 
+MapWindowCurrentWorkspace { "black" "Ivory" "Ivory" }
+TitleJustification "center"
+
+
+IconDirectory "/net/i2/lacazedi/perso/icones"
+
+IconManagerGeometry "295x75+120-0" 4
+WorkSpaceManagerGeometry "100x75-0-0"
+
+
+TitleFont "-adobe-helvetica-medium-r-normal-*-8-*-*-*-*"
+MenuFont "-adobe-helvetica-medium-r-normal-*-8-*-*-*-*"
+IconFont  "-adobe-helvetica-medium-r-normal-*-8-*-*-*-*"
+IconManagerFont "-adobe-helvetica-medium-r-normal-*-8-*-*-*-*"
+
+
+
+NoHighLight
+{
+	"dclock"
+	"TWM Icon Manager"
+	"xmeter"
+	"WorkSpaceManager"
+}
+
+NoBorder
+{
+	"Aplimanager"
+}
+
+
+Monochrome
+{
+    IconManagerHighlight  "black" 
+    IconManagerForeground "white"
+    IconManagerBackground "black"     
+    BorderColor "black"
+    TitleForeground "black"
+    TitleBackground "white"
+    MenuForeground "white"
+    MenuBackground "black"
+    MenuTitleForeground "white"
+    MenuTitleBackground "black"
+    IconForeground "white"
+    IconBackground "black"
+    IconBorderColor "black"
+
+}
+
+Color
+{
+   
+    BorderColor 	"slategray3"
+    BorderTileForeground "slategray4"
+    BorderTileBackground "Slategray4"
+	{		"TWM Icon Manager"	"Ivory"
+			"WorkSpaceManager"	"Ivory"
+	}
+
+    
+    TitleBackground     "Slategray4"
+    TitleForeground 	"Ivory"
+    MenuShadowColor 	"slategray4"			
+    MenuBackground      "Ivory"
+    MenuForeground      "slategray4"
+    MenuTitleBackground "slategray4"
+    MenuTitleForeground "Ivory"
+
+    IconManagerBackground "Slategray4"
+    IconManagerForeground "Ivory"
+}
+
+
+
+
+
+##########################
+#                        #
+#     workspaces         #
+#                        #
+##########################
+
+WorkSpaces
+{
+      "Demarrage"
+      "Netscape"
+      "Travail"
+      "Misc."  
+}
+
+
+Occupy
+{
+	Window		"Netscape"	{ "Netscape" }
+	Window		"Emacs"		{ "Travail" }
+	Window		"xv"		{ "Misc." }
+        Window          "xblast"        { "Misc." }
+}
+
+
+OccupyAll
+{	
+	"Aplimanager"
+	"Irc"
+        "xmeter"
+	"dclock"
+}
+ 
+
+
+
+###############################################################################
+#                                                                             #
+#                             Define user functions                           #
+#                                                                             #
+###############################################################################
+
+Function "quitter"
+{
+    f.exec "rm -f ${HOME}/.display"
+    f.quit
+}
+
+
+
+
+
+DefaultFunction f.nop		# ignore extraneous events
+
+Function "Deplace_vers_D" {f.addtoworkspace "Demarrage" f.vanish}
+Function "Deplace_vers_T" {f.addtoworkspace "Travail" f.vanish}
+Function "Deplace_vers_N" {f.addtoworkspace "Netscape" f.vanish}
+Function "Deplace_vers_M" {f.addtoworkspace "Misc." f.vanish}
+
+###############################################################################
+#                                                                             #
+#                             Define key bindings                             #2
+#                                                                             #
+###############################################################################
+
+
+#Button = KEYS : CONTEXT : FUNCTION
+#----------------------------------
+Button1 =      : title   : f.raiselower
+Button2 =      : title   : f.move
+Button3 =      : title   : f.menu "windowmenu"
+
+Button2 =      : frame   : f.resize
+
+
+Button2 =      : icon    : f.move
+Button3 =      : icon    : f.raise
+
+Button3 = s|m  : window  : f.destroy
+
+Button1 =      : root	 : f.menu "twmops"
+Button2 =      : root	 : f.menu "Login"
+Button3 =      : root	 : f.menu "windowops"
+
+Button1 =      : iconmgr : f.iconify
+Button2 =      : iconmgr : f.raise
+Button3 =      : iconmgr : f.lower
+
+"F9"	=      : window	 : f.destroy
+"F8"	=      : window  : f.fullzoom 
+"F7"    =      : window  : f.iconify
+"F7"    =      : iconmgr : f.deiconify
+
+"F6"	=	: window : f.raiselower
+
+"F1"	= 	: all         			: f.gotoworkspace "Demarrage"
+"F3"    =       : all	                        : f.gotoworkspace "Netscape"
+"F2"    =       : all	                        : f.gotoworkspace "Travail"
+"F4"    =       : all	                        : f.gotoworkspace "Misc."
+
+
+
+"D"     =      : root  :  f.gotoworkspace "Demarrage"
+"N"     =      : root  :  f.gotoworkspace "Netscape"
+"T"     =      : root  :  f.gotoworkspace "Travail"
+"M"     =      : root  :  f.gotoworkspace "Misc."
+
+
+###############################################################################
+#                                                                             #
+#     Display an icon manager across the top of the screen.  Don't manage     #
+#                the windows for which you don't show a title.                #
+#                                                                             #
+###############################################################################
+
+
+NoTitle				# little programs that look like icons
+
+{
+  "Aplimanager"
+  "dclock"
+  "xmeter"
+  "TWM Icon Manager"
+  "WorkSpaceManager"
+}
+
+
+
+IconManagerDontShow
+{
+  "Aplimanager"
+  "dclock"
+  "xload"
+  "xrn"
+  "xmail"
+  "xman"
+  "xmeter"
+}  
+
+
+
+DontIconifyByUnmapping
+{
+  "WorkSpaceManager"
+}
+
+
+
+###############################################################################
+#                                                                             #
+#                          Define some useful menus.                          #
+#                                                                             #
+###############################################################################
+
+
+menu "windowmenu"
+{
+"WINDOWMENU"		f.title
+"AgrandirMax"           f.fullzoom
+"Info"                  f.identify
+"Lower"                 f.lower
+"Raise"                 f.raise
+"Vanish"		f.vanish
+"MoveWindow"		f.menu "Deplace" 
+"RemF WSpace"           f.menu "remfromWS"
+"Send Delete"           f.delete
+"kill"                  f.menu "confwin"
+ }
+
+
+
+menu "Deplace"		
+{
+"MoveWindow"		f.title
+"Demarrage"		f.function "Deplace_vers_D"
+"Travail"		f.function "Deplace_vers_T"
+"Netscape"		f.function "Deplace_vers_N"
+"Misc."			f.function "Deplace_vers_M"
+}
+
+
+
+menu "confwin"       ("black":"red")
+{
+"Please confirm"        f.title 
+"No"                    f.nop
+"Yes"			f.destroy
+}
+
+
+
+menu "twmops"
+{
+"DIVERS"		f.title
+"Emacs"			!"/opt/jumble/bin/emacs -geometry 80x40+0+0 &" 
+"Shell"			!"/net/enserb/solaris/bin/rxvt  -T Shell@$HOST -n Shell@$HOST -ls -geometry 120x40 &"
+"Pine"			!"rsh matho /net/enserb/solaris/bin/xterm -geometry 100x30+0+0 -T pine@matho -n pine@matho -iconic -display $DISPLAY -e /net/enserb/solaris/bin/pine &"
+"I.R.C."		!"/net/enserb/solaris/bin/rxvt -T Irc -n Irc -ls -e irc &"
+"Netscape"		!"/net/enserb/solaris/bin/netscape4 -install &"
+"TK man"		!"/opt/jumble/bin/tkman &"
+"X.V."			!"xv &"
+"Calculatrice"		!"xcalc &"
+}
+
+
+
+
+menu "confirm"       	("black":"red")
+{
+"Please confirm"        f.title 
+"No"                    f.nop			
+"Yes"			f.function "quitter"	
+}
+
+menu "windowops"
+{
+"Windows"		f.title
+"Resize"		f.resize
+"Refresh all"		f.refresh
+"Restart twm"		f.twmrc
+"Info"			f.identify
+"Move"                  f.move
+"Raise"			f.raise
+"Lower"			f.lower
+"Iconify"		f.iconify
+""			f.nop
+"Kill"			f.destroy
+"Logout"		f.menu "confirm"
+}
+
+
+menu "Login"
+{
+"Machines"			f.title
+"spendius"		!"/net/enserb/solaris/bin/rxvt  -ls -T Shell@spendius -n Shell@spendius -e rlogin spendius -8  &"
+"didon" 		!"/net/enserb/solaris/bin/rxvt  -ls -T Shell@didon -n Shell@didon -e rlogin didon -8  &"
+"salambo"               !"/net/enserb/solaris/bin/rxvt   -ls -T Shell@salambo -n Shell@salambo -e rlogin salambo -8 &"
+"matho"			!"/net/enserb/solaris/bin/rxvt  -ls  -T Shell@matho -n Shell@matho -e rlogin matho -8 &"
+"iris"   		f.menu "iris"
+"Marx"			f.menu "Marx"
+"Sparc1"		f.menu "Sparc1"
+"Sparc2"		f.menu "Sparc2"
+}
+
+
+
+menu "Marx"
+{
+"groucho"	!"/net/enserb/solaris/bin/rxvt  -ls -T Shell@groucho -n Shell@groucho -e rlogin -8 groucho &"
+"chico"		!"/net/enserb/solaris/bin/rxvt  -ls -T Shell@chico -n Shell@chico -e rlogin -8 chico &"
+"zeppo"		!"/net/enserb/solaris/bin/rxvt  -ls -T Shell@zeppo -n Shell@zeppo -e rlogin -8 zeppo &"
+"harpo"		!"/net/enserb/solaris/bin/rxvt  -ls -T Shell@harpo -n Shell@harpo -e rlogin -8 harpo &"
+}
+
+menu "Sparc1"
+{
+"capa"          !"/net/enserb/solaris/bin/rxvt  -ls -T Shell@capa -n Shell@capa -e rlogin -8 capa &"
+"cartierbresson"!"/net/enserb/solaris/bin/rxvt  -ls -T Shell@cartierbresson -n Shell@cartierbresson -e rlogin -8 cartierbresson &"
+"steichen"      !"/net/enserb/solaris/bin/rxvt  -ls -T Shell@steichen -n Shell@steichen -e rlogin -8 steichen &"
+"minorwhite"    !"/net/enserb/solaris/bin/rxvt  -ls -T Shell@minorwhite -n Shell@minorwhite -e rlogin -8 minorwhite &"
+"strand"        !"/net/enserb/solaris/bin/rxvt  -ls -T Shell@strand -n Shell@strand -e rlogin -8 strand &"
+"brandt"        !"/net/enserb/solaris/bin/rxvt  -ls -T Shell@brandt -n Shell@brandt -e rlogin -8 brandt &"
+"seymour"       !"/net/enserb/solaris/bin/rxvt  -ls -T Shell@seymour -n Shell@seymour -e rlogin -8 seymour &"
+"mapplethorpe"  !"/net/enserb/solaris/bin/rxvt  -ls -T Shell@mapplethorpe -n Shell@mapplethorpe -e rlogin -8 mapplethorpe &"
+"weston"        !"/net/enserb/solaris/bin/rxvt  -ls -T Shell@weston -n Shell@weston -e rlogin -8 weston &"
+"doisneau"      !"/net/enserb/solaris/bin/rxvt  -ls -T Shell@doisneau -n Shell@doisneau -e rlogin -8 doisneau &"
+"adams"         !"/net/enserb/solaris/bin/rxvt  -ls -T Shell@adams -n Shell@adams -e rlogin -8 adams &"
+"bishof"        !"/net/enserb/solaris/bin/rxvt  -ls -T Shell@bishof -n Shell@bishof -e rlogin -8 bishof &"
+"stieglitz"     !"/net/enserb/solaris/bin/rxvt  -ls -T Shell@stieglitz -n Shell@stieglitz -e rlogin -8 stieglitz &"
+"drtikol"       !"/net/enserb/solaris/bin/rxvt  -ls -T Shell@drtikol -n Shell@drtikol -e rlogin -8 drtikol &"
+}
+
+menu "Sparc2"
+{
+"anie"          !"/net/enserb/solaris/bin/rxvt  -ls -T Shell@anie -n Shell@anie -e rlogin -8 anie &"
+"ossau"         !"/net/enserb/solaris/bin/rxvt  -ls -T Shell@ossau -n Shell@ossau -e rlogin -8 ossau &"
+"pallas"        !"/net/enserb/solaris/bin/rxvt  -ls -T Shell@pallas -n Shell@pallas -e rlogin -8 pallas &"
+"lurien"        !"/net/enserb/solaris/bin/rxvt  -ls -T Shell@lurien -n Shell@lurien -e rlogin -8 lurien &"
+"arriel"        !"/net/enserb/solaris/bin/rxvt  -ls -T Shell@arriel -n Shell@arriel -e rlogin -8 arriel &"
+"gabizos"       !"/net/enserb/solaris/bin/rxvt  -ls -T Shell@gabizos -n Shell@gabizos -e rlogin -8 gabizos &"
+"carlitte"      !"/net/enserb/solaris/bin/rxvt  -ls -T Shell@carlitte -n Shell@carlitte -e rlogin -8 carlitte &"
+"bigorre"       !"/net/enserb/solaris/bin/rxvt  -ls -T Shell@bigorre -n Shell@bigorre -e rlogin -8 bigorre &"
+"utopie"        !"/net/enserb/solaris/bin/rxvt  -ls -T Shell@utopie -n Shell@utopie -e rlogin -8 utopie &"
+}
+
+
+menu "iris"
+{
+"matisse"               !"/net/enserb/solaris/bin/rxvt  -ls   -T Shell@matisse -n Shell@matisse -e rlogin matisse -8 &"
+"fetting"               !"/net/enserb/solaris/bin/rxvt  -ls   -T Shell@fetting -n Shell@fetting -e rlogin fetting -8 &"
+"baselitz"              !"/net/enserb/solaris/bin/rxvt  -ls   -T Shell@baselitz -n Shell@baselitz -e rlogin baselitz -8 &"
+"kirkeby"		!"/net/enserb/solaris/bin/rxvt  -ls   -T Shell@kirkeby -n Shell@kirkeby -e rlogin kirkeby -8 &"		
+}
+
+

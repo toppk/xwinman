@@ -1,0 +1,68 @@
+!
+!  .Xdefaults
+!
+!        Resource file for use with Window Managers
+!  Client-specific resources may be set within this file.  
+!  Attributes which may be modified include window appearance,
+!  color, geometric location, fonts, and behavior.
+!
+!  Refer to the appropriate man page for the application:  
+!   mwm, xterm, xcalc, xcalendar, xrn, etc.
+!
+!  Lines beginning with ! are comments.
+
+! MWM Resources  --  These are only run if you are using the mwm window
+!                    manager.  Run "man mwm" for details.
+
+! Causes icon box to scroll horizontally only
+Mwm*iconBoxSBDisplayPolicy:     horizontal
+! Creates a box to place your icons
+Mwm*useIconBox:			True
+! Sets the icon box's size and location
+Mwm*iconBoxGeometry:		10x1+160-0
+! Sets the icon box's title
+Mwm*iconBoxTitle:		MWM Icon Manager
+! Sets where the icons will appear (on the screen, or in an icon box if it
+! exists)
+Mwm*iconPlacement:		left top
+! "fades" icon of applications that are active
+Mwm*fadeNormalIcon:		True
+! Causes whatever your pointer is over to become the active application
+Mwm*keyboardFocusPolicy:	pointer
+! Causes all border and title decoration to appear on xclock applications
+Mwm*XClock.clientDecoration:	+all
+! Causes all border and title decoration to appear on xbiff applications
+Mwm*xbiff.clientDecoration:	+all
+! Lets you select by hand the location of a new application (unless a specific
+! location is indicated when you run it)
+Mwm*interactivePlacement:	True
+! Sets a foreground color for every application
+Mwm*foreground:			NavyBlue
+! Sets a background color for every application
+Mwm*background:			CadetBlue
+! Sets a foreground color for the active application
+Mwm*activeForeground:		gold
+! Sets a background color for the active application
+Mwm*activeBackground:		IndianRed
+! Sets a foreground color for your menu
+Mwm*menu*foreground:		gold
+! Sets a background color for your menu
+Mwm*menu*background:		IndianRed
+! Default font for your application titles
+Mwm*fontList:         -adobe-helvetica-bold-r-normal--*-120-*-*-*-*-*-*
+! Default font for your menus
+Mwm*menu*fontList:    -adobe-helvetica-bold-r-normal--*-120-*-*-*-*-*-*
+! Cause the xclock icon not to show up in the icon box
+Mwm*XClock*clientFunctions:     -minimize
+! Cause the xbiff icon not to show up in the icon box
+Mwm*xbiff*clientFunctions:    -minimize
+
+XTerm*font:             -b&h-lucidatypewriter-bold-r-normal-*-*-120-*
+XTerm*background:       ivory3
+XTerm*cursorColor:      black
+XTerm.vt100.geometry:   79x25
+XTerm*reverseWrap:      true
+XTerm*scrollKey:        true
+XTerm*saveLines:        2000
+XTerm*scrollBar:        true
+XTerm*scrollTtyOutput:  false

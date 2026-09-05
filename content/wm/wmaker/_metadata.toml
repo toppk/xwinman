@@ -1,0 +1,21 @@
+# _metadata.toml describes the files in this directory: each [[entry]] names files and records
+# what is known about them (mtime, contributor, date, text...). Same shape everywhere.
+# Here: the contributed setups, who sent them and when; {{< contributions >}} is one view of it.
+
+[[entry]]
+from = "matt@belgarath.org"
+added = "1997-06"
+files = ["screenshots/wmaker-matt.jpg", "rc/wmaker.tar.gz"]
+text = "a [screenshot](screenshots/wmaker-matt.jpg) (127k) and a package of [configuration files](rc/wmaker.tar.gz). This is close to the default setting, with a couple of apps added to the dock."
+
+[[entry]]
+from = "current@plains.nodak.edu"
+added = "1998-05"
+files = ["screenshots/wmaker-current.gif", "rc/robsGNUstep.tar.gz"]
+text = "a 800x600 [screenshot](screenshots/wmaker-current.gif) (76k) and a package of [configuration files](rc/robsGNUstep.tar.gz)."
+
+[[entry]]
+from = "robbie@urusoft.com"
+added = "1998-08"
+files = ["screenshots/wmaker-skyman.jpg", "rc/wmaker-skyman.tar.gz"]
+text = "1024x768 [screenshot](screenshots/wmaker-skyman.jpg) (129k) and a package containing the [theme](rc/wmaker-skyman.tar.gz) used, including the background image."

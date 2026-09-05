@@ -1,0 +1,851 @@
+#------------------------------------------------------------
+#------------------------------------------------------------
+#      			TOC
+#------------------------------------------------------------
+# VARIABLES	
+#     MISC	
+#     DIMENSION	
+#     TITLES	
+#     BORDER	
+#     FONTS	
+#     PIXMAPS	
+#     ICONS	
+#     CURSORS	
+#     WORKSPACE	
+#     WARP
+#     COLORS	
+#     RAISE AND RESIZE
+#     MOVE	
+#     OCCUPY	
+# FUNCTIONS	
+# BINDINGS	
+# MENUS	
+#------------------------------------------------------------
+#------------------------------------------------------------
+
+# environment variable CTWM_WELCOME_FILE to xwd or xpm image
+# to display image other than default pixmap dir welcome.xpm
+
+#------------------------------------------------------------
+# 			VARIABLES
+#------------------------------------------------------------
+
+#------------------------------------------------------------
+# MISC
+#
+# AlwaysOnTop			# try to keep [{win-list}] on top always
+# AnimationSpeed	8	# draws per sec - The default value is 0
+# InterpolateMenuColors		# blend colors between menu items described
+# MaxWindowSize "1024x768" 	# max win size permited
+  NoBackingStore		# faster to paint menus than to store
+  NoDefaults			# suppress default titlebuttons and bindings
+  NoGrabServer			# don't grab server on opaques or menu popups
+  NoMenuShadows			# no shadow drawn for popup menus
+  NoSaveUnders			# faster to repaint than to save-under
+# NoStackMode 			# ignore [{ win-list }] stack order change
+  RandomPlacement "on"		# random placement "on"|"off"|"unmapped"
+  RestartPreviousState		# use WM_STATE to use prev winmgr state
+  StayUpMenus			# menu stays when ButtonUp - dragging optional
+# TransientHasOccupation	# allow transients their own occupation
+  TransientOnTop	50	# transient always on top iff % < leader
+  UsePPosition 		"off"	# use client postition "on"|"off"|"non-zero"
+# XorValue 		5	# adjust move/resize win outline colors
+# Zoom 			8	# animate de/iconification with n draws
+
+#------------------------------------------------------------
+# DIMENSION
+#
+  UseThreeDBorders		# look a little more like motif
+  UseThreeDIconManagers		# use 3D-looking IconManagers if any
+  UseThreeDMenus                # Tells ctwm to use 3D-looking menus
+  UseThreeDTitles		# Tells ctwm to use 3D-looking  windows titles
+# UseThreeDWMap			# use 3D decorations for small workspace wins
+  ThreeDBorderWidth  	 6	# width of 3D border in pixels, if any
+  BorderShadowDepth	 2	# shadow depth in pixels
+  IconManagerShadowDepth 2	# shadow depth in pixels
+  MenuShadowDepth	 2	# shadow depth in pixels
+  TitleButtonShadowDepth 2	# shadow depth in pixels
+  TitleShadowDepth 	 1	# shadow depth in pixels
+
+#------------------------------------------------------------
+# TITLES
+#
+  DecorateTransients		# windows WM_TRANSIENT_FOR have titlebars
+
+  ButtonIndent		 0	# title-button pixel indent on all sides
+  FramePadding 		 0	# pixels between buttons/text and title frame
+  TitleButtonBorderWidth 0	# pixels bordering title buttons
+  TitlePadding		 1	# pixels btwen title buttons, text & highlight
+
+# SunkFocusWindowTitle		# title of focus win is sunken
+# NoTitleHighlight		# don't display the title-bar focus pixmap
+  TitleJustification   "center"	# title "left"|"right"|"center" justified
+
+# MakeTitle			# put titles on win-list to override NoTitle
+  NoTitle			# no titles on win-list entries
+  {
+    "TWM Icon Manager"
+    "PostItNote Icon Manager"
+    "Xman Icon Manager"
+    "WorkSpaceManager"
+    "xpostit"
+    "xbiff"
+    "xclock"
+    "xconsole"
+    "xload"
+    "xvmstat"
+    "fXman"
+    "topBox"
+    "asclock"
+  }
+
+  DontSqueezeTitle		# don't squeeze titles [{win-list}]
+# SqueezeTitle			# squeeze titles for [{win-list}]
+# {
+#   "XTerm"	left	0  0
+#   "emacs"	right   0  0
+#   "Netscape"  center  0  0
+# }
+
+# NoTitleFocus			# click to focus (vs. pointer focus)
+  NoHighlight			# don't highlight borders on focus
+  {
+    "xconsole"
+  }
+
+  LeftTitleButton 	":xpm:bar" = f.menu "windowmenu"
+
+  RightTitleButton	":xpm:dot"
+  {
+    Button1 : f.iconify
+    Button2 : f.delete
+    Button3 : f.destroy
+  }
+  RightTitleButton	":xpm:zoom"
+  {
+    Button1 : f.zoom
+    Button2 : f.fullzoom
+    Button3 : f.hzoom
+  }
+# RightTitleButton	"%xpm:resize-in-bot"
+# {
+#   Button1 : f.function  "resize-or-raise"
+#   Button2 : f.function  "resize-or-lower"
+#   Button3 : f.menu 	  "windowmenu"
+# }
+
+# ctwm pixmap buttons:   	:xpm:menu :xpm:dot 
+#				:xpm:resize :xpm:zoom :xpm:bar
+# ctwm animation buttons:   	%xpm:resize %xpm:menu-up %xpm:menu-down
+#      				%xpm:resize-out-top %xpm:resize-in-top
+#				%xpm:resize-out-bot %xpm:resize-in-bot
+#      				%xpm:maze-out %xpm:maze-in %xpm:zoom-out
+#      				%xpm:zoom-in  %xpm:zoom-inout
+
+#------------------------------------------------------------
+# BORDER
+#
+  BorderWidth 		2	# border surrounding all window frames
+# ClientBorderWidth     2	# override BorderWidth for client window frames
+  NoBorder 			# no borders around these windows
+  {
+    "TWM Icon Manager"
+    "PostItNote Icon Manager"
+    "Xman Icon Manager"
+    "WorkSpaceManager"
+    "xpostit"
+    "xbiff"
+    "xclock"
+    "xconsole"
+    "xload"
+    "xvmstat"
+    "fXman"
+    "topBox"
+    "asclock"
+  }
+
+#------------------------------------------------------------
+# FONTS -- MUST COME BEFORE FUNCTION VARIABLES
+#
+  IconFont 		"-*-helvetica-medium-r-*-*-10-*-*-*-*-*-*-*"
+  IconManagerFont	"-*-helvetica-medium-r-*-*-10-*-*-*-*-*-*-*"
+  MenuFont 		"-schumacher-clean-bold-r-*-*-12-*-*-*-*-*-*-*"
+  ResizeFont		"-*-helvetica-medium-r-*-*-10-*-*-*-*-*-*-*"
+  TitleFont		"-adobe-helvetica-bold-r-*-*-12-*-*-*-*-*-*-*"
+  WorkSpaceFont         "-misc-fixed-medium-*-*-*-8-*-*-*-*-*-*-*"
+
+#------------------------------------------------------------
+# PIXMAPS
+#
+  PixmapDirectory "/usr/lib/X11/twm/images" # xpm xwd xbm paths
+  Pixmaps                       # declare a list of pixmap-to-file entries
+  {
+    TitleHighlight "/user/oak10/bahi/nonwork/sights/blah2.xbm"
+#   TitleHighlight "wide_weave"
+#   TitleHighlight "supman%.xbm"
+  }
+
+#------------------------------------------------------------
+# ICONS
+#
+
+##### Manager 
+#                                       geometry-string  number-of-columns
+
+  IconManagerGeometry                   "128x10-0+224"   1 
+
+  IconManagers
+  {
+    "PostItNote"        "xpostit"       "128x10-0-64"    1
+    "Xman"              "xmanpage"      "128x10-128-64"  1
+  }
+
+  ShowIconManager		# start ctwm with icon manager visible
+  SortIconManager		# sort icon manager entries
+# IconManagerShow {win-list}	# win-list managed by icon manager
+  IconifyByUnmapping 		# unmap icons of win-list and use
+				# icon manager, f.warpto, or TwmWindows
+
+  IconManagerDontShow 		# exclude [win-list] from icon manager
+  {
+    "WorkSpaceManager"
+#   "PostItNote"
+    "xpostit"
+    "xbiff"
+    "xclock"
+    "xconsole"
+    "xload"
+    "xvmstat"
+    "fXman"
+    "topBox"
+    "asclock"
+  }
+  DontIconifyByUnmapping 	# force win-list to have icons
+  {
+    "TWM Icon Manager"
+    "PostItNote Icon Manager"
+    "Xman Icon Manager"
+    "WorkSpaceManager"
+    "xpostit"
+    "xbiff"
+    "xclock"
+    "xconsole"
+    "xload"
+    "xvmstat"
+    "fXman"
+    "Xman"
+    "asclock"
+  }
+
+# NoCaseSensitive		# ignore case on sort in icon manager
+# NoIconManagerFocus		# no win focus when pointer in icon manager
+# NoIconManagers		# don't create any icon managers
+# IconManagers { iconmgr-list }	# "winname" ["iconname"]   "geometry" columns
+
+##### Images and Text
+#
+  IconDirectory "/usr/openwin/include/X11/bitmaps"
+  ForceIcons			# ctwm icon pixmaps override client-supplied
+  UnknownIcon 	"xlogo32"	# default icon to bind
+  Icons				# window names and bitmaps for their icons
+  {
+    "emacs"	"xpm:gnu-emacs%.xpm"
+  }
+
+# StartIconified 		# start clients [{ win-list }] iconified
+  MaxIconTitleWidth	128	# max width of icon title string in pixels
+# NoIconTitle 			# don't display icon name [{ win-list }]
+  IconJustification "center"	# title/image justify "left"|"right"|"center"
+
+##### Region
+#
+  IconRegionAlignement	"bottom" # "top"|"bottom"|"center"|"border"
+  IconRegionJustification "left" # "left"|"center"|"right"|"border"
+  IconRegion 	"512x200+0-0" South West 65 65
+
+#------------------------------------------------------------
+# CURSORS
+#
+  Cursors			# pointer glyphs
+  {
+    Frame	"top_left_arrow"
+    Title    	"top_left_arrow"
+    Icon      	"top_left_arrow"
+    IconMgr   	"top_left_arrow"
+    Move      	"fleur"
+    Resize    	"fleur"
+    Menu      	"sb_left_arrow"
+    Button    	"hand2"
+    Wait      	"watch"
+    Select    	"dot"
+    Destroy   	"pirate"
+  }
+
+#------------------------------------------------------------
+# WORKSPACE -- MUST COME BEFORE OCCUPY VARIABLES
+#
+  WorkSpaceManagerGeometry  "128x96-0+96"  2	# geometery-string num-of-cols
+
+  ShowWorkSpaceManager		# WorkSpaceManager should be visible
+  StartInMapState		# start in map form (vs button form)
+
+  MapWindowCurrentWorkSpace 	# current workspace colors
+  {
+    "grey80"			# border color
+    "black"			# background color
+    "grey50"			# foreground color
+#   "xpm:ball%.xpm" 		# pixmap
+  }
+  MapWindowDefaultWorkSpace  	# default workspace colors - used only if
+  {  				# no root info in workspace command
+    "black"			# border color
+    "grey60"     		# background color
+    "black"			# foreground color
+#   "xpm:ball%.xpm" 		# pixmap
+  }
+
+  WMgrButtonShadowDepth	2	# button (non-map mode) shadow depth in pixels
+  WMgrHorizButtonIndent 2	# horizontal space between buttons in pixels
+  WMgrVertButtonIndent	2	# vertical space between buttons in pixels
+
+  WorkSpaces # name [{bg-button [fg-button] [bg-root] [fg-root] [pixmap-root]}]
+  {
+    "one-1"	{ "grey80" "black" "grey80" "black" "xpm:~/.blaklump.xpm"}
+    "one-2"	{ "grey80" "black" "grey80" "black" "xpm:~/.marbled2.xpm"}
+    "two-1"	{ "grey80" "black" "grey80" "black" "xpm:~/.raindrops_light.xpm"}
+    "two-2"	{ "grey80" "black" "grey80" "black" "xpm:~/.gray_stucco.xpm"}
+  }
+
+DontPaintRootWindow		# don't paint root same as workspace bg
+# ReverseCurrentWorkspace	# use inverse fg/bg colors for current wrkspc
+# ReallyMoveInWorkspaceManager  # really move the win when manipulated in map
+
+# AlwaysShowWindowWhenMovingFromWorkspaceManager  # show win during move
+
+#------------------------------------------------------------
+# WARP
+#
+# WarpCursor      		# warp to [{ win-list }] when win deiconified
+# WarpRingOnScreen		# cycle thru visible win in current workspace
+  WarpUnmapped			# f.warpto deiconifies windows
+  WindowRing 			# f.warpring cycles thru [{ win-list }] or all
+  {
+    "emacs"
+    "xterm"
+    "xplaycd"
+    "Mail"
+    "Netscape"
+  }
+# NoRaiseOnWarp			# don't raise on f.warpto
+  DontWarpCursorInWMap		# don't warp cursor to win by workspace click
+
+#------------------------------------------------------------
+# COLORS
+#
+# ClearShadowContrast 	40	# brighter 3D highlight
+# DarkShadowContrast    60	# darker 3D highlight
+# BeNiceToColormap		# use stipled colors for 3D look - overides
+				# ClearShadowContrast and DarkShadowContrast
+  Color 			# list of color assignments
+  {
+    DefaultBackground		"grey80"	# bg for sizing and info
+    DefaultForeground		"black"		# fg for sizing and info
+    MenuBackground		"grey80" 	# bg for menus
+    MenuForeground		"black"		# fg for menus
+    MenuShadowColor		"black"		# shadow behind pull-down menus
+    MenuTitleBackground		"grey70"	# bg for menu title entry
+    MenuTitleForeground		"black"		# fg for ment title entry
+    				# following may have win-lists
+    BorderColor			"grey50"	# focused border 
+    BorderTileBackground	"grey80" 	# unfocused border bg
+    BorderTileForeground	"black"		# unfocused pixmap fg
+    IconBackground		"grey50"	# bg of icons
+    IconBorderColor		"grey80"	# border of icons
+    IconForeground		"black"		# fg of icons
+    IconManagerBackground	"grey80" 	# bg of icon manager entry
+    IconManagerForeground	"black"		# fg of icon manager entry
+    IconManagerHighlight	"black" 	# icon mgr w/focus border
+    MapWindowBackground		"grey80"	# bg of windows in wrkspce map
+    MapWindowForeground		"black"		# fg of windows in wrkspce map
+    TitleBackground		"grey80" 	# bg in titlebars
+    TitleForeground		"black"		# fg in titlebars
+  }
+
+  Monochrome 			# list of color assignments for pixel depth 1
+  {
+    DefaultBackground		"white"		# bg for sizing and info
+    DefaultForeground		"black"		# fg for sizing and info
+    MenuBackground		"white"		# bg for menus
+    MenuForeground		"black"		# fg for menus
+    MenuShadowColor		"black"		# shadow behind pull-down menus
+    MenuTitleBackground		"white"		# bg for menu title entry
+    MenuTitleForeground		"black"		# fg for ment title entry
+    				# following may have win-lists
+    BorderColor			"black"		# placed around all windows
+    BorderTileBackground	"white"		# pattern bg unhghlghtd border
+    BorderTileForeground	"black"		# pattern fg unhghlghtd border
+    IconBackground		"white"		# bg of icons
+    IconBorderColor		"black"		# border of icons
+    IconForeground		"black"		# fg of icons
+    IconManagerBackground	"white"		# bg of icon manager entry
+    IconManagerForeground	"black"		# fg of icon manager entry
+    IconManagerHighlight	"black"		# icon mgr entry w/focus border
+    MapWindowBackground		"white"		# bg of windows in wrkspce map
+    MapWindowForeground		"black"		# fg of windows in wrkspce map
+    TitleBackground		"white"		# bg in titlebars
+    TitleForeground		"black"		# fg in titlebars
+  }
+
+#------------------------------------------------------------
+# RAISE AND RESIZE
+#
+# AutoRelativeResize		# resize without crossing window edge
+  BorderResizeCursors		# use resize cursor if pointer is on edge
+  NoRaiseOnResize		# window not raised when resized
+# NoRaiseOnDeiconify		# don't raise window when deiconified
+  NoOpaqueResize 		# resize a window outline (see next two)
+# OpaqueResize			# resize [{win-list}] visible, not outline
+# OpaqueResizeThreshold	25 	# visible unless win-size > percent of screen
+  RaiseDelay		200	# ms to wait before autoraise invoked
+  AutoRaise 			# list of windows to raise on focus
+  { 				# also see RaiseDelay and f.autoraise
+    "TWM Icon Manager"
+    "PostItNote Icon Manager"
+    "Xman Icon Manager"
+    "WorkSpaceManager"
+  }
+
+#------------------------------------------------------------
+# MOVE
+#
+  NoRaiseOnMove			# window not raised when moved
+  NoOpaqueMove			# move a window outline (see next two)
+# OpaqueMove			# move [{win-list}] visible, not outline
+# OpaqueMoveThreshold   25	# visible unless win-size > percent of screen
+  ConstrainedMoveTime 	200	# ms double-click to move vert/horz only
+  DontMoveOff			# unable to move win off screen (c f.forcemove)
+  MoveOffResistance 	40	# if more than pixels off override DontMoveOff
+  MovePackResistance	20	# don't overlap unless pushed more than pixels
+  MoveDelta		3	# num of pixels pointer to move before f.move
+				# is invoked (also see f.deltastop)
+#------------------------------------------------------------
+# OCCUPY -- MUST COME AFTER WORKSPACE VARIABLES
+#
+  AutoOccupy			# clients will change occupation
+				# when name or icon name changes
+# Occupy			# list which windows occupy which workspaces
+  NoShowOccupyAll		# window in all wrkpcs not seen in wkspmap
+  OccupyAll			# windows will occupy all workspaces on start
+  {
+    "xpostit"
+    "xbiff"
+    "xclock"
+    "xconsole"
+    "xload"
+    "xvmstat"
+    "fXman"
+    "Xman"
+    "asclock"
+  }
+
+#------------------------------------------------------------
+# 			FUNCTIONS
+#------------------------------------------------------------
+# FUNCTIONS MUST COME AFTER FONT VARIABLES
+#
+#  ChangeWorkspaceFunction 	! "cat /usr/local/lib/xemacs-19.14/etc/sounds/drip.au  > /dev/audio 2>/dev/null &"
+#  DeIconifyFunction 		! "cat /usr/local/lib/xemacs-19.14/etc/sounds/click.au > /dev/audio 2>/dev/null &"
+#  IconifyFunction 		! "cat /usr/local/lib/xemacs-19.14/etc/sounds/click.au > /dev/audio 2>/dev/null &"
+  DefaultFunction	f.nop	# action to take on unbound event
+# WindowFunction 		# action to take when selected from TwmWindows
+
+  Function "move-or-lower" 	{ f.movepack f.deltastop f.lower }
+  Function "move-or-raise" 	{ f.movepack f.deltastop f.raise }
+  Function "move-or-iconify" 	{ f.movepack f.deltastop f.iconify }
+
+  Function "resize-or-raise" 	{ f.resize f.deltastop f.raise }
+  Function "resize-or-lower" 	{ f.resize f.deltastop f.lower }
+
+#------------------------------------------------------------
+# 			BINDINGS
+#------------------------------------------------------------
+
+Button1 =	: root		: f.menu "defops"
+Button2 =       : root		: f.menu "winlists"
+Button3 =       : root		: f.menu "windowops"
+
+Button1 =	: title		: f.function "move-or-raise"
+Button2 =	: title		: f.function "resize-or-lower"
+
+Button1 =	: frame		: f.function "resize-or-raise"
+Button2 =	: frame		: f.function "move-or-lower"
+Button3 =	: title|frame	: f.menu "windowops"
+
+Button1 =	: icon		: f.function "move-or-iconify"
+Button2 =	: icon		: f.lower
+Button3 =	: icon		: f.menu "windowops"
+
+Button1 =	: iconmgr	: f.iconify
+
+Button1 = c     : root          : f.refresh
+
+Button1 = m	: window	: f.function "move-or-raise"
+Button2 = m	: window	: f.function "resize-or-lower"
+Button3 = m	: window	: f.menu "windowops"
+
+#"Up"    = c      : all		: f.upworkspace
+#"Down"  = c      : all		: f.downworkspace
+#"Left"  = c      : all		: f.leftworkspace
+#"Right" = c      : all		: f.rightworkspace
+
+"Up"    = m      : all		: f.upiconmgr
+"Down"  = m      : all		: f.downiconmgr
+
+"Left"  = m      : all		: f.warpring    "next"
+"Right" = m      : all		: f.warpring    "prev"
+
+"Home"  = m      : all          : f.warpto "emacs"
+"End"   = m      : all          : f.warpto "Mail"
+
+# Front
+"F15"   =        : all          : f.raiselower
+
+# Open
+"F17"   =        : all          : f.iconify
+
+#------------------------------------------------------------
+# 			MENUS
+#------------------------------------------------------------
+
+menu "defops"
+{
+    "CTWM"		f.title
+    "XTerm"             f.menu  "coloredxterms"
+    "Big XTerm"         f.menu  "bigcolor"
+    "Other Terms"       f.menu  "otherterms"
+    ""                  f.separator
+    "Editors"           f.menu  "editors"
+    "Calculators"       f.menu  "calculators"
+    "Players"           f.menu  "players"
+    "Viewers"           f.menu  "viewers"
+    ""                  f.separator
+    "Save Screen"       f.menu  "screensaver"
+    "Lock Screen"       f.menu  "lockscreen"
+    "Rarely Used"       f.menu  "occasional"
+    "Sounds"            f.menu  "sounds"
+    ""                  f.separator
+    "Tip Console..."    !"xterm -g 132x24 -fg orange -e tip console &"
+    "SVision..."        !"svision > /dev/null 2>&1 &"
+    "Netscape..."       !"netscape -install -geometry 1000x700 > /dev/null 2>&1 &"
+    ""			f.nop
+    "Refresh"		f.refresh
+    "Restart"		f.restart
+    ""                  f.separator
+    "Exit"		f.quit
+}
+
+menu "coloredxterms"    ("black":"grey85")
+{
+    "XTerms"                                    f.title
+    "white..."          ("white":"black")       !"xterm -g 152x28 -fg white       &"
+    "*yellow..."        ("yellow2":"black")     !"xterm -g 152x28 -fg yellow2     &"
+    "green..."          ("chartreuse":"black")  !"xterm -g 152x28 -fg chartreuse  &"
+    "blue..."           ("cyan":"black")        !"xterm -g 152x28 -fg cyan        &"
+    "orange..."         ("orange":"black")      !"xterm -g 152x28 -fg orange      &"
+    "voilet..."         ("violet":"black")      !"xterm -g 152x28 -fg violet      &"
+    ""                                          f.separator
+    "Pin Menu"          ("grey85":"black")      f.pin
+}
+
+menu "bigcolor"         ("black":"grey85")
+{
+    "Big XTerms"                                f.title
+    "White..."          ("white":"black")       ! "xterm -fn 5x7 -g 220x55 -fg white      &"
+    "Yellow..."         ("yellow2":"black")     ! "xterm -fn 5x7 -g 220x55 -fg yellow2    &"
+    "Green..."          ("chartreuse":"black")  ! "xterm -fn 5x7 -g 220x55 -fg chartreuse &"
+    "*Blue..."          ("cyan":"black")        ! "xterm -fn 5x7 -g 220x55 -fg cyan       &"
+    "Orange..."         ("orange":"black")      ! "xterm -fn 5x7 -g 220x55 -fg orange     &"
+    "Voilet..."         ("violet":"black")      ! "xterm -fn 5x7 -g 220x55 -fg violet     &"
+    ""                                          f.separator
+    "Pin Menu"          ("grey85":"black")      f.pin
+}
+
+menu "otherterms"       ("black":"grey85")
+{
+    "Other Terms"                               f.title
+    "C Shell..."                                ! "xterm -g 152x28 -fg cyan -e csh &"
+    "RXTerm hudson..."                          ! "rxterm hudson -g 152x28"
+    "*Telnet shiraz..."                         ! "xterm -g 152x28 -e telnet shiraz &"
+    "Telnet dallas..."                          ! "xterm -g 152x28 -e telnet dallas &"
+    "Telnet pasture3..."                        ! "xterm -g 152x28 -e telnet pasture3 &"
+    "Telnet vlanman..."                         ! "xterm -g 152x28 -e telnet vlanman &"
+    ""                                          f.separator
+    "Pin Menu"          ("black":"grey70")      f.pin
+}
+
+menu "editors"
+{
+    "Emacs..."          !"emacs &"
+    "XEmacs..."         !"/merr/sfps/bin/xemacs &"
+    "*Local XEmacs..."  !"/usr/local/bin/xemacs &"
+    "XEdit..."          !"xedit &"
+    "FrameMaker..."     !"maker &"
+    "TextEdit..."       !"/usr/openwin/bin/textedit &"
+    "XTextEdit..."	!"/usr/bin/X11/textedit &"
+}
+
+menu "calculators"
+{
+    "XCalc RPN..."      !"xcalc -rpn -stipple &"
+    "XCalc TI..."       !"xcalc -g 215x280 -stipple &"
+    "*Calculator..."    !"calctool &"
+}
+
+menu "players"
+{
+    "*Audio Tool..."    !"audiotool &"
+    "XSoundtool..."     !"x_soundtool &"
+}
+
+menu "viewers"
+{
+    "*XV..."            !"xv &"
+    "Ghost View..."     !"ghostview &"
+    "Adobe Acrobat..."  !"acrobat &"
+    "Snapshot..."       !"snapshot &"
+}
+
+menu "screensaver"
+{
+    "Blank"             !"xlock -nice 0 -nolock -mode blank -delay 500 &"
+    "Flame"             !"xlock -nice 0 -nolock -mode flame -delay 100 &"
+    "Hop"               !"xlock -nice 0 -nolock -mode hop   -delay 100 &"
+    "Image"             !"xlock -nice 0 -nolock -mode image -delay 500 &"
+    "Life"              !"xlock -nice 0 -nolock -mode life  -delay 500 &"
+    "Pyro"              !"xlock -nice 0 -nolock -mode pyro  -delay 250 -batchcount 100 &"
+    "Qix"               !"xlock -nice 0 -nolock -mode qix   -delay 200 &"
+    "Rotor"             !"xlock -nice 0 -nolock -mode rotor -delay 1000 -batchcount 5 &"
+    "*Random"           !"xlock -nice 0 -nolock -mode random -delay 250 &"
+    "Swarm"             !"xlock -nice 0 -nolock -mode swarm -delay 100 &"
+}
+
+menu "lockscreen"
+{
+    "Blank"             !"xlock -nice 0 -mode blank -delay 500 &"
+    "Flame"             !"xlock -nice 0 -mode flame -delay 100 &"
+    "Hop"               !"xlock -nice 0 -mode hop   -delay 100 &"
+    "Image"             !"xlock -nice 0 -mode image -delay 500 &"
+    "Life"              !"xlock -nice 0 -mode life  -delay 500 &"
+    "Pyro"              !"xlock -nice 0 -mode pyro  -delay 250 -batchcount 100 &"
+    "Qix"               !"xlock -nice 0 -mode qix   -delay 200 &"
+    "Rotor"             !"xlock -nice 0 -mode rotor -delay 1000 -batchcount 5 &"
+    "*Random"           !"xlock -nice 0 -mode random -delay 250 &"
+    "Swarm"             !"xlock -nice 0 -mode swarm -delay 100 &"
+}
+
+menu "occasional"
+{
+    "Rarely Used"       f.title
+    "Console..."        !"xconsole &"
+    "Lotus Notes..."    !"notes &"
+    "Clocks"            f.menu  "clocks"
+    "Meters"            f.menu  "meters"
+    ""                  f.separator
+    "Xascii..."         !"xascii &"
+    "XBiff..."          !"xbiff &"
+    "XClipboard..."	!"/usr/bin/X11/xclipboard &"
+    "XCutSel..."        !"xcutsel &"
+    "XMan..."           !"fxman &"
+    "XPostIt..."        !"xpostit &"
+    "XFontSel..."       !"xfontsel &"
+    ""                  f.separator
+    "Command Tool..."   !"cmdtool &"
+    "File Manager..."   !"filemgr &"
+    "Icon Editor..."    !"iconedit &"
+    "Mail Tool..."      !"mailtool -Wi -WP 1088 18 &"
+    "Print Tool..."     !"printtool &"
+    "Shell Tool..."     !"shelltool &"
+    "Tape Tool..."      !"tapetool  &"
+}
+
+menu "clocks"
+{
+    "*ASClock..."       !"asclock -exe cm -24 -led cyan -position -61-61 &"
+    "Clock..."          !"clock -Wi -WP 960 18 &"
+    "XClock..."         !"xclock &"
+    "OClock..."         !"oclock &"
+    "Dali Clock..."     !"xdaliclock &"
+}
+
+menu "meters"
+{
+    "XLoad..."          !"xload &"
+    "*XVMStat..."       !"xvmstat &"
+    "Performance..."    !"perfmeter -Ws 64 64 -Wp 1024 18 &"
+}
+
+menu "sounds"
+{
+    "happy joy song"    !"cat /merr/sfps/tools/sounds/happy_joy_song.au > /dev/audio &"
+    "Star Wars"         f.menu "starwars"
+    "Aliens"            f.menu "aliens"
+    "Paclids"           f.menu "paclids"
+}
+
+menu "starwars"
+{
+    "*stay on target"   !"cat /merr/sfps/tools/sounds/starwars/sw2targets.au > /dev/audio &"
+    "loosen up"         !"cat /merr/sfps/tools/sounds/starwars/swTarget.au > /dev/audio &"
+    "eject"             !"cat /merr/sfps/tools/sounds/starwars/swEject.au > /dev/audio &"
+    "full throttle"     !"cat /merr/sfps/tools/sounds/starwars/swFull.au > /dev/audio &"
+    "beggar's canyon"   !"cat /merr/sfps/tools/sounds/starwars/swBeggar.au > /dev/audio &"
+    "evacuate"          !"cat /merr/sfps/tools/sounds/starwars/swEvacuate.au > /dev/audio &"
+    "one minute"        !"cat /merr/sfps/tools/sounds/starwars/swOnemin.au > /dev/audio &"
+    "computer's off"    !"cat /merr/sfps/tools/sounds/starwars/swOff.au > /dev/audio &"
+    "have you now"      !"cat /merr/sfps/tools/sounds/starwars/swNow.au > /dev/audio &"
+    "all clear kid"     !"cat /merr/sfps/tools/sounds/starwars/swClear.au > /dev/audio &"
+    "always"            !"cat /merr/sfps/tools/sounds/starwars/swAlways.au > /dev/audio &"
+    "technological"     !"cat /merr/sfps/tools/sounds/starwars/techterr.au > /dev/audio &"
+    "lack of faith"     !"cat /merr/sfps/tools/sounds/starwars/lackfaith.au > /dev/audio &"
+    "counslor"          !"cat /merr/sfps/tools/sounds/starwars/counslor.au > /dev/audio &"
+    "hearthat"          !"cat /merr/sfps/tools/sounds/starwars/hearthat.au > /dev/audio &"
+    "leader"            !"cat /merr/sfps/tools/sounds/starwars/leader.au > /dev/audio &"
+    "madness"           !"cat /merr/sfps/tools/sounds/starwars/madness.au > /dev/audio &"
+    "noplans"           !"cat /merr/sfps/tools/sounds/starwars/noplans.au > /dev/audio &"
+    "saddevot"          !"cat /merr/sfps/tools/sounds/starwars/saddevot.au > /dev/audio &"
+    "stun"              !"cat /merr/sfps/tools/sounds/starwars/stun.au > /dev/audio &"
+    "where"             !"cat /merr/sfps/tools/sounds/starwars/where.au > /dev/audio &"
+}
+
+menu "aliens"
+{
+    "17days"            !"cat /merr/sfps/tools/sounds/aliens/17days.au > /dev/audio &"
+    "ainthapn"          !"cat /merr/sfps/tools/sounds/aliens/ainthapn.au > /dev/audio &"
+    "asskick"           !"cat /merr/sfps/tools/sounds/aliens/asskick.au > /dev/audio &"
+    "bugout"            !"cat /merr/sfps/tools/sounds/aliens/bugout.au > /dev/audio &"
+    "dryheat"           !"cat /merr/sfps/tools/sounds/aliens/dryheat.au > /dev/audio &"
+    "gameover"          !"cat /merr/sfps/tools/sounds/aliens/gameover.au > /dev/audio &"
+    "notfuny"           !"cat /merr/sfps/tools/sounds/aliens/notfuny.au > /dev/audio &"
+    "notenugh"          !"cat /merr/sfps/tools/sounds/aliens/notenugh.au > /dev/audio &"
+    "minsafe"           !"cat /merr/sfps/tools/sounds/aliens/minsafe.au > /dev/audio &"
+    "nervegas"          !"cat /merr/sfps/tools/sounds/aliens/nervegas.au > /dev/audio &"
+    "nuke1"             !"cat /merr/sfps/tools/sounds/aliens/nuke1.au > /dev/audio &"
+    "nuke2"             !"cat /merr/sfps/tools/sounds/aliens/nuke2.au > /dev/audio &"
+    "lovecore"          !"cat /merr/sfps/tools/sounds/aliens/lovecore.au > /dev/audio &"
+    "knowdril"          !"cat /merr/sfps/tools/sounds/aliens/knowdril.au > /dev/audio &"
+    "fallin"            !"cat /merr/sfps/tools/sounds/aliens/fallin.au > /dev/audio &"
+    "bythenum"          !"cat /merr/sfps/tools/sounds/aliens/bythenum.au > /dev/audio &"
+    "artifcil"          !"cat /merr/sfps/tools/sounds/aliens/artifcil.au > /dev/audio &"
+}
+
+menu "paclids"
+{
+    "broken"            !"cat /merr/sfps/tools/sounds/st:ng/broken.au > /dev/audio &"
+    "canmkgo"           !"cat /merr/sfps/tools/sounds/st:ng/canmkgo.au > /dev/audio &"
+    "canmkgo2"          !"cat /merr/sfps/tools/sounds/st:ng/canmkgo2.au > /dev/audio &"
+    "cmpthngs"          !"cat /merr/sfps/tools/sounds/st:ng/cmpthngs.au > /dev/audio &"
+    "farhome"           !"cat /merr/sfps/tools/sounds/st:ng/farhome.au > /dev/audio &"
+    "gonow"             !"cat /merr/sfps/tools/sounds/st:ng/gonow.au > /dev/audio &"
+    "hesmart"           !"cat /merr/sfps/tools/sounds/st:ng/hesmart.au > /dev/audio &"
+    "hesmart2"          !"cat /merr/sfps/tools/sounds/st:ng/hesmart2.au > /dev/audio &"
+    "itisbrok"          !"cat /merr/sfps/tools/sounds/st:ng/itisbrok.au > /dev/audio &"
+    "lookfor"           !"cat /merr/sfps/tools/sounds/st:ng/lookfor.au > /dev/audio &"
+    "makego"            !"cat /merr/sfps/tools/sounds/st:ng/makego.au > /dev/audio &"
+    "needhelp"          !"cat /merr/sfps/tools/sounds/st:ng/needhelp.au > /dev/audio &"
+    "notbroke"          !"cat /merr/sfps/tools/sounds/st:ng/notbroke.au > /dev/audio &"
+    "trytrck"           !"cat /merr/sfps/tools/sounds/st:ng/trytrck.au > /dev/audio &"
+    "uaresmrt"          !"cat /merr/sfps/tools/sounds/st:ng/uaresmrt.au > /dev/audio &"
+    "umkmore"           !"cat /merr/sfps/tools/sounds/st:ng/umkmore.au > /dev/audio &"
+    "wearesmt"          !"cat /merr/sfps/tools/sounds/st:ng/wearesmt.au > /dev/audio &"
+}
+
+menu "windowops" {
+    "Window Operations"	f.title
+    "Close/Restore"	f.iconify
+    "Raise/Lower"	f.raiselower
+    "Focus/Unfocus"	f.focus
+    "Resize"		f.resize
+    "Move"		f.move
+    "Zoom ..."		f.menu  "zoom"
+    ""			f.separator
+    "Occupy ..."	f.occupy
+    "Occupy All"	f.occupyall
+    "Vanish"		f.vanish
+    ""			f.separator
+    "Animation ..."	f.menu  "animation"
+    ""			f.separator
+    "Show Icon Box"     f.showiconmgr
+    "Hide Icon Box"     f.hideiconmgr
+    ""                  f.separator
+    "Toggle Manager"    f.togglestate
+    "Show Manager"      f.showworkspacemgr
+    "Hide Manager"      f.hideworkspacemgr
+    ""                  f.separator
+    "Info"		f.identify
+    "Refresh"		f.winrefresh
+    ""			f.separator
+    "Quit"		f.delete
+    "Kill"		f.destroy
+}
+
+menu "winlists" {
+    "Warp to Window"	f.title
+    "Local List"	f.menu  "TwmWindows"
+    "Workspace List"	f.menu  "TwmWorkspaces"
+    "List All Windows"	f.menu  "TwmAllWindows"
+}
+
+menu "windowmenu" {
+    "Open/Close"	f.iconify
+    "Focus/Unfocus"	f.focus
+    "Raise/Lower"	f.raiselower
+    "Resize"		f.resize
+    "Move"		f.move
+    "Zoom/Restore ..."	f.menu  "zoom"
+    ""			f.separator
+    "Occupy ..."	f.occupy
+    "Occupy All"	f.occupyall
+    "Vanish"		f.vanish
+    "Animation ..."	f.menu "animation"
+    ""			f.separator
+    "Info"		f.identify
+    "Refresh"		f.winrefresh
+    ""			f.separator
+    "Quit"		f.delete
+    "Kill"		f.destroy
+}
+
+menu "zoom" {
+    "Zoom"		f.title
+    "Top to Bottom"	f.zoom
+    "Full Screen"	f.fullzoom
+    "Left to Right"	f.hzoom
+    "Top Horizontal"    f.htzoom
+    "Bottom Horizontal" f.hbzoom
+    "Left Vertical"     f.vlzoom
+    "Right Vertical"    f.vrzoom
+}
+
+menu "animation" {
+    "Animate" 		f.title
+    "Start"		f.startanimation
+    "Faster" 		f.speedupanimation
+    "Slower"		f.slowdownanimation
+    "Stop"		f.stopanimation
+}
+
+menu "xgames" {
+    "Asteroids"         !"/usr/X11R6/bin/xasteroids&"
+    "Connect4"          !"/usr/X11R6/bin/xataxx&"
+    "Chess"             !"/usr/X11R6/bin/xboard&"
+    "Breakout"          !"/usr/X11R6/bin/xboing&"
+    "PacMan"            !"/usr/X11R6/bin/xchomp&"
+    "Galaga"            !"/usr/X11R6/bin/xgal&"
+    "Backgammon"        !"/usr/X11R6/bin/xgammon&"
+    "Space Invaders"    !"/usr/X11R6/bin/xinvaders&"
+    "Lander"            !"/usr/X11R6/bin/xlander&"
+    "Patience"          !"/usr/X11R6/bin/xpat2&"
+    "Pilots"            !"/usr/X11R6/bin/xpilots&"
+    "Tetris"            !"/usr/X11R6/bin/xtetris&"
+    "Tron"              !"/usr/X11R6/bin/xtron&"
+}

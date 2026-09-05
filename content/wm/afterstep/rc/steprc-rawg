@@ -1,0 +1,334 @@
+##########################################################################
+# NEXTSTEP(tm) look related stuff
+
+Module Wharf 
+
+*WharfGeometry -10+2
+*WharfColumns 1 
+
+*Wharf afterstep	AfterStep.xpm		Folder
+ *Wharf config		interface.xpm		Exec "-" color-xterm +sb -j -ls -fn 10x20 -geometry 80x40+140+20 -cr black -ls -bg black -fg white -title "Configure .steprc" -name "Configure" -e joe -nobackups +wordwrap ~/.steprc &
+ *Wharf Recycler	RecycleLogo.xpm		Restart " " afterstep
+ *Wharf Shutdown	shutdown.xpm		Quit 
+*Wharf ~Folder
+
+*Wharf -		-			MaxSwallow "asclock" asclock -12 -shape &
+*Wharf xmailbox		nil			MaxSwallow "xmailbox" xmailbox &
+*Wharf CoNSoL3		NeXTterm5.xpm		Exec "-" ansi_xterm +sb -j -ls -fn VGA -geometry 80x25 -cr black -bg black -fg white -title "Console" -name "Console" &
+*Wharf r00t_CoNSoL3	Television.xpm		Exec "-" ansi_xterm +sb -j -ls -fn VGA -geometry 80x25 -cr black -bg black -fg white -title "Root Console" -name "Root Console" -e su -l &
+
+*Wharf Network		Networked.xpm		Folder
+ *Wharf irc		MicroPhonePro.xpm	Exec "-" color-xterm -sb -sl 500 -j -ls -fn 10x20 -geometry 105x40+2+2 -cr black -bg black -bd red -fg white -title IRC -name irc -e irc &
+ *Wharf Netscape	NetscapeLogo.xpm 	Exec "-" netscape & 
+*Wharf ~Folder
+
+*Wharf gimp 		PaintBrushSplash.xpm	Exec "-" gimp &
+
+*Wharf Music		OldRadio.xpm		Folder
+ *Wharf tracker		Speakers.xpm		Exec "-" xterm +sb -sl 500 -j -ls -fn 10x20  -geometry 20x4+2+810 -cr black -bg gray -fg black -title "Tracker" -name "Tracker" -e randmass tracker -quiet -stereo -tolerant /home/ftp/pub/Music/MODz/Rave-House-Techno/* &
+ *Wharf CD_Player	ColoredCompactDisc.xpm	Exec "-" cdplayer &
+ *Wharf xtmix		xtmix.xpm		Exec "-" xtmix &
+*Wharf ~Folder
+
+*Wharf Screen_Lock	KeysOnChain.xpm   	Exec "-" xlock -nice 0 -mode rock &
+
+#Style "xconsole"	Geometry +1+1,NoTitle, WindowListSkip,NoHandles,Sticky
+Style "oclock" 		NoTitle
+Style "xbiff" 		NoTitle, WindowListSkip
+Style "Minitabx11" 	StaysOnTop
+Style "Wharf" 		NoTitle, Sticky, WindowListSkip, StaysOnTop, NoHandles
+Style "Tracker"		Notitle, Sticky, NoHandles
+Style "asclock"		NoTitle
+
+Icon "*"		NeXTtermQuestionmark.xpm
+Icon "Netscape*"	NetscapeLogo.xpm
+Icon "irc"		Networked.xpm
+Icon "IRC"		Networked.xpm
+Icon "ftp"		filemanager.xpm
+Icon "Configure"	interface.xpm
+Icon "Configure .steprc" interface.xpm
+Icon "xterm"		IntelInsideMonitor.xpm
+Icon "color_xterm"	IntelInsideMonitor.xpm
+Icon "Console"		NeXTterm5.xpm
+Icon "Root Console"	Television.xpm
+Icon "pine"		tree_3d.xpm
+Icon "ghostview"	text.xpm
+Icon "xman"		Books.xpm
+Icon "gimp"		3dpaint.xpm
+Icon "*.jpg"		3dpaint.xpm
+Icon "*.gif"		3dpaint.xpm
+Icon "*.xpm"		3dpaint.xpm
+Icon "*.bmp"		3dpaint.xpm
+Icon "*.arc"		FileArc.xpm
+Icon "*.arj"		FileArj.xpm
+Icon "*.asc"		FileAsc.xpm
+Icon "*.au"		FileAu.xpm
+Icon "*.Bin"		FileBin.xpm
+Icon "*.Cpt"		FileCpt.xpm
+Icon "*.dra*"		FileDRAW.xpm
+Icon "*.bib"		FileDotBIB.xpm
+Icon "*.c"		FileDotC.xpm
+Icon "*.h"		FileDotH.xpm
+Icon "*.l"		FileDotL.xpm
+Icon "*.ps"		FilePS.xpm
+Icon "*.tar"		FileTar.xpm
+Icon "*.lha"		FileLha.xpm
+Icon "*.lzh"		FileLzh.xpm
+Icon "*.snd"		FileSnd.xpm
+Icon "*.tgz"		FileTgz.xpm
+Icon "*.url"		FileURL.xpm
+Icon "*.zip"		FileZip.xpm
+Icon "xli"		monalisa.xpm
+Icon "xv"		xv.xpm
+Icon "xconsole"		xlogo32
+
+*FvwmIdentBack		MidnightBlue
+*FvwmIdentFore		Yellow
+*FvwmIdentFont		-adobe-helvetica-medium-r-*-*-12-*-*-*-*-*-*-*
+
+StdForeColor 		DarkRed
+StdBackColor 		Gray
+
+StickyForeColor         Black
+StickyBackColor         #60c0a0
+
+HiForeColor 		Green
+HiBackColor 		Gray
+
+MenuForeColor		Black
+MenuBackColor		Gray
+
+MenuStippleColor	#111111
+
+TextureTypes 		1 1 1 1
+TextureMaxColors	128 128 128 128
+TitleTextureColor       #d0d0d0   #606060
+UTitleTextureColor      #606060	  #d0d0d0  
+MenuTextureColor        #d0d0d0   #606060
+MTitleTextureColor      #606060	  #d0d0d0
+
+Font                    -*-helvetica-*-*-*-*-10-*-*-*-*-*-*-*
+WindowFont              -*-lucida-*-*-*-*-12-*-*-*-*-*-*-*
+
+IconBox 		+2 -67 -1 -5
+StickyIcons
+CirculateSkipIcons
+RandomPlacement
+SmartPlacement
+
+Module Auto 		325
+ClickTime 		150
+
+EdgeScroll 		0 0
+EdgeResistance 		0 0
+
+#SloppyFocus
+#SnappyFocus
+ClickToFocus
+
+AppsBackingStore
+BackingStore
+SaveUnders
+OpaqueMove 		100
+NoPPosition
+DeskTopSize 		1x1
+DeskTopScale 		32
+NoBoundaryWidth 	1
+BoundaryWidth 		6
+DecorateTransients
+
+# Module path
+
+ModulePath		/usr/X11R6/lib/X11/fvwm95-2:/usr/X11R6/lib/X11/afterstep
+PixmapPath		/usr/include/X11/pixmaps/
+IconPath		/usr/include/X11/bitmaps/
+
+Function "InitFunction"
+#        Module  "I"     FvwmPager 0 0
+	 Exec 	 "I"	 xli -onroot -background black ~/backgrounds/backgroundfile.jpg &
+EndFunction
+
+Function "RestartFunction"
+#        Module  "I"     FvwmPager 0 0
+	 Exec 	 "I"	 xli -onroot -background black ~/backgrounds/backgroundfile.jpg &
+EndFunction
+
+Function "Move-or-Raise"
+	Move 		"Motion"
+	Raise		"Motion"
+	Raise		"Click"
+	RaiseLower	"DoubleClick" 
+EndFunction
+
+Function "maximize_func"
+	Move		"Motion"
+	Maximize	"TripleClick" 94 100
+	Shade		"DoubleClick"
+ 	#PutOnTop	"TripleClick"
+EndFunction
+
+# This one moves or (de)iconifies:
+Function "Move-or-Iconify"
+	Move 		"Motion"
+	Iconify		"Click"
+EndFunction
+
+Function "Resize-or-Raise"
+	Resize 		"Motion"
+	Raise		"Motion"
+	Raise		"Click"
+	Shade		"DoubleClick"
+EndFunction
+
+#Function "abs_coord"
+#       GoToPage "Immediate"    1,1
+#       Exec    "Immediate"     exec xcalc -geometry +100+100&
+#EndFunction
+
+Popup "Applications"
+        Title	"Applications"
+        Exec	"xv"		exec xv &
+        Exec	"Bitmap"	exec bitmap -size 40x40 -geometry 650x650 &
+        Exec	"Xxgdb"		exec xxgdb &
+        Exec	"Calculator"	exec xcalc &
+	Exec	"Oclock"	exec oclock &
+EndPopup
+
+Popup "Utilities"
+	Title  "Utilities"
+        Exec    "Top"           exec rxvt -T Top -n Top -e top &
+        Exec    "Config"        exec xterm -T "vi(.steprc)" -e vi ~/.steprc &
+EndPopup
+
+Popup "Screen"
+	Title	"Screen Savers"
+	Exec 	"Blank"			exec xlock -nolock -nice 0 -mode blank &
+	Exec 	"Flame"			exec xlock -nolock -nice 0 -mode flame &
+	Exec 	"Hyper"			exec xlock -nolock -nice 0 -mode hyper &
+	Exec 	"Pyro"			exec xlock -nolock -nice 0 -mode pyro &
+	Exec 	"Rock"			exec xlock -nolock -nice 0 -mode rock &
+	Exec 	"Rotor"			exec xlock -nolock -nice 0 -mode rotor &
+	Exec 	"Swarm"			exec xlock -nolock -nice 0 -mode swarm &
+	Exec 	"Worm"			exec xlock -nolock -nice 0 -mode worm &
+EndPopup
+
+# This menu is invoked as a sub-menu - it allows you to quit
+Popup "Quit-Verify"
+	Title	"Quit?"
+	Quit	"Yes, Quit"
+	Restart "Restart After Step"	afterstep
+	Restart "Open Look WM"		olwm
+        Restart "Restart Win95 Look"	fvwm95-2
+	Restart "Restart Amiga Look"	amiwm
+	Nop	"No, Don't"
+EndPopup
+
+Popup "Module-Popup"
+	Title	"Modules"
+	Module	"Identify"	FvwmIdent
+        Module	"Wharf"		Wharf
+EndPopup
+
+# This menu will fire up some very common programs
+Popup "HotList"
+	Title 	"HotList"
+        Exec    "Xterm"         exec color-xterm -sb -sl 500 -j -ls -fn 10x20  -geometry 80x40 -cr black -bg black -bd red -fg white &
+        Exec    "Netscape"	exec /usr/X11/bin/Netscape/netscape -geometry 680x565 &
+        Nop     ""
+        Popup   "Applications"  Applications
+        Popup   "ScreenSavers"  Screen
+	Nop     ""
+	Popup	"Utilities"	Utilities
+ 	Nop	""
+        Popup   "Games"         Games
+        Nop     ""
+        Popup   "Modules"       Module-Popup
+        Nop     ""
+	Exec	"Xkill"		exec xkill &
+	Nop	""
+        Popup   "Exit" 	    Quit-Verify
+EndPopup
+
+# This defines the most common window operations
+Popup "Window Ops"
+        Title           "Window Ops"
+        Function        "Move"          Move-or-Raise
+        Function        "Resize"        Resize-or-Raise
+        Raise           "Raise"
+        Lower           "Lower"
+	PutOnTop	"(Un)PutOnTop"
+        Iconify         "(De)Iconify"
+        Stick           "(Un)Stick"
+        Function        "(Un)Maximize"  maximize_func
+        Nop             ""
+        Destroy         "Destroy"
+        Close           "Close"
+        Nop             ""
+        Refresh         "Refresh Screen"
+EndPopup
+
+#ButtonStyle : 2 17 20x20@1 30x20@1 50x40@1 70x20@1 80x20@1 80x30@0 60x50@0 80x80@0 70x80@0 50x60@0 30x80@0 20x80@0 20x70@0 40x50@1 20x30@0 20x20@1
+
+# First, for the mouse in the root window
+# Button 1 gives the HotList menu
+# Button 2 gives the WindowList menu
+# Button 3 gives the WindowOps
+
+Mouse 0         1       A       Iconify
+Mouse 0         2       A       Close
+Mouse 1		R   	A       PopUp "HotList"
+Mouse 1		FS	A	Function "Resize-or-Raise"
+Mouse 1		I	A	Function "Move-or-Iconify"
+Mouse 1		T	A	Function "maximize_func"
+Mouse 2         R       A       WindowList
+Mouse 2		FST	A	PopUp "Window Ops"
+Mouse 3		TSIF	A	RaiseLower
+Mouse 3         R       A       PopUp "Window Ops"
+Mouse 3         W       M       RaiseLower
+
+# Keyboard accelerators
+Key F1		A	M	Popup "HotList"
+Key F2		A	M	Popup "Window Ops"
+Key F3		A	M	WindowList
+Key F4		A	M	Exec "xwd" xwd -root -out ~/screen.xwd &
+Key F5 	        A	A       Iconify
+
+# Arrow Keys
+# press arrow + control anywhere, and scroll by 1 page
+Key Left        A       C       Scroll -100 0
+Key Right       A       C       Scroll +100 +0
+Key Up          A       C       Scroll +0   -100
+Key Down        A       C       Scroll +0   +100
+
+# Start the Audio player  
+Module Audio    
+*AudioPlayCmd /usr/bin/showaudio
+*AudioDir /usr/include/X11/audio/
+*AudioDelay 1
+
+#*Audio startup		beaming.au
+#*Audio shutdown 	beaming.au
+
+#*Audio raise_window 	drip.au
+#*Audio lower_window 	crash.au
+
+#*Audio destroy_window 	bong.au
+
+*Audio res_class 	clink.au
+*Audio res_name 	clink.au
+
+#*Audio end_windowlist 	twang.au
+#*Audio add_window 	bong.au
+#*Audio focus_change 	drip.au    
+
+*Audio iconify		twang.au
+*Audio icon_name 	twang.au
+
+#*Audio deiconify 	drip.au
+#*Audio window_name 	drip.au
+
+#*Audio toggle_paging 	fwop.au
+#*Audio new_page 	beaming.au 
+#*Audio new_desk 	beam_trek.au
+#*Audio configure_window huh.au
+

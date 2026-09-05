@@ -1,0 +1,6 @@
+public/
+.hugo_build.lock
+resources/_gen/
+collections/
+mirror/
+__pycache__/

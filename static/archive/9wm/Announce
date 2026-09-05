@@ -1,0 +1,14 @@
+Subject: 9wm: A Lightweight X Window Manager in the style of 8 1/2
+
+I have just released version 1.0 of my X window manager, 9wm.  9wm
+attempts to capture the look and feel of the Plan 9 windowing system
+"8 1/2".  This provides a minimal yet comfortable user interface.
+
+9wm is particularly handy for users who are constantly moving back
+and forth between Plan 9 and X windows, but it should also appeal
+to non-Plan 9 users, particularly those who are sick of the amount
+of time that certain other window managers take to start up ;-)
+
+9wm should be appearing on comp.sources.x soon, if all goes well.  In
+the meantime, you can get it via anonymous ftp from ftp.cs.su.oz.au,
+in the directory /dhog/9wm.  9wm is freely available.

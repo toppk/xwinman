@@ -1,0 +1,16 @@
+wmmon -position +590+1 &
+wmWeather -s KCMI -position +589+64 &
+
+asclock -12 -shaped -position +526+5 &
+pclock --position +521+66 --background=/usr/share/pclock/wristwatch.xpm \
+	--hands-color=black --second-hand-color=red -w &
+
+asmail -title asmail -geometry 48x48+469+9 &
+aspostit &
+
+wmnetselect -position +407+5 &
+asbutton -n 9 -geometry 64x64+398+65 &
+
+rxvt &
+
+exec vtwm

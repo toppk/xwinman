@@ -1,0 +1,319 @@
+#
+# General options
+#
+
+AutoPan 100
+AutoPanBorderWidth 5
+NaturalAutopanBehavior
+PanDistanceY 100
+PanDistanceX 100
+SnapRealScreen
+PanResistance 500
+
+DecorateTransients
+DontMoveOff
+MaxWindowSize "1152x864"
+RandomPlacement
+#SqueezeTitle
+
+NoCaseSensitive
+NoGrabServer
+
+AutoRaiseDelay 0
+AutoRelativeResize
+MoveDelta 3
+
+DeiconifyToScreen
+ForceIcons
+IconDirectory "/usr/X11R6/icons/"
+IconRegion "600x75-200+0" North West 75 25
+ResizeRegion "NorthEast"
+RestartPreviousState
+UnknownIcon "unknown1.xpm"
+WarpCursor
+
+#ShowIconManager
+SortIconManager
+IconManagerGeometry "500x19+1-20" 4
+
+FixManagedVirtualGeometries
+FixTransientVirtualGeometries
+VirtualDesktop "4x1+860+806" 16
+
+ShallowReliefWindowButton
+SunkFocusWindowTitle
+
+BorderWidth             6
+BorderBevelWidth        2
+ButtonBevelWidth        1
+IconBevelWidth          2
+IconManagerBevelWidth   1
+InfoBevelWidth          2
+MenuBevelWidth          2
+TitleBevelWidth         1
+
+ClearBevelContrast      40
+DarkBevelContrast       40
+
+#
+# Fonts
+#
+
+ResizeFont "-adobe-helvetica-bold-r-normal--*-120-*-*-*-*-*-*"
+TitleFont "-adobe-helvetica-bold-r-normal--*-120-*-*-*-*-*-*"
+MenuFont "-adobe-helvetica-bold-r-normal--*-120-*-*-*-*-*-*"
+MenuTitleFont "-adobe-helvetica-bold-r-normal--*-120-*-*-*-*-*-*"
+IconFont "-adobe-helvetica-bold-r-normal--*-100-*-*-*-*-*-*"
+IconManagerFont "-adobe-helvetica-bold-r-normal--*-100-*-*-*"
+
+#
+# Lists
+#
+
+Icons
+{
+	"*term"		"xterm.xpm"
+	"rxvt"		"xterm.xpm"
+	"xv"		"xv2.xpm"
+	"xcalc"		"rcalc2.xpm"
+	"xman"		"xman.xpm"
+	"emacs"		"gnu-animal.xpm"
+}
+
+NoTitle
+{
+	"VTWM Icon Manager"
+	"VTWM Desktop"
+	"XMMS*"
+	"X11Amp"
+	"xeyes"
+}
+
+NailedDown
+{
+	"VTWM Icon Manager"
+	"VTWM Desktop"
+	"xclock"
+	"xload"
+	"xeyes"
+}
+
+IconManagerDontShow
+{
+	"VTWM Icon Manager"
+	"VTWM Desktop"
+	"xclock"
+	"xload"
+	"xeyes"
+}
+
+DontShowInDisplay
+{
+	"VTWM Icon Manager"
+	"VTWM Desktop"
+	"xclock"
+	"xload"
+	"xeyes"
+}
+
+DontShowInVtwmWindows
+{
+	"VTWM Icon Manager"
+	"VTWM Desktop"
+	"xclock"
+	"xload"
+	"xeyes"
+}
+
+AutoRaise
+{
+}
+
+#
+# Colors (DOH!)
+#
+
+Color
+{
+	BorderColor "slategrey"
+	BorderTileBackground "steelblue"
+	BorderTileForeground "gray85"
+	DefaultBackground "darkblue"
+	DefaultForeground "beige"
+	TitleBackground "steelblue"
+	TitleForeground "gray85"
+	MenuBackground "darkgray"
+	MenuForeground "darkblue"
+	MenuTitleBackground "steelblue"
+	MenuTitleForeground "black"
+	IconBackground "darkgrey"
+	IconForeground "darkblue"
+	IconBorderColor "gray85"
+	IconManagerBackground "steelblue"
+	IconManagerForeground "black"
+	IconManagerHighlight "black"
+	VirtualBackground "steelblue"
+	VirtualForeground "black"
+	DesktopDisplayBackground "grey60"
+}
+
+#
+# Titlebar buttons
+#
+
+NoDefaultTitleButtons
+
+LeftTitleButton ":xpm:bar" = f.menu "winops"
+RightTitleButton ":xpm:dot" = f.iconify
+RightTitleButton ":xpm:resize" = f.resize
+
+#
+# Functions and Bindings
+#
+
+Function "move-or-lower" { f.move f.deltastop f.lower }
+Function "move-or-raise" { f.move f.deltastop f.raise }
+Function "move-or-iconify" { f.move f.deltastop f.iconify }
+
+Button1 = : root : f.menu "defops"
+Button2 = : root : f.menu "VTWM Windows"
+Button3 = : root : f.menu "winops"
+
+Button1 = m : window|icon : f.function "move-or-lower"
+Button2 = m : window|icon : f.iconify
+Button3 = m : window|icon : f.function "move-or-raise"
+
+Button1 = : title : f.function "move-or-raise"
+Button2 = : title : f.raiselower
+
+Button1 = : icon : f.function "move-or-iconify"
+Button2 = : icon : f.iconify
+
+Button1 = : iconmgr : f.iconify
+Button2 = : iconmgr : f.iconify
+Button3 = : iconmgr : f.raise
+
+Button1 = : virtual | desktop : f.movescreen
+Button2 = : virtual | desktop : f.movescreen
+
+"1"	= m1 : all : f.setrealscreen "+0+0"
+"2"	= m1 : all : f.setrealscreen "+1152+0"
+"3"	= m1 : all : f.setrealscreen "+2304+0"
+"4"	= m1 : all : f.setrealscreen "+3456+0"
+
+"Up"	= : root : f.panup		"100"
+"Down"	= : root : f.pandown	"100"
+"Left"	= : root : f.panleft	"100"
+"Right"	= : root : f.panright	"100"
+
+"F4"	= m1 : window | icon : f.delete 
+
+#
+# Menus
+#
+
+menu "defops"
+{
+"    VTWM    "	f.title
+"Aterm"		f.exec "aterm -sr -si +st &"
+"Netscape"	f.exec "netscape &"
+"GVim"		f.exec "gvim -geom 80x40 &"
+""		f.nop
+"Network"	f.menu "network"
+"Shells"	f.menu "shells"
+"Utilities"	f.menu "utils"
+"Multimedia"	f.menu "multimedia"
+"Science"	f.menu "science"
+"Other WMs"	f.menu "others"
+""		f.nop
+"Restart"	f.restart
+"Exit"		f.quit
+}
+
+menu "network"
+{
+"  Network  "	f.title
+"AIM"		f.exec "aim &"
+"ICQ"		f.exec "icqnix &"
+"Lopster"	f.exec "lopster &"
+"Netscape"	f.exec "netscape &"
+}
+
+menu "shells"
+{
+"  Shells  "	f.title
+"Aterm"		f.exec "aterm -sr -si +st &"
+"-Blue"		f.exec "aterm -sr -si +st -fg white -bg 'rgb:0/0/35' &"
+"-Trans"	f.exec "aterm -sr -si +st -tr -sh 50 -fg white -bg black &"
+"Rxvt"		f.exec "rxvt -sr -si +st &"
+"Xterm"		f.exec "xterm -sb -sl 1024 -s -rw -rightbar &"
+}
+
+menu "utils"
+{
+"  Utilities  "	f.title
+"Emacs"		f.exec "emacs &"
+"GV"		f.exec "gv &"
+"GVim"		f.exec "gvim -geom 80x40 &"
+"xClock"	f.exec "xclock &"
+"xColorSel"	f.exec "xcolorsel &"
+"xDvi"		f.exec "xdvi &"
+"xFontSel"	f.exec "xfontsel &"
+"xLoad"		f.exec "xload &"
+"xLock"		f.exec "xlock -nice 0 -mode random &"
+"xPDF"		f.exec "xpdf &"
+"xPost-It+"	f.exec "xpostit+ &"
+}
+
+menu "multimedia"
+{
+" Multimedia "	f.title
+"Gimp"		f.exec "gimp &"
+"GTK See"	f.exec "gtksee &"
+"Real Player"	f.exec "realplay &"
+"TFig"		f.exec "tfig &"
+"XMMS"		f.exec "xmms &"
+"XV"		f.exec "xv &"
+}
+
+menu "science"
+{
+"  Science  "	f.title
+"Dr.Scheme"	f.exec "drscheme &"
+"GPeriodic"	f.exec "gperiodic &"
+"HexCalc"	f.exec "hexcalc &"
+"XaoS"		f.exec "xaos &"
+"xCalc"		f.exec "xcalc &"
+}
+
+menu "others"
+{
+" Other WMs "	f.title
+"Blackbox"	f.startwm "blackbox"
+"FVWM2"		f.startwm "fvwm2"
+"E"		f.startwm "enlightenment"
+"TWM"		f.startwm "twm"
+}
+
+menu "winops"
+{
+"   Window   "	f.title
+"Identify"	f.identify
+""		f.nop
+"AutoRaise"	f.autoraise
+"Iconify"	f.iconify
+"Resize"	f.resize
+"Move"		f.move
+""		f.nop
+"Raise"		f.raise
+"Lower"		f.lower
+"Nail"		f.nail
+"Focus"		f.focus
+""		f.nop
+"Fullzoom"	f.fullzoom
+"Horizoom"	f.horizoom
+"Vertzoom"	f.zoom
+""		f.nop
+"Kill"		f.destroy
+"Delete"	f.delete
+}

@@ -1,0 +1,190 @@
+  ______        ____  __                       _                
+ / ___\ \      / /  \/  |   _ __ ___  __ _  __| |_ __ ___   ___ 
+| |  _ \ \ /\ / /| |\/| |  | '__/ _ \/ _` |/ _` | '_ ` _ \ / _ \
+| |_| | \ V  V / | |  | |  | | |  __/ (_| | (_| | | | | | |  __/
+ \____|  \_/\_/  |_|  |_|  |_|  \___|\__,_|\__,_|_| |_| |_|\___|
+                                                                
+
+   *  What is GWM?
+   *  What is new in this version?
+   *  Where is GWM? Current version: 1.8, June 30 1995
+   *  A warning GWM by default sends me a message on startup
+
+For all inquiries, contact:
+gwm@sophia.inria.fr (or see W3 page: http://www.inria.fr/koala/gwm)
+
+-------------------------------------------------------------------------------
+
+What is GWM?
+============
+
+The GWM (Generic Window Manager) is an extensible Window Manager for the X
+Window System Version 11. It is based upon a WOOL (Window Object Oriented
+Langage) kernel, which is an interpreted dialect of Lisp with specific window
+management primitives. The user builds a window manager by writing WOOL files
+to describe objects on the screen, including a Finite State Machine triggering
+WOOL actions on response to X events (e.g. mouse buttons) on that object. These
+objects can be used as decorations around X applications windows, as pop-up
+menus or as independent windows. GWM should be able to emulate efficiently
+other window managers, and play the same role for window managers as EMACS does
+for text editors.
+
+GWM comes with already defined profiles (standard, vtwm-like, twm-like,
+mwm-like) Here are some screenshots. Or you can design exactly what you want.
+
+Copyright
+---------
+
+Freeware, with sources. GWM is Copyrighted by Bull, but bears the same
+licensing conditions as the X distribution, i.e. you are free to do anything
+with it, but Bull offers no guarantee nor support.
+
+Author
+------
+
+GWM has been designed and realized by Colas Nahaboo, in the Koala Project with
+the invaluable help of the community of GWM users all over the world on the
+internet since 1989.
+
+History
+-------
+
+Our Koala project was one of the first to base its experiments on the new X11
+window system. One of our ambitions was to continue the research work of the
+ROOMS team at Xerox, who designed this revolutionary window managing system
+back in 1986 but on proprietary systems. We planned to realize a research
+prototype flexible enough to prototype easily new ideas, but at the same time
+always validate our ideas by making real users use our prototype in everyday
+use to gain relevant feedback, so the system could be run on low-end
+workstations currently in use, e.g. 68020s with 4M ram total.
+
+I decided to go the emacs way, but with a lisp dialect that would be much more
+efficient in machine ressource use. So I designed WOOL, a very special kind of
+lisp dialect in January 1988. After a first rewrite, GWM was running better
+than we could expected so we make it publicly available in July 1989.
+
+GWM was a success, but was overwhelmed by its maintenance and support due to
+the feedback brought back by the internet community, so that in the following
+years I did not have time to put actual research work on the original goal, the
+profiles on top of the kernel. Then I became too busy to maintain it so I kept
+a low profile so as not to attract new user and keep a small base of faithful
+users. I wanted to change a lot of things but did not want as it would have
+induced incompatibilties for my users. So I waited for GWM to die slowly and
+some other new Window Manager to come and replace it.
+
+Present state
+-------------
+
+But, 6 years after, I still use GWM. Why? because it stills offers the best
+environment a hacker can dream of among the available WMs. So I decided to
+clean the distribition, integrate all the patches sent to me by contributors,
+and issue the 1.8 release (30 June 1995) to offer a stable useful base for all
+hackers to use while I could begin writing a new incompatible incarnation with
+all insight gained by these years. GWM now can now do a suprising amount of
+things, at the expense of a quite involved hacking part from profile writers.
+So gwm 1.8 can be seen as the "final edition" of gwm.
+
+What is GWM for?
+----------------
+
+Although GWM can be used by normal users, hackers will feel much more at ease
+with it. If you do not want to edit your emacs profiles, chances are that GWM
+is not for you.
+
+On what machines does GWM run?
+------------------------------
+
+All unixes. It cannot be compiled on DEC Alphas (but the Decstation-mips
+executable translated by "mx" to the alpha-osf1 format works perfectly).
+
+-------------------------------------------------------------------------------
+
+What is new in this version?
+============================
+
+This version (1.8) has three important new features, thanks to the main
+contribution of Anders Holst aho@nada.kth.se:
+
+   *  recursive bars. now GWM decorations are quite flexible.
+   *  shaped elements anywhere. weird shapes are now possible.
+   *  bug fixes. all known bugs or memory leaks have been fixed.
+
+You can see the list of changes in detail.
+
+What about the next version?
+----------------------------
+
+The last version (1.7o) was issued 18 months ago (sept. 1993), and this 1.8
+version should be the last one as far as the C code is concerned (except bug
+fixes or patches to work around some buggy applications). It is very likely
+that I will make a new version of gwm, but it will be incompatible with the
+current gwm , so I will likely call it by another name, but dont hold your
+breath! The lisp part is ready, however (see /pub/Klone on ftp at
+koala.inria.fr, but I need to re-design the C part and the base profiles, in my
+spare time...
+
+Support
+-------
+
+GWM is not what I am paid for. It serves me a lot to test my ideas, and I want
+to help people to use it, but most of the time I will be too busy to answer
+beginner questions, so try to post questions about its use on the news or
+mailing list instead of mailing only to me. Moreover, as I use only the
+standard profile, I am of very little help on questions specific to the other
+profiles (mwm, twm, vtwm...)
+
+-------------------------------------------------------------------------------
+
+Where is GWM?
+=============
+
+GWM is available by FTP on the X consortium ftp site, ftp.x.org, in
+/contrib/window_managers/gwm and all its mirrors, or on the koala project ftp
+site, koala.inria.fr, in /pub/gwm, where pre-compiled executables are also
+stored for some architectures.
+
+Mailing list
+------------
+
+Discussions on GWM happen on the GWM mailing list, gwm-talk@sophia.inria.fr.
+You can subscribe/unsubscribe by mailing to:
+gwm@sophia.inria.fr
+And on the koala.inria.fr ftp site you can browse:
+
+   *  The list of mailing list members
+   *  The archive of past mails
+   *  General info on this list
+
+Newsgroups
+----------
+
+Best places to ask questions are comp.windows.x.apps and comp.windows.x. Please
+try to put the uppercase "GWM" in the subject of the post to allow easy
+spotting by other users among the numerous messages there.
+
+-------------------------------------------------------------------------------
+
+************************************ WARNING *********************************
+A warning
+
+When gwm starts (and after that once a day) GWM by default sends me an UDP
+packet transparently for me to have a rough idea of gwm use in the world. By
+default the only value inside the packet is the hostname of the machine, and I
+will keep these data private, but you can of course supress this feature if
+you want. Just (re)compile with the compilation flag -DNO_GWM_LOG, or for 1.8a
+or later you can also set the shell environments NO_GWM_LOG or NO_KOALA_SPY to
+disable this feature without recompilation.
+******************************************************************************
+
+-------------------------------------------------------------------------------
+
+Colas Nahaboo, Koala, BULL @ INRIA Sophia, http://www.inria.fr/koala/colas
+colas@sophia.inria.fr
+
+33 (FRANCE) 93.65.77.70		(VOICE PHONE)
+
+Colas Nahaboo			(SURFACE MAIL)
+INRIA
+B.P. 93
+06902 Sophia Antipolis cedex
+FRANCE

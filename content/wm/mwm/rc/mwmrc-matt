@@ -1,0 +1,92 @@
+#
+#  .mwmrc
+#
+#     RESOURCE DESCRIPTION FILE for Motif Window Manager (MWM)
+#  Resources specified within this file include Buttons, Keys, and
+#  Menus.  Appearance and behavior resources for MWM are specified
+#  in the file named .Xdefaults
+#
+#  Refer to the man page for mwm for the syntax and commands used
+#  in this file.
+#
+
+#  Lines beginning with # are comments.
+
+##########################
+# menu pane descriptions #
+##########################
+
+# Application Menu Description
+Menu AppMenu
+{
+    "Applications"      f.title
+    "Calculator"        !"xcalc &"
+    "Calendar"          !"xcalendar &"
+    "Font Selector"     !"xfontsel &"
+    "Manual Browser"    !"xman &"
+    "News Reader"       !"xrn &"
+}
+
+
+# Host Menu Description
+Menu HostMenu
+{
+    "Login Menu"            f.title
+    "local"             !"xterm &"
+    "crocus"            !"rsh crocus xterm -title 'Crocus' &"
+    "lily"              !"rsh lily xterm -title 'Lily' &"
+    "holly"             !"rsh holly xterm -title 'Holly' &"
+}
+
+
+# Root Menu Description
+Menu MwmMenu
+{
+    "Window Commands"       f.title
+    no-label                f.separator
+    "Refresh Screen"        f.refresh
+    "Roll Windows Forward"  f.circle_down
+    "Roll Windows Backward" f.circle_up
+    "Restart MWM"           f.restart
+    "Exit"                  f.quit_mwm
+}
+
+
+# Window Menu Description
+Menu W_Name_Menu
+{
+    "Window Operations"      f.title
+    "Lower"          f.lower
+    "Raise"          f.raise
+    "Resize"         f.resize
+    "Move"           f.move
+    "Refresh"        f.refresh_win
+    "Destroy"        f.kill
+}
+
+
+
+###############################
+# button binding descriptions #
+###############################
+
+Buttons DefaultButtonBindings
+{
+    <Btn1Down>          root         f.menu MwmMenu
+    <Btn2Down>          root         f.menu HostMenu
+    <Btn3Down>          root         f.menu AppMenu
+    <Btn1Down>          title        f.raise
+    <Btn2Down>          title        f.move
+    <Btn3Down>          title        f.menu W_Name_Menu
+    Shift<Btn1Down>     window       f.raise_lower
+    Shift<Btn3Down>     window       f.menu W_Name_Menu
+    <Btn2Down>          icon         f.move
+    Meta<Btn1Down>      icon|window  f.lower
+    Meta<Btn2Down>      window|icon  f.resize
+    Meta<Btn3Down>      window       f.move
+}
+ 
+
+#
+#  END OF mwm RESOURCE DESCRIPTION FILE
+#

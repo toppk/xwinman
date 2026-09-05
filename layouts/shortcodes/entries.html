@@ -1,0 +1,7 @@
+{{- $ed := index hugo.Data.editions site.Params.edition -}}
+<ul>
+{{ range (index $ed (.Get 0)).entry }}
+{{- $p := site.GetPage (printf "/%s" .ref) }}{{ if not $p }}{{ errorf "entries: %s not found" .ref }}{{ end }}
+{{- $label := .label | default $p.Title }}{{ $home := .homepage | default $p.Params.homepage }}{{ $blurb := .blurb | default $p.Params.blurb }}
+<li>{{ if .bare }}{{ else if $home }}<a href="{{ $home | safeURL }}">{{ $label }}:</a> {{ else }}{{ $label }}: {{ end }}{{ $blurb | $p.RenderString }}
+{{ end }}</ul>

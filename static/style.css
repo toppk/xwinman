@@ -1,0 +1,114 @@
+body {
+  margin: 0;
+  padding: 0;
+  color: black;
+  background-color: white;
+  font-family: sans-serif;
+}
+h1, h2, h3, h4, h5 {
+  margin-top: 3px;
+  margin-bottom: 0px;
+  color: #3042a8;
+}
+h3 + p {
+  margin-top: 0px;
+}
+h4 + p {
+  margin-top: 0px;
+}
+:link {
+  color: blue;
+  text-decoration: none;
+}
+
+:link:hover {
+  color: blue;
+}
+
+:visited {
+  color: blue;
+  text-decoration: none;
+}
+
+a.side { 
+  padding-left: 0px;
+  padding-left: 0.5em;
+}
+
+a.curr { 
+  color: rgb(255,0,0);
+  padding-left: 1em;
+}
+
+#logo {
+  text-align: center;
+  float: left;
+  background-color: white;
+  width: 9em;
+  height: 70px;
+  padding: 1em;
+  padding-bottom: 0;
+  padding-top: 10px;
+  margin-bottom: 0;
+}
+#navbar {
+  height: 1em;
+  padding-left: 10em;
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+  text-align: center;
+  background-color: rgb(204,204,204);
+}
+#header { 
+  text-align: center;
+  padding: 5px;
+  height: 70px;
+  margin-top: 0;
+  margin-bottom: 0;
+  margin-left: 9em;
+  background-color: white;
+}
+#sidebar {
+  /*border: 1px solid rgb(70,130,180);*/
+  background-color: rgb(222,231,244);
+  padding: 1em;
+  margin-left: 0;
+  width: 9em;
+  /*font-size: 80%;*/
+  float: left;
+}
+#middle {
+  margin: 0;
+  padding: 0;
+  background-color: white;
+}
+#content {
+  padding: 1em;
+  margin-left: 11em;
+  background-color: white;
+}
+#footer {
+  clear: both;
+  text-align: center;
+  background-color: rgb(204,204,204);
+  font-size: 80%;
+  margin: 0;
+  margin-top: 0;
+  border: 0;
+  padding: 0em;
+  padding-top: 0.4em;
+  padding-bottom: 0.4em;
+  padding-left: 4%;
+  padding-right: 4%;
+}
+#news { 
+  background-color: rgb(222,231,244);
+  padding: 4px;
+  float: right;
+  width: 30%;
+  font-size: 80%;
+}
+.sbox {
+  border: 1px solid rgb(70,130,180);
+  padding: 3px;
+}

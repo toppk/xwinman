@@ -1,0 +1,462 @@
+############### Xi's .steprc ###############
+# mental note: AS is weird about line w/ #'s
+# at the end, sometimes
+#
+# wish I could figure out what all these
+# BadWindow errors are...
+#
+# 5/9/97 Ximenes Zalteca
+# circa 1.0
+
+#-------- Paths
+# /pix is a symlink to elsewhere...it's
+# not smart to fill up your / with pix, &c.
+#
+IconPath /pix:/pix/icons
+PixmapPath /pix:/pix/backgrounds:/pix/icons
+ModulePath /usr/X11R6/lib/X11/afterstep
+
+#-------- Fonts
+# definitely grab the freefont set from sunsite...sharefont isn't nearly as
+# good, tho. But that's freeware for ya :)
+#
+# menus, resize indicators
+Font		-*-windsordemi-normal-r-normal--15-0-100-100-p-*-iso8859-1
+# window title
+WindowFont  -adobe-new century schoolbook-bold-r-normal-*-18-*-100-100-p-*-iso8859-1
+# icon labels
+IconFont 	-*-charter-black-i-normal--12-0-100-100-p-*-iso8859-1
+
+#-------- Colors
+# generic colors
+StdForeColor lightslateblue
+StdBackColor navy
+# color for selected window's title
+HiForeColor  slateblue
+# background color for selected window
+HiBackColor  #08d806be578d
+# menu text color
+MenuForeColor green
+# menu background color
+MenuBackColor midnightblue
+# color for unavailable menus
+MenuStippleColor gray
+
+#-------- Gradients
+# type of gradient to use and how many colors to use in it
+# 0 - none                    1 - Wharf Style
+# 2 - Horizontal one way      3 - Horizontal cylindrical
+# 4 - Vertical one way        5 - Vertical cylindrical
+# 128 - pixmap
+#
+# focusedtitle unfocusedtitle stickytitle menutitle menuitem
+TextureTypes 128 128 128 2 1
+TextureMaxColors 256 256 256 256 256
+# colors for menu titles and items
+MTitleTextureColor #303080 #101030 
+# colors for popup menus
+MenuTextureColor navy slateblue
+TexturedHandle                  # use textures for all handles
+GradientText			# use a text gradient
+#TextGradientColor lime darkgreen
+TextGradientColor #2ee19ba514b3 cyan
+# colors to use
+
+#-------- Windows
+EdgeScroll  0 0
+EdgeResistance 0 0           
+ClickTime 150
+
+NoBoundaryWidth 0               # no handle for titlebarless windows
+BoundaryWidth 8			# use a bottom handle of 8 pixels wide
+NoPPosition			# just do it :)
+
+SmartPlacement			# place windows intelligently
+RandomPlacement			# if that fails, go random
+SloppyFocus			# don't unfocus when you go to root window
+DecorateTransients		# and such lovely transients they are :)
+OpaqueMove 75			# move opaquely if <=75% the screen
+OpaqueResize			# resize opaquely
+StubbornPlacement    		# Make new windows avoid icons
+DontMoveOff			# keep windows onscreen, sorta
+
+# autoraise after 500ms
+Module Auto 500
+
+#-------- Titlebars
+# sticks a close button on the far right
+TitleButton 2 buttons/close2.xpm
+# sticks a minimize button on the middle right
+TitleButton 4 buttons/minimize2.xpm
+# sticks a pulldown button on the far left
+TitleButton 1 buttons/pulldown2.xpm
+# sticks a shade button on the inner right
+TitleButton 6 buttons/shade2.xpm
+TitlebarNoPush			# don't let the titlebars push
+TitleTextAlign 3		# center align titlebar text
+# pixmap for focusedtitles
+TitlePixmap 504a.xpm
+# pixmap for unfocusedtitles
+UTitlePixmap cosmic_gears.xpm
+# pixmap for stickytitles
+STitlePixmap 631ac.xpm
+
+#-------- Functions
+# fun functions
+
+Function "InitFunction"
+	Wait	"I"	Wharf
+#	Exec	"I"	rxvt-xpm -pixmap /pix/rxvt/canned_timespace.xpm -geometry 56x7+569+723 -fg yellow +sb -e mod /sounds/mods 
+	Exec	"I"	rxvt-xpm -geometry +30+30 -sl 256 -ls -T 'xterm@zyxian.net' -fg white -bg black -pixmap /pix/backgrounds/a006.xpm &
+	Exec	"I"	rxvt-xpm -fg chartreuse -fn vga -pixmap /pix/rxvt/texture2.xpm -geometry 69x4+75+835 -C +sb -T console! &
+EndFunction
+
+Function "Shade-or-Raise"
+	Move		"Motion"
+	Raise		"Click"
+	Shade		"DoubleClick"
+	PutOnTop	"TripleClick"
+EndFunction
+
+Function "Maximize_Function"
+	Move		"Motion"
+	Maximize	"Click" 94 100
+	Shade		"DoubleClick"
+	PutOnTop	"TripleClick"
+EndFunction
+
+Function "Move-or-Iconify"
+	Move 		"Motion"
+	Iconify		"Click"
+EndFunction
+
+Function "Resize-or-Raise"
+	Resize 		"Motion"
+	Raise		"Motion"
+	Raise		"Click"
+	Shade		"DoubleClick"
+	PutOnTop	"TripleClick"
+EndFunction
+
+#-------- Popups
+# a few popups, not much here to speak of
+
+PopUp "Apps"
+	Title "Apps"
+	Exec "NEdit"		nedit &
+	Exec "XV"		xv &
+EndPopUp
+
+PopUp "Configuration"
+	Title "Configuration"
+	Exec "AScp"		ascp &
+	Exec "Control Panel"	control-panel &
+	Exec "Config"		nedit ~/.steprc &
+EndPopUp
+PopUp "Games"
+	Title "Games"
+	Exec "Galaga"		xgal &
+	Exec "Koules"		/usr/games/xkoules &
+EndPopUp
+
+PopUp "Window Ops"
+	Title "Window Ops"
+	Function "Move" Shade-or-Raise
+	Function "Resize" Resize-or-Raise
+	Raise "Raise" 
+	Lower "Lower" 
+	PutOnTop "(Un)PutOnTop" 
+	Iconify "(De)Iconify" 
+	Stick "(Un)Stick" 
+	Function "(Un)Maximize" Maximize_Function
+	Destroy "Destroy" 
+	Close "Close" 
+	Refresh "Refresh Screen" 
+EndPopup
+
+Popup "Quit-Verify"
+	Title   "Really?"
+	Quit    "Yes, Really Quit"
+	Restart "Restart AfterStep" afterstep
+	Restart "Restart WindowMaker" wmaker
+	Nop     "No, Don't Quit"
+EndPopup
+
+Popup "Utilities"
+	Title   "Utilities"
+	Exec    "Rxvt"		exec rxvt &
+	Exec    "Top"		exec rxvt -T Top -n Top -e top &
+	Exec    "Calculator"	exec xcalc &
+	Exec    "TKman"		exec tkman &
+EndPopup
+
+PopUp "HotList"
+	Title "HotList"
+	Exec "Rxvt"		exec rxvt-xpm &
+	Exec "Netscape"		exec netscape &
+	PopUp "Apps"		Apps
+	PopUp "Config"		Configuration
+        PopUp "Games"		Games
+        PopUp "Utilities"	Utilities
+        Popup "Exit AfterStep"	Quit-Verify
+EndPopUp
+
+#-------- Style
+# style options for specific windows
+Style "*Pager"  Sticky, NoTitle, NoHandles, StaysOnTop, WindowListSkip
+Style "Minitabx11"  StaysOnTop
+Style "Wharf"  Sticky, NoTitle, NoHandles, StaysOnTop, WindowListSkip, NoFocus
+Style "Pier"  Sticky, NoTitle, NoHandles, StaysOnTop, WindowListSkip, NoFocus
+Style "Banner"  Sticky, NoTitle, NoHandles, StaysOnTop, WindowListSkip
+Style "xconsole" Icon interface.xpm, Sticky, NoTitle, NoFocus, NoHandles, WindowListSkip, StaysOnTop
+Style "control-panel" NoHandles, Icon ChartHammer.xpm
+Style "mod*" Icon MusicClef.xpm, NoTitle, NoHandles, WindowListSkip
+Style "console!" NoTitle, NoHandles, Sticky, WindowListSkip
+Style "tk3play" NoHandles
+
+#-------- Icons
+# icons to use for various programs
+#Icon "*" NeXTtermQuestionmark.xpm
+Icon "Zircon*" WizardCards.xpm
+Icon "xfontsel" FontA.xpm
+Icon "ncftp" Object.xpm
+Icon "Netscape*" Netscape-1x.xpm
+Icon "Netscape: Download" Netscape-2x.xpm
+Icon "Xgmod*" MusicClef.xpm
+Icon "TkMan*" manual.next.xpm
+Icon "*xterm*" penguin.xpm
+Icon "rxvt*" 3DRings.xpm
+Icon "*emacs*" text.xpm
+Icon "pine" writeletter.xpm
+Icon "ghostview" Ghost.xpm
+Icon "xman" xman.xpm
+Icon "gimp" Draw.xpm
+Icon "xli" monalisa.xpm
+Icon "xv*" XV.xpm
+Icon "moxfm*" FileFolders.xpm
+Icon "*lyx*" text.xpm
+Icon "LyX" text.xpm
+Icon "Untitled*" YellowBlueRedGeometry.xpm
+Icon "*Preferences" InterfaceScrewdriver.xpm
+Icon "tcolor*" 3dpaint.xpm
+Icon "nedit*" EscherCube.xpm
+Icon "NCFtp" Object.xpm
+Icon "XFMail" icon_nomail.xpm
+Icon "*unread" icon_mail.xpm
+Icon "StarWriter*" Clipboard.xpm
+Icon "StarMath*" Equation.xpm
+Icon "StarImage*" Image.xpm
+Icon "StarDraw*" draw.xpm
+Icon "xplaycd*" CDPlayer.xpm
+Icon "StarCalc*" Spreadsheet.xpm
+Icon "slrn" WheelbarrowFull.xpm
+Icon "aquarius*" DivisionBell.xpm
+Icon "*steprc*" Screwhead.xpm
+Icon "qps" MonitorCheck.xpm
+Icon "ezppp" Communications.xpm
+Icon "*New Mail*" WriteMail.xpm
+
+# options for the icons themselves
+StubbornIconPlacement		# don't go under windows
+StickyIcons			# icons follow you
+CirculateSkipIcons		# skip icons when you circulate
+IconTitle			# give icons titles
+# button stuff
+ButtonTextureType 128		# use pixmaps for buttons
+ButtonMaxColors 256		# max 256 colors
+# pixmap for button background
+#ButtonPixmap buttons/waterbutton.xpm
+#ButtonNoBorder
+ButtonPixmap waves2.xpm
+
+# places to stick icons
+# this puts them around the border, but not where Pier + Wharf are
+# left top right bottom
+IconBox +0 +0 -65 +65
+IconBox +0 +65 +65 -1
+
+#-------- Keys
+Key	F1	A	C	Popup "HotList"
+Key	F2	A	C	Popup "Window Ops"
+Key	F3	A	C	WindowList
+Key	PageDown	A	N	Iconify
+Key	Tab	A	M	CirculateUp
+Key	Left	A	C	Scroll -100 0
+Key	Right	A	C	Scroll +100 +0
+Key	Up	A	C	Scroll +0   -100
+Key	Down	A	C	Scroll +0   +100
+Key	F4	A	C	Exec "xwd" xwd -root -out ~/screen.xwd
+# fixes XFree's CTRL+ALT+# thang
+Key     F1	A	M	Exec "yo" chvt 1
+Key     F2	A	M	Exec "yo" chvt 2
+Key     F3	A	M	Exec "yo" chvt 3
+Key     F4	A	M	Exec "yo" chvt 4
+Key     F5	A	M	Exec "yo" chvt 5
+Key	F5	A	N	GotoPage 0 0
+Key     F6	A	N	GotoPage 1 0
+Key	F7	A	N	GotoPage 0 1
+Key	F8	A	N	GotoPage 1 1
+Key     F11     A       M       Exec "yo" chvt 11
+Key	F12	A	M	Exec "yo" chvt 12
+
+#-------- Mouse
+# mouse bindings for those buttons
+Mouse	0	1	A	PopUp "Window Ops"
+Mouse   0       4       A       Iconify
+Mouse	0	2	A	Close
+Mouse   0       6       A       Shade
+# other mouse bindings
+Mouse	1	R	A	PopUp "HotList"
+Mouse	1	FS	A	Function "Resize-or-Raise"
+Mouse	1	I	A	Function "Move-or-Iconify"
+Mouse	1	T	A	Function "Shade-or-Raise"
+Mouse	2	R	A	WindowList
+Mouse	2	FST	A	Function "Shade-or-Raise"
+Mouse	3	TSIF	A	Function "Maximize_Function"
+Mouse	3	R	A	PopUp "Window Ops"
+Mouse	3	W	M	RaiseLower
+
+#-------- Cursors
+Cursor 8 132   			# Set the DESTROY cursor to the same
+
+#-------- Pager
+#
+# darker parts
+*PagerBack slateblue
+# text color
+*PagerFore #519d197085e3
+# lighter parts
+*PagerHilight lightslateblue
+# label font
+*PagerFont none
+# font for window text
+*PagerSmallFont 5x8
+*PagerNoLabel
+# prep it to get sucked into Wharf
+*PagerGeometry 48x48-1-1
+DesktopSize 2x2			# 2x2 screens per desk
+
+# use the multi.root.xpm.tar.gz prog to put a different
+# xpm on each screen
+RootPixmap 0:0,0 /pix/backgrounds/aa10.xpm
+RootPixmap 0:1,0 /pix/backgrounds/primitive_life.xpm
+RootPixmap 0:1,1 /pix/backgrounds/ifish_back.xpm
+RootPixmap 0:0,1 /pix/backgrounds/toe_paint.xpm
+
+#-------- Animate
+# load the window animation module
+Module Animate
+# on a blue background, it looks ok
+*AnimateColor red
+# delay to animate
+*AnimateDelay 5
+# steps to animate
+*AnimateIterations 12
+# width of lines
+*AnimateWidth 2
+# use a twisty animation. nice!
+*AnimateResize twist
+
+#-------- Wharf
+Module Wharf
+*WharfAnimate			# animate folders
+*WharfAnimateMain		# animate full-length draws
+*WharfTextureType 128		# pixmap
+*WharfColumns 1			# column format
+# right side of the screen
+*WharfGeometry -5+0
+*WharfPixmap buttons/bluemarble2.xpm
+*WharfFullPush			# no bezel
+*WharfNoBorder			# don't use the bezel
+*WharfMaxColors 256		# lotsa colors :)
+
+# what's actually in the wharf
+
+*Wharf	"ASfolder" 3dots.xpm,AfterStep.logo.xpm	Folder
+*Wharf	"Quit" Switch.xpm		Quit
+*Wharf	"Restart" recycler.xpm		Restart	"as" afterstep
+*Wharf	"xlock" PGP.xpm			Exec "xlock" xlock -mode random -duration 0 -allowroot -usefirst &
+*Wharf	~Folder
+
+*Wharf	"asmail" nil			Swallow "asmail" asmail -geometry 48x48-1-1 &
+*Wharf	"irc" Wizard.xpm		Exec "zircon" zircon &
+*Wharf	"ftp" Object.xpm		Exec "ncftp" rxvt-xpm -T 'NCFtp' -fg chartreuse -bg black -pixmap /pix/backgrounds/a014.xpm +sb -e ncftp -C &
+*Wharf	"news" WheelbarrowFull.xpm	Exec "slrn" rxvt-xpm -T slrn -e slrn -h news.netset.com &
+*Wharf	"www" Netscape-1x.xpm		Exec "netscape" netscape &
+*Wharf	"rxvt" 3DRings.xpm		Exec "rxvt" rxvt-xpm -sl 256 -ls -T 'xterm@zyxian.net' -fg white -bg black -pixmap /pix/backgrounds/a006.xpm &
+*Wharf	"telnet" DivisionBell.xpm	Exec "aquarius" rxvt-xpm -sl 256 -ls -T 'aquarius@zyxian.net' -fg yellow -bg black -pixmap /pix/rxvt/chlorine_pool.xpm -e telnet aquarius &
+*Wharf	"file" 	Daemon.xpm		Exec "tkdesk" tkdesk &
+
+*Wharf	"config-folder" 3dots.xpm,Interface.xpm	Folder
+*Wharf	"ascp" InterfaceScrewdriver.xpm Exec "ascp" ascp &
+*Wharf	"config" Screwhead.xpm		Exec "blah" nedit ~/.steprc &
+*Wharf	"control" ChartHammer.xpm	Exec "control-panel" control-panel &
+*Wharf	~Folder
+
+*Wharf	"dos" ToasterPopped.xpm		Exec "dos" xdos &
+
+*Wharf	"xload"	nil			Swallow "xload" xload -nolabel -hl black -fg DarkViolet -bg slateblue -geometry 48x48-1-1 &
+*Wharf	"xload"	nil			Exec "qps" qps &
+*Wharf	"pager"	nil			SwallowModule "Pager" Pager 0 0 &
+
+#-------- Pier
+# Wharf now has a friend called Pier. ln -s Wharf Pier to achieve this :)
+
+Module Pier
+# animate various things
+*PierAnimate
+*PierAnimateMain
+
+# use a pixmap
+*PierTextureType 128	# use a pixmap
+*PierForceSize		# squeeze the image into 64x64
+*PierFullPush		# push the whole button
+*PierNoBorder		# don't draw the gray bezel
+# stay consistent with Wharf
+*PierPixmap buttons/bluemarble.xpm
+*PierRows 1		# horizontal, not vertical
+
+# this is kinda ugly, but it manages to get Pier
+# to the bottom right on my config, at least
+*PierGeometry -5+834
+
+# lotsa colors! 16bpp is nice :)
+*PierMaxColors 256
+
+# stuff in Pier
+
+*Pier	"star" 3dotsa.xpm,Universe2.xpm	Folder
+*Pier	"spread" Spreadsheet.xpm	Exec "scalc" scalc3 &
+*Pier	"draw" Draw.xpm			Exec "sdraw" sdraw3 &
+*Pier	"math" Equation.xpm		Exec "smath" smath3 &
+*Pier	"image" Image.xpm		Exec "simage" simage3 &
+*Pier	"word" Clipboard.xpm		Exec "swriter" swriter3 &
+*Pier	~Folder
+
+*Pier	"sound" 3dotsa.xpm,OldFashionedRadio.xpm	Folder
+*Pier	"mix" SoundMixer.xpm		Exec "mixer" xgusmix &
+*Pier	"xgmod" MusicClef.xpm		Exec "mod" xgmod &
+*Pier	"mikmod" EscherTriangle.xpm	Exec "mikmod" rxvt-xpm -pixmap /pix/rxvt/canned_timespace.xpm -geometry 56x7+569+723 -fg yellow +sb -e mod /sounds/mods &
+*Pier	"tk3play" EasterIsland.xpm	Exec "mp3" tk3play &
+*Pier	"xplaycd" CDPlayer.xpm		Exec "cd" xplaycd &
+*Pier	~Folder
+
+*Pier	"xv" 3dpaint.xpm		Exec "xv" xv &
+*Pier	"edit" EscherCube.xpm		Exec "blah" nedit &
+*Pier	"mixer" nil			Swallow "asmixer" asmixer -d /dev/mixer -geometry 48x48-1-1 &
+*Pier	"cd" nil			Swallow "ascd" ascd -d /dev/cdrom -geometry 48x48-1-1 &
+*Pier	"modem" nil			Swallow "asmodem" asmodem -s -d /etc/ppp/ppp-on -h /etc/ppp/ppp-off &
+*Pier	"clock" nil			MaxSwallow "asclock" asclock -12 -shape -position -1-1 -led limegreen -exec timetool &
+
+#-------- Audio
+# I haven't quite puzzled thru this yet.
+# builtin-rplay doesn't seem to work, nor ASSound..
+#Module Audio
+#Module ASSound
+#*AudioDir /sounds/au
+# this doesn't seem to work, altho it should..
+#*AudioPlayCmd ASSound
+#*Audio startup gong.au
+#*Audio shutdown meepmeep.au
+#*Audio unknown crash.au
+#*Audio iconify clink.au

@@ -1,0 +1,27 @@
+# _metadata.toml describes the files in this directory: each [[entry]] names files and records
+# what is known about them (mtime, contributor, date, text...). Same shape everywhere.
+# Here: the contributed setups, who sent them and when; {{< contributions >}} is one view of it.
+
+[[entry]]
+from = "matt@belgarath.org"
+added = "1996-06"
+files = ["rc/fvwm2rc95-example", "screenshots/fvwm95.gif"]
+text = "[fvwm95rc](rc/fvwm2rc95-example), [screenshot](screenshots/fvwm95.gif) (52k). This is simply the example configuration file included with fvwm95, with a few local modifications."
+
+[[entry]]
+from = "vladimip@iceonline.com"
+added = "1997-01"
+files = ["rc/fvwm2rc95-daBorg", "screenshots/fvwm95-daBorg.gif"]
+text = "[fvwm95rc](rc/fvwm2rc95-daBorg), [screenshot](screenshots/fvwm95-daBorg.gif) (109k)."
+
+[[entry]]
+from = "brad@ntr.net"
+added = "1997-02"
+files = ["rc/fvwm2rc95-brad", "screenshots/fvwm95-brad.gif"]
+text = "[fvwm95rc](rc/fvwm2rc95-brad), [screenshot](screenshots/fvwm95-brad.gif) (296k)."
+
+[[entry]]
+from = "horen@mail.iucc.ac.il"
+added = "2001-09"
+files = ["rc/fvwm2rc95-horen", "screenshots/fvwm95-horen.jpg", "screenshots/fvwm95icons-horen.tar.gz"]
+text = "[fvwm95rc](rc/fvwm2rc95-horen), [screenshot](screenshots/fvwm95-horen.jpg) (257k). This is configured to match Windows 2000 very closely. A [package containing the icons used](screenshots/fvwm95icons-horen.tar.gz) (177k) is also available."

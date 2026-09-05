@@ -1,0 +1,60 @@
+baseURL = "https://toppk.github.io/xwinman/"
+title = "Window Managers for X"
+uglyURLs = true
+disableKinds = ["section", "taxonomy", "term", "RSS", "sitemap", "robotsTXT"]
+disableHugoGeneratorInject = true
+enableRobotsTXT = false
+
+[[module.mounts]]
+source = "static"
+target = "static"
+[[module.mounts]]
+source = "collections"
+target = "static"
+
+[permalinks.page]
+wm = "/:contentbasename"
+desktop = "/:contentbasename"
+
+[[menu.top]]
+name = "Home"
+url = "index.html"
+weight = 1
+[[menu.top]]
+name = "Intro"
+url = "intro.html"
+weight = 2
+[[menu.top]]
+name = "The Basics"
+url = "basics.html"
+weight = 3
+[[menu.top]]
+name = "Contact"
+url = "feedback.html"
+weight = 4
+
+[[menu.sidebar]]
+name = "Window Managers"
+identifier = "wm"
+weight = 1
+[[menu.sidebar]]
+name = "Desktops"
+identifier = "desktop"
+weight = 2
+[[menu.sidebar]]
+name = "Other Info"
+identifier = "other"
+weight = 3
+
+[markup.goldmark.renderer]
+unsafe = true
+[markup.goldmark.parser]
+autoHeadingID = false
+[markup.goldmark.extensions]
+linkify = false
+[markup.goldmark.extensions.typographer]
+disable = true
+strikethrough = false
+
+[params]
+edition = "latest"   # data/editions/<edition>/ holds the nav, home grid and Others lists

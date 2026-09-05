@@ -1,0 +1,20 @@
+"My Custom Menu"	TITLE
+       Programs			MENU
+       Programs	      COLUMNS 2
+	       </home/csuoq/xpm/rterm.xpm>  DEFAULT xterm
+	       "Text Editor"	       textedit
+	       "Mail"		       mailtool
+	       Other		       MENU
+		       "Other Tools"	       TITLE
+		       "Shell Tool"	       shelltool
+		       "Icon Editor"	       iconedit
+		       Clock		       clock
+		       "Perf Meter"	       DEFAULT perfmeter
+	       "File Manager"	       filemgr
+	       Other		       END
+	    "Local Tools"	DIRMENU	  /home/csuoq/bin
+       Programs		       END PIN
+       "Repaint	Screen"	       REFRESH
+       "Properties ..."	       PROPERTIES
+       "Find"	      WINMENU	3
+       </home/csuoq/xpm/mini.exit.xpm>	       EXIT

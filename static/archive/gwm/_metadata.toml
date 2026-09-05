@@ -1,0 +1,20 @@
+# _metadata.toml describes the files in this directory: each [[entry]] names files and records
+# what is known about them (mtime, contributor, date, text...). Same shape everywhere.
+# Here: the timestamps Apache showed for xwinman.org/archive/ (Wayback Machine captures, see
+# docs/restoration.md), which git cannot keep; `migrate.py collections` applies them before a build.
+
+[[entry]]
+files = ["gwm-1.8c.tar.gz"]
+mtime = 2002-01-19T11:59:00+00:00
+
+[[entry]]
+files = ["gwm-doc.README"]
+mtime = 2002-01-19T11:59:00+00:00
+
+[[entry]]
+files = ["gwm-doc.txt.gz"]
+mtime = 2002-01-19T11:59:00+00:00
+
+[[entry]]
+files = ["gwm.README"]
+mtime = 2002-01-19T11:59:00+00:00

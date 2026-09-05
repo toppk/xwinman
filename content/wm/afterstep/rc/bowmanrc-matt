@@ -1,0 +1,372 @@
+# Bowman config file by Matt Chapman (csuoq@csv.warwick.ac.uk)
+#  - modified from system.bowmanrc
+
+##########################################################################
+# each Path is a colon-separated list, just like regular unix PATH
+ModulePath          /home/csuoq/bin/Fvwm
+PixmapPath	    /home/csuoq/xpm:/home/csuoq/xpm/bowman
+IconPath	    /home/csuoq/xpm:/home/csuoq/xpm/bowman
+
+##########################################################################
+# NeXSTEP(tm) look  related stuff
+# don't touch it. Well, not much anyway :-)
+StdForeColor 		Black
+StdBackColor		gray50
+#StdBackColor 		#bfbfbf
+HiForeColor 		white
+HiBackColor 		black
+MenuBackColor	#bfbfbf
+MenuForeColor	Black
+Font                    -adobe-helvetica-bold-r-*-*-12-*-*-*-*-*-*-*
+WindowFont              -adobe-helvetica-bold-r-*-*-12-*-*-*-*-*-*-*
+NoBoundaryWidth 0
+BoundaryWidth 8
+Module Wharf 
+NoTitle Wharf
+NoBorder Wharf
+Sticky Wharf
+StaysOnTop Wharf
+WindowListSkip Wharf
+Mouse 0         1       A       Iconify 
+Mouse 0         2       A       Destroy 
+*WharfGeometry 63x384-1+0
+*WharfColumns 1 
+IconBox 0 -2 -1 -1
+# end NextStep section
+##########################################################################
+
+##########################################################################
+# customize your wharf (read: dock)
+*Wharf clock   nil   Swallow "swisswatch" swisswatch -geometry 45x45-1500-1500 &
+*Wharf xload   nil   Swallow "xload" xload -geometry 45x45-1500-1500 -nolabel -jumpscroll 1 -update 1 -bg gray60
+*Wharf term term.xpm   Exec "-" xterm
+*Wharf xv   monalisa.xpm   Exec "xv" xv
+*Wharf button paint.xpm Exec "-" xpaint
+*Wharf Netscape netscape.xpm Exec "-" netscape-2.0b1 -install
+##########################################################################
+
+StickyIcons
+
+# set up the colors
+#
+PagerBackColor		#5c54c0
+PagerForeColor		orchid
+
+StickyForeColor		Black
+StickyBackColor		#60c0a0
+
+########################      FOCUS STUFF     ##############################
+# Set windows to auto-raise after 500 milliseconds if you like it.
+# Autoraise can sometimes obscure pop-up windows.
+AutoRaise 500
+
+# Normally, we'll be in focus-follows mouse mode, but uncomment this 
+# for mwm-style click-to-focus
+#ClickToFocus
+
+# StubbornIcons makes icons de-iconify into their original position on the
+# desktop, instead of on the current page.
+#StubbornIcons
+
+# With AutoPlacement, icons will normally place themselves underneath active
+# windows. This option changes that.
+#StubbornIconPlacement
+
+# If you want ALL you icons to follow you around the desktop (Sticky), try
+# this
+#StickyIcons
+
+########################      MWM HINTS     #######################
+#
+# My feeling is that everyone should use MWMDecorHints and MWMFunctionHints,
+# since some applications depend on having the window manager respect them
+
+# MWMFunction hints parses the function information in the MOTIF_WM_HINTS
+# property, and prohibits use of these functions on the window. Appropriate
+# portions of the window decorations are removed.
+MWMFunctionHints
+
+# MWMDecor hints parses the decoration information in the MOTIF_WM_HINTS
+# property, and removes these decoratons from the window. This does not affect
+# the functions that can be performed via the menus.
+MWMDecorHints
+
+########################      MISCELLANEOUS STUFF     #######################
+# If you don't like the default 150 msec click delay for the complex functions
+# change this and uncomment it.
+#ClickTime 150
+
+# OpaqueMove has a number (N) attached to it (default 5), if the window occupies
+# less than N% of the screen, opaque move is used. 0 <= N <= 100
+OpaqueMove 50
+# OpaqueResize
+
+# flip by whole pages on the edge of the screen.
+EdgeScroll 100 100
+EdgeResistance 200 0
+
+
+########################      WINDOW PLACEMENT     #######################
+# RandomPlacement prevents user interaction while placing windows:
+# RandomPlacement
+
+# SmartPlacement makes new  windows pop-up in blank regions of screen if possible,
+# otherwise falls back to random or interactive placement.
+SmartPlacement
+
+# With SmartPlacement, windows will normally place themselves over icons. Uncomment
+# this to change that.
+#StubbornPlacement
+
+# NoPPosition instructs fvwm to ignore the PPosition field in window geometry hints.
+# Emacs annoyingly sets PPosition to (0,0)!
+NoPPosition
+
+
+########################      DECORATIONS     #######################
+DecorateTransients
+
+###########################################################################
+# Set up the virtual desktop and pager
+
+#set the desk top size in units of physical screen size
+DeskTopSize 3x3
+
+# and the reduction scale used for the panner/pager
+DeskTopScale 32
+
+# Use the Fvwm Pager
+Pager -68 0
+
+############################################################################
+# list the windows that don't want a title bar
+NoTitle xclock
+NoTitle Clock
+NoTitle xbiff
+
+Style "Fvwm Pager" NoTitle,Sticky,NoHandles
+
+############################################################################
+# now list windows that don't need to show up in the window list
+WindowListSkip Clock
+WindowListSkip xbiff
+WindowListSkip xclock
+WindowListSkip Pager
+
+
+############################################################################
+# define some common icon bitmaps
+
+# These are the color icons.
+# Of course, you need to change the directory to the one where they
+# really live.
+
+Icon "xterm"	  term.xpm
+Icon "mxterm"	  term.xpm
+Icon "xcalc"      xcalc.xpm
+Icon "xman"	  xman.xpm
+
+############################################################################
+# Now define some handy complex functions
+
+# This one moves and then raises the window if you drag the mouse,
+# only raises the window if you click,  or does a RaiseLower if you double 
+# click
+Function "Move-or-Raise"
+	Move 		"Motion"
+	Raise		"Motion"
+	Raise		"Click"
+	RaiseLower	"DoubleClick" 
+EndFunction
+
+# This one maximizes vertically if you click (leaving room for the Wharf bar at the
+# bottom, or does a full maximization if you double click, or a true full vertical 
+# maximization if you just hold the mouse button down.
+Function "maximize_func"
+	Maximize	"Motion" 0 100
+	Maximize	"Click" 0 92
+	Maximize	"DoubleClick" 100 100
+EndFunction
+
+
+# This one moves and then lowers the window if you drag the mouse,
+# only lowers the window if you click,  or does a RaiseLower if you double 
+# click
+Function "Move-or-Lower"
+	Move 		"Motion"
+	Lower		"Motion"
+	Lower		"Click"
+	RaiseLower	"DoubleClick"
+EndFunction
+
+# This one moves or (de)iconifies:
+Function "Move-or-Iconify"
+	Move 		"Motion"
+	Iconify		"DoubleClick"
+EndFunction
+
+# This one resizes and then raises the window if you drag the mouse,
+# only raises the window if you click,  or does a RaiseLower if you double 
+# click
+Function "Resize-or-Raise"
+	Resize 		"Motion"
+	Raise		"Motion"
+	Raise		"Click"
+	RaiseLower	"DoubleClick"
+EndFunction
+
+Function "InitFunction"
+        Exec	"I" exec xsetroot -solid black
+	Exec	"I" exec xterm -T console -C -bg gray65 -geometry 83x6+0+0 +sb
+	Exec    "I" exec mxterm -T `hostname` -geometry 80x27+0+113
+	Exec	"I" exec mxterm -T `hostname` -xrm "MXTerm*background: yellow2" -geometry 80x28+0+501
+EndFunction
+
+##############################################################################
+#now define the menus - defer bindings until later
+
+Popup "Module-Popup"
+	Title	"Modules"
+	Module	"Wharf"	        Wharf
+	Module	"Identify"	FvwmIdent
+	Module  "Scroll"	FvwmScroll
+	Module  "Save"	        FvwmSave
+	Module	"Debug"		FvwmDebug
+EndPopup
+
+Popup "Logins"
+	Title 	"Logins   "
+	Exec 	"Local"	exec mxterm -T local -xrm "MXTerm*background: yellow2"
+	Exec 	"Lily"	exec rsh lily mxterm -bg burlywood
+	Exec	"Holly"	exec rsh holly mxterm -bg greenyellow
+	Exec 	"Crocus" exec rsh crocus mxterm -T crocus -bg lightsteelblue
+EndPopup
+
+Popup "Window Ops"
+	Title		"Window Ops"
+	Function	"Move" 			Move-or-Raise
+	Function 	"Resize" 		Resize-or-Raise
+	Raise   	"Raise"
+	Lower   	"Lower"
+	Iconify 	"(De)Iconify" 
+	Stick		"(Un)Stick"
+	Maximize 	"(Un)Maximize"
+	Destroy 	"Destroy"
+	Delete  	"Delete"
+EndPopup
+
+Popup "Base"
+	Title   	"Bowman Control"
+	Popup		"Modules"	Module-Popup
+	Popup   	"Window Options"        Window Ops
+	Destroy		"Destroy"
+	Refresh 	"Refresh"
+	Restart 	"Restart"  bowman
+	Quit    	"Exit"
+EndPopup
+
+
+#############################################################################
+# One more complex function - couldn't be defined earlier because it used 
+# pop-up menus
+#
+# This creates a motif-ish sticky menu for the title-bar window-ops
+# pop-up
+# Menu acts like normal twm menu if you just hold the button down,
+# but if you click instead, the menu stays up, motif style
+Function "window_ops_func"
+	PopUp 	"Click"		Window Ops
+	PopUp	"Motion"	Window Ops
+# Motif would add
+#       Delete  "DoubleClick"  
+EndFunction
+
+
+##############################################################################
+# This defines the mouse bindings
+
+# First, for the mouse in the root window
+# Button 1 gives the Utilities menu
+# Button 2 gives the Window Ops menu
+# Button 3 gives the WindowList (like TwmWindows)
+# I use the AnyModifier (A) option for the modifier field, so you can hold down
+# any shift-control-whatever combination you want!
+
+#     Button	Context Modifi 	Function
+Mouse 1		R   	A       PopUp "Logins"
+Mouse 2		R    	A      	WindowList
+Mouse 3		R    	A      	PopUp "Base"
+
+# Now the rest of the frame
+# Here I invoke my complex functions for Move-or-lower, Move-or-raise,
+# and Resize-or-Raise. 
+# Button 1 in the corner pieces, with any modifiers, gives resize or raise
+Mouse 1		FS	A	Function "Resize-or-Raise"
+# Button 1 in the title, sides, or icon, w/ any modifiers, gives move or raise
+Mouse 1		T	A	Function "Move-or-Raise"
+
+# Button 1 in an icons gives move for a drag, de-iconify for a double-click,
+# nothing for a single click
+# Button 2 in an icon, w/ any modifiers, gives de-iconify
+
+Mouse 1		I	A	Function "Move-or-Iconify"
+Mouse 2		I	A	Iconify
+
+# Button 2 in the corners, sides, or title-bar gives the window ops menu
+Mouse 2		FST	A	Function "window_ops_func"
+# Button 3 anywhere in the decoration (except the title-bar buttons)
+# does a raise-lower
+Mouse 3		TSIF	A	RaiseLower
+
+Mouse 1     W       M       Function "Move-or-Raise"
+
+
+############################################################################
+# Now some keyboard shortcuts.
+
+# Arrow Keys
+# press arrow + control anywhere, and scroll by 1 page
+Key Left	A	C	Scroll -100 0
+Key Right	A	C	Scroll +100 +0
+Key Up		A	C	Scroll +0   -100
+Key Down	A	C	Scroll +0   +100
+
+# press arrow + meta key, and scroll by 1/10 of a page
+Key Left	A	M	Scroll -10 +0
+Key Right	A	M	Scroll +10 +0
+Key Up		A	M	Scroll +0   -10
+Key Down	A	M	Scroll +0   +10
+
+# press shift arrow + control anywhere, and move the pointer by 1% of a page
+Key Left	A	SC	CursorMove -1 0
+Key Right	A	SC	CursorMove +1 +0
+Key Up		A	SC	CursorMove +0   -1
+Key Down	A	SC	CursorMove +0   +1
+
+# press shift arrow + meta key, and move the pointer by 1/10 of a page
+Key Left	A	SM	CursorMove -10 +0
+Key Right	A	SM	CursorMove +10 +0
+Key Up		A	SM	CursorMove +0   -10
+Key Down	A	SM	CursorMove +0   +10
+
+# Keyboard accelerators
+Key F1		A	A	GotoPage 0 0
+Key F2		A	A	GotoPage 1 0
+Key F3		A	A	GotoPage 2 0
+Key F4		A	A	GotoPage 0 1
+Key F5		A	A	GotoPage 1 1
+Key F6		A	A	GotoPage 2 1
+Key F7		A	A	GotoPage 0 2
+Key F8		A	A	GotoPage 1 2
+Key F9		A	A	GotoPage 2 2
+Key F10		A	A	Refresh "Refresh"
+
+
+############################################################################
+#Definitions used by the modules
+
+########################## Window-Identifier ###############################
+# Just choose colors and a fonts
+*FvwmIdentBack MidnightBlue
+*FvwmIdentFore Yellow
+*FvwmIdentFont -adobe-helvetica-medium-r-*-*-12-*-*-*-*-*-*-*

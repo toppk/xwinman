@@ -1,0 +1,422 @@
+#  Fvwm setup mautv, based on bits of csuoq's
+
+### Paths ###
+PixmapPath /home/holly2/ma/utv/xpm:/home/csuoq/xpm
+ModulePath /home/mautv/bin/Fvwm2
+#add other paths with :<path> ....
+
+### Colours ###
+Style "*" ForeColor black
+Style "*" BackColor royalblue
+
+#Set the foreground and background color for selected windows
+HilightColor   black dodgerblue1
+
+### Fonts ###
+
+WindowFont		-b&h-lucidatypewriter-medium-*-*-*-12-*
+IconFont		-b&h-lucidatypewriter-medium-*-*-*-12-*
+
+### Icon placement ###
+Style "*" StickyIcon
+Style "*" Iconbox 0 820 1000 900
+Style "*" SmartPlacement
+
+### Pager ###
+DeskTopSize 3x3
+EdgeScroll 100 100
+EdgeResistance 200 0
+
+### Other ###
+OpaqueMoveSize 50
+Style "*" DecorateTransient
+Style "*" NoPPosition
+
+
+ButtonStyle 3 5 25x61@0 75x61@0 25x39@0 75x39@1 25x61@1
+ButtonStyle 2 5 25x75@0 75x75@0 25x25@0 75x25@1 25x75@1
+ButtonStyle 4 5 39x61@0 61x61@0 39x39@0 61x39@1 39x61@1
+
+
+### Styles ###
+Style "FvwmPager" 		Sticky,Notitle
+Style "Perfmeter V3"		NoTitle,Sticky
+Style "Dali Clock"		NoTitle,Sticky
+Style "FvwmBanner"		NoTitle
+Style "FvwmButtons"		NoTitle,Sticky
+Style "DiskStuff"		NoTitle,Sticky,NoHandles
+Style "xmeter"			NoTitle,Sticky
+Style "xeyes"			NoTitle
+
+Style "xrn"			Icon news.xpm
+Style "mxrn"			Icon news.xpm
+Style "*" 			Icon dont_panic2.xpm
+Style "mxterm"			Icon rterm.xpm
+Style "xterm"			Icon rterm.xpm
+Style "xemacs"			Icon xedit_w.xpm
+Style "FvwmIdent"		Color black/darkorchid
+Style "Me at Stone"		Color black/grey55
+Style "test"			NoTitle
+
+Style "xmailtool"		NoIconTitle
+Style "mailtool"		NoIconTitle
+Style "xlab"			NoHandles,NoTitle
+
+###Menus###
+
+DestroyMenu win
+AddToMenu "win" "Window Ops" Title
++              "Re-draw (F1)" Refresh
++              "Move (F2)" Move
++              "Resize" Resize
++              "Raise" Raise
++              "Lower (F3)" Lower
++              "(De)Iconify (F4)" Iconify
++              "(Un)Stick (F5)" Stick
++              "(Un)Maximize" Maximize
++              "(Un)Maximize Vertical" Maximize 0 100
++              "" Nop
++              "Destroy" Destroy
++              "Delete" Delete
++              "" Nop
+
+DestroyMenu graphics
+AddToMenu "graphics" "Graphics" Title
++              "Xv" Exec exec xv
++              "Xpaint" Exec exec xpaint
++              "Xco" Exec exec xco
++              "Xcmap" Exec exec xcmap
++              "Xbitmapedit" Exec exec bitmap &
++              "Backdrops :" Title
++              "Fire Ring" Exec exec xv -root -quit Tiled/back1.gif
++              "Marble" Exec exec xv -root -quit Tiled/back8.gif
++              "Purple" Exec exec xv -root -quit Tiled/back4.gif
++              "Green" Exec exec xv -root -quit Tiled/back9.gif
++              "Grey1" Exec exec xv -root -quit Tiled/t6l.gif
++              "Grey2" Exec exec xv -root -quit Tiled/t7l.gif
++              "Random" Exec exec randompic /home/holly2/ma/utv/Tiled
++	       "" Nop
++	       "Black" Exec exec xsetroot -solid black
++              "Moving :" Title
++              "Rocks" Exec exec rocks -root
++              "" Nop
+
+DestroyMenu connections
+AddToMenu "connections" "Connections" Title
++              "FtpTool" Exec exec ftptool
++              "XFtp" Exec exec /home/csuoq/bin/xftp
++              "NetScape2" Exec exec netscape-2.0b1 -install
++              "NetScape1" Exec exec netscape-1.1 -install
++              "Xarchie" Exec exec xarchie
++              "Opac" Exec exec mxterm -T 'OPAC at the Library' -bg black -fg green -e telnet opac
++              "" Nop
+
+DestroyMenu dsk
+AddToMenu "dsk" "Desktops" Title
++              "Desk - Init (F09)" Desk 0 0
++              "Desk - 1 (F10)" Desk 0 1
++              "" Nop
++              "Next " Desk 1 0
++              "Previous" Desk -1 0
++              "" Nop
++               EndPopup
+
+DestroyMenu mod
+AddToMenu "mod" "Modules" Title
++		"FvwmTalk" Module FvwmTalk
++              "IconBox" Module FvwmIconBox
++              "WindowList" Module FvwmWinList
++              "FvwmIdent" Module FvwmIdent
++              "FvwmScroll" Module FvwmScroll
++              "FvwmBanner" Module FvwmBanner
++              "FvwmFileMgr" Module FvwmFileMgr
++              "" Nop
++              "Pager" Module FvwmPager 0
++              "FvwmButtons" Module FvwmButtons
++              "" Nop
+
+DestroyMenu fvwmctrl
+AddToMenu "fvwmctrl" "Fvwm Control" Title
++              "Modules" Popup mod
++              "Window Options" Popup win
++              "Desktops" Popup dsk
++              "Restart fvwm2" Restart /home/csuoq/bin/fvwm2
++              "" Nop
++              "Close" Close
++              "Kill" Destroy
++              "" Nop
++              "Exit" Module FvwmForm QuitVerify
++              "" Nop
+
+DestroyMenu xterms
+AddToMenu "xterms" "Xterms" Title
++ 	"Local Host" Exec exec xterm -T "Keith at `hostname`" -bg black -fg bisque -bd snow3 -cr green -geometry 80x24
++	"" Nop
++	"Lily" Exec exec rsh lily xterm -T "Lily" -bg black -fg bisque -bd snow3 -cr green -geometry 80x24
++	"Holly" Exec exec rsh holly xterm -T "Holly" -bg black -fg bisque -bd snow3 -cr green -geometry 80x24
++	"Crocus" Exec exec rsh crocus xterm -T "Crocus" -bg black -fg bisque -bd snow3 -cr green -geometry 80x24
++	"" Nop
+
+DestroyMenu logins
+AddToMenu "logins" "Logins" Title
++	"Local Host" Exec exec mxterm -T "Keith at `hostname`" -bg black -fg bisque -bd snow3 -cr green -geometry 80x24
++	"" Nop
++	"Console" Exec exec xterm -T "Console" -C -bg black -fg bisque -bd snow3 -cr green -geometry 80x10
++	"" Nop
++	"Lily" Exec exec rsh lily mxterm -T "Lily" -bg black -fg bisque -bd snow3 -cr green -geometry 80x24
++	"Holly" Exec exec rsh holly mxterm -T "Holly" -bg black -fg bisque -bd snow3 -cr green -geometry 80x24
++	"Crocus" Exec exec rsh crocus mxterm -T "Crocus" -bg black -fg bisque -bd snow3 -cr green -geometry 80x24
++	"" Nop
++	"Stone" Exec exec xrsh -l mautv stone xterm -bg black -bd snow3 -cr green -fg bisque -geometry 80x24 +sb -T "Stone"
++	"" Nop
++	"Xterms" Popup xterms
++	"" Nop
+
+
+*FvwmPromptBack Black
+*FvwmPromptFore Green
+
+### Functions ###
+
+DestroyMenu Move-or-Raise
+AddToFunc "Move-or-Raise" "M" Raise
++              "M" Move
++              "C" Raise
+
+DestroyMenu Move-or-Lower
+AddToFunc "Move-or-Lower" "M" Move
++              "M" Lower
++              "C" Lower
++              "D" RaiseLower
+
+DestroyMenu Resize-or-Raise
+AddToFunc "Resize-or-Raise" "M" Resize
++              "M" Raise
++              "C" Raise
++              "D" RaiseLower
+
+DestroyMenu Move-or-Iconify
+AddToFunc "Move-or-Iconify" "M" Move
++              "C" PopUp win
++              "C" Iconify
+
+
+# stickmenus
+# click menu is menu for mouse click, motionmenu for when button held down..
+
+DestroyMenu StickMenu1
+AddToFunc "StickyMenu1" 
+
+DestroyMenu StickMenu2
+AddToFunc "StickyMenu2" "M" PopUp logins
++              "C" PopUp logins
+
+DestroyMenu StickMenu3
+AddToFunc "StickyMenu3" "M" PopUp fvwmctrl
++		"C" Popup fvwmctrl
+
+
+##############################################################################
+# This defines the mouse bindings
+############################################################################
+# First, for the mouse in the root window
+# I use the AnyModifier option for the modifier field, so you can hold down
+# any shift-control-whatever combination you want!
+
+#     Button	Context Modifi 	Function
+
+Mouse 1         R       A       Function "StickyMenu1"
+Mouse 2         R       A       Function "StickyMenu2"
+Mouse 3         R       A       Function "StickyMenu3"
+
+# Now the title bar buttons
+
+#     Button	Context Modifi 	Function
+
+Mouse 0		1    	A      	Iconify
+Mouse 0		2	A	Close
+
+# Now the rest of the frame
+# Here I invoke my complex functions for Move-or-lower, Move-or-raise,
+# and Resize-or-Raise. 
+# Button 1 in the corner pieces, with any modifiers, gives resize or raise
+
+Mouse 1		FS	A	Function "Resize-or-Raise"
+Mouse 2		FS	A	Function "Resize-or-Raise"
+Mouse 1		T	A	Function "Move-or-Raise"
+Mouse 2		T	A	RaiseLower "Click"
+Mouse 3		T	A Menu "win" Nop
+Mouse 1		I	A	Function "Move-or-Iconify"
+Mouse 2		I	A	Function "Move-or-Iconify"
+Mouse 3		I	A Menu "win" Nop
+ 
+############################################################################
+# Now some keyboard shortcuts.
+############################################################################
+
+# Arrow Keys
+# press arrow + control anywhere, and scroll by 1 page
+#Key Left	A	C	Scroll -100 0
+#Key Right	A	C	Scroll +100 +0
+#Key Up		A	C	Scroll +0   -100
+#Key Down	A	C	Scroll +0   +100
+
+# press arrow + Meta anywhere, and scroll by 1 page
+Key Left	A	M	Scroll -100 +0
+Key Right	A	M	Scroll +100 +0
+Key Up		A	M	Scroll +0   -100
+Key Down	A	M	Scroll +0   +100
+
+# press shift arrow + control anywhere, and move the pointer by 1% of a page
+Key Left	A	SC	CursorMove -1 0
+Key Right	A	SC	CursorMove +1 +0
+Key Up		A	SC	CursorMove +0   -1
+Key Down	A	SC	CursorMove +0   +1
+
+# press shift arrow + meta key, and move the pointer by 1/10 of a page
+Key Left	A	SM	CursorMove -10 +0
+Key Right	A	SM	CursorMove +10 +0
+Key Up		A	SM	CursorMove +0   -10
+Key Down	A	SM	CursorMove +0   +10
+ 
+
+# Keyboard accelerators
+
+Key F1		A	A	Refresh
+Key F2		A	A	Move
+Key F3		A	A	Lower
+Key F4		A	A	Iconify
+
+Key F5		A	A	Stick
+Key F6		A	A	Module "I" FvwmIdent
+
+Key F9          A       A       Desk 0 0
+Key F10         A       A       Desk 0 1
+
+###################### GoodStuff ###########################################
+	*FvwmButtonsFore Black
+	*FvwmButtonsBack royalblue
+	*FvwmButtonsGeometry 1000x102+0+0
+	*FvwmButtonsRows 2
+	*FvwmButtonsFont -b&h-lucidatypewriter-medium-*-*-*-12-*
+
+	*FvwmButtons(10x2) -		crap		Swallow "console" Exec xterm -C -T console -geometry -1500-1500 -bd snow3 -bg royalblue -fg black -cr black
+	*FvwmButtons(2x1) - 		crap 		Swallow "xdaliclock" Exec xdaliclock -24 -noseconds -geometry -1500-500 -bg royalblue -fg black -font "-bitstream-courier-bold-r-*-*-*-225-*-*-*-*-*-*"
+	
+	*FvwmButtons Holly 		hello.xpm 	Swallow "Holly" Exec xrload -name 'Holly' -geometry -1500-1500 -alivecolour green -update 10 Holly
+
+	*FvwmButtons Crocus 		hello.xpm 	Swallow "Crocus" Exec xrload -name 'Crocus' -geometry -1500-1500 -alivecolour deepskyblue -update 10 Crocus
+
+	*FvwmButtons Hello 		hello.xpm 	Swallow "xload" Exec xload -geometry -1500-1500 -nolabel -update 5 -jumpscroll 1 -bg royalblue -fg midnightblue -hl black -scale 2
+
+	*FvwmButtons Lock 		termlock.xpm 	exec "" xlock -mode swarm
+	*FvwmButtons Kill 		bomb.xpm 	Destroy
+	
+	*FvwmButtons NetScape-2.0b1 	N.xpm 		exec "netscape" netscape -install
+	*FvwmButtons Graphics		paint.xpm	Popup "graphics"	
+	*FvwmButtons Winlist		sysedi.xpm      WindowList 1 0
+	*FvwmButtons Bus		blueeye.xpm	exec "" bus -t 5
+
+	*FvwmButtons Eject		disk_run.xpm	exec "" eject
+
+##########################FvwmWinList##################################
+
+*FvwmWinListBack #908090
+*FvwmWinListFore Black
+*FvwmWinListFont -b&h-lucidatypewriter-medium-*-*-*-12-*
+*FvwmWinListAction Click1 Iconify -1,Focus
+*FvwmWinListAction Click2 Iconify
+*FvwmWinListAction Click3 Module "FvwmIdent" FvwmIdent
+*FvwmWinListUseSkipList
+
+########################### Pager #########################################
+
+*FvwmPagerBack gray40
+*FvwmPagerFore black
+*FvwmPagerFont none
+*FvwmPagerHilight gray60
+*FvwmPagerGeometry +1005+0
+*FvwmPagerSmallFont 5x8
+*FvwmPagerDeskTopScale 27
+
+########################## Window-Identifier ###############################
+
+*FvwmIdentBack DodgerBlue
+*FvwmIdentFore Yellow
+*FvwmIdentFont -b&h-lucidatypewriter-medium-*-*-*-12-*
+
+########################## Init & Restart ############################
+
+AddToFunc "InitFunction" "I" Module FvwmBanner
++	"I" Exec exec xsetroot -solid black
++	"I" Module FvwmButtons
++      	"I" Wait FvwmButtons
++ 	"I" Module FvwmAuto 500
++	"I" Module FvwmPager 0 0
++	"I" QuickStart
++	"I" Module FvwmForm Login
+
+AddToFunc "RestartFunction" "I" Module FvwmButtons
++	"I" Module FvwmPager 0 0
++	"I" Modules FvwmAuto 500
+
+
+#Set the foreground, background and stipple color and font for menus
+MenuStyle   black royalblue grey40 -b&h-lucidatypewriter-medium-*-*-*-12-* fvwm
+
+
+*QuitVerifyGrabServer
+*QuitVerifyWarpPointer
+*QuitVerifyFont          *helvetica*m*r*n*14*
+*QuitVerifyButtonFont    *helvetica*m*r*n*14*
+*QuitVerifyFore         Bisque
+*QuitVerifyBack         Black
+*QuitVerifyItemFore	 Bisque
+*QuitVerifyItemBack	 Gray50
+
+# begin items
+*QuitVerifyLine          center
+*QuitVerifyText          "Do you really want to logout?"
+*QuitVerifyLine          expand
+*QuitVerifyButton   quit      "Logout"  ^M
+*QuitVerifyCommand  Quit
+*QuitVerifyButton   quit      "Cancel"  ^[
+*QuitVerifyCommand  Nop
+
+# Fvwm window style
+Style "QuitVerify" NoTitle, NoHandles, BorderWidth 10
+
+*LoginGrabServer
+*LoginWarpPointer
+*LoginFont         *helvetica*m*r*n*14*
+*LoginButtonFont   *helvetica*m*o*n*14*
+*LoginInputFont    *cour*m*r*n*14*
+*LoginFore         Bisque
+*LoginBack         Black
+*LoginItemFore     Bisque
+*LoginItemBack     Gray50
+
+# begin items
+*LoginLine         center
+*LoginText         "Start Options:"
+*LoginLine         center
+*LoginButton	   quit " Quick  Start " ^[
+*LoginLine         center
+*LoginButton       quit "All Programs" ^M
+*LoginCommand 	   RunProgs
+       
+Style "Login" NoTitle, NoHandles, BorderWidth 10
+
+DestroyMenu QuickStart
+AddToFunc "QuickStart"	"I"  Exec exec mxterm -T "Keith at `hostname`" -bg black -fg bisque -bd snow3 -cr green -geometry 80x30
++			"I" Wait mxterm
+
+DestroyMenu RunProgs
+AddToFunc "RunProgs" 	"I" Exec exec xmailtool -iconic -geometry +425+83
++       "I" Exec exec xmb_new -geometry +906+117 -brief -usercode
++       "I" Exec exec xrsh stone xterm -bg black -bd snow3 -fg bisque -iconic
++       "I" Exec exec xtt -geometry +581+118
++       "I" Exec exec xlab -geometry -1-1
++       "I" Exec exec netscape-2.0b1 -install -geometry +0+1020
++	"I" Exec exec rsh crocus xemacs -iconic 
++	"I" Wait xemacs

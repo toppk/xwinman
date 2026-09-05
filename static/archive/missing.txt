@@ -1,0 +1,4 @@
+arswm
+ewm
+gtkwm
+nawm

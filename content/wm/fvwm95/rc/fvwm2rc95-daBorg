@@ -1,0 +1,702 @@
+#
+# .fvwm2rc95 example configuration file for fvwm95-2.0.41
+#
+
+#========================================================================#
+
+#
+# Fonts - one for window titles, another for icons, and another for the menus
+#
+
+WindowFont	-adobe-helvetica-bold-r-*-*-12-*-*-*-*-*-*-*
+IconFont	fixed
+MenuFont   	-adobe-helvetica-bold-r-*-*-*-120-*-*-*-*-*-*
+
+#
+# Set the default window colors. The syntax is:
+#  DefaultColors winforecolor winbackcolor titleforecolor titlebackcolor
+# where:
+#  winbackcolor    is the background (border) color of all windows,
+#                  including the menu windows 
+#  winforecolor    is used for the menu text
+#  titlebackcolor  is the background color used for title bars of 
+#                  non selected windows
+#  titleforecolor  is the color of the title text of non selected windows
+#
+#DefaultColors   Black #c0c0c0 #c0c0c0 grey51
+
+DefaultColors   Black #a6b2c7 #a6b2c7 Black
+
+#
+# Text and background color for the title bar of the active (selected) window
+#
+
+HilightColors   Red Yellow
+
+#
+# Text and background color for the title bar of sticky windows
+#
+StickyColors White #b66159
+
+# You can also use the Style command to set the colors of individual
+# title bars of some non-selected windows
+
+Style "*" ForeColor White
+Style "*" BackColor Blue
+
+#========================================================================#
+
+#
+# Set up the major operating modes
+#
+
+Style "*" ClickToFocus
+# Comment the above and uncomment one of the following if you prefer
+# focus follow mouse.
+# Style "*" MouseFocus
+#Style "*" SloppyFocus
+#Style "*" AutoRaise 200
+
+# If we use the FvwmTaskBar we don't need the icons :-)
+# Style "..." Icon are also commented below.
+Style "*" NoIcon
+Style "*" MWMFunctions
+Style "*" HintOverride
+Style "*" MWMDecor
+Style "*" DecorateTransient
+
+
+OpaqueMoveSize 50
+EdgeScroll 100 100
+EdgeResistance 10000 0
+
+#
+# RandomPlacement prevents user interaction while placing windows:
+#
+#Style "*" RandomPlacement
+
+#
+# NoPPosition instructs fvwm to ignore the PPosition field in window 
+# geometry hints. Emacs annoyingly sets PPosition to (0,0)!
+#
+Style "*" NoPPosition
+
+#========================================================================#
+
+#
+# Set the desk top size in units of physical screen size
+#
+DeskTopSize 2x2
+
+#========================================================================#
+
+#
+# Module path and paths to the icons
+# ModulePath is a colon-separated list, just like regular unix PATH
+#
+ModulePath /usr/X11R6/lib/X11/fvwm95-2/
+PixmapPath /usr/X11R6/lib/X11/mini-icons/:/usr/X11R6/lib/X11/pixmaps/:/usr/X11R6/lib/X11/afterstep/icons
+IconPath   /usr/X11R6/lib/X11/icons/:/usr/X11R6/lib/X11/mini-icons/
+
+#========================================================================#
+
+# Set the decoration styles and window options
+# If compatible styles are set for a single window in multiple Style
+# commands, then the styles are ORed together. If conflicting styles
+# are set, the last one specified is used.
+
+# These commands should command before any menus or functions are defined,
+# and before the internal pager is started.
+
+#
+# Default border and handle widths
+#
+Style "*" BorderWidth 5, HandleWidth 5
+
+Style "Fvwm*"        NoTitle, Sticky, WindowListSkip
+Style "Fvwm Pager"   StaysOnTop, NoHandles
+Style "FvwmBanner"   StaysOnTop
+Style "FvwmButtons"  NoTitle, NoHandles, Sticky, WindowListSkip,BorderWidth 0
+Style "*lock"        NoTitle, NoHandles, Sticky, WindowListSkip
+Style "xbiff"        NoTitle,            Sticky, WindowListSkip
+
+#
+# Some mini-icons for the title bar
+#
+
+Style "*"         TitleIcon mini-x2.xpm
+Style "*rror*"    TitleIcon mini.excl.xpm
+Style "*mail*     TitleIcon mini.letter.xpm
+Style "gimp"      TitleIcon mini-fractal.xpm
+Style "*xterm*"   TitleIcon mini-term.xpm
+Style "rxvt"      TitleIcon mini-term.xpm
+Style "xcalc"     TitleIcon mini-calc.xpm
+Style "xsession"  TitleIcon mini-bx2.xpm
+Style "xv"        TitleIcon mini-xv.xpm
+Style "Netscape"  TitleIcon mini-nscape.xpm
+Style "xmag"      TitleIcon mini-zoom.xpm
+Style "textedit"  TitleIcon mini-edit.xpm
+Style "tkps"      TitleIcon mini-run.xpm
+Style "Ghostview" TitleIcon mini-gv.xpm
+Style "Xcolorsel" TitleIcon mini-colors.xpm
+Style "IDL*"      TitleIcon mini-zoom.xpm
+Style "xeyes"     TitleIcon mini-eyes.xpm
+Style "*fm*"      TitleIcon mini-filemgr.xpm
+# xman resource names
+Style "topBox"    TitleIcon mini-book1.xpm
+Style "help"      TitleIcon mini-book2.xpm
+Style "manualBrowser" TitleIcon mini-book2.xpm
+# xpaint resource names
+Style "xpaint"    TitleIcon mini-paint.xpm
+Style "Canvas"    TitleIcon mini-paint.xpm
+Style "fatbits"   TitleIcon mini-paint.xpm
+Style "filebrowser" TitleIcon mini-ofolder.xpm
+Style "FvwmFile"  TitleIcon mini-ofolder.xpm
+Style "XDbx"      TitleIcon mini-bug2.xpm
+# others
+Style "ddd"       TitleIcon mini-roach.xpm
+Style "acrobat"   TitleIcon mini-filemgr.xpm
+Style "nedit"     TitleIcon mini-edit.xpm
+Style "TkDesk"    TitleIcon mini-ofolder.xpm
+Style "*ntrol*"   TitleIcon mini-hammer.xpm
+Style "FvwmFile"  TitleIcon mini-ofolder.xpm
+Style "XDbx"      TitleIcon mini-bug2.xpm
+Style "xemacs"    TitleIcon mini-edit.xpm
+Style "applix"    TitleIcon mini-bx2.xpm
+Style "xmcd"      TitleIcon mini-cdlabel.xpm
+
+#========================================================================#
+
+# Stuff to do at start-up
+#
+
+AddToFunc "InitFunction"    
+#                           "I" Module FvwmAuto 500
+#+                          "I" Module FvwmAudio 
+#+                          "I" Module FvwmBanner
++                     Exec  "I" xv -root -quit /usr/X11R6/lib/X11/afterstep/backgrounds/brick.jpg
++                           "I" Module FvwmButtons
++                           "I" Module FvwmTaskBar
++                           "I" Module FvwmPager 0 3
+
+AddToFunc "RestartFunction" "I" Module FvwmButtons
++                           "I" Module FvwmTaskBar
++                           "I" Module FvwmPager 0 3
+#+                           "I" Module FvwmAuto 500
+
+#========================================================================#
+
+# Now define some handy complex functions
+
+#
+# This one moves and then raises the window if you drag the mouse,
+# only raises the window if you click, or does a full maximize if 
+# you double click
+#
+AddToFunc "Move-or-Raise" "M" Move
++                         "M" Raise
++                         "C" Raise
++                         "D" Maximize 90 79
+
+#
+# This one moves and then lowers the window if you drag the mouse,
+# only lowers the window if you click, or does a RaiseLower if you double 
+# click
+#
+AddToFunc "Move-or-Lower" "M" Move
++                         "M" Lower
++                         "C" Lower
++                         "D" RaiseLower
+
+#
+# This one moves or (de)iconifies:
+#
+AddToFunc "Move-or-Iconify" "M" Move
++                           "D" Iconify
+
+#
+# This one resizes and then raises the window if you drag the mouse,
+# only raises the window if you click,  or does a RaiseLower if you double 
+# click
+#
+AddToFunc "Resize-or-Raise" "M" Resize
++                           "M" Raise
++                           "C" Raise
++                           "D" RaiseLower
+
+
+#========================================================================#
+
+#
+# Now define the menus - defer bindings until later
+#
+
+# This is for the Start menu of the FvwmTaskBar
+
+AddToMenu "StartMenu"
++ "New shell        %mini-sh1.xpm%"         Exec    color_xterm -ls -sb -fn 9x15 & 
++ "Manual pages     %mini-book1.xpm%"       Exec    xman &
++ "Magnifying glass %mini-zoom.xpm%" 	    Exec    xmag &
++ "Applications     %mini-x2.xpm%"          Popup   Applications
++ "Games            %mini-happy.xpm%"       Popup   Games
++ ""                                        Nop 
++ "Lock Screen      %mini-lock.xpm%"        Exec    xlock &
++ "Refresh Screen   %mini-ray.xpm%"         Refresh
++ ""                                        Nop
++ "Exit Fvwm        %mini-stop.xpm%"        Popup   Quit-Verify
+
+AddToMenu "Backgrounds" "Set Background" Title
++ "Alien Labirinth%mini-rball.xpm%" Exec xv -root -quit /usr/X11R6/lib/X11/afterstep/backgrounds/labirinth.gif
++ "Weird Tiles%mini-rball.xpm%"     Exec xv -root -quit /usr/X11R6/lib/X11/afterstep/backgrounds/overlap_tile.gif 
++ "Violet Veawes%mini-rball.xpm%"   Exec xv -root -quit /usr/X11R6/lib/X11/afterstep/backgrounds/violet_basket.jpg
++ "Brick Wall%mini-rball.xpm%"      Exec xv -root -quit /usr/X11R6/lib/X11/afterstep/backgrounds/brick.jpg
++ "Waterpool%mini-rball.xpm%"       Exec xv -root -quit /usr/X11R6/lib/X11/afterstep/backgrounds/coolwaterpool.gif  
++ "Sailships%mini-rball.xpm%"       Exec xv -root -quit /usr/X11R6/lib/X11/afterstep/backgrounds/shipsbacktile3.gif
+
+AddToMenu "Shells" "Shells" Title
++ "Xterm	(7x14 font)%mini-term.xpm%"	Exec xterm -sb -sl 500 -j -ls -fn 7x14 &
++ "Color Rxvt	(VT100)%mini-term.xpm%"		Exec rxvt -fn 7x14 -ls &
++ "Color Xterm	(7x14 font)%mini-term.xpm%" 	Exec color_xterm -sb -sl 500 -j -ls -fn 7x14 -fb 7x14bold -title "Color xterm" &
++ "Color Xterm	(8x13 font)%mini-term.xpm%" 	Exec color_xterm -sb -sl 500 -j -ls -fn 8x13 -title "Color xterm" &
++ ""					    	Nop
++ "Large Xterm	(10x20 font)%mini-term.xpm%" 	Exec xterm -sb -sl 500 -j -ls -fn 10x20 &
++ "Large Rxvt	(10x20 font)%mini-term.xpm%" 	Exec rxvt -fn 10x20 -ls &
++ "Large Color Xterm	(10x20 font)%mini-term.xpm%" Exec color_xterm -sb -sl 500 -j -ls -fn 10x20 &
+
+AddToMenu "Screensaver" "Screensaver" Title
++ "Bat%mini-bball.xpm%"		Exec xlock -nolock -nice 0 -mode bat &
++ "Blank%mini-bball.xpm%"	Exec xlock -nolock -nice 0 -mode blank &
++ "Blot%mini-bball.xpm%"	Exec xlock -nolock -nice 0 -mode blot &
++ "Bounce%mini-bball.xpm%" 	Exec xlock -nolock -nice 0 -mode bounce &
++ "Flame%mini-bball.xpm%"	Exec xlock -nolock -nice 0 -mode flame &
++ "Galaxy%mini-bball.xpm%"	Exec xlock -nolock -nice 0 -mode galaxy &
++ "Grav%mini-bball.xpm%"	Exec xlock -nolock -nice 0 -mode grav &
++ "Helix%mini-bball.xpm%"	Exec xlock -nolock -nice 0 -mode helix &
++ "Hop%mini-bball.xpm%"		Exec xlock -nolock -nice 0 -mode hop &
++ "Hyper%mini-bball.xpm%"	Exec xlock -nolock -nice 0 -mode hyper &
++ "Kaleid%mini-bball.xpm%"	Exec xlock -nolock -nice 0 -mode kaleid &
++ "Life%mini-bball.xpm%"	Exec xlock -nolock -nice 0 -mode life &
++ "Life3d%mini-bball.xpm%"	Exec xlock -nolock -nice 0 -mode life3d &
++ "Maze%mini-bball.xpm%"	Exec xlock -nolock -nice 0 -mode maze &
++ "Pyro%mini-bball.xpm%"	Exec xlock -nolock -nice 0 -mode pyro &
++ "Qix%mini-bball.xpm%"		Exec xlock -nolock -nice 0 -mode qix &
++ "Random%mini-bball.xpm%"	Exec xlock -nolock -nice 0 -mode random &
++ "Rect%mini-bball.xpm%"	Exec xlock -nolock -nice 0 -mode rect &
++ "Rock%mini-bball.xpm%"	Exec xlock -nolock -nice 0 -mode rock &
++ "Rotor%mini-bball.xpm%"	Exec xlock -nolock -nice 0 -mode rotor &
++ "Sphere%mini-bball.xpm%"	Exec xlock -nolock -nice 0 -mode sphere &
++ "Spline%mini-bball.xpm%"	Exec xlock -nolock -nice 0 -mode spline &
++ "Swarm%mini-bball.xpm%"	Exec xlock -nolock -nice 0 -mode swarm &
++ "Wator%mini-bball.xpm%"	Exec xlock -nolock -nice 0 -mode wator &
++ "Worm%mini-bball.xpm%"	Exec xlock -nolock -nice 0 -mode worm &
++ "World%mini-bball.xpm%"	Exec xlock -nolock -nice 0 -mode world &
+
+AddToMenu "Screenlock" "Lock Screen" Title
++ "Bat%mini-rball.xpm%"		Exec xlock -nice 0 -mode bat &
++ "Blank%mini-rball.xpm%"	Exec xlock -nice 0 -mode blank &
++ "Blot%mini-rball.xpm%"	Exec xlock -nice 0 -mode blot &
++ "Bounce%mini-rball.xpm%"	Exec xlock -nice 0 -mode bounce &
++ "Flame%mini-rball.xpm%"	Exec xlock -nice 0 -mode flame &
++ "Galaxy%mini-rball.xpm%"	Exec xlock -nice 0 -mode galaxy &
++ "Grav%mini-rball.xpm%"	Exec xlock -nice 0 -mode grav &
++ "Helix%mini-rball.xpm%"	Exec xlock -nice 0 -mode helix &
++ "Hop%mini-rball.xpm%"		Exec xlock -nice 0 -mode hop &
++ "Hyper%mini-rball.xpm%"	Exec xlock -nice 0 -mode hyper &
++ "Kaleid%mini-rball.xpm%"	Exec xlock -nice 0 -mode kaleid &
++ "Life%mini-rball.xpm%"	Exec xlock -nice 0 -mode life &
++ "Life3d%mini-rball.xpm%"	Exec xlock -nice 0 -mode life3d &
++ "Maze%mini-rball.xpm%"	Exec xlock -nice 0 -mode maze &
++ "Pyro%mini-rball.xpm%"	Exec xlock -nice 0 -mode pyro &
++ "Qix%mini-rball.xpm%"		Exec xlock -nice 0 -mode qix &
++ "Random%mini-rball.xpm%"	Exec xlock -nice 0 -mode random &
++ "Rect%mini-rball.xpm%"	Exec xlock -nice 0 -mode rect &
++ "Rock%mini-rball.xpm%"	Exec xlock -nice 0 -mode rock &
++ "Rotor%mini-rball.xpm%"	Exec xlock -nice 0 -mode rotor &
++ "Sphere%mini-rball.xpm%"	Exec xlock -nice 0 -mode sphere &
++ "Spline%mini-rball.xpm%"	Exec xlock -nice 0 -mode spline &
++ "Swarm%mini-rball.xpm%"	Exec xlock -nice 0 -mode swarm &
++ "Wator%mini-rball.xpm%"	Exec xlock -nice 0 -mode wator &
++ "Worm%mini-rball.xpm%"	Exec xlock -nice 0 -mode worm &
++ "World%mini-rball.xpm%"	Exec xlock -nice 0 -mode world &
+
+AddToMenu "Games" "Games" Title
++ "Maze%mini-maze.xpm%"		Exec maze &
++              "Spider" Exec exec spider &
++ "Workman%mini-cdlabel.xpm%"	Exec exec workman &
++ "Xboard%mini-slon.xpm%"	Exec xboard &
++ "Xeyes%mini-eyes.xpm%"	Exec xeyes &
++ "Xhextris%mini-hextris.xpm%"  Exec exec xhextris &
++              "Xlander" Exec exec xlander &
++ "Xlogo%mini-bx2.xpm%"		Exec xlogo &
++ "Xroach%mini-roach.xpm%"	Exec exec xroach &
++ "Xtetris%mini-tetris.xpm%"	Exec xtetris &
++              "Xvier" Exec exec xvier &
+
+AddToMenu "Applications" "Applications" Title
++ "Ghostview%mini-gv.xpm%"	Exec ghostview &
++ "Xview%mini-xv.xpm%"		Exec xv &
++ "Nedit%mini-edit.xpm%" 	Exec nedit &
++ "Xfm%mini-filemgr.xpm%"	Exec xfm &
++ "Xfractint%mini-fractal.xpm%"	Exec rxvt -fn 7x14 -e xfractint map=chroma &
++ "Xpaint%mini-paint.xpm%"	Exec xpaint &
++ "Xgrab%mini-camera.xpm%"	Exec xgrab &
++ "Applixware%mini-edit-wp.xpm%" Exec applix &
++ "Xcolormap%mini-colors.xpm%"	Exec xcolormap &
++ "DDD debugger%mini-bug2.xpm%"	Exec ddd &
++ "Xvidtune%mini-tune.xpm%" 	Exec xvidtune &
++ "Xtacy%mini-spiral.xpm%"	Exec xtacy &
++ ""                            Nop
++ "PPP on%mini-connect.xpm%"    Exec ppp-go &
++ "PPP off%mini-cross.xpm%"     Exec ppp-off &
+
+#
+# This menu is invoked as a sub-menu - it allows you to quit,
+# restart, or switch to another WM.
+#
+AddToMenu "Quit-Verify" "Really Quit Fvwm?" Title
++ "Restart%mini-turn.xpm%"		Restart fvwm95-2
++ "" 					Nop
++ "Start fvwm%mini-olwm.xpm%"		Restart /usr/X11R6/bin/fvwm
++ "Start afterstep%mini-olwm.xpm%"      Restart /usr/X11R6/bin/afterstep
++ "" 					Nop
++ "Yes, Really Quit%mini-exclam.xpm%"	Quit
++ "No, Don't Quit%mini-cross.xpm%" 	Nop
+
+#
+# Provides a list of modules to fire off
+#
+AddToMenu "Module-Popup" "Modules" Title
++ "Buttons"				Module FvwmButtons
++ "Clean-Up%mini-pencil.xpm%"		Module FvwmClean
++ "Task bar" 				Module FvwmTaskBar
++ "Identify%mini-question.xpm%"		Module FvwmIdent
++ "Save Desktop"			Module FvwmSave
++ "Debug%mini-bug2.xpm%"		Module FvwmDebug
++ "Pager"				Module FvwmPager 0 3
++ "Window List%mini-windows.xpm%"	Module FvwmWinList
++ "Talk"				Module FvwmTalk
++ "Configure%mini-hammer.xpm%"		Module FvwmConfig
+
+#
+# This menu will fire up some very common utilities
+#
+AddToMenu "Utilities" "Utilities" Title
++ "Top%mini-run.xpm%"			Exec rxvt -fn 7x14 -T Top -n Top -e top &
++ "Calculator%mini-calc.xpm%"		Exec xcalc &
++ "Manual pages%mini-book1.xpm%" 	Exec xman &
++ "Magnifying glass%mini-zoom.xpm%" 	Exec xmag &
++ "Oclock%mini-clock.xpm%" 		Exec oclock &
++ ""					Nop
++ "Applications%mini-x2.xpm%"		Popup Applications
++ "Shells%mini-term.xpm"		Popup Shells
++ "Games%mini-happy.xpm%"		Popup Games
++ ""					Nop
++ "Screensaver%mini-display.xpm%"	Popup Screensaver
++ "Lock Screen%mini-lock.xpm%"		Popup Screenlock
++ "Backgrounds%mini-frame.xpm%"         Popup Backgrounds
++ ""					Nop
++ "Modules%mini-modules.xpm%"		Popup Module-Popup
++ ""					Nop
++ "Refresh Screen%mini-ray.xpm%"	Refresh
++ ""					Nop
++ "Exit Fvwm%mini-stop.xpm%"		Popup Quit-Verify
+
+#
+# This defines the most common window operations
+#
+AddToMenu "Window" "Window Ops"           Title
++ "&Move%mini-move.xpm%"                  Function Move-or-Raise
++ "&Resize%mini-resize.xpm%"              Function Resize-or-Raise
++ "R&aise%mini-raise.xpm%"                Raise
++ "&Lower%mini-lower.xpm%"                Lower
++ "&Restore%mini-scroll-arrows.xpm%"              Iconify -1
++ "(Un)Stick%mini.checkmark.xpm%"         Stick
++ ""                                      Nop
++ "(Un)Maximize%mini-max1.xpm%"           Maximize 85 85
++ "(De)Iconify%mini-iconify.xpm%"         Iconify
++ ""                                      Nop
++ "Kill%mini-bomb.xpm%"                   Destroy
++ "&Close%mini-cross.xpm%"                Delete
++ ""                                      Nop
++ "Switch to...%mini-start.xpm%"          WindowList
++ "Refresh Screen%mini-ray.xpm%"          Refresh
+
+#
+# A trimmed down version of "Window Ops", good for binding to decorations
+#
+AddToMenu "Window-Ops2" 
++      "&Restore%mini-scroll-arrows.xpm%"         Iconify -1
++      "&Move%mini-move.xpm%"             Move-or-Raise
++      "&Size%mini-resize.xpm%"           Resize-or-Raise
++      "Mi&nimize%mini-iconify.xpm%"      Iconify 1
++      "Ma&ximiz%mini-max1.xpm%e"         Maximize 90 79
++      ""                                 Nop
++      "(Un)Stick%mini.checkmark.xpm%"    Stick
++      "R&aise%mini-raise.xpm%"           Raise
++      "&Lower%mini-lower.xpm%"           Lower
++      ""                                 Nop
++      "&Kill%mini-bomb.xpm%"             Destroy
++      "&Close%mini-cross.xpm%"   Delete
++      ""                                 Nop
++      "Switch to...%mini-start.xpm%"     WindowList
++      "Refresh Screen%mini-ray.xpm%"     Refresh
+#========================================================================#
+
+#
+# One more complex function - couldn't be defined earlier because it used 
+# pop-up menus
+#
+# This creates the "system" menu for the title-bar window-ops
+# pop-up
+#
+AddToFunc "window_ops_func" "C" PopUp Window-Ops2
++              "M" PopUp Window-Ops2
++              "D" Delete  
+
+
+#========================================================================#
+
+#
+# Mouse bindings
+#
+
+#ButtonStyle 2 GWclose.xpm
+#ButtonStyle 4 GWmaximize.xpm
+#ButtonStyle 6 GWstick.xpm
+#ButtonStyle 8 GWminimize.xpm
+
+ButtonStyle 2 TTclose.xpm
+ButtonStyle 4 TTmaximize.xpm
+ButtonStyle 6 TTstick.xpm
+ButtonStyle 8 TTminimize.xpm
+
+# First, for the mouse in the root window
+# Button 1 gives the Utilities menu
+# Button 2 gives the Window Ops menu
+# Button 3 gives the WindowList (like TwmWindows)
+# I use the AnyModifier (A) option for the modifier field, so you can hold down
+# any shift-control-whatever combination you want!
+
+#     Button	Context Modifi 	Function
+Mouse 1		R   	A       Menu "Utilities" Nop
+Mouse 2		R    	A       Menu "Window Ops" Nop
+Mouse 3         R       A       WindowList
+#Mouse 3	R    	A      	Module "winlist" FvwmWinList transient
+
+# Now the title bar buttons
+# Any button in the left title-bar button gives the window ops menu
+# Any button in the first right title-bar button Iconifies the window
+# Any button in the second title-bar button full-maximizes
+# Any button in the third (rightmost) title-bar button closes
+# Note the use of "Mouse 0" for AnyButton.
+
+#     Button	Context Modif 	Function
+Mouse 0		1    	A      	Function "window_ops_func"
+Mouse 0         2       A       Delete
+Mouse 0		4    	A     	Maximize 90 79
+Mouse 0         6       A       Stick
+Mouse 0		8    	A     	Iconify
+
+#
+# Now the rest of the frame
+# Here I invoke my complex functions for Move-or-lower, Move-or-raise,
+# and Resize-or-Raise. 
+#
+# Button 1 in the corner pieces, with any modifiers, gives resize or raise
+Mouse 1		F	A	Function "Resize-or-Raise"
+# Button 1 in the title, sides, or icon, w/ any modifiers, gives move or raise
+Mouse 1		TS	A	Function "Move-or-Raise"
+
+# Button 1 in an icons gives move for a drag, de-iconify for a double-click,
+# nothing for a single click
+# Button 2 in an icon, w/ any modifiers, gives de-iconify
+Mouse 1		I	A	Function "Move-or-Iconify"
+Mouse 2		I	A	Iconify
+
+# Button 2 in the corners, sides, or title-bar gives the window ops menu
+#Mouse 2		FST	A	Function "window_ops_func"
+Mouse 2		FST	A	WindowList
+
+# Button 3 anywhere in the decoration (except the title-bar buttons)
+# does a raise-lower
+Mouse 3		TSIF	A	RaiseLower
+
+# Button 3 in the window, with the Modifier-1 key (usually alt or diamond)
+# gives Raise-Lower. Used to use control here, but that interferes with xterm
+Mouse 3         W       M       RaiseLower
+
+#========================================================================#
+		
+# Now some keyboard shortcuts.
+
+# Arrow Keys
+# press arrow + control anywhere, and scroll by 1 page
+Key Left	A	C	Scroll -100 0
+Key Right	A	C	Scroll +100 +0
+Key Up		A	C	Scroll +0   -100
+Key Down	A	C	Scroll +0   +100
+
+# press arrow + meta key, and scroll by 1/10 of a page
+Key Left	A	M	Scroll -10 +0
+Key Right	A	M	Scroll +10 +0
+Key Up		A	M	Scroll +0   -10
+Key Down	A	M	Scroll +0   +10
+
+# press shift arrow + control anywhere, and move the pointer by 1% of a page
+Key Left	A	SC	CursorMove -1 0
+Key Right	A	SC	CursorMove +1 +0
+Key Up		A	SC	CursorMove +0   -1
+Key Down	A	SC	CursorMove +0   +1
+
+# press shift arrow + meta key, and move the pointer by 1/10 of a page
+Key Left	A	SM	CursorMove -10 +0
+Key Right	A	SM	CursorMove +10 +0
+Key Up		A	SM	CursorMove +0   -10
+Key Down	A	SM	CursorMove +0   +10
+
+# Keyboard accelerators
+Key F1		A	M	Popup "Utilities"
+Key F1		A	M	Popup "Utilities"
+Key F2		A	M	Popup "Window Ops"
+Key F3		A	M	Module "WindowList" FvwmWinList 
+Key F4		A	M	Iconify
+Key F5		A	M	Move
+Key F6		A	M	Resize
+
+#Page Up/Dapge Down keys are used to scroll by one desktop page
+# in any context, press page up/down + control
+# in root context, just pressing page up/down is OK
+# 
+# I prefer the non-wrapping scroll. These are for example purposes only
+#Key Next	A   C       Scroll 100000 0
+#Key Next	R   N       Scroll 100000 0  
+#Key Prior	A   C       Scroll -100000 0
+#Key Prior	R   N       Scroll -100000 0
+Key Tab     A   M       Prev Focus
+Key Tab     A   MS      Next Focus
+Key Escape  A   C       WindowList
+
+#========================================================================#
+
+# Definitions used by the modules
+
+#------------------ Pager
+*FvwmPagerBack #a6b2c7
+*FvwmPagerFore black
+*FvwmPagerFont -adobe-helvetica-bold-r-*-*-10-*-*-*-*-*-*-*
+*FvwmPagerHilight #a6b2c7
+*FvwmPagerGeometry +986+720
+*FvwmPagerLabel 0
+*FvwmPagerSmallFont 5x8
+
+#------------------ FvwmButtons (from 2.0.42)
+
+*FvwmButtonsFore Black
+*FvwmButtonsBack #a6b2c7
+*FvwmButtonsFont -adobe-helvetica-Bold-r-*-*-10-*-*-*-*-*-*-*
+*FvwmButtonsGeometry -0+0
+*FvwmButtonsColumns 2
+
+# Define the buttons to use.....
+
+#*FvwmButtons(Title , Icon clock.xpm, \
+#             Swallow(UseOld) "xclock" 'Exec xclock -bg \#a3c4c4 \
+#             -padding 0 -geometry -1000-1000 &')
+
+*FvwmButtons(Title , Icon asclock.xpm, Swallow(UseOld) "asclock" \
+               'Exec asclock -shape -position -1-1 &')
+*FvwmButtons(Title , Icon 3dbomb.xpm, \
+               Action Destroy)
+*FvwmButtons(2x1, Title , \
+             Swallow(UseOld) "xload" 'Exec xload \
+               -nolabel -bg "#a6b2c7" -update 5 -geometry -1000-1000 &')
+*FvwmButtons (2x1, Title , Swallow(UseOld) "xosview" \
+              'Exec xosview -labels -net 0 -geometry 100+1700 &')
+ 
+*FvwmButtons(Title , Icon Computer.xpm, Action 'Exec "XTerm" nxterm -s -ut -ls -sb -fn \
+-*-*-bold-r-*-*-15-140-0-0-*-*-iso8859-* -cr Blue -ms Yellow -sl 200 -bd \
+Green -bg Black -geometry 96x34 -title "Nxterm" &')
+
+#*FvwmButtons(Title , Icon AScalculator.xpm, \
+#             Action 'Exec "Calculator" xcalc &')
+*FvwmButtons(Title , Icon XV.xpm, \
+              Action 'Exec "xv" xv &')
+*FvwmButtons(Title , Icon netscape3.xpm, \
+              Action 'Exec "Netscape" netscape -geometry 955x722 &')
+*FvwmButtons (Title , Icon FilingCabinet.xpm, \
+              Action 'Exec "xdir" xdir -color &')
+*FvwmButtons (Title , Icon clipboard.xpm, \
+              Action 'Exec "Xclipboard" xclipboard &')
+*FvwmButtons (Title , Icon disk.builder.xpm, \
+              Action 'Exec "Xmcd" xmcd &')
+*FvwmButtons (Title , Icon PencilDeskPublish.xpm, \
+              Action 'Exec "Applix" applix &')
+*FvwmButtons (Title , Icon author.xpm, \
+              Action 'Exec  "Xemacs" xemacs -geometry 80x25 &')
+*FvwmButtons (Title , Icon PhoneTT.xpm, \
+              Action 'Exec "Seyon" seyon &')
+*FvwmButtons (Title , Icon 3dpaint.xpm, \
+              Action 'Exec "Gimp" gimp &')
+*FvwmButtons (Title , Icon text.xpm, \
+              Action 'Exec "Nedit" nedit &')
+*FvwmButtons (Title , Icon cpuchip.xpm, \
+              Action 'Exec "ddd" ddd &')
+        #*FvwmButtons (Title , Icon RayTracedGear.xpm, \
+        #              Action 'Exec "xxgdb" xxgdb &')
+*FvwmButtons (Title , Icon AScalculator.xpm, \
+              Action 'Exec "Xcalc" xcalc &')  
+*FvwmButtons (Title , Icon ForwardBackwardPagesBook.xpm, \
+              Action 'Exec "xman" xman &')
+*FvwmButtons (Title , Icon workshop.xpm, \
+              Action 'Exec "Editres" editres &')
+*FvwmButtons (Title , Icon OldFashionedRadio.xpm, \
+              Action 'Exec "Xmmix" xmmix &')
+*FvwmButtons (Title , Icon monalisa.xpm, \
+              Action 'Exec "Xpaint" xpaint &')
+*FvwmButtons (Title , Icon application.inspect.xpm, \
+              Action 'Exec "Acroread" acroread &')
+#*FvwmButtons (2x1, Swallow(UseOld) "Pager" 'FvwmPager 0 0')
+
+#Custom-font-set-adobe-helvetica-bold-r-normal-*-15-60-*-*-p-85-iso8859-1
+
+#------------------ Identify
+*FvwmIdentBack #000080
+*FvwmIdentFore Yellow
+*FvwmIdentFont -adobe-helvetica-medium-r-*-*-12-*-*-*-*-*-*-*
+
+#------------------ FvwmWinList
+*FvwmWinListBack #a6b2c7
+*FvwmWinListFore Black
+*FvwmWinListFont -adobe-helvetica-bold-r-*-*-12-*-*-*-*-*-*-*
+*FvwmWinListAction Click1 Iconify -1,Focus
+*FvwmWinListAction Click2 Iconify
+*FvwmWinListAction Click3 Module "FvwmIdent" FvwmIdent
+*FvwmWinListUseSkipList
+*FvwmWinListGeometry +0-1
+*FvwmWinListShowCurrentDesk
+        
+#------------------ FvwmTaskBar
+Style "FvwmTaskBar" NoTitle,BorderWidth 3,HandleWidth 3,Sticky,StaysOnTop,WindowListSkip,CirculateSkip
+*FvwmTaskBarGeometry +48-12
+*FvwmTaskBarFore Black
+*FvwmTaskBarBack #a6b2c7
+*FvwmTaskBarTipsFore black
+*FvwmTaskBarTipsBack bisque
+*FvwmTaskBarFont -adobe-helvetica-medium-r-*-*-*-120-*-*-*-*-*-*
+*FvwmTaskBarSelFont -adobe-helvetica-bold-r-*-*-*-120-*-*-*-*-*-*
+*FvwmTaskBarAction Click1 Iconify -1,Raise,Focus
+*FvwmTaskBarAction Click2 Iconify
+*FvwmTaskBarAction Click3 Module "FvwmIdent" FvwmIdent
+*FvwmTaskBarUseSkipList
+*FvwmTaskBarAutoStick
+*FvwmTaskBarStartName Linux
+*FvwmTaskBarStartMenu StartMenu
+*FvwmTaskBarStartIcon mini-exp.xpm
+*FvwmTaskBarShowTips
+*FvwmTaskBarShowTransients
+#*FvwmTaskBarClockFormat %I:%M%p
+#*FvwmTaskBarHighlightFocus
+#*FvwmTaskBarAutoHide
+*FvwmTaskBarMailCommand Exec color_xterm -T Mail -ls -fn 8x13 -e elm -i
+
+

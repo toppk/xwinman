@@ -1,0 +1,27 @@
+# _metadata.toml describes the files in this directory: each [[entry]] names files and records
+# what is known about them (mtime, contributor, date, text...). Same shape everywhere.
+# Here: the contributed setups, who sent them and when; {{< contributions >}} is one view of it.
+
+[[entry]]
+from = "matt@belgarath.org"
+added = "1996-06"
+files = ["rc/mwmrc-matt", "screenshots/mwm-matt.gif", "rc/mwm.Xresources-matt"]
+text = "[mwmrc](rc/mwmrc-matt), [screenshot](screenshots/mwm-matt.gif) (15k). A [resource file](rc/mwm.Xresources-matt) is also used."
+
+[[entry]]
+from = "jmrutt@home.com"
+added = "1998-04"
+files = ["rc/mwmrc-jmrutt", "screenshots/mwm-jmrutt.jpg"]
+text = "[mwmrc](rc/mwmrc-jmrutt), [screenshot](screenshots/mwm-jmrutt.jpg) (249k)."
+
+[[entry]]
+from = "tomp@bitstream.net"
+added = "1998-08"
+files = ["rc/mwmrc-tomp", "screenshots/mwm-tomp.gif", "rc/mwm.Xresources-tomp"]
+text = "[mwmrc](rc/mwmrc-tomp), [screenshot](screenshots/mwm-tomp.gif) (136k), and [resource file](rc/mwm.Xresources-tomp)."
+
+[[entry]]
+from = "jrf@adresearch.com"
+added = "2002-05"
+files = ["screenshots/mwm-jrf.jpg", "rc/jrf-xdefaults"]
+text = "[screenshot](screenshots/mwm-jrf.jpg) (295k), and [Xdefaults file.](rc/jrf-xdefaults)"

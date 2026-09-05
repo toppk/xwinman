@@ -1,0 +1,27 @@
+# Related sites, rendered by {{< links >}}.
+
+[[link]]
+name = "Official Blackbox site"
+url = "http://blackboxwm.sf.net/"
+
+[[link]]
+name = "Blackbox SourceForge page"
+url = "http://sourceforge.net/projects/blackboxwm/"
+
+[[link]]
+name = "Blackbox themes at Freshmeat"
+url = "http://themes.freshmeat.net/browse/919/"
+
+[[link]]
+name = "Blackbox Tools"
+url = "http://bbtools.sourceforge.net/"
+
+[[link]]
+name = "Blackhome:"
+url = "http://www.opaline.demon.co.uk/"
+blurb = "a utility for applying Blackbox themes to applications."
+
+[[link]]
+name = "black2openbox:"
+url = "http://b10m.swal.org/cgi-bin/black2openbox.cgi"
+blurb = "a web page for converting Blackbox menu configuration files to the OpenBox standard."

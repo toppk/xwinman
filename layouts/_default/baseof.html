@@ -1,0 +1,69 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/1999/REC-html401-19991224/loose.dtd">
+<html>
+<head>
+  <title>{{ block "title" . }}Window Managers for X: {{ .Title }}{{ end }}</title>
+	<link rel="shortcut icon" href="images/favicon2.ico">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<link rel="stylesheet" title="Default Style" href="style.css" type="text/css">
+	<META name="description" content="A guide to window managers and desktops for the X Window System and Linux/UNIX">
+        <META name="keywords" content="window managers, X, X Window System,
+      Linux, X11, X11R6, GNOME, KDE, sawfish, fvwm, fvwm95, fvwm-95,
+      afterstep, olvm, olvwm, amiwm, mwm, twm, vtwm, ctwm, icons,
+      textures, desktops, pagers, backgrounds">
+{{ with .Params.generator }}<meta name=generator content="{{ . }}">
+{{ end }}<script language="javascript">
+<!-- 
+var loc = location.href.toLowerCase()
+if (loc.indexOf("plig") != -1) {
+    location.replace("http://xwinman.org");
+}
+-->
+</script>
+</head>
+
+<body>
+<div id="logo">
+<a href="{{ .Site.BaseURL }}"><img src="images/logo.png" border=0 alt="xwinman.org" WIDTH=114 HEIGHT=61></a>
+</div>
+
+<div id="header">
+
+<!-- <img src="images/title.png" alt="Window Managers for X" width=419 height=42> -->
+<img src="images/title2.png" alt="Window Managers for X" width=500 height=75>
+
+<!--
+<div id="subtitle">
+<img src="images/st2.png" alt="A world of choice for your Linux/UNIX desktop" width=397 height=21>
+</div>
+-->
+
+</div>
+
+<div id="navbar">
+{{ $ed := index hugo.Data.editions site.Params.edition }}{{ range $i, $e := $ed.nav.top.entries }}{{ $p := site.GetPage (printf "/%s" $e.ref) }}{{ if $i }}&nbsp;&nbsp;
+{{ end }}<a class="top" href="{{ if $p.IsHome }}index.html{{ else }}{{ path.Base $p.RelPermalink }}{{ end }}">{{ $e.label | default $p.Title }}</a>{{ end }}
+</div>
+
+<div id="middle">
+
+{{ partial "sidebar.html" . }}
+
+<div id="content">
+{{ block "main" . }}{{ end }}
+</div>
+
+</div>
+
+<!-- <br clear=all><br> -->
+<div id="footer">
+<i>These pages were created and are maintained by Matt
+	Chapman. Thank-you to everyone who has donated
+	example screenshots and configuration files. <a
+	href="feedback.html">Your comments and suggestions are welcome.</a>
+</i><br>
+Copyright &copy;1995-2012 to Matt Chapman - All Rights Reserved	
+</div>
+  </body>
+</html>
+</body>
+</html>

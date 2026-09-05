@@ -1,0 +1,52 @@
+# _metadata.toml describes the files in this directory: each [[entry]] names files and records
+# what is known about them (mtime, contributor, date, text...). Same shape everywhere.
+# Here: the contributed setups, who sent them and when; {{< contributions >}} is one view of it.
+
+[[entry]]
+from = "matt@belgarath.org"
+added = "1996-06"
+files = ["rc/bowmanrc-matt", "screenshots/bowman-matt.gif"]
+text = "[bowmanrc,](rc/bowmanrc-matt) and [screenshot](screenshots/bowman-matt.gif) (26k). This is a configuration from the original Bowman project."
+
+[[entry]]
+from = "rawg@linex.com"
+added = "1996-08"
+files = ["rc/steprc-rawg", "screenshots/afterstep-rawg.jpg", "screenshots/lightning.jpg"]
+text = "[steprc,](rc/steprc-rawg) and [screenshot](screenshots/afterstep-rawg.jpg) (183k). The [lightning background](screenshots/lightning.jpg) used in this setup is also available."
+
+[[entry]]
+from = "roz@one.net"
+added = "1996-11"
+files = ["rc/steprc-roz", "screenshots/afterstep-roz.jpg"]
+text = "[steprc,](rc/steprc-roz) and [screenshot](screenshots/afterstep-roz.jpg) (321k). This nicely shows off some of the newer features of AfterStep, such as user-definable gradients and custom pixmaps for titlebars and Wharf."
+
+[[entry]]
+lead = "Another from"
+from = "rawg@linex.com"
+added = "1997-03"
+files = ["rc/steprc-rawg2", "screenshots/afterstep-rawg2.jpg"]
+text = "[steprc,](rc/steprc-rawg2) and [screenshot](screenshots/afterstep-rawg2.jpg) (248k). This one also impressively shows off many advanced AfterStep features - make sure you are using a recent version of AfterStep."
+
+[[entry]]
+from = "ximenes@netset.com"
+added = "1997-05"
+files = ["rc/steprc-ximenes", "screenshots/afterstep-ximenes.gif"]
+text = "[steprc,](rc/steprc-ximenes) and [screenshot](screenshots/afterstep-ximenes.gif) (361k). This uses many new features in AfterStep 1.0."
+
+[[entry]]
+from = "dragon@dragon.ntr.net"
+added = "1997-08"
+files = ["rc/steprc-dragon", "screenshots/afterstep-dragon.gif"]
+text = "[steprc,](rc/steprc-dragon) and [screenshot](screenshots/afterstep-dragon.gif) (283k). Another Afterstep 1.0 setup."
+
+[[entry]]
+from = "ef413@freenet.carleton.ca"
+added = "1999-04"
+files = ["screenshots/afterstep-oz.jpg", "rc/Nimbus.tar.gz"]
+text = "[screenshot](screenshots/afterstep-oz.jpg) (176k) and [theme tarball](rc/Nimbus.tar.gz) (123k). This is from the 1.7.90 development version, and shows off many new features."
+
+[[entry]]
+from = "lundy@osgltd.com"
+added = "2001-01"
+files = ["screenshots/afterstep-lundy.jpg"]
+text = "This [screenshot](screenshots/afterstep-lundy.jpg) (206k) shows AfterStep running inside a X server written in Java, running on MS Windows."

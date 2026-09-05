@@ -1,0 +1,11 @@
+# Home page logo grid, row by row: a ref, or {ref, colspan}.
+wm = [
+  ["wm/fvwm", "wm/afterstep", "wm/amiwm", "wm/vtwm"],
+  ["wm/fvwm95", "wm/sawfish", "wm/metacity", "wm/scwm"],
+  [{ref = "wm/wmaker", colspan = 2}, {ref = "wm/blackbox", colspan = 2}],
+  ["wm/icewm", "wm/enlightenment", "wm/mwm", "wm/wm2"],
+  ["wm/olvwm", "wm/fluxbox", "wm/ctwm", "wm/others"],
+]
+desktop = [
+  ["desktop/gnome", "desktop/kde", "desktop/cde", "desktop/xfce"],
+]

@@ -1,0 +1,23 @@
+# Do not edit or remove the following five lines
+FastQuit no
+SizeBorder Right
+IconPalette MagicWB
+IconDir "/home/csuxg/amiwm/icons"
+DefaultIcon "def_tool.info"
+# You may edit the rest of the config file
+# These entries add menu items to the Tools menu under AmiWM
+# The take the form:
+# ToolItem "<MenuEntry>" "<Command> [Arguments]"
+ToolItem " " "/home/csuxg/amiwm/DoesNothing"
+ToolItem "Emacs" "emacs"
+ToolItem "Netscape" "/home/newwords/X11/bin/netscape"
+ToolItem "Tetris" "xtet42 -c1"
+ToolItem "XLab" "xlab"
+ToolItem "XLock" "xlock -echokeys"
+ToolItem "XMan" "xman"
+ToolItem "XMB" "xmb"
+ToolItem " " "/home/csuxg/amiwm/DoesNothing"
+ToolItem "Login: Crocus" "xrsh crocus"
+ToolItem "Login: Holly" "xrsh holly"
+ToolItem "Login: Lily" "xrsh lily"
+ToolItem "Login: Local" "xterm -T `hostname`"

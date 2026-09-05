@@ -1,0 +1,269 @@
+#
+# vtwmrc by csuoq@csv.warwick.ac.uk
+#
+#define Virtual desktop
+VirtualDesktop"137x106-0+0" 17
+#movement within vdesk
+PanDistanceX 100
+PanDistanceY 100
+#AutoPan 5
+OpaqueMove
+IconDirectory		"/usr/local/include/X11/bitmaps"
+FramePadding    1
+#SqueezeTitle		#Makes a little Tittle Bar!!!
+IconRegion  "100x100+1+25" North West 1 25  # where Icons to be sent
+SortIconManager        
+IconManagerGeometry     "=137x144-0+128" 1     
+NoDefaults             
+ShowIconManager        
+NoSaveUnders            
+NoGrabServer		# tell windowmgr to leave the sever alone if the sever is busy
+RestartPreviousState   
+DecorateTransients	# let transients have a title bar (for whatits worth)
+XorValue        1		# something to do with window resizing
+BorderWidth     1       
+IconBorderWidth 1
+ButtonIndent    1       
+TitleButtonBorderWidth 1        
+InterpolatemenuColors	# fancy graded menu colours
+NoCaseSensitive         
+Zoom            100		# fancy iconifying effect
+IconifyByUnMapping
+
+Pixmaps
+{
+	VirtualBackgroundPixmap "dimple1"
+	RealScreenPixmap "dimple1"
+}
+
+Monochrome
+{
+BorderColor "black"
+BorderTileForeground "white"
+BorderTileBackground "black"
+MenuForeground "black"
+MenuBackground "white"
+TitleForeground "white"
+TitleBackground "black"
+IconManagerForeground "white"
+IconManagerBackground "black"
+IconManagerHighlight "white"
+}
+
+Color
+{
+DefaultBackground "moccasin"
+DefaultForeground "firebrick1"
+BorderColor "lime green"
+{
+	"Perfmeter V3"		"black"
+	"Virtual Desktop"	"gray35"
+	"Dali Clock"		"gray35"
+	"xmaxe"		"gray35"
+}
+BorderTileForeground "black"
+{
+	"1" 			"gray50"
+	"2"  			"gray50"
+	"3"  			"gray50"
+	"4"    			"gray50"
+	"Virtual Desktop"	"gray50"
+	"Dali Clock"		"gray50"
+	"xmaxe"		"gray50"
+}
+BorderTileBackground "black"
+MenuForeground "red"
+MenuBackground "black"
+MenuTitleForeground "black"
+MenuTitleBackground "yellow"
+TitleForeground "red"
+TitleBackground "black"
+IconManagerForeground "red"
+IconManagerBackground "black"
+IconManagerHighlight "green3"
+DesktopDisplayBackground "black"
+DesktopDisplayForeground "yellow"
+DesktopDisplayBorder "red"
+IconForeground "cyan"
+DoorBackground "black"
+DoorForeground "green"
+}
+
+Doors
+{
+        "1"     "32x20-105+106"   "+0+0"
+        "2"     "32x20-70+106"   "+1150+0"
+        "3"     "32x20-35+106"   "+0+900"
+        "4"     "32x20-0+106"   "+1150+900"
+}
+
+NailedDown {
+	"Virtual Desktop"
+	"perfmeter"
+	"VTWM Icon Manager"
+	"TWM Door"
+	"xdaliclock"
+	"xmaxe"
+	"1"
+	"2"
+	"3"
+	"4"
+}
+
+NoTitle {
+        "Twm Door"
+        "Virtual Desktop"
+        "xmaxe"
+        "VTWM Icon Manager"
+	"perfmeter"
+	"xdaliclock"
+}
+IconManagerDontShow {
+        "perfmeter"
+	"xdaliclock"
+        "Virtual Desktop"
+        "xmaxe"
+        "1"
+        "2"
+        "3"
+        "4"
+}       
+
+VirtualDesktopFont "-schumacher-clean-medium-r-*-*-*-60-*-*-*-*-*-*"
+TitleFont "-adobe-times-*-r-normal-*-12-*-*-*-*"
+#ResizeFont "-adobe-helvetica-bold-r-normal--12-*-*-*-*-*-*-*"
+MenuFont "-adobe-times-*-r-normal-*-12-*-*-*-*"
+IconFont "-adobe-times-*-r-normal-*-12-*-*-*-*"
+IconManagerFont "-adobe-times-*-r-normal-*-12-*-*-*-*"
+   
+
+Button1 =       : root  : f.menu "Menus"
+Button2 =       : root  : f.menu "Tools"
+Button3 =       : root  : f.menu "VTWM Control"
+
+Button1 =       : door  : f.enterdoor 
+Button2 =       : door  : f.enterdoor
+Button3 =       : door  : f.enterdoor
+
+Button1 =       : t|f   : f.function "RaiseOrMove"
+Button2 =       : t|f   : f.menu     "WindowOps"
+Button3 =       : t|f   : f.function "ResizeOrClose"
+
+Button1 =       : d     : f.movescreen
+Button2 =       : v     : f.movescreen
+Button3 =       : d     : f.function "RaiseOrMove"
+
+Button1 =       : m     : f.iconify
+Button2 =       : m     : f.menu     "WindowOps"
+Button3 =       : m     : f.raise
+
+Button1 =       : i     : f.function "IconifyOrMove"
+Button2 =       : i     : f.menu     "WindowOps"
+Button3 =       : i     : f.function "ResizeOrClose"
+
+Button1 = s     : w     : f.function "RaiseOrMove"
+Button2 = s     : w     : f.menu "Menus"
+Button3 = s     : w     : f.function "ResizeOrClose"
+
+Button1 = m     : w     : f.iconify
+Button2 = m     : w     : f.winrefresh
+Button3 = m     : w     : f.autoraise
+
+"F1" =                  : all   : f.setrealscreen "+0+0"
+"F2" =                  : all   : f.setrealscreen "+1152+0"
+"F3" =                  : all   : f.setrealscreen "+0+900"
+"F4" =                  : all   : f.setrealscreen "+1152+900"
+
+"F5" =          : all   : f.refresh
+"F6" =          : all   : f.winrefresh
+
+"F10" =                 : w             : f.version
+
+"Left" = c              : all   : f.panleft "10"
+"Right" = c             : all   : f.panright "10"
+"Up" = c                : all   : f.panup "10"
+"Down" = c              : all   : f.pandown "10"
+
+
+menu    "Menus"
+{
+"Login at"	f.title
+"Local"		!"xterm  -sb +si -rw -aw -bg yellow -fg black -geometry 75x24 &"
+"lily"	!"xrsh lily xterm -T 'lily' -sb +si -rw -aw -bg 'dark orange' -fg 'dark slate gray' -geometry 75x24 &"
+"holly" !"xrsh holly xterm -sb +si -rw -aw -bg chartreuse -fg black -geometry 75x24 &"
+"crocus"	!"xrsh crocus xterm -T 'crocus' -sb +si -rw -aw -bg 'cornflower blue' -fg 'midnight blue' -geometry 75x24 &"
+"Games"         ( "green3" : "black" )  f.menu "S_Games"
+}
+menu    "S_Games"
+{
+"System Games" 		f.title
+"Xboard"		!"/usr/local/games/xboard &"
+"Tetris"		!"/usr/local/games/tetris &"
+
+}
+menu "Tools"
+{
+"Tools"		f.title
+"XLock"		!"xlock &"
+"Ftptool"	!"ftptool &"
+"XRN"		!"xrn &"
+"Framemaker"	!"imaker"
+"Xgopher"	!"xgopher &"
+"XFontSel"	!"xfontsel &"
+"OPAC"		!"xterm -T 'OPAC at the Library' -bg black -fg green -e telnet opac &"
+"Xco"		!"xco -geometry 400x220 -show 16 &"
+"XMan"		!"xman &"
+"XWinInfo"	!"xwininfo &"
+"BitmapEdit"	!"bitmap &"
+"EditRes"	!"editres &"
+"Floppies"	( "green3" : "black" )  f.menu "Floppies"
+}
+menu "Floppies"
+{
+"Floppies"      f.title
+"Volcheck"       !"volcheck &"
+"Eject"         !"eject fd &"
+"Format LD"        !"xterm -fn -adobe-*-*-r-*-*-*-140-*-*-*-*-*-* -bg LightBlue2 -geometry 41x3 -e fdformat -ld &"
+}
+menu    "VTWM Control"
+{
+"VTWM Control"		f.title
+"Refresh"		f.refresh
+"Restart"		f.twmrc
+"Show Icon Mgr"		f.showiconmgr
+"Hide Icon Mgr"		f.hideiconmgr
+"Windows"		( "green3" : "black")	f.menu "TwmWindows"
+"Kill"			( "white" : "black" )	f.destroy
+"EXIT"			( "white" : "black" )	f.quit
+
+}
+menu    "WindowOps"
+{
+        "Window Ops"    f.title
+"Close"                 f.iconify
+"Fullsize"              f.fullzoom
+"Zoom"                  f.zoom
+"Focus"                 f.focus
+"Unfocus"               f.unfocus
+"(De)Iconify"           f.iconify
+"DeIconify"             f.deiconify
+"Identify"              f.identify
+"======="      f.title
+"Delete"                f.delete
+"Destroy"               f.destroy
+}
+TitleButtonBorderWidth 0
+LeftTitleButton "menu12" = f.iconify
+LeftTitleButton "xlogo11" = f.delete
+RightTitleButton "rdblarrow" = f.function "ResizeOrClose"
+
+Function        "ResizeOrClose"
+{
+        f.resize
+}
+Function        "RaiseOrMove"
+{
+        f.move
+        f.deltastop
+        f.raiselower
+}

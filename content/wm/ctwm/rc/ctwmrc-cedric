@@ -1,0 +1,405 @@
+#****************
+#    ctwm.rc
+#****************
+
+NoDefaults
+NoBackingStore
+#NoVersion
+NoGrabServer
+
+#NoRaiseOnMove
+#NoRaiseOnResize
+NoMenuShadows
+NoTitleHighlight
+#NoHighlight
+#NoTitleFocus
+NoSaveUnders
+DontSqueezeTitle
+ConstrainedMoveTime 50
+#DecorateTransients
+Zoom 8
+#AutoRaise
+
+#TitleButtonBorderWidth 0
+#ButtonIndent 2
+
+OpaqueMove
+#ClientBorderWidth
+RaiseDelay 100
+BorderWidth 2
+RandomPlacement unmapped
+IconRegion  "256x256-0-64" North West 75 70
+IconRegion  "320x200-260-0" North West 160 70
+UsePPosition "on"
+UseThreeDIconManagers
+UseThreeDMenus
+UseThreeDTitles
+SunkFocusWindowTitle
+#BeNiceToColormap
+#ClearShadowContrast 25
+#DarkShadowContrast 75
+AnimationSpeed 3
+MaxIconTitleWidth 64
+UseThreeDBorders
+NoTitleHighlight
+
+NoShowOccupyAll
+#AutoOccupy
+
+# ----------
+# FONTS
+# ----------
+TitleFont "-adobe-helvetica-bold-r-normal--*-120-*-*-*-*-*-*"
+ResizeFont "-adobe-helvetica-bold-r-normal--*-120-*-*-*-*-*-*"
+MenuFont "-adobe-helvetica-bold-r-normal--*-120-*-*-*-*-*-*"
+IconFont "-adobe-helvetica-bold-r-normal--*-100-*-*-*-*-*-*"
+IconManagerFont "-adobe-helvetica-bold-r-normal--*-100-*-*-*"
+
+# ---------------
+# Managers
+# ---------------
+ShowIconManager
+SortIconManager
+IconManagerGeometry    "64x128-0+0" 1
+
+PixmapDirectory        "~/prefcuche/AfterStep/icons"
+IconDirectory          "~/prefcuche/AfterStep/icons"
+
+DontPaintRootWindow
+ShowWorkSpaceManager
+StartInMapState
+workspacemanagergeometry        "260x66-0-0" 4
+MapWindowCurrentWorkSpace {"Red"  "SkyBlue"  "Blue"  "xpm:ASBBlockGreen.xpm"}
+WorkSpaces {
+    "Mary"     {"grey" "black" "Blue3" "blue" "xpm:ASBBlockBlue.xpm" }
+    "Lise"     {"grey" "green" "black" "blue" "xpm:ASBBlockBlue.xpm" }
+    "Sophie"   {"grey" "green" "black" "blue" "xpm:ASBBlockBlue.xpm" }
+    "net" {"grey" "white" "black" "blue" "xpm:ASBBlockBlue.xpm" }
+}
+
+
+# ------------------------
+# Cursors, Windows, Colors
+# ------------------------
+Cursors
+{
+    Frame   "left_ptr"
+    Title   "left_ptr"
+    Icon    "left_ptr"
+    IconMgr "left_ptr"
+    Move    "fleur"
+    Resize  "sizing"
+    Menu    "X_cursor"
+    Button  "left_ptr"
+    Wait    "clock"
+    Select  "target"
+    Destroy "pirate"
+}
+
+Color
+{
+    BorderColor "darkred"
+    BorderTileBackground "navy"
+    BorderTileForeground "red"
+    DefaultBackground "darkblue"
+    DefaultForeground "gray85"
+    TitleBackground "navyblue"
+    TitleForeground "gray85"
+    MenuBackground "midnightblue"
+    MenuForeground "gray85"
+    MenuTitleBackground "gray65"
+    MenuTitleForeground "darkblue"
+    IconBackground "darkblue"
+    IconForeground "gray60"
+    IconBorderColor "darkblue"
+    IconManagerBackground "black"
+    IconManagerForeground "orange"
+    MapWindowBackground "Khaki"
+    MapWindowForeground "Black"
+}
+
+UnknownIcon    "xpm:nothing.xpm"
+
+ForceIcons
+Icons
+{
+    "XTerm"         "xpm:xterm.xpm"
+    "DECW$TERMINAL" "xpm:term.xpm"
+    "DECW$CALC"     "xpm:xcalc.xpm"
+    "HPterm"        "xpm:hpterm.xpm"
+    "Emacs"         "xpm:emacs.xpm"
+    "XJed"          "xpm:xedit.xpm"
+    "Tpu"           "xpm:xedit.xpm"
+    "VUE$MASTER"    "xpm:ball%.xpm"
+    "Ghostview"     "xpm:ghostview.xpm"
+    "ApplicationShell"  "xpm:cdrom1.xpm"
+    "Mosaic"        "xpm:xmosaic.xpm"
+}
+
+
+WindowRing
+{
+    "XTerm"
+    "Emacs"
+}
+
+AutoRaise
+{
+    "Untitled"
+}
+
+NoTitle
+{
+    "WorkSpaceManager"
+    "TWM Icon Manager"
+    "Clock"
+    "asclock"
+    "asmail"
+    "xload"
+    "bottomterm"
+}
+
+OccupyAll
+{
+    "Clock"
+    "asclock"
+    "asmail"
+    "xload"
+    "bottomterm"
+}
+
+Occupy
+{
+    "Netscape" {"net"}
+}
+
+IconManagerDontShow {
+    "WorkSpaceManager"
+    "Clock"
+    "asclock"
+    "asmail"
+    "xload"
+    "bottomterm"
+}
+
+# --------------------
+# define key bindings and Functions
+# --------------------
+Function "move-or-raise"
+{
+    f.move
+    f.deltastop
+    f.raise
+}
+
+Function "raise-n-focus"
+{
+    f.raise
+}
+
+Function "raise-or-resize"
+{
+    f.raise
+    f.deltastop
+    f.resize
+}
+
+Function "move-or-raiselower"
+{
+    f.move
+    f.deltastop
+    f.raiselower
+}
+
+Function "move-or-iconify"
+{
+    f.move
+    f.deltastop
+    f.iconify
+}
+
+DefaultFunction f.nop
+
+Button1 = : title       : f.function "move-or-raise"
+Button2 = : title       : f.menu "TMenu"
+Button3 = : title       : f.resize
+Button1 = : frame       : f.function "raise-or-resize"
+Button2 = : frame       : f.function "move-or-raise"
+Button1 = : icon        : f.function "move-or-iconify"
+Button2 = : icon        : f.iconify
+Button1 = : iconmgr     : f.iconify
+Button1 = : root        : f.menu "Gorgana"
+Button2 = : root        : f.menu "windowops"
+Button3 = : root        : f.menu "windowsList"
+"F4"    = s : window    : f.destroy
+"F5"    = : all         : f.warpring "next"
+"F7"    = : window|icon : f.function "raise-n-focus"
+"F9"    = : icon|iconmgr     : f.iconify
+"F10"   = s : window    : f.vanish
+"F11"   = : all         : f.prevworkspace
+"F12"   = : all         : f.nextworkspace
+"F11"   = s : all         : f.prevworkspace
+"F12"   = s : all         : f.nextworkspace
+#"Up"    = s|c : all     : f.upiconmgr
+#"Down"  = s|c : all     : f.downiconmgr
+
+# Map Sun "Front" key to raise or lower windows
+"L5"	=	: window : f.raiselower
+"L5"	=	: title  : f.raiselower
+"L5"	=	: frame  : f.raiselower
+"L5"	=	: icon   : f.raiselower
+
+# Map Sun "Open" key to open or close windows
+"L7"	=	: window : f.iconify
+"L7"	=	: title  : f.iconify
+"L7"	=	: frame  : f.iconify
+"L7"	=	: icon   : f.iconify
+
+# -------------
+# Menu
+# -------------
+menu "TMenu" {
+    "Title Menu" f.title
+    "Iconify"    f.iconify
+    ""           f.separator
+    "Occupy"     f.occupy
+    "Occupy all" f.occupyall
+}
+
+menu "Gorgana"
+{
+    "Ruuuppp C'est Degeulase :-)"   f.title
+    "Xterm Orange"                  f.exec "xterm -sb -bg black -fg orange -name 'Orange Mecanic' &"
+    "Xterm White"                   f.exec "xterm -sb -bg black -fg white -name 'I am a Virgine' &"
+    ""              f.nop
+    "Netscape"                      f.exec "/soft/local/bin/netscape &"
+    "Emacs"	                    f.exec "/usr/local/bin/emacs &"
+    "Kmail"			    f.exec "/home/lmonnard/pub/all/kmail &"	
+    ""              f.nop
+    "Graphics"                      f.menu "Viewer"
+    "Music"                         f.menu "Music"
+    ""              f.separator
+    "Workspace ops"                 f.menu "workspace"
+    "Animation"                     f.menu "Anim"
+    ""              f.separator
+    "Restart Ctwm"  f.restart
+    ""              f.separator
+    "Exit My.."     f.quit
+}
+
+menu "windowops"
+{
+    "Windows"      f.title
+    "Pin menu"     f.pin
+    "Kill"         f.menu "Kill"
+    "Save"         f.saveyourself
+    "Refresh All"  f.refresh
+    "Refresh"      f.winrefresh
+    "Occupy"       f.occupy
+    "Occupy All"   f.occupyall
+    "Vanish"       f.vanish
+    ""              f.separator
+    "Iconify"      f.iconify
+    "Resize"       f.resize
+    "RaiseLower"   f.raiselower
+    "Move"         f.move
+    "Raise"        f.raise
+    "Lower"        f.lower
+    "Info"         f.identify
+    "Focus"        f.focus
+    "Unfocus"      f.unfocus
+    "Animation"    f.menu "Anim"
+    "Zoom"         f.menu "Zoom"
+}
+
+menu "windowList"
+{
+
+}
+
+menu "Viewer"
+{
+"Graphics"      f.title
+"XV"            f.exec "xv &"
+"Gimp"          f.exec "/usr/local/bin/gimp &"
+"Acrobat Reader" f.exec "/usr/local/bin/acroread &"
+"Ghost View"    f.exec "/usr/local/bin/X11/gv &"
+"Xpaint"        f.exec "xpaint &"
+}
+
+menu "Music"
+{
+"Music"	            f.title
+"MP3 Player"        f.exec "/home/lmonnard/pub/bin/Utils/Audio/Xaudio/mxaudio &"
+"Real Audio"  f.exec "/home/ccuche/pub/rvplayer/raudio &"
+"Sun Audio"         f.exec "/usr/dt/bin/sdtaudio &"
+""              f.nop
+"Control Audio"     f.exec "/usr/openwin/bin/audiocontrol &"
+}
+
+menu "Kill"
+{
+    "Pin menu"     f.pin
+    "Kill Window"  f.destroy
+    "Send Delete"  f.delete
+}
+
+menu "workspace"
+{
+    "Show Icon Box"  f.showiconmgr
+    "Hide Icon Box"  f.hideiconmgr
+    ""               f.separator
+    "Toggle Manager" f.togglestate
+    "Show Manager"   f.showworkspacemgr
+    "Hide Manager"   f.hideworkspacemgr
+    ""               f.separator
+    "Occupy"         f.occupy
+    "Occupy all"     f.occupyall
+}
+
+menu "Zoom" {
+    "Full"       f.fullzoom
+    "Horizontal" f.horizoom
+    "Vertical"   f.zoom
+    "Left"       f.leftzoom
+    "Top"        f.topzoom
+    "Right"      f.rightzoom
+    "Bottom"     f.bottomzoom
+}
+
+menu "Anim" {
+    "Start"       f.startanimation
+    "Stop"       f.stopanimation
+    "Faster"       f.speedupanimation
+    "Slower"       f.slowdownanimation
+}
+
+menu "titleops"
+{
+    "Title Bar"    f.title
+    "RaiseLower"   f.raiselower
+    "Iconify"      f.iconify
+    "Info"         f.identify
+    "Focus"        f.focus
+    "Unfocus"      f.unfocus
+    "Refresh"      f.winrefresh
+    "Occupy"       f.occupy
+    "Occupy All"   f.occupyall
+    "Vanish"       f.vanish
+    ""              f.separator
+    "Send Delete"  f.delete
+    "Kill Window"  f.destroy
+    "Zoom"         f.menu "Zoom"
+}
+
+
+
+# --------------
+# Bindings
+# --------------
+
+LeftTitleButton ":xpm:dot" = f.deleteordestroy
+LeftTitleButton ":xpm:bar" = f.menu "titleops"
+LeftTitleButton  ":xpm:dot" = f.iconify
+RightTitleButton "%xpm:resize" = f.resize
+

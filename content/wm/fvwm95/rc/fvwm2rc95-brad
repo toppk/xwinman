@@ -1,0 +1,552 @@
+#========================================================================#
+#
+WindowFont	-adobe-helvetica-bold-r-*-*-12-*-*-*-*-*-*-*
+IconFont	fixed
+MenuFont   	-adobe-helvetica-medium-r-*-*-*-120-*-*-*-*-*-*
+#
+DefaultColors   Black SteelBlue SteelBlue Red 
+#
+HilightColors  MidnightBlue firebrick3 
+#
+StickyColors    Red MidnightBlue
+#
+Style "*" ForeColor IndianRed3
+Style "*" BackColor SteelBlue
+#========================================================================#
+# Style "*" NoIcon
+Style "*" MouseFocus
+Style "*" MWMFunctions
+Style "*" HintOverride
+Style "*" MWMDecor
+#
+OpaqueMoveSize 100
+EdgeScroll 100 100
+EdgeResistance 10000 0
+#
+Style "*" RandomPlacement
+#
+#Style "*" NoPPosition
+#========================================================================#
+DeskTopSize 2x1
+#========================================================================#
+ModulePath /usr/X11R6/lib/X11/fvwm95-2/
+PixmapPath /usr/include/X11/pixmaps/:/usr/local/mini-icons/
+IconPath   /usr/include/X11/bitmaps/:/usr/local/icons/
+#========================================================================#
+Style "*" BorderWidth 5, HandleWidth 5
+Style "Fvwm*"        NoTitle, Sticky, WindowListSkip
+Style "Fvwm Pager"   StaysOnTop, NoHandles
+Style "FvwmBanner"   StaysOnTop
+Style "FvwmButtons"  NoTitle, NoHandles, Sticky, WindowListSkip,BorderWidth 3
+Style "*lock"        NoTitle, NoHandles, Sticky, WindowListSkip
+Style "xbiff"        NoTitle,            Sticky, WindowListSkip
+#
+Style "*"         TitleIcon mini-x2.xpm
+Style "*xterm*"   TitleIcon mini.radar_3d.xpm
+Style "rxvt"      TitleIcon mini-term.xpm
+Style "xcalc"     TitleIcon mini-calc.xpm
+Style "xsession"  TitleIcon mini-bx2.xpm
+Style "xv"        TitleIcon mini-xv.xpm
+Style "Netscape"  TitleIcon mini-nscape.xpm
+Style "xmag"      TitleIcon mini-zoom.xpm
+Style "textedit"  TitleIcon mini-edit.xpm
+Style "tkps"      TitleIcon mini-run.xpm
+Style "Ghostview" TitleIcon mini-gv.xpm
+Style "Xcolorsel" TitleIcon mini-colors.xpm
+Style "IDL*"      TitleIcon mini-zoom.xpm
+Style "xeyes"     TitleIcon mini-eyes.xpm
+Style "*fm*"      TitleIcon mini-filemgr.xpm
+Style "topBox"    TitleIcon mini-book1.xpm
+Style "help"      TitleIcon mini-book2.xpm
+Style "manualBrowser" TitleIcon mini-book2.xpm
+Style "xpaint"    TitleIcon mini-paint.xpm
+Style "Canvas"    TitleIcon mini-paint.xpm
+Style "fatbits"   TitleIcon mini-paint.xpm
+Style "filebrowser" TitleIcon mini-paint.xpm
+#========================================================================#
+AddToFunc "InitFunction"    
++			"I" Exec xv -root -quit www/back/36.jpg &
++			"I" Module FvwmButtons
++			"I" Module FvwmTaskBar
++			"I" Module FvwmPager 0 0
+#
+AddToFunc "RestartFunction" 
++			"I" Module FvwmButtons
++			"I" Module FvwmTaskBar
++			"I" Module FvwmPager 0 0
+#========================================================================#
+AddToFunc "Move-or-Raise" "M" Move
++                         "M" Raise
++                         "C" Raise
++                         "D" Maximize 100 100
+
+#
+AddToFunc "Move-or-Lower" "M" Move
++                         "M" Lower
++                         "C" Lower
++                         "D" RaiseLower
+#
+AddToFunc "Move-or-Iconify" "M" Move
++                           "D" Iconify
+#
+AddToFunc "Resize-or-Raise" "M" Resize
++                           "M" Raise
++                           "C" Raise
++                           "D" RaiseLower
+#========================================================================#
+AddToMenu "StartMenu"
++ "Deckyon's Tools%mini.x_3d.xpm%"
++ ""						Nop
++ "Applications%mini.x_3d.xpm%"			Popup Applications
++ "Tools%mini.toolbox_3d.xpm%"			Popup Tools-Popup
++ "Graphics%mini.Paint4.xpm%"			Popup Graphics
++ "Multimedia%mini.cdrom2_3d.xpm%"		Popup Multimedia
++ "Games%mini.smile_3d.xpm%"			Popup Games
++ "Shells%mini.radar_3d.xpm%"			Popup Shells
++ "Window%mini.shuttle_3d.xpm%"			Popup Window
++ "Modules%mini.multiple_3d.xpm%"		Popup Module-Popup
++ ""						Nop
++ "Backgrounds%mini.croc_3d.xpm%"		Popup Backgrounds
++ ""						Nop
++ "Screensaver (a-h)%mini.croc_3d.xpm%"		Popup Screensaver1
++ "Screensaver (i-z)%mini.croc_3d.xpm%"		Popup Screensaver2
++ "Lock Screen (a-h)%mini.radioactive2_3d.xpm%"	Popup Screenlock1
++ "Lock Screen (i-z)%mini.radioactive2_3d.xpm%"	Popup Screenlock2
++ ""						Nop
++ "Refresh Screen%mini.lightning_3d.xpm%"	Refresh
++ ""						Nop
++ "Exit Fvwm95%mini.stop_3d.xpm%"		Popup Quit-Verify
+#
+AddToMenu "Utilities" "Utilities" Title
++ "Applications%mini.x_3d.xpm%"			Popup Applications
++ "Tools%mini.toolbox_3d.xpm%"			Popup Tools-Popup
++ "Graphics%mini.Paint4.xpm%"			Popup Graphics
++ "Multimedia%mini.cdrom2_3d.xpm%"		Popup Multimedia
++ "Games%mini.smile_3d.xpm%"			Popup Games
++ "Shells%mini.radar_3d.xpm"			Popup Shells
++ "Window%mini.shuttle_3d.xpm%"			Popup Window
++ "Modules%mini.multiple_3d.xpm%"		Popup Module-Popup
++ ""						Nop
++ "Backgrounds%mini.croc_3d.xpm%"		Popup Backgrounds
++ ""						Nop
++ "Screensaver (a-h)%mini.croc_3d.xpm%"		Popup Screensaver1
++ "Screensaver (i-z)%mini.croc_3d.xpm%"		Popup Screensaver2
++ "Lock Screen (a-h)%mini.radioactive2_3d.xpm%"	Popup Screenlock1
++ "Lock Screen (i-z)%mini.radioactive2_3d.xpm%"	Popup Screenlock2
++ ""						Nop
++ "Refresh Screen%mini.lightning_3d.xpm%"	Refresh
++ ""						Nop
++ "Exit Fvwm95%mini.stop_3d.xpm%"		Popup Quit-Verify
+#
+AddToMenu "Multimedia" "Multimedia" Title
++ "Workman%mini.cdrom2_3d.xpm%"			Exec exec workman &
++ "xtmix%mini.cdrom3_3d.xpm%"			Exec exec xtmix &
++ "Volume_65%mini.cdrom2_3d.xpm%"		Exec xterm -geometry 40x7+0+750 -e volume 65 &
+#
+AddToMenu "Shells" "Shells" Title
++ "Xterm(7x14)%mini.radar_3d.xpm%"		Exec xterm -sb -sl 500 -j -ls -fn 7x14 &
++ "Color Xterm(8x13)%mini.radar_3d.xpm%"	Exec color_xterm -sb -sl 500 -j -ls -fn 8x13 -title "Color xterm" &
++ "Color Rxvt(VT100)%mini.radar_3d.xpm%"	Exec rxvt -font 7x14 -ls &
++ ""					    	Nop
++ "Large Xterm(10x20)%mini.radar_3d.xpm%"	Exec xterm -sb -sl 500 -j -ls -fn 10x20 &
++ "Large Color Xterm(10x20)%mini.radar_3d.xpm%" Exec color_xterm -sb -sl 500 -j -ls -fn 10x20 &
+#
+AddToMenu "Games" "Games" Title
++ "Maze%mini.xmaze_3d.xpm%"			Exec maze &
++ "Spider%mini.wingdogs_3d.xpm%"		Exec exec spider &
++ "Xboard%mini.chess_3d.xpm%"			Exec xboard &
++ "Xeyes%mini.eye_3d.xpm%"	  		Exec xeyes &
++ "Xhextris%mini.tetris6_3d.xpm%"  		Exec exec xhextris &
++ "Xlander%mini.knife_3d.xpm%"			Exec exec xlander &
++ "Xlogo%mini.x_3d.xpm%"			Exec xlogo &
++ "Xmahjongg%mini.mosaic_3d.xpm"		Exec exec xmahjongg &
++ "Xroach%mini.roadkill_3d.xpm"			Exec exec xroach &
++ "Xtetris%mini.tetris7_3d.xpm%"		Exec xtetris &
++ "Xvier%mini.wierd_page3_3d.xpm%"		Exec exec xvier &
+#
+AddToMenu "Applications" "Applications" Title
++ "Netscape%mini.netscape_3d.xpm%"		Exec netscape -geometry 800x845+0+0 &
++ "Telnet%mini.radar_3d.xpm%"			Exec color_xterm -fg White -bg Black -ls -sb -fn 6x10 -geometry 80x30+0+0 -title "Deckyon on dragon.ntr.net" &
++ "Text Editor%mini.text_3d.xpm%"		Exec textedit -geometry 632x784+509+0 &
++ "asWeb Editor%mini.view_3d.xpm%"		Exec asWedit &
++ "Zircon IRC%mini.dilbert_3d.xpm%"		Exec zircon &
++ "FTP Client%mini.radar_3d.xpm%"		Exec ftptool &
+#
+AddToMenu "Graphics" "Graphics" Title
++ "ImageMagick%mini.paint_3d.xpm%"		Exec xterm -e display &
++ "xbmBrowser%mini.paint_3d.xpm%"		Exec xbmbrowser &
++ "Xfractint%mini.gold_cone_3d.xpm%"		Exec rxvt -font 7x14 -e xfractint map=chroma &
++ "Xpaint%mini.paint_3d_3d.xpm%"		Exec xpaint &
++ "Xv%mini.view_3d.xpm%"			Exec xv &
++ "xsurface%mini.gold_spiral_3d.xpm%"		Exec xsurface & 
++ "Xgrab%mini.camera_3d.xpm%"			Exec xgrab &
++ "Xcolormap%mini.color_wheel_3d.xpm%"		Exec xcolormap &
+#
+AddToMenu "Tools-Popup" "Tools" Title
++ "UC%mini.tools2_3d.xpm%"			Exec xterm -e uc &
++ "Xfm%mini.gfm_a_3d.xpm%"			Exec xfm &
++ "Xfilemanager%mini.gfm_c_3d.xpm%"		Exec xfilemanager &
++ "Calculator%mini.mountains_3d.xpm%"		Exec xcalc &
++ "Xedit%mini.edit_doc_3d.xpm%" 		Exec xedit &
++ "X Forms%mini.application_3d.xpm%"		Exec fdesign &
++ "Emacs%mini.emacs_3d.xpm%" 			Exec textedit -geometry 630x490+95+5 &
++ "Top%mini.tools2_3d.xpm%"			Exec rxvt -font 7x14 -T Top -n Top -e top &
++ "Manual pages%mini.book_3d.xpm%" 		Exec xman &
++ "Magnifying glass%mini.magnify_3d.xpm%" 	Exec xmag &
++ "Ghostview%mini.gremlin_3d.xpm%"		Exec ghostview &
++ "Xxgdb%mini.bug_3d.xpm%"			Exec xxgdb &
++ "Oclock%mini.clock_3d.xpm%"	 		Exec oclock &
+#
+AddToMenu "Quit-Verify" "Really Quit Fvwm95?" Title
++ "Restart Fvwm95%mini.treasure_3d.xpm%"	Restart fvwm95-2
++ "" 						Nop
++ "Start olvwm%mini.xatk_3d.xpm%"		Restart /usr/openwin/bin/olvwm
++ "Start olwm%mini.xbm_3d.xpm%"			Restart /usr/openwin/bin/olwm
++ "Start fvwm%mini.ball_3d.xpm%"		Restart /usr/X11R6/bin/fvwm
++ "Start twm%mini.ball_3d.xpm%"			Restart /usr/X11R6/bin/twm
++ "" 						Nop
++ "Yes, Really Quit%mini.exclamation_3d.xpm%"	Quit
++ "No, Don't Quit%mini.firstaid_3d.xpm%"	Nop
+#
+AddToMenu "Module-Popup" "Modules" Title
++ "Audio%mini.bug_3d.xpm%"			Module FvwmAudio
++ "Auto%mini.bug_3d.xpm%"			Module FvwmAuto 0
++ "Backer%mini.bug_3d.xpm%"			Module FvwmBacker
++ "Banner%mini.bug_3d.xpm%"			Module FvwmBanner
++ "Buttons%mini.bug_3d.xpm%"			Module FvwmButtons
++ "Cpp%mini.bug_3d.xpm%"			Module FvwmCpp
++ "Debug%mini.bug_3d.xpm%"			Module FvwmDebug
++ "Forms%mini.bug_3d.xpm%"			Module FvwmForm
++ "IconBox%mini.bug_3d.xpm%"			Module FvwmIconBox
++ "Identify%mini.bug_3d.xpm%"			Module FvwmIdent
++ "M4%mini.bug_3d.xpm%"				Module FvwmM4
++ "Pager%mini.bug_3d.xpm%"			Module FvwmPager 0 0
++ "Save%mini.bug_3d.xpm%"			Module FvwmSave
++ "Save Desktop%mini.bug_3d.xpm%"		Module FvwmDaveDesk
++ "Scroll%mini.bug_3d.xpm%"			Module FvwmScroll
++ "Talk%mini.bug_3d.xpm%"			Module FvwmTalk
++ "Task bar%mini.bug_3d.xpm%"			Module FvwmTaskBar
++ "Window List%mini.bug_3d.xpm%"		Module FvwmWinList
+#
+AddToMenu "Window" "Window Ops" 	Title
++ "&Move%mini.mouse_head_3d.xpm%"		Function Move-or-Raise
++ "&Resize%mini.mouse_stand_3d.xpm%"		Function Resize-or-Raise
++ "R&aise%mini.shuttle_3d.xpm%"			Raise
++ "&Lower%mini.ship2_3d.xpm%"			Lower
++ "(De)Iconify%mini.icon_3d.xpm%"		Iconify
++ "(Un)Stick%mini.key_3d.xpm%"			Stick
++ "(Un)Maximize%mini.home2_3d.xpm%"		Maximize 100 100
++ ""						Nop
++ "Kill%mini.bomb_3d.xpm%"			Destroy
++ "&Close%mini.stop_3d.xpm%"			Delete
++ ""						Nop
++ "Switch to...%mini.gpanel_mag_3d.xpm%"	WindowList
++ "Refresh Screen%mini.lightning_3d.xpm%"	Refresh
+#
+AddToMenu "Backgrounds" "Backgrounds" Title
++ "Atoms%mini.ball_3d.xpm%"			Exec xv -root -quit www/back/atoms2.jpg
++ "Blue Bump%mini.ball_3d.xpm%"			Exec xv -root -quit www/back/24.jpg
++ "Blue Clouds%mini.ball_3d.xpm%"		Exec xv -root -quit www/back/36.jpg
++ "Blue Fire%mini.ball_3d.xpm%"			Exec xv -root -quit www/back/54.jpg
++ "Blue Oil%mini.ball_3d.xpm%"			Exec xv -root -quit www/back/blueoil.gif
++ ""						Nop
++ "Blue Plazma%mini.ball_3d.xpm%"		Exec xv -root -quit www/back/55.jpg
++ "Blue Stars%mini.ball_3d.xpm%"		Exec xv -root -quit www/back/323.jpg
++ "Blue Swirl%mini.ball_3d.xpm%"		Exec xv -root -quit www/back/42b.gif
++ "Coins%mini.ball_3d.xpm%"			Exec xv -root -quit www/back/coins2.gif
++ "CyberRoad%mini.ball_3d.xpm%"			Exec xv -root -quit www/back/cyber2.gif
++ ""						Nop
++ "Fire 1%mini.ball_3d.xpm%"			Exec xv -root -quit www/back/33.jpg
++ "Fire 2%mini.ball_3d.xpm%"			Exec xv -root -quit www/back/52.jpg
++ "Foil%mini.ball_3d.xpm%"			Exec xv -root -quit www/back/back.jpg
++ "Gradient%mini.ball_3d.xpm%"			Exec xv -root -quit www/back/jll056.jpg
++ "Green Mist%mini.ball_3d.xpm%"		Exec xv -root -quit www/back/43.jpg
++ ""						Nop
++ "Ice Moire%mini.ball_3d.xpm%"			Exec xv -root -quit www/back/icemoire.gif
++ "Jade Tile 1%mini.ball_3d.xpm%"		Exec xv -root -quit www/back/jadetile.gif
++ "Jade Tile 2%mini.ball_3d.xpm%"		Exec xv -root -quit www/back/jadetile2.gif
++ "Lattice Work%mini.ball_3d.xpm%"		Exec xv -root -quit www/back/lattice2.gif
++ "Lava%mini.ball_3d.xpm%"			Exec xv -root -quit www/back/lava2.jpg
++ ""						Nop
++ "Lumps%mini.ball_3d.xpm%"			Exec xv -root -quit www/back/lumps.jpg
++ "Mercury%mini.ball_3d.xpm%"			Exec xv -root -quit www/back/mercury.jpg
++ "Ouch!%mini.ball_3d.xpm%"			Exec xv -root -quit www/back/jll055.jpg
++ "Plazma%mini.ball_3d.xpm%"			Exec xv -root -quit www/back/water.gif
++ "Purple Fire%mini.ball_3d.xpm%"		Exec xv -root -quit www/back/flames.xpm
++ ""						Nop
++ "Raised Marble%mini.ball_3d.xpm%"		Exec xv -root -quit www/back/15b.gif
++ "Red Bump%mini.ball_3d.xpm%"			Exec xv -root -quit www/back/25.jpg
++ "Red Star%mini.ball_3d.xpm%"			Exec xv -root -quit www/back/jll003.jpg
++ "Rings-Ghost%mini.ball_3d.xpm%"		Exec xv -root -quit www/back/11.gif
++ "Rings-Fire%mini.ball_3d.xpm%"		Exec xv -root -quit www/back/firering.gif
++ ""						Nop
++ "Rings-Ice 1%mini.ball_3d.xpm%"		Exec xv -root -quit www/back/icerings.gif
++ "Rings-Ice 2%mini.ball_3d.xpm%"		Exec xv -root -quit www/back/icerings2.gif
++ "Rings-Ice 3%mini.ball_3d.xpm%"		Exec xv -root -quit www/back/watering.gif
++ "Rings-Striped%mini.ball_3d.xpm%"		Exec xv -root -quit www/back/static.gif
++ "Rings-Tiger%mini.ball_3d.xpm%"		Exec xv -root -quit www/back/tiger.gif
++ ""						Nop
++ "River%mini.ball_3d.xpm%"			Exec xv -root -quit www/back/river.gif
++ "Satin Plazma%mini.ball_3d.xpm%"		Exec xv -root -quit www/back/32.jpg
++ "Star Light%mini.ball_3d.xpm%"		Exec xv -root -quit www/back/stars.gif
++ "Stomped%mini.ball_3d.xpm%"			Exec xv -root -quit www/back/back02.jpg
++ "Stripes%mini.ball_3d.xpm%"			Exec xv -root -quit www/back/53.jpg
++ ""						Nop
++ "Tiles%mini.ball_3d.xpm%"			Exec xv -root -quit www/back/buttonc.gif
++ "Water 1%mini.ball_3d.xpm%"			Exec xv -root -quit www/back/bluegrey.gif
++ "Waves%mini.ball_3d.xpm%"			Exec xv -root -quit www/back/waves4.gif
++ "Weird%mini.ball_3d.xpm%"			Exec xv -root -quit www/back/bk4.gif
+#
+AddToMenu "Screensaver1" "Screensaver (a-h)" Title
++ "Ant%mini.ball_3d.xpm%"  			Exec xlock -nolock -nice 0 -mode ant &
++ "Bat%mini.ball_3d.xpm%"  			Exec xlock -nolock -nice 0 -mode bat &
++ "Blank%mini.ball_3d.xpm%" 			Exec xlock -nolock -nice 0 -mode blank &
++ "Blot%mini.ball_3d.xpm%"			Exec xlock -nolock -nice 0 -mode blot &
++ "Bouboule%mini.ball_3d.xpm%"			Exec xlock -nolock -nice 0 -mode bouboule &
++ "Bob%mini.ball_3d.xpm%"   			Exec xlock -nolock -nice 0 -mode image &
++ "Bounce%mini.ball_3d.xpm%" 			Exec xlock -nolock -nice 0 -mode bounce &
++ "Braid%mini.ball_3d.xpm%" 			Exec xlock -nolock -nice 0 -mode braid &
++ "Bug%mini.ball_3d.xpm%"   			Exec xlock -nolock -nice 0 -mode bug &
++ "Clock%mini.ball_3d.xpm%" 			Exec xlock -nolock -nice 0 -mode clock &
++ "Daisy%mini.ball_3d.xpm%" 			Exec xlock -nolock -nice 0 -mode daisy &
++ "Demon%mini.ball_3d.xpm%" 			Exec xlock -nolock -nice 0 -mode demon &
++ "Eyes%mini.ball_3d.xpm%" 			Exec xlock -nolock -nice 0 -mode eyes &
++ "Flag%mini.ball_3d.xpm%" 			Exec xlock -nolock -nice 0 -mode flag &
++ "Flame%mini.ball_3d.xpm%" 			Exec xlock -nolock -nice 0 -mode flame &
++ "Forest%mini.ball_3d.xpm%" 			Exec xlock -nolock -nice 0 -mode forest &
++ "Galaxy%mini.ball_3d.xpm%" 			Exec xlock -nolock -nice 0 -mode galaxy &
++ "Geometry%mini.ball_3d.xpm%" 			Exec xlock -nolock -nice 0 -mode geometry &
++ "Grav%mini.ball_3d.xpm%" 			Exec xlock -nolock -nice 0 -mode grav &
++ "Helix%mini.ball_3d.xpm%" 			Exec xlock -nolock -nice 0 -mode helix &
++ "Hop%mini.ball_3d.xpm%"   			Exec xlock -nolock -nice 0 -mode hop   &
++ "Hyper%mini.ball_3d.xpm%" 			Exec xlock -nolock -nice 0 -mode hyper &
+#
+AddToMenu "Screensaver2" "Screensaver (i-z)" Title
++ "Kaleid%mini.ball_3d.xpm%" 			Exec xlock -nolock -nice 0 -mode kaleid &
++ "Laser%mini.ball_3d.xpm%" 			Exec xlock -nolock -nice 0 -mode laser &
++ "Life%mini.ball_3d.xpm%"  			Exec xlock -nolock -nice 0 -mode life   &
++ "Life1d%mini.ball_3d.xpm%"  			Exec xlock -nolock -nice 0 -mode life1d &
++ "Life3d%mini.ball_3d.xpm%"  			Exec xlock -nolock -nice 0 -mode life3d &
++ "Lightning%mini.ball_3d.xpm%"			Exec xlock -nolock -nice 0 -mode lightning &
++ "Lissie%mini.ball_3d.xpm%"  			Exec xlock -nolock -nice 0 -mode lissie &
++ "Marquee%mini.ball_3d.xpm%"  			Exec xlock -nolock -nice 0 -mode marquee &
++ "Maze%mini.ball_3d.xpm%" 			Exec xlock -nolock -nice 0 -mode maze &
++ "Mountain%mini.ball_3d.xpm%"			Exec xlock -nolock -nice 0 -mode mountain &
++ "Nose%mini.ball_3d.xpm%"  			Exec xlock -nolock -nice 0 -mode nose &
++ "Penrose%mini.ball_3d.xpm%"  			Exec xlock -nolock -nice 0 -mode penrose &
++ "Petal%mini.ball_3d.xpm%"  			Exec xlock -nolock -nice 0 -mode petal &
++ "Puzzle%mini.ball_3d.xpm%"  			Exec xlock -nolock -nice 0 -mode puzzle &
++ "Pyro%mini.ball_3d.xpm%"  			Exec xlock -nolock -nice 0 -mode pyro &
++ "Qix%mini.ball_3d.xpm%"   			Exec xlock -nolock -nice 0 -mode qix &
++ "Random%mini.ball_3d.xpm%"			Exec xlock -nolock -nice 0 -mode random &
++ "Rock%mini.ball_3d.xpm%" 			Exec xlock -nolock -nice 0 -mode rock &
++ "Rotor%mini.ball_3d.xpm%" 			Exec xlock -nolock -nice 0 -mode rotor &
++ "Shape%mini.ball_3d.xpm%" 			Exec xlock -nolock -nice 0 -mode shape &
++ "Slip%mini.ball_3d.xpm%"  			Exec xlock -nolock -nice 0 -mode slip &
++ "Sphere%mini.ball_3d.xpm%" 			Exec xlock -nolock -nice 0 -mode sphere &
++ "Spiral%mini.ball_3d.xpm%" 			Exec xlock -nolock -nice 0 -mode spiral &
++ "Spline%mini.ball_3d.xpm%" 			Exec xlock -nolock -nice 0 -mode spline &
++ "Swarm%mini.ball_3d.xpm%" 			Exec xlock -nolock -nice 0 -mode swarm &
++ "Swirl%mini.ball_3d.xpm%" 			Exec xlock -nolock -nice 0 -mode swirl &
++ "Tri%mini.ball_3d.xpm%" 			Exec xlock -nolock -nice 0 -mode tri &
++ "Triangle%mini.ball_3d.xpm%" 			Exec xlock -nolock -nice 0 -mode triangle &
++ "Wator%mini.ball_3d.xpm%"  			Exec xlock -nolock -nice 0 -mode wator &
++ "Wire%mini.ball_3d.xpm%"  			Exec xlock -nolock -nice 0 -mode wire &
++ "World%mini.ball_3d.xpm%" 			Exec xlock -nolock -nice 0 -mode world &
++ "Worm%mini.ball_3d.xpm%" 			Exec xlock -nolock -nice 0 -mode worm &
+#
+AddToMenu "Screenlock1" "Lock Screen (a-h)" Title
++ "Ant%mini.ball_bounce_3d.xpm%"		Exec xlock -nice 0 -mode ant &
++ "Bat%mini.ball_bounce_3d.xpm%"		Exec xlock -nice 0 -mode bat &
++ "Blank%mini.ball_bounce_3d.xpm%"       	Exec xlock -nice 0 -mode blank &
++ "Blot%mini.ball_bounce_3d.xpm%"        	Exec xlock -nice 0 -mode blot &
++ "Bouboule%mini.ball_bounce_3d.xpm%"    	Exec xlock -nice 0 -mode bouboule &
++ "Bob%mini.ball_bounce_3d.xpm%"         	Exec xlock -nice 0 -mode image &
++ "Bounce%mini.ball_bounce_3d.xpm%"      	Exec xlock -nice 0 -mode bounce &
++ "Braid%mini.ball_bounce_3d.xpm%"       	Exec xlock -nice 0 -mode braid &
++ "Bug%mini.ball_bounce_3d.xpm%"         	Exec xlock -nice 0 -mode bug &
++ "Clock%mini.ball_bounce_3d.xpm%"       	Exec xlock -nice 0 -mode clock &
++ "Daisy%mini.ball_bounce_3d.xpm%"       	Exec xlock -nice 0 -mode daisy &
++ "Demon%mini.ball_bounce_3d.xpm%"       	Exec xlock -nice 0 -mode demon &
++ "Eyes%mini.ball_bounce_3d.xpm%"        	Exec xlock -nice 0 -mode eyes &
++ "Flag%mini.ball_bounce_3d.xpm%"        	Exec xlock -nice 0 -mode flag &
++ "Flame%mini.ball_bounce_3d.xpm%"       	Exec xlock -nice 0 -mode flame &
++ "Forest%mini.ball_bounce_3d.xpm%"      	Exec xlock -nice 0 -mode forest &
++ "Galaxy%mini.ball_bounce_3d.xpm%"      	Exec xlock -nice 0 -mode galaxy &
++ "Geometry%mini.ball_bounce_3d.xpm%"   	Exec xlock -nice 0 -mode geometry &
++ "Grav%mini.ball_bounce_3d.xpm%"        	Exec xlock -nice 0 -mode grav &
++ "Helix%mini.ball_bounce_3d.xpm%"       	Exec xlock -nice 0 -mode helix &
++ "Hop%mini.ball_bounce_3d.xpm%"         	Exec xlock -nice 0 -mode hop   &
++ "Hyper%mini.ball_bounce_3d.xpm%"       	Exec xlock -nice 0 -mode hyper &
+#
+AddToMenu "Screenlock2" "Lock Screen (i-z)" Title
++ "Kaleid%mini.ball_bounce_3d.xpm%"      	Exec xlock -nice 0 -mode kaleid &
++ "Laser%mini.ball_bounce_3d.xpm%"       	Exec xlock -nice 0 -mode laser &
++ "Life%mini.ball_bounce_3d.xpm%"        	Exec xlock -nice 0 -mode life   &
++ "Life1d%mini.ball_bounce_3d.xpm%"      	Exec xlock -nice 0 -mode life1d &
++ "Life3d%mini.ball_bounce_3d.xpm%"      	Exec xlock -nice 0 -mode life3d &
++ "Lightning%mini.ball_bounce_3d.xpm%"   	Exec xlock -nice 0 -mode lightning &
++ "Lissie%mini.ball_bounce_3d.xpm%"     	Exec xlock -nice 0 -mode lissie &
++ "Marquee%mini.ball_bounce_3d.xpm%"     	Exec xlock -nice 0 -mode marquee &
++ "Maze%mini.ball_bounce_3d.xpm%"        	Exec xlock -nice 0 -mode maze &
++ "Mountain%mini.ball_bounce_3d.xpm%"    	Exec xlock -nice 0 -mode mountain &
++ "Nose%mini.ball_bounce_3d.xpm%"        	Exec xlock -nice 0 -mode nose &
++ "Penrose%mini.ball_bounce_3d.xpm%"     	Exec xlock -nice 0 -mode penrose &
++ "Petal%mini.ball_bounce_3d.xpm%"       	Exec xlock -nice 0 -mode petal &
++ "Puzzle%mini.ball_bounce_3d.xpm%"      	Exec xlock -nice 0 -mode puzzle &
++ "Pyro%mini.ball_bounce_3d.xpm%"        	Exec xlock -nice 0 -mode pyro &
++ "Qix%mini.ball_bounce_3d.xpm%"         	Exec xlock -nice 0 -mode qix &
++ "Random%mini.ball_bounce_3d.xpm%"     	Exec xlock -nice 0 -mode random &
++ "Rock%mini.ball_bounce_3d.xpm%"        	Exec xlock -nice 0 -mode rock &
++ "Rotor%mini.ball_bounce_3d.xpm%"       	Exec xlock -nice 0 -mode rotor &
++ "Shape%mini.ball_bounce_3d.xpm%"       	Exec xlock -nice 0 -mode shape &
++ "Slip%mini.ball_bounce_3d.xpm%"        	Exec xlock -nice 0 -mode slip &
++ "Sphere%mini.ball_bounce_3d.xpm%"      	Exec xlock -nice 0 -mode sphere &
++ "Spiral%mini.ball_bounce_3d.xpm%"      	Exec xlock -nice 0 -mode spiral &
++ "Spline%mini.ball_bounce_3d.xpm%"      	Exec xlock -nice 0 -mode spline &
++ "Swarm%mini.ball_bounce_3d.xpm%"       	Exec xlock -nice 0 -mode swarm &
++ "Swirl%mini.ball_bounce_3d.xpm%"       	Exec xlock -nice 0 -mode swirl &
++ "Tri%mini.ball_bounce_3d.xpm%"         	Exec xlock -nice 0 -mode tri &
++ "Triangle%mini.ball_bounce_3d.xpm%"    	Exec xlock -nice 0 -mode triangle &
++ "Wator%mini.ball_bounce_3d.xpm%"       	Exec xlock -nice 0 -mode wator &
++ "Wire%mini.ball_bounce_3d.xpm%"        	Exec xlock -nice 0 -mode wire &
++ "World%mini.ball_bounce_3d.xpm%"       	Exec xlock -nice 0 -mode world &
++ "Worm%mini.ball_bounce_3d.xpm%"        	Exec xlock -nice 0 -mode worm &
+#
+AddToMenu "Window-Ops2" 
++ "&Restore"					Iconify -1
++ "&Move"					Move-or-Raise
++ "&Size"					Resize-or-Raise
++ "Mi&nimize"					Iconify 1
++ "Ma&ximize"					Maximize 100 100
++ ""						Nop
++ "&Kill"					Destroy
++ "&Close (Alt+F4)"				Delete
+#========================================================================#
+AddToFunc "window_ops_func" "C" PopUp Window-Ops2
++              "M" PopUp Window-Ops2
++              "D" Delete  
+#========================================================================#
+#     Button	Context Modifi 	Function
+Mouse 1		R   	A       Menu "Utilities" Nop
+Mouse 2		R    	A       Menu "Window Ops" Nop
+Mouse 3         R       A       WindowList
+Mouse 0		1    	A      	Function "window_ops_func"
+Mouse 1         2       A       Delete
+Mouse 0		4    	A     	Maximize 100 100
+Mouse 0		6    	A     	Iconify
+Mouse 1		F	A	Function "Resize-or-Raise"
+Mouse 1		TS	A	Function "Move-or-Raise"
+Mouse 1		I	A	Function "Move-or-Iconify"
+Mouse 2		I	A	Iconify
+Mouse 2		FST	A	Function "window_ops_func"
+Mouse 3		TSIF	A	RaiseLower
+Mouse 3         W       M       RaiseLower
+#========================================================================#
+# press arrow + control anywhere, and scroll by 1 page
+Key Left	A	C	Scroll -100 0
+Key Right	A	C	Scroll +100 +0
+Key Up		A	C	Scroll +0   -100
+Key Down	A	C	Scroll +0   +100
+# press arrow + meta key, and scroll by 1/10 of a page
+Key Left	A	M	Scroll -10 +0
+Key Right	A	M	Scroll +10 +0
+Key Up		A	M	Scroll +0   -10
+Key Down	A	M	Scroll +0   +10
+# press shift arrow + control anywhere, and move the pointer by 1% of a page
+Key Left	A	SC	CursorMove -1 0
+Key Right	A	SC	CursorMove +1 +0
+Key Up		A	SC	CursorMove +0   -1
+Key Down	A	SC	CursorMove +0   +1
+# press shift arrow + meta key, and move the pointer by 1/10 of a page
+Key Left	A	SM	CursorMove -10 +0
+Key Right	A	SM	CursorMove +10 +0
+Key Up		A	SM	CursorMove +0   -10
+Key Down	A	SM	CursorMove +0   +10
+# Keyboard accelerators
+Key F1		A	M	Popup "Utilities"
+Key F1		A	M	Popup "Utilities"
+Key F2		A	M	Popup "Window Ops"
+Key F3		A	M	Module "WindowList" FvwmWinList 
+Key F4		A	M	Iconify
+Key F5		A	M	Move
+Key F6		A	M	Resize
+Key F7		A	M	CirculateUp
+Key F8		A	M	CirculateDown
+Key Tab         A       M       Prev Focus
+Key Tab         A       MS      Next Focus
+Key Escape      A       C       WindowList
+#========================================================================#
+#------------------ Pager
+Style "FvwmPager" NoTitle,StaysOnTop
+*FvwmPagerBack Navy
+*FvwmPagerFore White
+*FvwmPagerFont -adobe-helvetica-bold-r-*-*-9-*-*-*-*-*-*-*
+*FvwmPagerHilight DarkRed
+*FvwmPagerGeometry 40x42+1103+822
+*FvwmPagerLabel 0 Desk
+*FvwmPagerSmallFont 4x8
+#------------------ FvwmButtons
+*FvwmButtonsFore Navy
+*FvwmButtonsBack SteelBlue 
+*FvwmButtonsFont -adobe-helvetica-bold-r-*-*-10-*-*-*-*-*-*-*
+*FvwmButtonsGeometry +897+822
+*FvwmButtonsRows 1
+*FvwmButtons (3x1) - NULL Swallow "xload" Exec nice -16 xload -nolabel -update 1 -bg SteelBlue -fg DarkRed -hl DarkRed -geometry -1000-1000 &
+*FvwmButtons - clock.xpm Swallow "xclock" Exec xclock -bg SteelBlue -fg Navy -hd Navy -hl Navy -geometry -1500-1500 -padding 0 &
+*FvwmButtons - bomb.xpm   Destroy
+#------------------ Identify
+*FvwmIdentBack #000080
+*FvwmIdentFore Yellow
+*FvwmIdentFont -adobe-helvetica-medium-r-*-*-12-*-*-*-*-*-*-*
+#------------------ FvwmWinList
+*FvwmWinListBack SlateGrey
+*FvwmWinListFore Black
+*FvwmWinListFont -adobe-helvetica-bold-r-*-*-10-*-*-*-*-*-*-*
+*FvwmWinListAction Click1 Iconify -1,Focus
+*FvwmWinListAction Click2 Iconify
+*FvwmWinListAction Click3 Module "FvwmIdent" FvwmIdent
+*FvwmWinListUseSkipList
+*FvwmWinListGeometry +996+0
+#------------------ FvwmTaskBar
+Style "FvwmTaskBar" NoTitle,BorderWidth 3,HandleWidth 3,Sticky,StaysOnTop,WindowListSkip,CirculateSkip
+*FvwmTaskBarGeometry +0-0
+*FvwmTaskBarFore White
+*FvwmTaskBarBack SteelBlue
+*FvwmTaskBarTipsFore White
+*FvwmTaskBarTipsBack Red
+*FvwmTaskBarFont -adobe-helvetica-medium-r-*-*-*-120-*-*-*-*-*-*
+*FvwmTaskBarSelFont -adobe-helvetica-bold-r-*-*-*-120-*-*-*-*-*-*
+*FvwmTaskBarAction Click1 Iconify -1,Raise,Focus
+*FvwmTaskBarAction Click2 Iconify
+*FvwmTaskBarAction Click3 Module "FvwmIdent" FvwmIdent
+*FvwmTaskBarUseSkipList
+*FvwmTaskBarClockFormat %D %I:%M:%S %p
+*FvwmTaskBarUpdateInterval 1
+*FvwmTaskBarBellVolume 10
+*FvwmTaskBarAutoStick
+*FvwmTaskBarStartName Deckyon's Tools 
+*FvwmTaskBarStartMenu StartMenu
+*FvwmTaskBarStartIcon mini.afraid_3d.xpm
+*FvwmTaskBarShowTips
+*FvwmTaskBarMailProg xterm -e pine 
+#----------------- FvwmIconBox
+Style "*" NoIcon
+*FvwmIconBoxFore White
+*FvwmIconBoxBack SteelBlue
+*FvwmIconBoxIconFore Red
+*FvwmIconBoxIconBack Black
+*FvwmIconBoxIconHiFore Black
+*FvwmIconBoxIconHiBack Green
+*FvwmIconBoxPixmap
+*FvwmIconBoxFont -adobe-helvetica-medium-r-*-*-*-120-*-*-*-*-*-*
+*FvwmIconBoxPadding 1
+*FvwmIconBoxSortIcons WindowName
+*FvwmIconBoxSBWidth 9
+*FvwmIconBoxPlacement Left Top
+*FvwmIconBoxGeometry 10x1+745+0
+*FvwmIconBoxMaxIconSize 32x32
+*FvwmIconBoxSetWMIconSize
+*FvwmIconBoxHilightFocusWin
+*FvwmIconBoxMouse 1 Click Focus
+*FvwmIconBoxMouse 1 DoubleClick Iconify

@@ -1,0 +1,15 @@
+# _metadata.toml describes the files in this directory: each [[entry]] names files and records
+# what is known about them (mtime, contributor, date, text...). Same shape everywhere.
+# Here: the contributed setups, who sent them and when; {{< contributions >}} is one view of it.
+
+[[entry]]
+from = "trollet@skynet.be"
+added = "2003-04"
+files = ["screenshots/metacity-trollet.jpg"]
+text = "This 1600x1200 [screenshot](screenshots/metacity-trollet.jpg) (358k) is from an Ultra 10 running Solaris."
+
+[[entry]]
+from = "rfd888@prodigy.net"
+added = "2003-04"
+files = ["screenshots/metacity-rfd888.jpg"]
+text = "This [screenshot](screenshots/metacity-rfd888.jpg) (162k) shows Metacity running with GNOME 2 on SuSE Linux."

@@ -1,0 +1,34 @@
+{{- /* One directory: derive the Apache listing from the files on disk, publish <dir>/index.html, recurse */ -}}
+{{- $fs := .fs }}{{ $dir := .dir }}
+{{- $names := slice }}{{ range os.ReadDir $fs }}{{ $names = $names | append .Name }}{{ end }}
+{{- if not (in $names "index.html") }}
+{{- $entries := slice }}
+{{- range os.ReadDir $fs }}
+{{- if not (or (in (slice "HEADER" "README" "_metadata.toml") .Name) (hasPrefix .Name ".")) }}
+{{- $n := .Name }}{{ $lower := lower $n }}
+{{- $icon := "unknown" }}{{ $alt := "[   ]" }}{{ $desc := "" }}
+{{- if .IsDir }}{{ $icon = "folder" }}{{ $alt = "[DIR]" }}
+{{- else if hasSuffix $lower ".uu" }}{{ $icon = "uuencoded" }}{{ $desc = "GZIP compressed docume>" }}
+{{- else if hasSuffix $lower ".tgz" }}{{ $icon = "compressed" }}{{ $alt = "[CMP]" }}{{ $desc = "GZIP compressed tar ar>" }}
+{{- else if hasSuffix $lower ".gz" }}{{ $icon = "compressed" }}{{ $alt = "[CMP]" }}{{ $desc = "GZIP compressed docume>" }}
+{{- else if hasSuffix $n ".tar.Z" }}{{ $icon = "compressed" }}{{ $alt = "[CMP]" }}{{ $desc = "tar archive" }}
+{{- else if or (hasSuffix $n ".Z") (hasSuffix $lower ".zip") }}{{ $icon = "compressed" }}{{ $alt = "[CMP]" }}
+{{- else if or (hasSuffix $lower ".gif") (hasSuffix $lower ".jpg") (hasSuffix $lower ".png") (hasSuffix $lower ".xpm") }}{{ $icon = "image2" }}{{ $alt = "[IMG]" }}
+{{- else if or (hasSuffix $lower ".txt") (hasSuffix $lower "readme") (eq $n "Announce") }}{{ $icon = "text" }}{{ $alt = "[TXT]" }}
+{{- end }}
+{{- $name := cond .IsDir (printf "%s/" $n) $n }}
+{{- $size := "    -" }}
+{{- if not .IsDir }}{{ $b := .Size }}{{ $size = cond (lt $b 1024) "   1k" (cond (lt $b 1048576) (printf "%4dk" (div (add $b 512) 1024)) (printf "%4.1fM" (div (float $b) 1048576))) }}{{ end }}
+{{- $entries = $entries | append (dict "icon" $icon "alt" $alt "href" $name
+      "name" (cond (gt (len $name) 23) (printf "%s..>" (substr $name 0 20)) $name)
+      "date" (partial "apache-date.html" .ModTime) "size" $size "desc" $desc) }}
+{{- end }}{{ end }}
+{{- /* Parent Directory date: the parent's mtime, or the directory's own when the parent is outside the site tree */ -}}
+{{- $parent := path.Dir $fs }}{{ $pstat := os.Stat (cond (in (slice "collections" "static") $parent) $fs $parent) }}
+{{- $ctx := dict "dir" $dir "up" (strings.Repeat (add 1 (strings.Count "/" $dir)) "../") "entries" $entries
+    "parent_date" (partial "apache-date.html" $pstat.ModTime) }}
+{{- if os.FileExists (printf "%s/HEADER" $fs) }}{{ $ctx = merge $ctx (dict "header" (os.ReadFile (printf "%s/HEADER" $fs))) }}{{ end }}
+{{- if os.FileExists (printf "%s/README" $fs) }}{{ $ctx = merge $ctx (dict "readme" (os.ReadFile (printf "%s/README" $fs))) }}{{ end }}
+{{- $_ := (resources.FromString (printf "%s/index.html" $dir) (partial "autoindex-page.html" $ctx)).RelPermalink }}
+{{- end }}
+{{- range os.ReadDir $fs }}{{ if .IsDir }}{{ partial "autoindex-dir.html" (dict "fs" (printf "%s/%s" $fs .Name) "dir" (printf "%s/%s" $dir .Name)) }}{{ end }}{{ end }}

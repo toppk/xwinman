@@ -1,0 +1,51 @@
+# _metadata.toml describes the files in this directory: each [[entry]] names files and records
+# what is known about them (mtime, contributor, date, text...). Same shape everywhere.
+# Here: the contributed setups, who sent them and when; {{< contributions >}} is one view of it.
+
+[[entry]]
+from = "dbl@darknet.dk"
+added = "2003-04"
+files = ["screenshots/fluxbox-dbl.jpg"]
+text = "This [screenshot](screenshots/fluxbox-dbl.jpg) (428k) shows a Fluxbox desktop with many running applications including eterm, xmms, licq, and quanta (a web development tool)."
+
+[[entry]]
+from = "jef@sc.rr.com"
+added = "2003-04"
+files = ["screenshots/fluxbox-jef.jpg"]
+text = "This [screenshot](screenshots/fluxbox-jef.jpg) (147k) shows Fluxbox 0.1.14 with a modified \"almostx\" theme, running on Mandrake 9.0. Running applications include gkrellm, gmplayer (aqua-corner skin), gimp, and xmms."
+
+[[entry]]
+from = "question@closedsrc.org"
+added = "2003-04"
+files = ["screenshots/fluxbox-question.png"]
+text = "This [screenshot](screenshots/fluxbox-question.png) (245k) shows a Fluxbox environment running on FreeBSD 4.7 with the following application: Mozilla, OpenOffice, gvim and rxvt."
+
+[[entry]]
+from = "input@cpcnw.com"
+added = "2003-04"
+files = ["screenshots/fluxbox-input.png"]
+text = "This [screenshot](screenshots/fluxbox-input.png) (389k) shows an impressive version of the Fluxbox logo."
+
+[[entry]]
+from = "ascheepers@vianetworks.nl"
+added = "2003-04"
+files = ["screenshots/fluxbox-ascheepers.jpg"]
+text = "This 1600x1200 [screenshot](screenshots/fluxbox-ascheepers.jpg) (213k) shows a fluxbox desktop running Mozilla and the gentoo file manager (not the Gentoo Linux distribution)."
+
+[[entry]]
+from = "thomas.wilson@optushome.com.au"
+added = "2003-05"
+files = ["screenshots/fluxbox-thomas.jpg"]
+text = "This [screenshot](screenshots/fluxbox-thomas.jpg) (136k) shows Fluxbox running with the following apps: mplayer, gkrellm, gaim, and xfe."
+
+[[entry]]
+from = "wooh@wooh.hu"
+added = "2003-05"
+files = ["screenshots/fluxbox-wooh.jpg"]
+text = "Another Fluxbox [screenshot](screenshots/fluxbox-wooh.jpg) (179k)."
+
+[[entry]]
+from = "andymorritt@rogers.com"
+added = "2004-01"
+files = ["screenshots/fluxbox-andymorritt.jpg"]
+text = "Here is a [screenshot](screenshots/fluxbox-andymorritt.jpg) (182k) of a Fluxbox desktop running Aterm, Xchat, Mozilla, and the Gimp."

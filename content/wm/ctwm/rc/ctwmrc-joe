@@ -1,0 +1,246 @@
+#
+# Joe's hacked ctwm config.
+# Based on Alien Jim and hdm's config.
+#
+
+NoGrabServer
+RestartPreviousState
+DecorateTransients
+TitleFont "-adobe-helvetica-bold-r-normal--*-80-*-*-*-*-*-*"
+ResizeFont "-adobe-helvetica-bold-r-normal--*-80-*-*-*-*-*-*"
+MenuFont "-adobe-helvetica-bold-r-normal--*-80-*-*-*-*-*-*"
+IconFont "-adobe-helvetica-bold-r-normal--*-60-*-*-*-*-*-*"
+IconManagerFont "-adobe-helvetica-bold-r-normal--*-60-*-*-*"
+ShowWorkSpaceManager                    # start with workspcace manager up
+#UseThreeDMenus
+#UseThreeDTitles
+#UseThreeDIconManagers
+#UseThreeDBorders
+#UseThreeDWMap
+SunkFocusWindowTitle
+OpaqueMove
+DontPaintRootWindow
+ThreeDBorderWidth 1
+StartInMapState
+#RandomPlacement on
+NoShowOccupyAll
+
+workspacemanagergeometry        "300x60+0-0" 4
+WorkSpaces {
+    "One"   {"#619AAE" "white" "black" "white" "#000000"}
+    "Two"   {"#619AAE" "white" "black" "white" "#000000"}
+    "Three"   {"#619AAE" "white" "black" "white" "#000000"}
+    "Four"   {"#619AAE" "white" "black" "white" "#000000"}
+    "Five"   {"#619AAE" "white" "black" "white" "#000000"}
+    "Six"   {"#619AAE" "white" "black" "white" "#000000"}
+    "Seven"   {"#619AAE" "white" "black" "white" "#000000"}
+    "Eight"   {"#619AAE" "white" "black" "white" "#000000"}
+}
+
+Color
+{
+#    BorderColor           "GoldenRod"
+    DefaultBackground     "darkyellow"
+    DefaultForeground     "gray85"
+    BorderTileBackground  "gray10"
+    BorderTileForeground  "Black"
+    TitleBackground       "#808080"
+    TitleForeground       "Black"
+    #MenuBackground        "#686B9F"
+    MenuBackground        "gray10"
+    MenuForeground        "gray70"
+    MenuTitleBackground   "gray70"
+    MenuTitleForeground   "White"
+    IconBackground        "LightSlateBlue"
+    IconForeground        "White"
+    IconBorderColor       "gray85"
+    IconManagerBackground "DeepSkyBlue1" {"Axe" "DeepSkyBlue3" "xload" "DeepSkyBlue2"}
+    IconManagerForeground "Black"
+    MapWindowBackground   "DeepSkyBlue1" {
+        "root*" "Red"
+        "xterm" "DeepSkyBlue3"
+        "Axe"   "Yellow"
+    }
+    MapWindowForeground   "Black" {
+        "xterm" "White"
+    }
+}
+
+OccupyAll {
+    "xbuffy"
+    "xload"
+    "xclock"
+    "mon"
+}
+
+NoBorder {
+    "mon"
+    "irc" 
+}
+
+IconManagerDontShow {
+    "xbuffy"
+    "xload"
+    "irc"
+    "xclock"
+    "WorkSpaceManager"
+    "mon"
+}
+
+NoTitle {                  # little programs that look like icons
+    "TWM Icon Manager"
+    "WorkSpaceManager"
+    "rxvt"
+    "irc"
+    "xbuffy"
+    "xload"
+    "xclock"
+    "mon"
+    "aterm"
+    "xterm"
+}
+
+#
+# Define some useful functions for motion-based actions.
+#
+MoveDelta 3
+Function "move-or-lower" { f.move f.deltastop f.lower }
+Function "move-or-raise" { f.move f.deltastop f.raise }
+Function "move-or-iconify" { f.move f.deltastop f.iconify }
+
+#
+# Set some useful bindings.  Sort of uwm-ish, sort of simple-button-ish
+#
+Button1 =       : root          : f.menu "defops"
+Button3 =       : root          : f.menu "windowops"
+
+Button1 = m     : window|icon   : f.move
+Button2 = m     : window|icon   : f.iconify
+Button3 = m     : window|icon   : f.raiselower
+
+Button1 = m | s : window    : f.resize
+Button1 =       : title         : f.function "move-or-raise"
+Button3 =       : title         : f.raiselower
+
+Button1 =       : icon          : f.function "move-or-iconify"
+Button2 =       : icon          : f.iconify
+
+Button1 =       : iconmgr       : f.iconify
+Button2 =       : iconmgr       : f.iconify
+
+Button1 =       : frame         : f.resize
+Button1 = m     : frame         : f.move
+Button2 =               : frame                 : f.iconify
+Button3 =       : frame         : f.raiselower
+"Left"  = m             : all                   : f.leftworkspace
+"Right" = m             : all                   : f.rightworkspace
+"Up"  = m               : all                   : f.upworkspace
+"Down" = m              : all                   : f.downworkspace
+"F1"   =                : all                   : f.leftworkspace
+"F2"   =                : all                   : f.rightworkspace
+"F3"   =                : all                   : f.upworkspace
+#
+# And a menus with the usual things
+#
+menu "defops"
+{
+    "Twm"               f.title
+    "Term"		!"term -title gunhed -n gunhed"
+    "Terms"                f.menu "xterm"
+    "Apps"                  f.menu "apps"
+    "Hosts"                 f.menu "hosts"
+    "Xlock"         !"xlock &"
+    "Xlock blank"         !"xlock -mode blank &"
+    "Customise" !"custom&"
+    "Xman"              !"xman &"
+    "Xmag"              !"xmag&"
+    ""                  f.nop
+    "Restart"           f.restart
+    "Exit"              f.quit
+}
+
+menu "apps" {
+#       "Netscape"          !"/usr/home/joe/bin/startnetscape.sh & "
+    "Netscape"          !"/usr/local/bin/netscape -install -no-about-splash & "
+    "Netscape 4.08"     !"/usr/local/bin/netscape4.08 -install -no-about-splash & "
+    "Xemacs"            !"xemacs &"
+    "Mutt"              !"rxvt +sb -ip -fn fixed -e mutt &"
+    "NetCool"           !"nco &"
+}
+
+menu "hosts" {
+    "Desdemona" !"term -n Desdemona -title Desdemona -geometry 125x50 -e ssh desdemona &"
+    "Desdemona - Root" !"term -fg lemonchiffon -n Desdemona -title Desdemona -geometry 125x50 -e ssh root@desdemona &"
+    "Lon00pcs00" !"term -n Lon00pcs00 -title Lon00pcs00 -geometry 125x50  -e ssh lon00pcs00&"
+    "Lon00pcs00 - Root" !"term -fg lemonchiffon -n Lon00pcs00 -title Lon00pcs00 -geometry 125x50 -e ssh root@lon00pcs00&
+    "
+    "Lon00pws00" !"term -n Lon00pws00 -title Lon00pws00 -geometry 125x50  -e ssh lon00pws00&"
+    "Lon00pws00 - Root" !"term -fg lemonchiffon -n Lon00pws00 -title Lon00pws00 -geometry 125x50 -e ssh root@lon00pws00&
+    "
+    "Lon00tpn00" !"term -n Lon00tpn00 -title Lon00tpn00 -geometry 125x50  -e ssh lon00tpn00&"
+    "Lon00tpn00 - Root" !"term -fg lemonchiffon -n Lon00tpn00 -title Lon00tpn00 -geometry 125x50 -e ssh root@lon00tpn00&
+    "
+    "Lon00dpn00" !"term -n Lon00dpn00 -title Lon00dpn00 -geometry 125x50 -e ssh lon00dpn00&"
+    "Lon00dpn00 - Root" !"term -fg lemonchiffon -n Lon00dpn00 -title Lon00dpn00 -geometry 125x50 -e ssh root@lon00dpn00&
+    "
+    "Miranda" !"term -n Miranda -title Miranda -geometry 125x50 -e ssh miranda&"
+    "Miranda - Root" !"term -fg lemonchiffon -n Miranda -title Miranda -geometry 125x50  -e ssh root@miranda&"
+}
+menu "xterm" {
+        "term - Large" !"term -title gunhed -n gunhed -geometry 80x50 &"
+        "term - VLarge" !"term -title gunhed -n gunhed -geometry 125x50  &"
+        "term - Root"     !"term -title gunhed -n gunhed -fg lemonchiffon -fn fixed &"
+	"term - IRC" !"term -n irc -title irc -geometry 100x50+10+275 &"
+    "Rxvt - Small"     !"rxvt +sb -ip -title gunhed -n gunhed -fn fixed -ls &"
+    "Xterm - Small"     !"xterm -title gunhed -n gunhed -fn fixed -ls &"
+}
+
+menu "windowops" {
+    "Windows"           f.title
+        "Boing!!"               f.raiselower
+    "Occupy"            f.occupy
+    "Occupy All"        f.occupyall
+    "Iconify"           f.iconify
+    "Refresh"           f.refresh
+    "Vanish"            f.vanish
+    "Info"              f.identify
+    ""                  f.separator
+    "Resize"            f.resize
+    "Move"              f.move
+    "Adopt Window"      f.adoptwindow
+    "Animate"           f.startanimation
+    "Don't animate"     f.stopanimation
+    ""                  f.separator
+    "Send Delete"       f.delete
+    "Kill Window"       f.destroy
+    "Pin menu"          f.pin
+}
+
+menu "windowmenu" {
+    "Occupy ..."        f.occupy
+    "Occupy All"        f.occupyall
+    "Iconify"           f.iconify
+    "RaiseLower"        f.raiselower
+    "Refresh"           f.winrefresh
+    "Zoom"              f.menu "Zoom"
+    "Vanish"            f.vanish
+    "Focus"             f.focus
+    "Unfocus"           f.unfocus
+    ""                  f.separator
+    "Send Delete"       f.delete
+    "Kill Window"       f.destroy
+    "Resize..."         f.resize
+    "Move..."           f.move
+}
+
+menu "iconmenu" {
+    "Actions"           f.title
+    ""                  f.separator
+    "Restore"           f.iconify
+    "Move"              f.move
+    "Occupy ..."        f.occupy
+    "Occupy All"        f.occupyall
+    ""                  f.separator
+    "Send Delete"       f.delete
+    "Kill Window"       f.destroy
+}

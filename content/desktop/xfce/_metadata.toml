@@ -1,0 +1,39 @@
+# _metadata.toml describes the files in this directory: each [[entry]] names files and records
+# what is known about them (mtime, contributor, date, text...). Same shape everywhere.
+# Here: the contributed setups, who sent them and when; {{< contributions >}} is one view of it.
+
+[[entry]]
+from = "the Xfce website"
+added = "2000-05"
+files = ["screenshots/xfce-default.jpg"]
+text = "[screenshot](screenshots/xfce-default.jpg) (116k)."
+
+[[entry]]
+from = "larry.magnello@usa.net"
+added = "2000-05"
+files = ["screenshots/xfce-larry.jpg"]
+text = "[screenshot](screenshots/xfce-larry.jpg) (220k)."
+
+[[entry]]
+from = "stevn@ofir.dk"
+added = "2003-08"
+files = ["screenshots/xfce-stevn.png"]
+text = "This [screenshot](screenshots/xfce-stevn.png) (163k) is from the development version of Xfce version 4."
+
+[[entry]]
+from = "tipaul@donatek.net"
+added = "2004-08"
+files = ["screenshots/xfce-tipaul.png"]
+text = "This [screenshot](screenshots/xfce-tipaul.png) (156k) is from Xfce 4."
+
+[[entry]]
+from = "marc.plumet@edpnet.be"
+added = "2004-08"
+files = ["screenshots/xfce-marc.jpg"]
+text = "A [screenshot](screenshots/xfce-marc.jpg) (195k) from Xfce 4.0.5 running on FreeBSD."
+
+[[entry]]
+from = "horen@horen.org.il"
+added = "2005-01"
+files = ["screenshots/xfce-horen.jpg"]
+text = "This [screenshot](screenshots/xfce-horen.jpg) (290k) is from Xfce 4.2."

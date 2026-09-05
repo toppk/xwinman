@@ -1,0 +1,43 @@
+FastQuit no
+SizeBorder Right
+ForceMove always
+IconPalette system
+IconDir "/usr/local/lib/amiwm/"
+DefaultIcon "def_tool.info"
+
+# To add menu items to the Tools menu use the following format
+# ToolItem "<MenuEntry>" "<Command> [Arguments]"
+
+Screen "Workbench Screen"
+Module "Background" "/home/megan/img/a.gif"
+Screen "Second Screen"
+Module "Background" "/home/megan/img/b.gif"
+Screen "Oh look - a third screen  :-0"
+Module "Keyboard" "Meta<M>:all:rotatescreens"
+Focus clicktotype
+AutoRaise yes
+
+ToolItem Separator
+ToolItem "Emacs" "emacs"
+ToolItem "Xcalc" "xcalc"
+ToolItem "XEphem" "xephem"
+ToolItem "SETI" "/home/megan/bin/tkseti"
+ToolItem "jcc" "jcc"
+ToolItem "Gimp" "gimp"
+ToolItem "gqmpeg" "gqmpeg"
+ToolItem "xmcd" "xmcd"
+ToolItem "load monitor" "xload"
+ToolItem "office" "~/Office50/bin/soffice"
+ToolItem Separator
+ToolItem "internet" {
+	ToolItem "Navigator" "/home/megan/.netscape/netscape" "N"
+	ToolItem "kppp" "kppp"
+	ToolItem "tkrat" "tkrat"
+	ToolItem "licq" "licq"
+	ToolItem "irc" "kvirc"
+}
+ToolItem Separator
+ToolItem "XLock" "xlock +allowroot -echokeys -mode ifs"
+ToolItem Separator
+ToolItem "Login: Local" "xterm -T `hostname`"
+

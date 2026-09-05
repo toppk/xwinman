@@ -1,0 +1,51 @@
+# _metadata.toml describes the files in this directory: each [[entry]] names files and records
+# what is known about them (mtime, contributor, date, text...). Same shape everywhere.
+# Here: the contributed setups, who sent them and when; {{< contributions >}} is one view of it.
+
+[[entry]]
+from = "\"Raistlin\""
+added = "1996-06"
+files = ["rc/ctwmrc-csuos", "screenshots/ctwm-csuos.gif"]
+text = "[ctwmrc](rc/ctwmrc-csuos), [screenshot](screenshots/ctwm-csuos.gif) (153k)."
+
+[[entry]]
+from = "humbubba@cqi.com"
+added = "1998-03"
+files = ["rc/ctwmrc-rickh", "screenshots/ctwm-rickh.gif"]
+text = "[ctwmrc](rc/ctwmrc-rickh), [screenshot](screenshots/ctwm-rickh.gif) (124k)."
+
+[[entry]]
+from = "lacazedi@info.enserb.u-bordeaux.fr"
+added = "1998-05"
+files = ["rc/ctwmrc-gfive", "screenshots/ctwm-gfive.jpg"]
+text = "[ctwmrc](rc/ctwmrc-gfive), [screenshot](screenshots/ctwm-gfive.jpg) (296k)."
+
+[[entry]]
+from = "y0002034@ws.rz.tu-bs.de"
+added = "1998-08"
+files = ["rc/ctwm-jens.tar.gz", "screenshots/ctwm-jens.gif"]
+text = "package of [configuration files](rc/ctwm-jens.tar.gz) and a [screenshot](screenshots/ctwm-jens.gif) (52k)."
+
+[[entry]]
+from = "bahi@cabletron.comm"
+added = "1998-12"
+files = ["rc/ctwmrc-bahi", "screenshots/ctwm-bahi.gif"]
+text = "[ctwmrc](rc/ctwmrc-bahi), [screenshot](screenshots/ctwm-bahi.gif) (83k)."
+
+[[entry]]
+from = "joe@hole-in-the.net"
+added = "1999-05"
+files = ["rc/ctwmrc-joe", "screenshots/ctwm-joe.jpg"]
+text = "[ctwmrc](rc/ctwmrc-joe), [screenshot](screenshots/ctwm-joe.jpg) (287k)."
+
+[[entry]]
+from = "cedric.cuche@studi.epfl.ch"
+added = "1999-06"
+files = ["rc/ctwmrc-cedric", "screenshots/ctwm-cedric.jpg"]
+text = "[ctwmrc](rc/ctwmrc-cedric), [screenshot](screenshots/ctwm-cedric.jpg) (124k)."
+
+[[entry]]
+from = "josvanr@xs4all.nl"
+added = "2000-01"
+files = ["rc/ctwm-beos.tar.gz", "screenshots/ctwm-beos.jpg"]
+text = "[ctwmrc and pixmaps](rc/ctwm-beos.tar.gz), [screenshot](screenshots/ctwm-beos.jpg) (173k). This setup is tailored after the \"BeOS\" operating system."

@@ -1,0 +1,17 @@
+FastQuit Off
+SizeBorder Right
+IconPalette MagicWB
+DefaultIcon "def_tool.info"
+Screen "Workbench Screen"
+Module "Background" "/home/matt/xpm/textures/slate.xpm"
+Screen "Second Screen"
+Module "Background" "/home/matt/xpm/textures/slate_green.xpm"
+Module "Keyboard" "Meta<M>:all:rotatescreens"
+AutoRaise yes
+ToolItem Separator
+ToolItem "Xterm" "xterm"
+ToolItem "Netscape" "netscape"
+ToolItem "XEmacs" "xemacs"
+ToolItem "XPaint" "xpaint"
+ToolItem "The Gimp" "gimp"
+

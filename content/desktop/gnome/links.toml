@@ -1,0 +1,16 @@
+# Related sites, rendered by {{< links >}}.
+
+[[link]]
+name = "FootNotes:"
+url = "http://gnomedesktop.org/"
+blurb = "Gnome Desktop News."
+
+[[link]]
+name = "gnomesupport.org:"
+url = "http://gnomesupport.org/"
+blurb = "various support resources for GNOME users."
+
+[[link]]
+name = "art.gnome.org:"
+url = "http://art.gnome.org/"
+blurb = "GNOME themes, backgrounds, icons, etc."

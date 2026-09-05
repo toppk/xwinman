@@ -1,0 +1,521 @@
+#            Raistlin's .ctwmrc 					      *
+
+#************Font Definitions************
+
+TitleFont	"*new century schoolbook-medium-r-*--14-*-iso8859-*"
+MenuFont	"*times-medium-i-*--12-*-iso8859-*"
+IconFont	"*times-medium-i-*--12-*-iso8859-*"
+ResizeFont	"*new century schoolbook-medium-i-*--24-*-iso8859-*"
+IconManagerFont		"*times-medium-i-*--12-*-iso8859-*"
+
+#************General Definitions************
+
+PixmapDirectory "/home/csuoq/xpm"
+
+#Pixmaps {
+# 	TitleHighlight	"supman%.xbm"
+#	}
+
+ForceIcons
+NoTitleHighlight
+NoHighlight
+NoGrabServer
+BorderWidth 1
+AnimationSpeed 0
+ClearShadowContrast 50
+DarkShadowContrast 50
+DecorateTransients
+#DontPaintRootWindow
+NoCaseSensitive
+TitleButtonBorderWidth 0
+InterpolateMenuColors
+OpaqueMove
+OpaqueResize
+UsePPosition "on"
+RestartPreviousState
+SunkFocusWindowTitle
+#WarpCursor
+WarpUnmapped
+XorValue 1
+UseThreeDBorders
+ThreeDBorderWidth 5
+UseThreeDIconManagers
+UseThreeDMenus
+UseThreeDTitles
+TitlePadding 0
+
+Cursors
+{
+    Frame          "top_left_arrow"
+    Title          "top_left_arrow"
+    Icon           "top_left_arrow"
+    IconMgr        "dot"
+    Move           "fleur"
+    Resize         "sizing"
+    Menu           "top_left_arrow"
+	Button		   "top_left_arrow"
+    Wait           "watch"
+    Select         "dot"
+    Destroy        "pirate"
+}
+
+#************Colour Definitions************
+
+Color
+{
+        BorderColor "black"
+
+        BorderTileBackground "plum"
+        BorderTileForeground "black"
+
+	DefaultBackground "ivory3"
+	DefaultForeground "black"
+
+        IconBackground "grey30"
+        IconBorderColor "grey30"
+        IconForeground "white"
+
+        IconManagerBackground "grey20"
+	{
+		"Console Window" "black"
+		"XTerm" "white"
+		"Twm Door" "white"
+		"Maker" "dodgerblue"
+		"Ftptool" "Gray80"
+		"xv" "LightSteelBlue3"
+		"Filemgr" "khaki1"
+		"Library" "black"
+	}
+
+        IconManagerForeGround "white"
+	{
+		"XTerm" "black"
+		"Console Window" "white"
+		"dockit" "black"
+		"Ftptool" "black"
+		"xv" "black"
+		"Filemgr" "black"
+		"Library" "green2"
+	}
+
+        IconManagerHighlight  "Black"
+
+	MapWindowBackground "grey20" 
+	{
+		"Console Window" "grey20"
+		"XTerm" "grey90"
+		"Twm Door" "white"
+		"Maker" "dodgerblue"
+		"Ftptool" "Gray80"
+		"xv" "LightSteelBlue3"
+		"Filemgr" "khaki1"
+		"Library" "black"
+	}
+
+	MapWindowForeground "white"
+	{
+		"Console Window" "black"
+		"XTerm" "black"
+		"Maker" "black"
+		"Ftptool" "black"
+		"xv" "black"
+		"Filemgr" "black"	
+		"Library" "green3"
+	}
+
+	MenuForeground "grey90"
+	MenuBackground "grey30"
+	MenuTitleForeground "white"
+	MenuTitleBackground "grey20"
+	MenuShadowColor "black"
+
+        TitleForeground "white"
+        TitleBackground "purple"
+
+
+}
+
+Monochrome {
+    BorderColor "black"
+    BorderTileForeground "black"
+    BorderTileBackground "white"
+
+    TitleForeground "white"
+    TitleBackground "grey20"
+}
+
+#************IconManager Definitions************
+
+IconManagerDontShow
+{
+	"WorkSpaceManager"
+	"Twm Door"
+	"Xman"
+	"xcpustate"
+	"xdaliclock"
+	"xclock"
+	"xmeter"
+	"xbiff"
+	"Watcher"
+}
+
+IconDirectory	"/usr/local/include/X11/bitmaps"
+Icons {
+#	"name"	"name.icon"
+	"xterm"	"xpm:xterm.xpm"
+	"Console" "xpm:xterm.xpm"
+	"Raistlin on crocus" "xpm:xterm.xpm"
+	"Raistlin on poppy" "xpm:xterm.xpm"
+	"Raistlins Console" "xpm:xterm.xpm"
+	"axe"   "xpm:xedit.xpm"
+	"aXe"	"xpm:xedit.xpm"
+	"Ftptool" "xpm:xftp.xpm"
+	"Spatial" "xpm:xmosaic.xpm"
+	"Spheral" "xpm:xmosaic.xpm"
+	"XBoing" "xpm:xmosaic.xpm"
+	"XBiff"	"xpm:xmail.xpm"
+	"Xgopher 1.3" "xpm:xgopher.xpm"
+	"bitmap" "xpm:pixmap.xpm"
+	"xco" "xpm:pixmap.xpm"
+	"xdu" "xpm:floppy.xpm"
+	"xfontsel" "xpm:xedit.xpm"
+	"XBlast" "xpm:bomb.xpm"
+	"xgl" "xpm:nosefront.xpm"
+}
+
+#SortIconManager
+#ShowIconManager
+#IconManagerGeometry	"152x10+507+5" 1
+NoIconManagers
+#IconifyByUnMapping
+IconRegion "365x155+490+0" North West 10 10
+IconRegion "660x190+490+150" North West 10 10
+
+#IconManagers	
+#{
+#"XTerm"		"145x10+57+5"	1
+#"Axe"		"50x10+5+5"	1
+#"Maker"		"145x10+205+5"	1
+#"Ftptool"	"200x10+205+5"	1
+#}
+
+#************Workspace Definitions************
+
+MapWindowCurrentWorkSpace { "firebrick3" "black" "white" }
+MapWindowDefaultWorkSpace { "black" "black" "white" }
+
+NoTitle 
+{
+	"WorkSpaceManager"
+	"TWM Icon Manager"
+	"Axe Icon Manager"
+	"XTerm Icon Manager"
+	"Maker Icon Manager"
+	"Ftptool Icon Manager"
+	"Twm Door"
+	"oclock"
+	"Xman"
+	"xcpustate"
+	"xmeter"
+	"xdaliclock"
+	"xclock"
+	"aXe"
+	"Console Window"
+	"Watcher"
+}
+
+ShowWorkSpaceManager
+WorkSpaceManagerGeometry        "290x150-0+0" 3
+WMgrHorizButtonIndent 4
+WMgrVertButtonIndent 4
+
+WorkSpaces
+{
+	"Home"		{"plum3" "white" "black" "white" "xpm:textures/background5.xpm"}
+	"FTPTool" 	{"plum3" "white" "black" "white" "xpm:textures/background5.xpm"}
+	"Programming"  	{"plum3" "white" "black" "white" "xpm:textures/background5.xpm"}
+	"Editors"   	{"plum3" "white" "black" "white" "xpm:textures/background8.xpm"}
+	"Games" 	{"plum3" "white" "black" "white" "xpm:textures/background8.xpm"}
+	"XView" 	{"plum3" "white" "black" "white" "xpm:textures/background8.xpm"}
+}
+
+
+Occupy 
+{
+	"Ftptool" 	{"FTPTool"}
+	"axe"		{"Editors"}
+	"aXe"		{"Editors"}
+	"Jewel"		{"Games"}
+	"Spatial"	{"Games"}
+	"Spheral"	{"Games"}
+	"GENERIC TETRIS" {"Games"}
+	"XBoing"	{"Games"}
+	"XBiff"		{"Home"}
+}
+
+OccupyAll
+{
+	"xclock"
+	"Console Window"
+	"xmeter"
+	"Watcher"
+}
+
+#************Title Bar Definitions************
+
+NoDefaults
+
+LeftTitleButton "xpm:3D_Iconify15.xpm" = f.iconify
+LeftTitleButton "xpm:3D_Lightning15.xpm" = f.delete
+RightTitleButton "xpm:3D_Zoom15.xpm" = f.menu "Kill"
+RightTitleButton "xpm:3D_Expand15.xpm" = f.menu "Zoom"
+LeftTitleButton "xpm:3D_Menu15.xpm" = f.menu "Occupy"
+RightTitleButton "xpm:3D_Resize15.xpm" = f.resize
+
+#************Menu Definitions************
+
+DefaultFunction f.menu "default-menu"
+
+Button1 =      : root   : f.menu "BUTTON1"
+Button2 =      : root   : f.menu "TwmWindows"
+Button3 =      : root   : f.menu "BUTTON3"
+
+Button2 =      : title  : f.raiselower
+Button1 =      : title  : f.move
+Button3 =      : title  : f.menu "TITLEMENU"
+
+Button2 =      : frame  : f.raiselower
+Button1 =      : frame  : f.move
+Button3 =      : frame  : f.menu "TITLEMENU"
+
+Button2 =      : icon   : f.iconify
+Button1 =      : icon   : f.move
+Button3 =      : icon   : f.menu "TITLEMENU"
+
+Button1 =      : iconmgr : f.iconify
+ 
+menu "BUTTON1" 
+{
+"Main Menu"		f.title
+"Pin Menu"		f.pin
+"Logins"		f.menu	"Logins"
+"Tools"			f.menu	"Tools"
+"Games"			f.menu	"Games"
+"Work Spaces"		f.menu	"Spaces"
+"Backgrounds"		f.menu	"Backs"
+}
+
+menu "Logins"
+{
+"Logins"		f.title
+"csv account"		("black":"grey90")	f.menu	"Logins_Flowers"
+"dcs account"					f.menu	"Logins_Rocks"
+"Xterm"			!"xterm &"
+"Console"		("black":"white")	!"xterm -C -T 'Console' -geometry 80x10+0+0 &"
+}
+
+menu	"Logins_Flowers"
+{
+"CSV machines"	f.title
+# the usercodes will need changing...
+"Lily"		!"xterm -T 'lily' -e rlogin lily -l csuos &"
+"Crocus"	!"xterm -T 'crocus' -e rlogin crocus -l csuos &"
+"Lupin"		!"xterm -T 'lupin' -e rlogin lupin -l csuos &"
+}
+
+menu "Logins_Rocks"
+{
+"DCS machines"	f.title
+"Stone"		!"xterm -T 'stone' -e rlogin stone -l matbad &"
+"Granite"	!"xterm -T 'granite' -e rlogin granite -l matbad &"
+"Rocky"		!"xterm -T 'rocky' -e rlogin rocky -l matbad &"
+}
+
+menu "Tools" {
+"Tools"		f.title
+"Pin Menu"	f.pin
+"FTP Tool"	!"ftptool &"
+"XRN"		!"xrn &"
+"aXe"		!"axe &"
+"X Gopher"	!"xgopher &"
+"Bitmap"	!"bitmap &"
+"Xcalc"		!"xcalc &"
+"Xco"		!"xco -geometry 600x400 &"
+"Xdu"		!"du -a | xdu &"
+"Xfontsel"	!"xfontsel &"
+"Xman"		!"xman &"
+"Xv"         	!"xv -geometry +100+130 &"
+}
+
+
+menu "Games"
+{
+"Xboard"                !"/usr/local/games/xboard &"
+"Tetris"                !"/usr/local/games/tetris &"
+}
+
+menu "Spaces"
+{
+"Work Spaces"					f.title
+"Pin Menu"					f.pin
+"Home"		("black":"plum3")		f.nop
+"FTPTool" 	("black":"plum3")		!"ftptool &"
+"Editors"   	("black":"plum3")		!"axe &"
+"Games" 	("black":"plum3")		f.nop
+"XView" 	("black":"plum3")		!"xv &"
+}
+
+Function "ProgSet"
+{
+f.exec "xterm -T 'C++: File Manager' -geometry 80x12+5+200 &"
+f.exec "xterm -T 'C++: Compiler' -geometry 80x12-125+200 &"
+f.exec "xterm -T 'C++: Editor' -geometry +5+400 &"
+f.exec "xterm -T 'C++: Output' -geometry -125+400 &"
+}
+
+menu "Backs"
+{
+"Backgrounds"	f.title
+"Black"		!"xsetroot -solid black"
+"White"		!"xsetroot -solid white"
+"Slate"		!"xpmroot /home/csuoq/xpm/textures/slate.gif" 
+}
+
+menu "BUTTON3"
+{
+"Control Menu"		f.title
+"Pin menu"     		f.pin
+"Window Ops"		f.menu "TITLEMENU"
+"CTWM Ops"		f.menu "CTWM Ops"
+"Disk Ops"		f.menu "DOps"
+}
+
+menu "DOps"
+{
+"DISK Operations"	f.title
+"Pin menu"		f.pin
+"Mount floppy"		!"smount /pcfs/floppy &"
+"Unmount floppy"	!"sumount /pcfs/floppy &"
+"*Format floppy*"	f.menu "FORMATDisk"
+"Mount read only"	!"smount /pcfs/rdonly &"
+"Unmount read only"	!"sumount /pcfs/rdonly &"
+"Eject disk"		!"eject fd &"
+}
+
+menu "FORMATDisk"
+{
+"Format :"		f.title
+"Format 720 Disk"	!"xterm -C -T 'Format 720' -geometry 80x2+660+165 -e fdformat -ld &"
+"Format 1.4 Disk"	!"xterm -C -T 'Format 1.4' -geometry 80x2+660+165 -e fdformat -d &"
+}
+
+menu "CTWM Ops" 
+{
+"CTWM Control"		f.title
+"Pin menu"     		f.pin
+"Show Iconmgr"		f.showiconmgr
+"Hide Iconmgr"		f.hideiconmgr
+"Button State"		f.setbuttonsstate
+"Map State"		f.setmapstate
+"ShowWorkspaceManager"  f.showWorkspaceMgr
+"HideWorkspaceManager"  f.hideWorkspaceMgr
+"Refresh"		f.refresh
+"Lock"			!"xlock -mode random &"
+"Defaults"		!"xrdb -merge ${HOME}/.XDefaults"
+"Restart"		f.restart
+"Caution"		f.title
+"QUIT"			("white":"red") f.quit
+"DIE!!!"		("white":"red") !"kill -1 -1"
+}
+
+menu "KDBMENU" {
+#it would be nice to be able to inverse video the one that's currently set
+"-u"			!"kbd_mode -u"
+"-e"			!"kbd_mode -e"
+"-n"			!"kbd_mode -n"
+"-a"			!"kbd_mode -a"
+}
+
+menu "TITLEMENU" 
+{
+    "Windows"      f.title
+    "Pin menu"     f.pin
+    "Save"         f.saveyourself
+    "Refresh"      f.refresh
+    "Occupy"       f.occupy
+    "Occupy All"   f.occupyall
+    "Vanish"       f.vanish
+    ""             f.nop
+    "Iconify"      f.iconify
+    "Resize"       f.resize
+    "Move"         f.move
+    "Raise"        f.raise
+    "Lower"        f.lower
+    "Info"         f.identify
+    "Focus"        f.focus
+    "Unfocus"      f.unfocus
+    "Zoom" 	   f.title
+    "Full"         f.fullzoom
+    "Horizontal"   f.horizoom
+    "Vertical"     f.zoom
+    "Caution"	   f.title
+    "Delete"	   ("white":"red")f.delete
+    "Destroy"	   ("white":"red")f.destroy
+}
+
+menu "Zoom"
+{     
+    "Zoom" 	   f.title
+    "Full"         f.fullzoom
+    "Horizontal"   f.horizoom
+    "Vertical"     f.zoom
+}
+
+menu "Kill"
+{
+    "Caution"	   ("white":"grey20") f.title
+    "Delete"	   ("grey90":"grey30") f.delete
+    "Destroy"	   ("grey90":"grey30") f.destroy
+}
+
+menu "Occupy"
+{
+    "Occupy"	   f.title
+    "Occupy ..."   f.occupy
+    "Occupy All"   f.occupyall
+    "Vanish!"      f.vanish
+}
+
+Function "Runcw"
+{
+	!"xterm -T 'CWCode' -geometry 80x24+260+390 &"
+	!"xterm -T 'CW' -iconic -e cw &"
+}
+
+Function "Clean"
+{
+	f.HideWorkSpaceMgr
+	f.ShowWorkSpaceMgr
+	f.Refresh
+}
+
+#************Function Key Definitions************
+
+"F1" = : all : f.gotoworkspace "Home"
+"F2" = : all : f.gotoworkspace "FTPTool"
+"F3" = : all : f.gotoworkspace "Programming"
+"F4" = : all : f.gotoworkspace "Editors"
+"F5" = : all : f.gotoworkspace "Games"
+"F6" = : all : f.gotoworkspace "XView"
+"F7" = : all : f.nextworkspace
+"F8" = : all : f.prevworkspace
+"F9" = : window : f.occupy
+"F10" = : root : f.function "Clean"
+"L7" = : all : f.iconify
+"L5" = : all : f.raiselower
+
+"Left"    = c  : all          : f.previconmgr
+"Right"   = c  : all          : f.nexticonmgr
+"Up"      = c  : all          : f.upiconmgr
+"Down"    = c  : all          : f.downiconmgr
+

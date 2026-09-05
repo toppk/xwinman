@@ -1,0 +1,34 @@
+control*Background:		cornsilk4
+control*Foreground:		black
+
+Console*scrollBar:		true
+
+deskset.perfmeter*Background:	thistle4
+deskset.perfmeter.hasTitle:	True
+
+XTerm*Background:		LightSlateGray
+XTerm*Foreground:		Black
+XTerm*saveLines:		500
+XTerm*scrollBar:		true
+XTerm*title:			
+
+Mwm*XConsole.clientDecoration:	+resizeh
+Mwm*perfmeter.clientDecoration:	+resizeh
+Mwm*control.clientDecoration:	+resizeh
+Mwm*XTerm*clientFunctions:	all
+Mwm*showFeedback:		resize placement move
+Mwm*keyboardFocusPolicy:	pointer
+Mwm*moveOpaque:			true
+Mwm*iconImageMaximum:		64x64
+Mwm*fadeNormalIcon:		true
+Mwm*interactivePlacement:	true
+Mwm*resizeBorderWidth:		3	
+Mwm*frameBorderWidth:		3	
+Mwm*title*fontList:		-*-times-bold-r-*-*-*-*-*-*-*-*-*-*
+Mwm*Panner*ClientPinned:	True
+Mwm*activeBackground:		#747437372727
+Mwm*activeBackgroundPixmap:	/usr/home/tomp/.pixmaps/background8.xpm
+Mwm*background:			#dcd1ba
+Mwm*backgroundPixmap:		/usr/home/tomp/.pixmaps/arena.xpm
+Mwm*menu*background:		#747437372727
+Mwm*menu*backgroundPixmap:	/usr/home/tomp/.pixmaps/background8.xpm

@@ -1,0 +1,9 @@
+# Related sites, rendered by {{< links >}}.
+
+[[link]]
+name = "Official IceWM site"
+url = "http://www.icewm.org/"
+
+[[link]]
+name = "IceWM themes at Freshmeat (transferred from themes.org)"
+url = "http://themes.freshmeat.net/browse/925/"

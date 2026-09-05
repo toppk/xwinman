@@ -1,0 +1,27 @@
+# _metadata.toml describes the files in this directory: each [[entry]] names files and records
+# what is known about them (mtime, contributor, date, text...). Same shape everywhere.
+# Here: the contributed setups, who sent them and when; {{< contributions >}} is one view of it.
+
+[[entry]]
+from = "csuxg@csv.warwick.ac.uk"
+added = "1996-06"
+files = ["rc/amiwmrc-csuxg", "screenshots/amiwm-csuxg.jpg", "rc/xinitrc-csuxg"]
+text = "[amiwmrc](rc/amiwmrc-csuxg), [screenshot](screenshots/amiwm-csuxg.jpg) (165k). This setup is used in conjunction with this [xinitrc.](rc/xinitrc-csuxg)"
+
+[[entry]]
+from = "matt@belgarath.org"
+added = "1996-08"
+files = ["rc/amiwmrc-matt", "screenshots/amiwm-matt.gif"]
+text = "[amiwmrc](rc/amiwmrc-matt), [screenshot](screenshots/amiwm-matt.gif) (117k). This uses two screens with different backdrops, and defines a key to switch screens."
+
+[[entry]]
+from = "mka42@earthling.net"
+added = "1999-05"
+files = ["rc/amiwmrc-mka", "screenshots/amiwm-mka.gif"]
+text = "[amiwmrc](rc/amiwmrc-mka), [screenshot](screenshots/amiwm-mka.gif) (80k)."
+
+[[entry]]
+from = "antoine.ginies@wanadoo.fr"
+added = "2001-11"
+files = ["rc/amiwmrc-guibo", "screenshots/amiwm-guibo.png", "screenshots/matrix_007.jpg"]
+text = "[amiwmrc](rc/amiwmrc-guibo), [screenshot](screenshots/amiwm-guibo.png) (84k). The [wallpaper](screenshots/matrix_007.jpg) shown in the screenshot is also available."

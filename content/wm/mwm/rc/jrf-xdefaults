@@ -1,0 +1,37 @@
+XTerm*background: black
+XTerm*foreground: grey
+XTerm*ScrollBar: true
+XTerm*font: 7x14
+
+control*Background:		cornsilk4
+control*Foreground:		black
+
+Console*scrollBar:		true
+
+deskset.perfmeter*Background:	thistle4
+deskset.perfmeter.hasTitle:	True
+
+Mwm*XConsole.clientDecoration:	+resizeh
+Mwm*perfmeter.clientDecoration:	+resizeh
+Mwm*control.clientDecoration:	+resizeh
+Mwm*XTerm*clientFunctions:	all
+Mwm*showFeedback:		resize placement move
+Mwm*keyboardFocusPolicy:	pointer
+Mwm*moveOpaque:			true
+Mwm*iconImageMaximum:		48x48
+Mwm*fadeNormalIcon:		true
+Mwm*interactivePlacement:	true
+Mwm*Panner*ClientPinned:	True
+
+Mwm*background:			#305050
+Mwm*activeBackground:		#506070
+Mwm*menu*background:		#9c917a
+Mwm*resizeBorderWidth:		4
+Mwm*frameBorderWidth:		4
+Mwm*activeBackgroundPixmap:	/usr/home/jrf/xpmcv/g0.xpm
+Mwm*backgroundPixmap:		/usr/home/jrf/xpmcv/c1.xpm
+Mwm*menu*backgroundPixmap:      /usr/home/jrf/xpmcv/b1.xpm
+
+
+
+

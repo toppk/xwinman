@@ -1,0 +1,1035 @@
+# AfterStep Configuration File. 
+# $Id: .steprc,v 1.0 1996/11/9 4:15 R-o-Z Exp $
+# Thanks to jimr for providing the much needed commenting
+# -----------------------------------------------------------------------------
+# Table of Contents:
+# 	Paths
+#	Gradients/XPMs
+# 	Personal Modules (Startup and Setup)
+# 	Specific Window Colors, Fonts, and Actions.
+# 	General Colors and Fonts
+# 	General Actions
+# 	Motif Compatibility
+# 	System Modules
+# 	Personal Menu
+#		Popups
+#		Functions
+#		Functions which use the Popups
+# 	Input Interface
+# -----------------------------------------------------------------------------
+
+# ------------------------------------------------------
+# Paths
+# ------------------------------------------------------
+
+ModulePath	/usr/X11R6/lib/X11/afterstep:/usr/X11R6/lib/X11/fvwm:/usr/X11R6/lib/X11/fvwm95-2
+PixmapPath 	/usr/X11R6/include/X11/pixmaps:/home/roz/buttons:/usr/X11R6/include/X11/pixmaps/apps:/usr/X11R6/include/X11/pixmaps/files:/usr/X11R6/include/X11/pixmaps/logos:/usr/X11R6/include/X11/pixmaps/Xaw
+IconPath	/usr/X11R6/include/X11/bitmaps
+
+# ------------------------------------------------------
+# Texture Gradients
+# ------------------------------------------------------
+# TYPES OF TEXTURES:
+# ------------------
+# TextureTypes  [Title]  [UnfocusedTitle]  [StickyTitle]  [MenuTitle] [MenuItem]
+# Currently valid values are:
+# 0 - No texture
+# 1 - Wharf-style gradient
+# 2 - Horizontal one way gradient
+# 3 - Horizontal cilindrical gradient
+# 4 - Vertical one way gradient
+# 5 - Vertical cylindrical gradient
+# 128 - User specified pixmap tiling
+
+TextureTypes		128	128	128	1	1
+TextureMaxColors	32	32	32	32	32
+ButtonTextureType	128
+ButtonTextureColor	#575557	#aca8ac
+#ButtonPixmap	 	greenmarb1-64.xpm
+ButtonPixmap		bluemarble2-64.xpm
+ButtonMaxColors		128
+#ButtonNoBorder
+#IconFont		-adobe-helvetica-medium-r-*-*-8-*-*-*-*-*-*-*
+#IconTitle
+
+#TitleTextMode MODE Y HIRELIEF HISHADOW HINORMAL LORELIEF LOSHADOW LONORMAL
+#TitleTextMode	2	2	#ffffff	#575557	#aca8ac	#cccccc	#353335	#8a888a
+TexturedHandle
+GradientText
+TextGradientColor	#8a888a	#ffffff
+#TitleTextAlign		0
+#TitlebarNoPush
+
+# Focused Titlebar
+TitlePixmap	wh_marble_4.xpm
+# Unfocused Titlebar
+UTitlePixmap	sandy-ridges.xpm
+# Unfocused Sticky Titlebar
+STitlePixmap	wh_marble_3.xpm
+# Menu Title
+#MTitlePixmap	wh_marble_2.xpm
+# Menu Item
+#MItemPixmap	wh_marble_4.xpm
+
+TitleTextureColor	#575557	#aca8ac
+UTitleTextureColor	#353335	#797779
+#STitleTextureColor	#301010	#904040
+MenuTextureColor	#575557	#aca8ac
+MTitleTextureColor	#353335	#797779
+
+# ----------------------------------------------------------
+# Personal Modules (Startup and Setup)
+# ----------------------------------------------------------
+
+Module Animate #aca8ac
+*AudioDir		/usr/X11R6/include/X11/sounds
+
+*Wharf1TextureType	128
+*Wharf1TextureColor	#575557	#aca8ac
+*Wharf1MaxColors		128
+*Wharf1Pixmap		wood-64.xpm
+*Wharf1Animate
+*Wharf1Geometry -0+0
+*Wharf1Columns 1
+#*Wharf1Player		/usr/bin/play
+#*Wharf1Sound		open_folder	tada.wav
+#*Wharf1Sound		close_folder	chimes.wav
+#*Wharf1AnimateMain
+#*Wharf1FullPush
+#*Wharf1NoBorder
+
+*Wharf2TextureType	128
+*Wharf2TextureColor	#3b394b	#6c687c
+*Wharf2Pixmap	 	wood-64.xpm
+*Wharf2TextureColor	#575557	#aca8ac
+*Wharf2MaxColors		128
+*Wharf2Animate
+*Wharf2Geometry +0+0
+*Wharf2Columns 1
+#*Wharf2NoBorder
+#*Wharf2AnimateMain
+#*Wharf2FullPush
+
+*Wharf3TextureType	128
+*Wharf3TextureColor	#3b394b	#6c687c
+*Wharf3Pixmap	 	a036-36.xpm
+*Wharf3TextureColor	#575557	#aca8ac
+*Wharf3MaxColors		128
+*Wharf3Animate
+*Wharf3Geometry +445+0
+*Wharf3Rows 1
+#*Wharf3NoBorder
+#*Wharf3AnimateMain
+#*Wharf3FullPush
+
+#*Wharf3 - - Swallow "xload" xload -nolabel -hl black -bg "#8a868a" -geometry 24x24-1-1 &
+*Wharf3 World world-24.xpm Exec "-" seyon &
+*Wharf3 Xman xman-24.xpm Exec "-" xman &
+*Wharf3 Config interface-24.xpm Folder
+*Wharf3 .steprc AF-24.xpm Exec "-" nedit ~/.steprc &
+*Wharf3 XF86Config Xlogo-24.xpm Exec "-" nedit /etc/X11/XF86Config &
+*Wharf3 .fvwm2rc95 Windows95Computer-24.xpm Exec "-" nedit ~/.fvwm2rc95
+*Wharf3 .profile Home-24.xpm Exec "-" nedit ~/.profile
+*Wharf3 ~Folder
+
+# ---------------------------------------------
+# Wharf1 Entries
+# ---------------------------------------------
+
+*Wharf1 - - MaxSwallow "asclock" asclock -12 -p -1-1 -s &
+*Wharf1 - - Swallow "asmail" asmail -geometry -1-1 -title "AfterStep Mail" &
+*Wharf1 Rxvt penguin.xpm Exec "-" rxvtpix &
+*Wharf1 XTerm XMonitor.xpm Exec "-" xterm &
+
+*Wharf1 Emulators computer.black.xpm,folder1.xpm Folder
+*Wharf1 WINE WindowsLogoMonitor.xpm Exec "-" wine -dll +shell32 -dll +user32 -dll +wsock32 -dll +winsock -mode enhanced -perfect -fixedmap -winver win31 -ipc -debugmsg -all s:/progman.exe &
+*Wharf1 DOS dosemu.xpm Exec "-" xdos &
+*Wharf1 ~Folder
+
+*Wharf1 Multimedia Arc.xpm,folder1.xpm Folder
+*Wharf1 Mixer xfmix.xpm Exec "-" xmixer &
+*Wharf1 xv XV.xpm Exec "-" xv -geometry +15+373 &
+*Wharf1 Paint PaintBrushSplash.xpm Exec "-" xpaint &
+*Wharf1 GIMP Photoshop.xpm Exec "-" gimp &
+*Wharf1 Xbm Monalisa.xpm Exec "-" xbmbrowser -geometry 255x650+65+55 /usr/include/X11/pixmaps &
+*Wharf1 ~Folder
+
+*Wharf1 Comm/Net connect.xpm,folder1.xpm Folder
+*Wharf1 NetCfg DeskGlobe.xpm Exec "-" sudo netcfg &
+*Wharf1 XZtalk MicroPhonePro.xpm Exec "-" xztalk -geometry 730x415+155+160&
+*Wharf1 XCD ColoredCompactDisc.xpm Exec "-" xmcd -geometry 425x190+290+415 &
+*Wharf1 Seyon PhoneTT.xpm Exec "-" seyon &
+*Wharf1 Pine WriteMail.xpm Exec "-" xterm -T "Pine" -e pine &
+*Wharf1 Console Xlogo.xpm Exec "-" xconsole -verbose -font &
+*Wharf1 TkDesk BWDialogEdit.xpm Exec "-" tkdesk &
+*Wharf1 tkHTML WWW.xpm Exec "-" tkHTML &
+*Wharf1 ~Folder
+
+*Wharf1 XLock XLock.xpm Exec "-" xlock -mode rock -nice 19 &
+*Wharf1 Pager - SwallowModule "Pager" Pager 0 1
+*Wharf1 Fvwm95-2 Windows95Computer.xpm Restart "" fvwm95-2
+*Wharf1 Recycler AF.xpm  Restart "" afterstep
+
+# ---------------------------------------------
+# Wharf2 Entries
+# ---------------------------------------------
+
+*Wharf2 - - Swallow "xload" xload -nolabel -hl black -bg "#8a868a" -geometry 48x48-1-1 &
+*Wharf2 - - Swallow "asmodem" asmodem -s -p -1-1 -d "sudo dial" -r "/usr/bin/play /usr/include/X11/sounds/Disconnected.wav" -h "sudo dotk"
+*Wharf2 - - Swallow "asmixer" asmixer -g -1-1 -d /dev/mixer &
+*Wharf2 - - Swallow "ascd" ascd -g -1-1 -d /dev/cdrom &
+*Wharf2 Netscape Netscape.xpm Exec "-" ~/.mynetscape &
+*Wharf2 Zircon z.xpm Exec "-" zircon &
+*Wharf2 ircII PlainTextOnPaper.xpm Exec "-" rxvtpix -geometry 80x35 -T "ircII 2.8.2" -e ~/ircs &
+*Wharf2 Knews News.xpm Exec "-" knews &
+*Wharf2 ncFTP FilingCabinet.xpm Exec "-" rxvtpix -T ncFTP -e ~/.ftp &
+*Wharf2 Shutdown ShutDown.xpm  Quit
+
+# ---------------------------------------------
+# Fvwm settings
+# ---------------------------------------------
+
+*FvwmIdentBack MidnightBlue
+*FvwmIdentFore Yellow
+*FvwmIdentFont -adobe-helvetica-medium-r-*-*-12-*-*-*-*-*-*-*
+
+*PagerBack #8a868a
+*PagerBackxpm /usr/pixmaps/Xaw/blackmarble.xpm
+*PagerFore #ffffff
+*PagerFont -adobe-helvetica-bold-r-*-*-10-*-*-*-*-*-*-*
+*PagerHilight #aca8ac
+*PagerGeometry -1-1
+*PagerLabel 0 0
+*PagerSmallFont 5x8
+
+# ---------------------------------------------
+# Audio settings
+# ---------------------------------------------
+
+#Module Audio
+#*AudioPlayCmd /usr/bin/play
+#*AudioDir /usr/include/X11/sounds
+#*AudioDelay 2
+#*Audio new_desk beaming.au
+#*Audio icon_name ding.wav
+#*Audio res_class bong.au
+#*Audio res_name beep.au
+#*Audio end_windowlist chimes.au
+#*Audio startup startup.wav
+#*Audio shutdown shutdown.wav
+#*Audio new_page meepmeep.au
+#*Audio toggle_paging meepmeep.au
+#*Audio add_window
+#*Audio raise_window drip.au
+#*Audio lower_window drip.au
+#*Audio focus_change drip.au
+#*Audio destroy_window crash.au
+#*Audio iconify chimes.wav
+#*Audio deiconify ploop.au
+#*Audio configure_window huh.au
+#*Audio window_name bong.au
+
+# ------------------------------------------------------
+# Colors/Fonts/Actions
+# ------------------------------------------------------
+
+Font -b&h-lucidatypewriter-medium-r-normal-*-12-*-*-*-*-*-*-*
+# -b&h-lucidatypewriter-medium-r-normal-*-11-*-*-*-*-*-*-*
+# -schumacher-clean-medium-r-normal-*-13-*-*-*-*-*-*-*
+# -adobe-helvetica-medium-r-*-*-12-*-*-*-*-*-*-*
+
+WindowFont -b&h-lucidatypewriter-bold-r-normal-*-12-*-*-*-*-*-*-*
+# -b&h-lucidatypewriter-medium-r-normal-*-12-*-*-*-*-*-*-*
+# -schumacher-clean-medium-r-normal-*-13-*-*-*-*-*-*-*
+# -adobe-helvetica-bold-r-*-*-12-*-*-*-*-*-*-*
+
+StdForeColor #8a868a
+# Sets  the foreground  color  for  menus   and  non-
+# selected  window  titles to colorname.
+
+StdBackColor #575557
+# Sets   the background  color  for  menus,  and non-
+# selected   windows  to  colorname.
+
+HiForeColor #ffffff
+# Sets  the color for selected window's title to col-
+# orname.
+
+HiBackColor #8a868a
+# Sets  the  background color for the selected window
+# to colorname.
+
+MenuForeColor #ffffff
+# Sets   the   menu foreground  color.
+
+MenuBackColor #aca8ac
+# Sets  the  menu  background  color.
+
+StickyForeColor #8a868a
+# Sets the foreground color for  non-selected  window
+# sticky   (Sticks-to-glass)  titles  to   colorname.
+
+StickyBackColor #aca8ac
+# Sets the background color for  non-selected  window
+# sticky   (Sticks-to-glass)  windows  to  colorname.
+# (default is #60c0a0)
+
+MenuStippleColor #cecace
+# Sets the color for shaded out entries in menus (for
+# functions which  are  not allowed on the  currently
+# selected  window).
+
+NoBoundaryWidth 1
+BoundaryWidth 6
+
+# ---------------------------------------------
+# Styles
+# ---------------------------------------------
+
+Style "tkgoodstuff" Sticky, NoTitle, NoHandles, NoFocus, CirculateSkip
+Style "TkDesk Application Bar" Sticky, NoTitle, NoFocus, WindowListSkip, NoHandles
+Style "FvwmTaskBar" NoTitle, StaysOnTop, NoHandles
+Style "*Console*" NoHandles, NoFocus, Sticky, WindowListSkip, NoTitle
+Style "xlogo" WindowListSkip, NoTitle, NoFocus, NoHandles, Sticky
+Style "xload" NoTitle, NoHandles
+Style "xeyes" NoTitle, NoFocus, NoHandles, Sticky, CirculateSkip
+Style "*XLogo*" WindowListSkip, NoTitle, NoFocus, NoHandles, Sticky
+Style "oclock" Sticky, NoTitle, StaysOnTop, WindowListSkip
+Style "asclock" Sticky, NoTitle, StaysOnTop, WindowListSkip
+Style "Wharf*" Sticky, NoTitle, WindowListSkip, NoHandles, CirculateSkip, NoFocus
+Style "Send*eferred" NoHandles
+Style "ProcMeter*" NoTitle, WindowListSkip, NoHandles, CirculateSkip, NoFocus
+Style "Banner" NoHandles, NoTitle, StaysOnTop, Sticky, WindowListSkip
+Style "*Pager" NoTitle, Sticky, StaysOnTop, WindowListSkip, NoHandles
+Style "xbiff" NoTitle, WindowListSkip, Sticky, NoHandles, NoFocus
+Style "coolmail" NoTitle, WindowListSkip, Sticky, NoHandles, NoFocus
+Style "Minitabx11" StaysOnTop
+Style "*esktop*" NoTitle, Sticky, WindowListSkip, NoHandles
+Style "/*" Sticky
+Style "~/*" Sticky
+Style "Whowas" NoHandles
+
+# ---------------------------------------------
+# Icon settings
+# ---------------------------------------------
+
+Icon "XTerm"			XMonitor.xpm
+Icon "Rxvt"			penguin.xpm
+Icon "Wharf*"			AF.xpm
+Icon "RHS Linux Network Manag*" DeskGlobe.xpm
+Icon "control-panel"		interface.xpm
+Icon "Netscape Download"	NetscapeDownload.xpm
+Icon "Netscape:*"		Netscape.xpm
+Icon "eIrc"			E_PuzzlePiece.xpm
+Icon "On #*"			E_PuzzlePiece.xpm
+Icon "Zircon Control Panel"	z.xpm
+Icon "Zircon Information*"	z-info.xpm
+Icon "IRC Channel #*"		z-channel.xpm
+Icon "ircII 2.8.2"		PlainTextOnPaper.xpm
+Icon "TkRat*"			ASMail.xpm
+Icon "Compose message"		WriteMail.xpm
+Icon "xfm*"			FileFolders.xpm
+Icon "Dialup PPP (DIP)"		small_world.xpm
+Icon "XPlaycd"			ColoredCompactDisc.xpm
+Icon "xmcd"			ColoredCompactDisc.xpm
+Icon "Xbm*"			Monalisa.xpm
+Icon "XMixer"			xfmix.xpm
+Icon "xztalk"			MicroPhonePro.xpm
+Icon "*mid*"			OldFashionedRadio.xpm
+Icon "*rmi*"			OldFashionedRadio.xpm
+Icon "xlogo"			Xlogo.xpm
+Icon "DOS BoX"			dosemu.xpm
+Icon "LyX"			text.xpm
+Icon "xman"			xman.xpm
+Icon "gimp"			Photoshop.xpm
+Icon "xpaint"			PaintBrushSplash.xpm
+Icon "Calculator"		OldBlueAddingMachine.xpm
+Icon "xv*"			XV.xpm
+Icon "knews*"			Knews.xpm
+Icon "~/*"			FolderHome.xpm
+Icon "/*/"			Folders.xpm
+Icon "Untitled*"		YellowBlueRedGeometry.xpm
+
+Icon "*~/.steprc"		interface.xpm
+Icon "ncFTP"			FilingCabinet.xpm
+Icon "Pine"			WriteMail.xpm
+Icon "vi*"			PlainTextOnPaper.xpm
+
+# ---------------------------------------------
+# Files
+# ---------------------------------------------
+
+Icon "*.arc *"		FileArc.xpm
+Icon "*.arj *"		FileArj.xpm
+Icon "*.asc *"		FileAsc.xpm
+Icon "*.au *"		FileAu.xpm
+Icon "*.bin *"		FileBin.xpm
+Icon "*.Cpt *"		FileCpt.xpm
+Icon "*.dra *"		FileDRAW.xpm
+Icon "*.bib *"		FileDotBIB.xpm
+Icon "*.c *"		FileDotC.xpm
+Icon "*.h *"		FileDotH.xpm
+Icon "*.l *"		FileDotL.xpm
+Icon "*.ps *"		FilePS.xpm
+Icon "*.tar *"		FileTar.xpm
+Icon "*.lha *"		FileLha.xpm
+Icon "*.lzh *"		FileLzh.xpm
+Icon "*.snd *"		FileSnd.xpm
+Icon "*.tar.gz *"	FileTgz.xpm
+Icon "*.tgz *"		FileTgz.xpm
+Icon "*.url *"		FileURL.xpm
+Icon "*.zip *"		FileZip.xpm
+
+# -------------------------------------------------------
+# General AfterStep toggle switches
+# -------------------------------------------------------
+
+StickyIcons
+# Causes icons to always stick to the screen's glass.
+# That  is, icons always follow you around the  desk­
+# top.   When  a  window  is  de-iconified,  it  gets
+# unstuck.
+
+#AppsBackingStore
+# Causes   application  windows  to request   backing
+# store. Specifying this  option  causes  the  window
+# manager  to  fail to be ICCCM compliant. While this
+# option can speed things up in an X-terminal,  where
+# re-draws  of  windows is expensive, it may not help
+# much on regular workstations.
+
+#AutoRaise 250
+#  Enables auto-raising of windows and  specifies  the
+#  time delay (in milli-seconds) between when a window
+#  acquires the input focus and when it  is  automati-
+#  cally raised.  This option works in  focus-follows-
+#  mouse mode, and in click-to-focus mode if the focus
+#  is  changed  by  clicking in the application window
+#  instead of a decoration window. In click  to  focus
+#  mode,  you can suppress the raise-on-focus behavior
+#  by specifying a negative delay for auto-raise.
+
+BackingStore
+# Causes AfterStep decorations to request backing store.
+# See the discussion for AppsBackingStore.
+
+ClickTime 200
+# Specifies the  maximum  delay  (in  milli-seconds)
+# between  a button press and a button release for
+# the Function builtin to consider   the  action
+# a mouse click. The default delay is 150 milli-seconds.
+
+ClickToFocus
+# Normally  keyboard  input goes  to  the window  the
+# mouse pointer is in. If this  option  is  set,  the
+# keyboard  input  stays  with one window until a new
+# window is clicked on.  This is similar what the NeXT 
+# acts like.
+
+CirculateSkipIcons
+# Icons ignored in circulate-up and down.
+
+CenterOnCirculate
+#  When  circulating,  the desktop page containing the
+#  window which the pointer is moving to is  automati-
+#  cally selected.  If CenterOnCirculate is  selected,
+#  then afterstep will do its best  to  center  the  tar-
+#  get window  in  the  desktop viewport, rather  than
+#  just lining up to the closest page.
+
+DecorateTransients
+# Causes   transient windows, which are normally left
+# undecorated, to be given  the  usual afterstep decora-
+# tions.  Note  that some pop-up windows, such as the
+# xterm menus, are not managed by the window manager,
+# and still do not receive decorations.
+
+SaveUnders
+# Causes the AfterStep decoration frames to  request
+# saveunders.   This  can  significantly improve the perfor-
+# mance during opaque moves, but  it  causes  a  significant
+# increase in memory usage.
+
+DeskTopSize 1x2
+#  Defines  the  virtual  desktop size in units of the
+#  physical screen size.
+
+DeskTopScale 32
+#  Defines  the  virtual desktop scale with respect to
+#  the screen.
+
+#DontMoveOff
+#  Prevents windows from being moved off or  initially
+#  placed off of the desktop.  A few programs will not
+#  work correctly if you use this  option.  This  only
+#  keeps  windows  from  being completely lost off the
+#  edge of the desktop. It insists on keeping 16  pix-
+#  els on  the  desktop, but doesn't care a bit  about
+#  keeping the whole window on the desk.  See  EdgeRe-
+#  sistance if you don't like having windows partially
+#  off the screen.
+
+EdgeResistance 250 10
+#  Tells  how  hard it should be to change the desktop
+#  viewport by moving the mouse over the edge  of  the
+#  screen,  and how hard it should be to move a window
+#  over the edge of the screen.
+#
+#  The first parameter tells how milliseconds the pointer 
+#  must spend on the screen edge before afterstep will 
+#  move the viewport. This is intended for people who use 
+#  EdgeScroll 100 100, but find themselves accidentally
+#  flipping pages when they don't want to.
+#
+#  The second parameter tells how many pixels over the
+#  edge of the screen a window's edge must move before
+#  it actually moves partially off the screen.
+
+EdgeScroll 100 100
+#  Specifies the percentage of a page to  scroll  when
+#  the   cursor  hits the edge of a page. If you don't
+#  want any paging or scrolling when you hit the  edge
+#  of   a   page, include EdgeScroll 0 0 in your
+#  .steprc file. If you want  whole  pages,  use   Edge-
+#  Scroll   100  100.   Both   horizontal and vertical
+#  should be positive numbers.
+#
+#  If the horizontal and vertical percentages are mul-
+#  tiplied by 1000, then scrolling will wrap around at
+#  the edge of  the  desktop.  If  "EdgeScroll  100000
+#  100000"   is   used,  afterstep  will  scroll by whole
+#  pages, wrapping around at the edge of the  desktop.
+
+#MenusHigh
+# Instructs afterstep to set child menus flush with the top of the
+# root menu.
+
+NoPPosition
+# Instructs afterstep to ignore the PPosition field when
+# adding new windows.   Adherence  to  the  PPosition
+# field is required for some applications, but if you
+# don't have one of those, its a real headache.
+
+OpaqueMove 10
+#  Tells afterstep the  maximum size  window  with  which
+#  opaque window movement should be used. The percent-
+#  age is  percent  of  the total   screen area.  With
+#  OpaqueMove 0, all windows will be moved  using  the
+#  traditional  rubber-band  outline.  With OpaqueMove
+#  100, all windows will be move as solid windows. The
+#  default  is OpaqueMove 5 which allows small windows
+#  to be moved in an opaque manner, but large  windows
+#  to be moved as rubber-bands.
+
+#OpaqueResize
+#  Causes resize operations to be done with the window
+#  itself, instead of an outline.
+
+PagingDefault 1
+#  Tells afterstep if  it  should  start up  with  paging
+#  enabled  or disabled.  "PagingDefault 0" will start
+#  afterstep  with  paging  disabled,  "PagingDefault  1"
+#  will start afterstep with paging enabled by default.
+
+RandomPlacement
+# Causes   windows   which would normally require user
+# placement to be automatically  placed  in  ever-so-
+# slightly random locations.
+
+SmartPlacement
+# Causes   windows  which would normally require user
+# placement to be automatically  placed  in a   smart
+# location  - a location in which they do not overlap
+# any other windows on the screen. If no  such  posi-
+# tion  can be found, user-placement or random place-
+# ment will be used as a fall-back method.  For   the
+# best of all possible worlds, use both random place-
+# ment and SmartPlacement.
+
+SloppyFocus
+#  This focusing mode is like focus-follows-mouse (the
+#  afterstep default),  except  that the focus  will  not
+#  be  removed from a window until your mouse enters a
+#  new window.  Exiting  a window to  enter  the  root
+#  window will leave the focus unchanged.
+
+#StubbornIcons
+# Changes de-iconification behavior a bit. Instead of
+# having windows always de-Iconify themselves on  the
+# current  page,  the  de-iconify into their original
+# position.
+
+#StubbornIconPlacement
+# When used with IconBoxes, causes  icons   to  avoid
+# placing  themselves  underneath  existing  windows.
+# THIS  OPTION  IS  PART  OF THE NEXTSTEP(tm) RELATED
+# OPTIONS, DO NOT MODIFY IT!
+
+#SuppressIcons
+# Pevents icon windows from being created or drawn
+# When  used  with  the  window-list, this  provides
+# a sort of icon manager.
+
+#XORvalue number
+#  Changes the value with which bits are  XOR'ed  when
+#  doing  rubber-band  window moving or resizing. Set-
+#  ting this value is a trial-and-error process.
+
+# ----------------------------------------------------------
+# System Modules
+# ----------------------------------------------------------
+
+# Area where icons should show up (RightX, RightY, LeftX, LeftY)
+# IconBox 0 -64 -1 -1 (Default) 0 -133 -552 -1 (-202)
+
+IconBox 0 -64 -736 -1
+IconBox -261 -64 -1 -1
+
+# ----------------------------------------------------------
+# XRipple settings
+# ----------------------------------------------------------
+
+#IconBox 0 -128 -736 -1
+#IconBox -261 -128 -1 -1
+
+# -----------------------------------------------------------
+# Personal Menu
+# ------------------------------------------------------------
+# Popups
+# ------------------------------------------------------------
+
+Popup "Resources"
+	Title "X Resources"
+	Exec	"Keymap Editor"		exec xkeycaps &
+	Exec	"Font Selector"		exec xfontsel &
+	Exec	"Color Selector"	exec xcolorsel &
+	Exec	"Resource Editor"	exec editres &
+	Exec	"AfterStep Config"	exec rxvtpix -T "AfterStep Config" -e pico ~/.steprc &
+EndPopup  
+
+Popup "Graphics"
+	Title "Graphics"
+	Exec	"The Gimp"	exec gimp -geometry +15+373 &
+	Exec	"XV"		exec xv &
+	Exec	"XPaint"	exec xpaint &
+	Exec	"Pixmap"	exec pixmap -size 48x48 &
+	Exec	"Bitmap"	exec bitmap -size 48x48 -geometry 650x650 &
+	Nop	" "
+	Exec	"XMorph"	exec xmorph &
+EndPopup
+
+Popup "Editors"
+	Title "Editors"
+	Exec	"NEdit"		exec nedit &
+	Exec	"GNU Emacs"	exec emacs &
+	Exec	"XEdit"		exec xedit &
+	Nop	" "
+	Exec	"vimX"		exec rxvtpix -T vi -e vimx &
+	Exec	"Ghostview"	exec ghostview -bg darkgrey -magstep -3 &
+	Exec	"Pico"		exec rxvtpix -T Pico -e pico -w &
+	Nop	" "
+	Exec	"tkHTML"	exec tkHTML &
+	Exec	"asWedit"	exec asWedit &
+EndPopup
+
+Popup "Applications"
+        Title "Applications"
+	Exec	"X-DOS"		exec xdos &
+	Exec	"Wine"		exec wine -dll +wsock32 -dll +winsock -mode enhanced -perfect -fixedmap -winver win95 -ipc -debugmsg -all s:/progman.exe &
+	Nop	" "
+	Popup	"Graphics"	Graphics
+	Popup	"Editors"	Editors
+	Nop	" "
+	Exec	"Seyon"		exec seyon &
+	Exec	"Calculator"	exec xcalc &
+	Exec	"Xxgdb"		exec xxgdb &
+EndPopup
+
+Popup "Games"
+        Title "Games"
+        Exec	"XBomb"		exec xbomb &
+        Exec    "XBoard"        exec xboard &
+        Exec    "XTetris"       exec xtetris &
+        Exec    "XVier"         exec xvier &
+EndPopup
+
+Popup "Utilities"
+	Title  "Utilities"
+	Exec	"XConsole"	exec xconsole -verbose &
+	Exec    "XLogo"         exec xlogo &
+        Exec    "Top"           exec rxvt -T Top -n Top -e top &
+        Exec    "Config"        exec rxvtpix -T "vi(.steprc)" -e vimx -n ~/.steprc &
+EndPopup
+
+Popup "Rxvt"
+	Title	"Rxvt's"
+	Exec	"Winter Lake"		exec rxvtpix -pixmap /usr/include/X11/backgrounds/craterlake.xpm -scale T &
+	Exec	"Abo Red"		exec rxvtpix &
+EndPopup
+
+Popup "Shells" 
+        Title   "Shells"
+	Popup	"Rxvt's"	Rxvt
+	Nop	" "
+	Exec	"XTerm"		exec xterm &
+	Exec	"Rxvt"		exec rxvt -T Rxvt &
+	Exec	"NXterm"	exec nxterm -T NXterm &
+	Exec	"ANSI-Xterm"	exec ansi_xterm -T ANSI-Xterm &
+	Nop	" "
+	Exec	"Dot-Net"	exec rxvtpix -T Dot-Net -tn vt100 -e telnet dot-net.net &
+EndPopup
+
+Popup "Mail"
+	Title	"Mail"
+	Exec	"TkRat"			exec tkrat &
+	Exec	"XFMail"		exec xfmail &
+	Exec	"Exmh"			exec exmh &
+	Exec    "Pine"			exec rxvtpix -T Pine -e pine &
+EndPopup
+	
+Popup "WWW"
+	Title	"WWW"
+	Exec	"NS Navigator"		exec ~/.mynetscape &
+	Exec	"Lynx"			exec rxvtpix -geometry 80x45 -T Lynx -e lynx &
+	Nop	" "
+	Exec	"NS News"		exec netscape -remote "OpenURL(news:)"
+	Exec	"NS Mail"		exec netscape -remote "OpenURL(mailto:)"
+EndPopup
+
+Popup "Internet"
+	Title	"Internet"
+	Exec	"Dip"			exec rxvtpix -T DIP -iconic -e sudo dot &
+	Exec	"Dip kill"		exec rxvtpix -T "DIP Kill" -iconic -e sudo dotk &
+	Nop	" "
+	Popup	"Mail"			Mail
+	Popup	"WWW"			WWW
+	Nop	" "
+	Exec	"Knews"			exec knews &
+	Exec	"Zircon"		exec zircon &
+	Exec    "ircII"			exec rxvtpix -geometry 80x35 -T "ircII 2.8.2" -e ~/ircs &
+	Nop	" "
+	Exec	"NIST Time"		exec sudo /root/.time &
+	Exec	"ncFTP"			exec rxvtpix -T ncFTP -e ~/.ftp &
+	Exec	"ftp"			exec rxvtpix -T ftp -e ftp &
+EndPopup
+
+Popup "Quit-Verify"
+	Title	"Quit?"
+	Quit	"Yes, Quit"
+	Restart "Restart"	afterstep
+	Nop	" "
+        Restart "FVWM-95"       fvwm95-2
+	Restart "Amiga WB"      amiwm
+	Restart	"Motif WM"	mwm
+	Nop	" "
+	Nop	"No, Don't"
+EndPopup
+
+Popup "DotFile"
+	Title "Dot File"
+	Exec	"Fvwm 1.x"	exec dotfile fvwm1 &
+	Exec	"Fvwm 2.x"	exec dotfile fvwm2 &
+	Nop	" "
+	Exec	"Bash"		exec dotfile bash &
+	Exec	"Tcsh"		exec dotfile tcsh &
+	Nop	" "
+	Exec	"Emacs"		exec dotfile emacs &
+	Exec	"Elm"		exec dotfile elm &
+	Exec	"Rtin"		exec dotfile rtin &
+EndPopup
+
+Popup "Module-Popup"
+	Title	"Modules"
+	Popup	"Dot File"	DotFile
+#	Module	"Wharf"		Wharf
+        Module	"Wharf #1"	Wharf1
+	Module	"Wharf #2"	Wharf2
+	Module	"Wharf #3"	Wharf3
+	Nop	" "
+	Module	"Identify"	FvwmIdent
+	Module	"Banner"	Banner
+	Module	"TaskBar"	FvwmTaskBar
+	Module	"ButtonBar"	FvwmButtons
+EndPopup
+
+Popup "XEarth"
+	Title	"XEarth"
+	Exec	"Orbit (markers)"	exec xearth &
+	Exec	"Orbit (No markers)"	exec xearth -nomarkers &
+	Exec	"Random"		exec xearth -pos random &
+	Exec	"Day Fixed"		exec xearth -pos "sunrel 0 0" &
+	Nop	" "
+	Exec	"Kill XEarth"		exec killall xearth &
+EndPopup
+	
+Popup "XRipple"
+	Title	"XRipple"
+	Exec	"Start"		exec nice -n 19 xripple &
+	Exec	"End"		exec killall xripple
+EndPopup
+
+Popup "Marbles"
+	Title	"Marbles"
+	Exec	"Black"		exec xpmroot /usr/pixmaps/Xaw/blackmarble.xpm
+	Exec	"Blue"		exec xpmroot /usr/pixmaps/Xaw/bluemarble.xpm
+	Exec	"Reddish"	exec xpmroot /usr/include/X11/backgrounds/minitile.xpm
+EndPopup
+
+Popup "Backgrounds"
+	Title	"Backgrounds"
+	Popup	"Marble"	Marbles
+	Popup	"XRipple"	XRipple
+	Popup	"XEarth"	XEarth
+	Nop	" "
+	Exec	"AF Logo"	exec xpmroot /usr/include/X11/backgrounds/AF-Logo.gif
+	Exec	"Bark"		exec xpmroot /usr/include/X11/backgrounds/bark.xpm
+	Exec	"Brass"		exec xpmroot /usr/include/X11/backgrounds/brass.xpm
+	Exec	"Brick"		exec xpmroot /usr/include/X11/backgrounds/brick.xpm
+	Exec	"Checker Tile"	exec xpmroot /usr/include/X11/backgrounds/tile.check.xpm
+	Exec	"Coins"		exec xpmroot /usr/include/X11/backgrounds/coins.xpm
+	Exec	"Dark Wood"	exec xpmroot /usr/include/X11/backgrounds/darkwood.xpm
+	Exec	"Dark squares"	exec xpmroot /usr/include/X11/backgrounds/lightb1.xpm
+	Exec	"Green Carpet"	exec xpmroot /usr/include/X11/backgrounds/carpet.green.xpm
+	Exec	"Pebbles"	exec xpmroot /usr/include/X11/backgrounds/pebbles.xpm
+	Exec	"Space (best)"	exec xpmroot /usr/include/X11/backgrounds/stbkg.xpm
+	Exec	"Space"		exec xpmroot /usr/include/X11/backgrounds/space.xpm
+	Exec	"Swirl Eyes"	exec xpmroot /usr/include/X11/backgrounds/eyes.xpm
+	Exec	"Square Glass"	exec xpmroot /usr/include/X11/backgrounds/glass.xpm
+	Exec	"Volcanic"	exec xpmroot /usr/include/X11/backgrounds/volcanic.xpm
+	Exec	"Wood"		exec xpmroot /usr/include/X11/backgrounds/wood.xpm
+EndPopup
+
+Popup "Menu"
+	Title 	"R-o-Z's Menu"
+	Exec	"Rxvt"			exec rxvtpix &
+	Nop	" "
+	Exec	"Check Mail"		exec ~/.cmail &
+	Exec	"Check Kernel"		exec ~/.kernel &
+	Nop	" "
+	Popup   "Shells"		Shells
+	Popup	"Internet"		Internet
+	Popup   "Applications"		Applications
+	Popup	"Resources"		Resources
+	Popup	"Utilities"		Utilities
+	Popup   "Games"			Games
+	Popup	"Backgrounds"		Backgrounds
+	Popup   "Modules"		Module-Popup
+	Nop	" "
+	Popup   "Exit"			Quit-Verify
+EndPopup
+
+# ----------------------------------------------------------
+# Functions
+# ----------------------------------------------------------
+# Please see the afterstep(1) manpage for details.
+# Startup and Restart functions.  You can put backdrop and modules 
+# startups here. DON'T put programs in Restart unless they somehow 
+# detect and kill themselves when you restart -- otherwise you will 
+# have multiple copies of programs running.
+
+Function "InitFunction"
+#Exec	"I"	exec xearth -pos "sunrel 0 0" &
+#Exec	"I"	exec xpmroot /usr/pixmaps/Xaw/blackmarble.xpm
+Exec	"I"	exec xpmroot /usr/pixmaps/Xaw/bluemarble.xpm
+Exec	"I"	exec xconsole -verbose &
+Exec	"I"	exec xlogo &
+Module	"I"	Wharf1 &
+Wait	"I"	Wharf1
+Module	"I"	Wharf2 &
+#Module	"I"	Wharf3 &
+Exec	"I"	exec tkdesk &
+Wait	"I"	TkDesk Application Bar
+Exec	"I"	exec rxvtpix -geometry +295+180 &
+#Exec	"I"	exec nice -n 19 xripple &
+EndFunction
+
+Function "RestartFunction"
+Module	"I"	Wharf1 &
+Wait	"I"	Wharf1
+Module	"I"	Wharf2 &
+#Module	"I"	Wharf3 &
+Exec	"I"	exec xrdb -merge ~/.Xresources
+Exec	"I"	exec xrdb -merge ~/.Xresources.Xaw
+EndFunction
+
+# ------------------------------------------------------------------
+# Mouse Functions
+# ------------------------------------------------------------------
+
+# Mouse 1 ----------------------------------------------------------
+
+Function "Move-or-Raise"
+	Move 		"Motion"
+	Raise 		"Motion"
+	Raise		"Click"
+EndFunction
+Mouse 1		T	N	Function "Move-or-Raise"
+
+Function "Resize-or-Raise"
+	Resize 		"Motion"
+	Raise		"Motion"
+	Raise		"Click"
+EndFunction
+Mouse 1		FS	N	Function "Resize-or-Raise"
+
+Function "Raise-Shade"
+	Shade		"Click"
+	Raise		"Click"
+EndFunction
+Mouse 1		T	M	Function "Raise-Shade"
+
+# Mouse 2 ------------------------------------------------------------
+
+Function "Maximize-Iconify"
+        Maximize	"Click" 100 100
+	Iconify		"DoubleClick"
+EndFunction
+Mouse 2		T	N	Function "Maximize-Iconify"
+
+Function "RaiseLower"
+	RaiseLower	"Click"
+	RaiseLower	"DoubleClick"
+	Shade		"DoubleClick"
+EndFunction
+Mouse 2		T	M	Function "RaiseLower"
+
+# Mouse 3 ------------------------------------------------------------
+
+Function "Move-or-Lower"
+	Move 		"Motion"
+	Lower 		"Motion"
+	Lower		"Click"
+EndFunction
+Mouse 3		T	N	Function "Move-or-Lower"
+
+Function "Resize-or-Lower"
+	Resize 		"Motion"
+	Lower		"Motion"
+	Lower		"Click"
+EndFunction
+Mouse 3		FS	N	Function "Resize-or-Lower"
+
+Function "Lower-Shade"
+	Shade		"Click"
+	Lower		"Click"
+EndFunction
+Mouse 3		T	M	Function "Lower-Shade"
+Mouse 3		FSW	C	Function "Lower-Shade"
+
+PopUp "Iconify-Popup"
+	Title		"Commands"
+	Iconify		"Restore"
+	Move		"Move"
+	Resize		"Size"
+	Nop		" "
+	Iconify		"Minimize"
+	Maximize	"Maximize" 100 100
+	Nop		" "
+	Close		"Close"
+	Destroy		"Destroy"
+EndPopup
+
+Popup "Window Ops"
+	Title "Window Ops"
+	Function	"Move" 		Move-or-Raise
+	Function	"Resize" 	Resize-or-Raise
+	Nop		" "
+	Raise 		"Raise"
+	Lower 		"Lower"
+	Nop		" "
+	Maximize	"Maximize" 100 100
+	Maximize 	"Max/Vert" 0 100
+	Iconify 	"Iconify"
+	PutOnTop 	"Float"
+	Stick 		"Sticky"
+	Nop		" "
+        Close           "Close"
+	Destroy 	"Destroy"
+	Nop		" "
+        Refresh         "Refresh"
+EndPopup
+
+# ----------------------------------------------------------
+# Button layout
+# ----------------------------------------------------------
+# [1][3][5][7][9]	Title		[0][8][6][4][2]
+# ----------------------------------------------------------
+
+Mouse 0		1	N	Popup "Iconify-Popup"
+Mouse 0		2	N	Close
+Mouse 0		3	N	Iconify
+Mouse 0		4	N	Destroy
+Mouse 0		5	N	Maximize 100 100
+Mouse 0		6	N	Shade
+
+TitleButton	1	pulldown2.xpm
+TitleButton	2	close3.xpm
+#TitleButton	2	close5.xpm	close4.xpm
+TitleButton	3	minimize3.xpm
+TitleButton	4	destroy3.xpm
+TitleButton	5	maximize3.xpm
+TitleButton	6	shade3.xpm
+
+Mouse 1		R   	N       Popup "Menu"
+Mouse 1		FSW	M	Popup "Menu"
+Mouse 2		R    	N      	Popup "Window Ops"
+Mouse 2		FSW	M	Popup "Window Ops"
+Mouse 3		R    	N      	WindowList
+Mouse 3		FSW	M	WindowList
+
+Mouse 0		R	M	Refresh
+Mouse 0		W	SC	Destroy
+Mouse 1		I	N	Iconify
+Mouse 2		I	N	Maximize 100 100
+Mouse 2		I	N	Iconify
+Mouse 3		I	N	Popup "Iconify-Popup"
+
+# ----------------------------------------------------------
+# Input Interface
+# ----------------------------------------------------------
+
+# Mouse Button Context Modifiers Function
+#  Defines  a mouse binding.  Button is the mouse but­
+#  ton number.  If  Button  is  zero, then any  button
+#  will   perform  the  specified  function.   Context
+#  describes in  what  context  the  binding  applies.
+#  Valid  contexts  are R for the root window,  W  for
+#  an  application window,  T   for   a  window  title
+#  bar, S for a window side, top, or bottom bar, F for
+#  a window frame (the corners), I for an Icon window,
+#  or  any combination of these letters.  1 is for the
+#  left title-bar button and 2 is  for  the  title-bar
+#  button  A  is  for any context except for title-bar
+#  buttons. For instance, a context of FST will  apply
+#  when  the mouse   is anywhere in a window's border,
+#  except the title-bar buttons.
+#
+#  Modifiers is any combination of N for no modifiers,
+#  C for  control,   S for shift, M for Meta, or A for
+#  any modifier.  For example, a modifier of CM   will
+#  apply  when  both the Meta and shift keys are down.
+#
+#  Function is one of afterstep's built in functions.
+#
+
+# Key keyname Context Modifiers Function
+# Please see the afterstep(1) manpage for details.
+#
+
+# Keyboard accelerators
+Key F1		A	M	Popup "Menu"
+Key F2		A	M	Popup "Window Ops"
+Key F3		A	M	WindowList
+Key F5		A	M	Iconify
+Key F6		A	M	Move
+Key F7		A	M	Resize
+Key F8		A	M	Exec "xwd" sleep 7 && ~/.screencapture &
+Key F10		A	M	Popup "Quit-Verify"
+Key Tab		A	M	CirculateUp
+
+Key n	R	M	Exec "Netscape" netscape &
+Key m	R	M	Exec "TkRat" tkrat &
+Key f	R	M	Exec "NcFTP" rxvtpix -T ncFTP -e ~/.ftp &
+Key q	R	M	Popup "Quit-Verify"
+Key r	R	M	Exec "Rxvt" rxvtpix &
+Key x	R	M	Exec "XTerm" xterm &

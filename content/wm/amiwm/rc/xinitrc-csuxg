@@ -1,0 +1,29 @@
+#!/bin/sh
+
+# magic cookies
+host=`hostname`
+case "$DISPLAY" in
+        localhost:*|unix:*|:0*|"")      DISPLAY=`hostname`:0.0;;
+        *)                              ;;
+esac
+RDISPLAY=$DISPLAY; export DISPLAY RDISPLAY
+xauth extract - $RDISPLAY | rsh lily -l `whoami` /usr/local/bin/X11/xauth merge - 2>/dev/null &
+# The user may wish to add other xauth commands, for DCS, Maths etc
+
+GRAPHICS=X; export GRAPHICS
+
+/home/csuxg/amiwm/bin/amiwm &
+WM=$!
+# Shell windows
+xterm -T 'console' -C +sb -geometry 80x3+0-331 &
+xterm -T `hostname` -geometry 80x23+0-6 &
+xterm -T `hostname` -geometry 80x28+508-6 &
+# Backdrop
+/home/newwords/X11/bin/xv3.10 -root -quit /home/csuxg/xpm/slate.xpm
+# XBiff XMeter and SwissWatch run on startup
+xbiff -geometry 114x48-0-326 &
+swisswatch -geometry 114x125-0-179 &
+xmeter -geometry 114x151-0-6 -update 5 `hostname` &
+wait $WM
+/home/csuxg/amiwm/bin/xmexit -quiet
+exit

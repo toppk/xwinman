@@ -1,0 +1,145 @@
+#
+# $XConsortium: system.twmrc /main/9 1996/10/16 16:14:38 kaleb $
+# 
+# Default twm configuration file; needs to be kept small to conserve string
+# space in systems whose compilers don't handle medium-sized strings.
+#
+# Sites should tailor this file, providing any extra title buttons, menus, etc.
+# that may be appropriate for their environment.  For example, if most of the
+# users were accustomed to uwm, the defaults could be set up not to decorate
+# any windows and to use meta-keys.
+#
+
+NoGrabServer
+NoTitle
+RandomPlacement
+RestartPreviousState
+DecorateTransients
+#IconifyByUnmapping
+TitleFont "-adobe-helvetica-bold-r-normal--*-120-*-*-*-*-*-*"
+ResizeFont "-adobe-helvetica-bold-r-normal--*-120-*-*-*-*-*-*"
+MenuFont "-adobe-helvetica-bold-r-normal--*-120-*-*-*-*-*-*"
+IconFont "-adobe-helvetica-bold-r-normal--*-100-*-*-*-*-*-*"
+IconManagerFont "-adobe-helvetica-bold-r-normal--*-100-*-*-*"
+
+BorderWidth 4 
+
+Color
+{
+    BorderColor "rgb:8/0/F"
+    {
+	"XTerm"	  "red"
+    }
+    DefaultBackground "rgb:8/0/F"
+    DefaultForeground "rgb:2/0/4"
+    TitleBackground "rgb:2/0/4"
+    TitleForeground "rgb:8/0/f"
+    MenuBackground "rgb:0/8/f"
+    MenuForeground "rgb:0/2/4"
+    MenuTitleBackground "rgb:0/2/4"
+    MenuTitleForeground "rgb:0/8/f"
+    IconBackground "rgb:0/0/4"
+    IconForeground "rgb:0/0/f"
+    IconBorderColor "rgb:0/0/f"
+    IconManagerBackground "rgb:1/1/4"
+    IconManagerForeground "rgb:4/4/F"
+}
+
+#
+# Define some useful functions for motion-based actions.
+#
+MoveDelta 3
+Function "move-or-lower" { f.move f.deltastop f.lower }
+Function "move-or-raise" { f.move f.deltastop f.raise }
+Function "move-or-iconify" { f.move f.deltastop f.iconify }
+Function "focus-move" { f.raise f.deltastop f.move }
+Function "window-client" { f.delete f.deltastop f.destroy }
+#
+# Set some useful bindings.  Sort of uwm-ish, sort of simple-button-ish
+#
+Button1 = : frame : f.function "focus-move"
+Button2 = : frame : f.resize
+Button3 = : frame : f.iconify
+Button4 = : window | frame : f.function "focus-move"
+Button5 = : window | frame : f.resize
+
+Button4 = : root : f.menu "prog"
+Button3 = : root : f.menu "defops"
+Button2 = : root : f.menu "movement"
+Button1 = : root : f.menu "admin"
+
+Button1 = m : all : f.function "move-or-lower"
+Button3 = m : all : f.iconify
+button2 = m : all : f.menu "movement"
+Button5 = m : window | frame : f.delete
+
+Button1 = : title : f.function "move-or-raise"
+Button2 = : title : f.raiselower
+
+Button1 = : icon : f.function "move-or-iconify"
+Button2 = : icon : f.iconify
+
+Button1 = : iconmgr : f.iconify
+Button2 = : iconmgr : f.iconify
+
+"Left"  = m : all : f.warpring "next"
+"F1"    = : all : f.iconify
+"z"	= m : window : f.delete
+"a"	= m : window : f.destroy
+
+Icons
+{
+	"XTerm"  "/home/chris/.x/xterm.icon"
+	"Buddy List" "/home/chris/.x/aim.icon"
+}
+#
+# And a menus with the usual things
+#
+menu "prog"
+{
+"PROGRAMS"	f.title
+"Netscape"      f.exec "netscape&"	
+"Xmms"		f.exec "xmms&"
+"Tik"		f.exec "tik&"
+"Xchat"		f.exec "xchat&"
+}
+
+menu "defops"
+{
+"MAIN"	f.title
+"Iconify"	f.iconify
+"Resize"	f.resize
+"Move"		f.move
+"Raise"		f.raise
+"Lower"		f.lower
+"Show Iconmgr"	f.showiconmgr
+"Hide Iconmgr"	f.hideiconmgr
+"x Window"	("rgb:0/2/4":"rgb:4/b/f") f.delete
+"Restart"	f.restart
+"Exit"		f.quit
+"REALLY Exit"   ("rgb:8/0/0":"rgb:0/8/f") f.exec "killall sleep"
+"x Client"      ("rgb:8/0/0":"rgb:4/b/f") f.destroy
+}
+menu "movement" 
+{
+"ADJUST"	f.title
+"Maximize"      f.fullzoom 
+"Adjust Size"   f.resize 
+"--->"          f.rightzoom 
+"<---"		f.leftzoom
+"<-->"		f.horizoom
+"^^^^"		f.topzoom
+"VVVV"		f.bottomzoom
+"^V^V"		f.zoom
+}
+menu "admin"
+{
+"ADMIN"	f.title
+"xterm"         f.exec "xterm -bg black -fg white&"
+"xhost +"	f.exec "xhost +"
+"vncserver"	f.exec "vncserver -geometry 640x480&"
+"vncviewer"     f.exec "vncviewer&"
+"time"		f.exec "xmessage `date`&"
+"xmix"		f.exec "xmix&"
+"xlock"		f.exec "xlock&"
+}

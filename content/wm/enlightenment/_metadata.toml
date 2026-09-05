@@ -1,0 +1,27 @@
+# _metadata.toml describes the files in this directory: each [[entry]] names files and records
+# what is known about them (mtime, contributor, date, text...). Same shape everywhere.
+# Here: the contributed setups, who sent them and when; {{< contributions >}} is one view of it.
+
+[[entry]]
+from = "dfree@inna.net"
+added = "1999-11"
+files = ["screenshots/enl-dfree.jpg"]
+text = "[screenshot 1](screenshots/enl-dfree.jpg) (241k), with the default theme."
+
+[[entry]]
+from = "dfree@inna.net"
+added = "1999-11"
+files = ["screenshots/enl-dfree2.jpg"]
+text = "[screenshot 2](screenshots/enl-dfree2.jpg) (297k), with the \"nIx\" theme."
+
+[[entry]]
+from = "anakin@arrakis.es"
+added = "2002-02"
+files = ["screenshots/enl-anakin.jpg"]
+text = "[screenshot](screenshots/enl-anakin.jpg) (147k)."
+
+[[entry]]
+from = "xwin (at) slyink.com"
+added = "2004-08"
+files = ["screenshots/enl-jackson.jpg"]
+text = "[screenshot](screenshots/enl-jackson.jpg) (146k), from DR16.7 with the \"winter\" theme."

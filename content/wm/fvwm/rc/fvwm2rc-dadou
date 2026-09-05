@@ -1,0 +1,556 @@
+TitleStyle Height 17
+TitleStyle -- Flat
+TitleStyle (VGradient 128 2 royalblue1 50 royalblue3 50 royalblue4)-- Flat
+#TitleStyle ActiveDown (HGradient 128 2 royalblue3 50 royalblue1 50 royalblue3)-- Flat
+TitleStyle Inactive (VGradient 128 2 grey85 50 grey70 50 grey50) -- Flat
+
+
+
+ButtonStyle 1 (MiniIcon -- Flat)
+ButtonStyle 1 (VGradient 128 2 royalblue1 50 royalblue3 50 royalblue4)-- Flat
+ButtonStyle 1 Inactive (VGradient 128 2 grey85 50 grey70 50 grey50) -- Flat
+AddButtonStyle 1 ActiveDown (5 01x01@0 99x01@0 99x99@1 01x99@1 01x01@0)
+
+#ButtonStyle 1 ActiveUp (2 01x01@1 01x01@1) -- Flat
+#ButtonStyle 1 ActiveDown (2 01x01@1 01x01@1) -- Flat
+#ButtonStyle 1 Inactive (2 01x01@1 01x01@1) -- Flat
+
+
+# Button 2: delete
+#delete now
+ButtonStyle 2 (VGradient 128 2 royalblue1 50 royalblue3 50 royalblue4)-- Flat
+ButtonStyle 2 Inactive (VGradient 128 2 grey85 50 grey70 50 grey50) -- Flat
+AddButtonStyle 2 ActiveUp (13 20x20@0 80x80@0 85x80@0 25x20@0 30x20@0 90x80@0 50x50@0 20x80@0 80x20@0 85x20@0 25x80@0 30x80@0 90x20@0) -- Flat
+AddButtonStyle 2 ActiveDown (13 20x20@1 80x80@1 85x80@1 25x20@1 30x20@1 90x80@1 50x50@1 20x80@1 80x20@1 85x20@1 25x80@1 30x80@1 90x20@1) -- Flat
+AddButtonStyle 2 Inactive (13 20x20@0 80x80@0 85x80@0 25x20@0 30x20@0 90x80@0 50x50@0 20x80@0 80x20@0 85x20@0 25x80@0 30x80@0 90x20@0) -- Flat
+
+
+#ButtonStyle 2 ActiveUp (13 20x50@0 01x20@0 20x01@0 50x20@0 80x01@0 99x20@0 80x50@0 99x80@0 80x99@0 50x80@0 20x99@0 01x80@0 20x50@0) -- Flat
+#ButtonStyle 2 ActiveDown (13 20x50@1 01x20@1 20x01@1 50x20@1 80x01@1 99x20@1 80x50@1 99x80@1 80x99@1 50x80@1 20x99@1 01x80@1 20x50@1) -- Flat
+#ButtonStyle 2 Inactive (13 20x50@0 01x20@0 20x01@0 50x20@0 80x01@0 99x20@0 80x50@0 99x80@0 80x99@0 50x80@0 20x99@0 01x80@0 20x50@0) -- Flat
+
+
+#ButtonStyle 2 ActiveUp (13 20x50@0 01x20@0 20x01@0 50x20@0 80x01@0 99x20@0 80x50@0 99x80@0 80x99@0 50x80@0 20x99@0 01x80@0 20x50@0) -- Flat
+#ButtonStyle 2 ActiveDown (13 20x50@1 01x20@1 20x01@1 50x20@1 80x01@1 99x20@1 80x50@1 99x80@1 80x99@1 50x80@1 20x99@1 01x80@1 20x50@1) -- Flat
+#ButtonStyle 2 Inactive (13 20x50@0 01x20@0 20x01@0 50x20@0 80x01@0 99x20@0 80x50@0 99x80@0 80x99@0 50x80@0 20x99@0 01x80@0 20x50@0) -- Flat
+
+
+
+
+# Button 6: Minimize (image of large window being shrunk down)
+ButtonStyle 6 (VGradient 128 2 royalblue1 50 royalblue3 50 royalblue4)-- Flat
+ButtonStyle 6 Inactive (VGradient 128 2 grey85 50 grey70 50 grey50) -- Flat
+AddButtonStyle 6 ActiveUp (4 25x80@0 85x80@0 85x75@0 25x75@0 25x70@0 85x70@0) -- Flat
+AddButtonStyle 6 ActiveDown (4 25x80@1 85x80@1 85x75@1 25x75@1 25x70@1 85x70@1) -- Flat
+AddButtonStyle 6 Inactive (4 25x80@0 85x80@0 85x75@0 25x75@0 25x70@0 85x70@0) -- Flat
+
+#ButtonStyle 6 ActiveUp (8 01x50@0 50x99@0 99x50@0 80x50@0 80x10@0 20x10@0 20x50@0 01x50@0) -- Flat
+#ButtonStyle 6 ActiveDown (8 01x50@1 50x99@1 99x50@1 80x50@1 80x10@1 20x10@1 20x50@1 01x50@1) -- Flat
+#ButtonStyle 6 Inactive (8 01x50@0 50x99@0 99x50@0 80x50@0 80x10@0 20x10@0 20x50@0 01x50@0) -- Flat
+
+#Button 4:  Maximize
+ButtonStyle 4 (VGradient 128 2 royalblue1 50 royalblue3 50 royalblue4)-- Flat
+ButtonStyle 4 Inactive (VGradient 128 2 grey85 50 grey70 50 grey50) -- Flat
+AddButtonStyle 4 ActiveUp (7 20x20@0 90x20@0 90x25@0 20x25@0 20x80@0 90x80@0 90x20@0) -- Flat
+AddButtonStyle 4 ActiveDown (7 20x20@1 90x20@1 90x25@1 20x25@1 20x80@1 90x80@1 90x20@1) -- Flat
+AddButtonStyle 4 Inactive (7 20x20@0 90x20@0 90x25@0 20x25@0 20x80@0 90x80@0 90x20@0) -- Flat
+
+
+#ButtonStyle 4 ActiveUp (8 01x50@0 50x01@0 99x50@0 80x50@0 80x90@0 20x90@0 20x50@0 01x50@0) -- Flat
+#ButtonStyle 4 ActiveDown (8 01x50@1 50x01@1 99x50@1 80x50@1 80x90@1 20x90@1 20x50@1 01x50@1) -- Flat
+#ButtonStyle 4 Inactive (8 01x50@0 50x01@0 99x50@0 80x50@0 80x90@0 20x90@0 20x50@0 01x50@0) -- Flat
+
+#ButtonStyle 1 (13 50x50@0 01x20@1 20x01@1 50x50@0 80x01@0 99x20@0 50x50@0 99x80@0 80x99@0 50x50@0 20x99@0 01x80@0 50x50@0) -- Flat
+#ButtonStyle 1 (13 20x50@0 01x20@0 20x01@0 50x20@0 80x01@0 99x20@0 80x50@0 99x80@0 80x99@0 50x80@0 20x99@0 01x80@0 20x50@0) -- Flat
+#ButtonStyle 1 (13 20x50@0 01x20@0 20x01@1 50x20@1 80x01@1 99x20@1 80x50@0 99x80@1 80x99@0 50x80@0 20x99@0 01x80@0 20x50@1) -- Flat
+
+#ButtonStyle 1 (8 01x50@0 50x01@0 99x50@0 80x50@0 80x99@0 20x99@0 20x50@0 01x50@0) -- Flat
+#ButtonStyle 1 (13 01x50@1 50x01@1 99x50@1 80x50@0 80x60@0 99x60@1 99x99@1 01x99@0 01x60@1 20x60@1 20x50@1 01x50@0 01x50@1) -- Flat
+#ButtonStyle 1 (8 01x50@1 50x99@01 99x50@0 80x50@0 80x01@0 20x01@1 20x50@1 01x50@1) -- Flat
+#ButtonStyle 1 (8 01x50@0 50x01@0 99x50@0 80x50@0 80x90@0 20x90@0 20x50@0 01x50@0) -- Flat
+# croix
+#ButtonStyle 2 ActiveUp (13 20x50@0 01x20@0 20x01@1 50x20@1 80x01@1 99x20@1 80x50@0 99x80@1 80x99@0 50x80@0 20x99@0 01x80@0 20x50@1) -- Flat
+
+MenuStyle * Foreground gray90, Background royalblue3, SeparatorsShort
+MenuStyle * Hilight3DOff, HilightBack royalblue2, ActiveFore gray17
+MenuStyle * Animation
+#MenuStyle * TrianglesSolid
+MenuStyle * Font -mdk-helvetica-medium-r-normal--12-120-75-75-p-64-tis620.2533-1, PopupOffset 1 90
+MenuStyle * MenuFace VGradient 128 1 royalblue3 50 royalblue1 50 royalblue1
+
+
+# be sure to customize these paths for your installation:
+ModulePath /usr/local/libexec/fvwm/2.4.0/
+#PixmapPath /usr/share/icons
+#IconPath /usr/share/icons/mini
+ImagePath /usr/share/icons:/usr/share/icons/mini
+
+BorderStyle -- HiddenHandles NoInset
+OpaqueMoveSize 100
+XORvalue 255
+#EdgeResistance 0 0
+#EdgeScroll 100 100
+ClickTime 750
+HilightColor gray17 royalblue3
+#royalblue3
+DeskTopSize 1x1
+
+
+
+
+# make sure these fonts exist on your system:
+WindowFont -adobe-helvetica-medium-r-*-*-12-*-*-*-*-*-*-*
+IconFont -adobe-helvetica-medium-r-*-*-12-*-*-*-*-*-*-*
+
+# default Styles:
+Style "*"		BorderWidth 3, HandleWidth 2
+Style "*"		Color grey17/grey75
+#Style "*"		MWMFunctions, MWMDecor, HintOverride
+###Style "*"		DecorateTransient
+#Style "*"               NakedTransient
+Style "*"		NoPPosition
+Style "*"		IconBox 0 -10 -280 -1
+Style "*"		FocusFollowsMouse
+Style "*"		SloppyFocus
+#Style "*" 		ClickToFocus
+#Style "*"		RandomPlacement, SmartPlacement
+Style "*" Icon misc.xpm
+#Style "*" NoIcon
+#####Style "*" ManualPlacement
+Style "*" ActivePlacement
+
+
+
+
+# Styles for various Fvwm modules:
+Style "Fvwm*"		NoTitle,  Sticky, WindowListSkip
+Style "Fvwm*"		BorderWidth 1, CirculateSkipIcon, CirculateSkip
+Style "FvwmPager"	StaysOnTop
+Style "FvwmBanner"	StaysOnTop
+Style "FvwmButtons"	Icon misc.xpm, ClickToFocus
+
+# Styles for various common programs:
+Style "*lock"		NoTitle, NoHandles, Sticky, WindowListSkip, ClickToFocus
+Style "xbiff"		NoTitle, Sticky, WindowListSkip, ClickToFocus
+Style "xcalc"		NoButton 2,RandomPlacement
+Style "xmh"		Icon mail1.xpm, NoIconTitle,StickyIcon
+Style "xmh"		RandomPlacement, NoButton 2
+Style "xman"		RandomPlacement, ClickToFocus
+Style "xmag"		RandomPlacement, ClickToFocus
+Style "xgraph"		Icon graphs.xpm, RandomPlacement, ClickToFocus
+Style "xmosaic"		Color Green/Yellow, ClickToFocus
+Style "ascd"		NoTitle, Sticky, WindowListSkip
+
+#Style "XPlaycd"		Icon CDPlayer.xpm,		MiniIcon mini-cdlabel.xpm
+Style "xterm"	Icon host.xpm
+Style "*term"	Icon misc.xpm
+Style "rxvt"	Icon host.xpm,
+Style "rxvt"	IconOverride
+
+
+
+# some simple default key bindings:
+Key TAB	A M	CirculateUp
+#Key TAB		A 	M	Next [*] Focus
+Key Tab         A       C       Prev [*] Focus
+Key F4		A	M	Delete
+
+# some simple default mouse bindings:
+#   for the root window:
+Mouse 1	R	A	Menu RootMenu Nop
+Mouse 2	R	A	Menu Window-Ops Nop
+Mouse 3	R	A	WindowList
+
+#   for the title bar buttons:
+Mouse 0	1	A	Menu Window-Ops2 Close
+Mouse 0	2	A	Delete
+Mouse 0	4	A	Maximize 100 97
+Mouse 0	6	A	Iconify
+
+
+
+#   for other parts of the window/borders/icons:
+Mouse 1	F	A	Resize-or-Raise
+#Mouse 1	I	A	FvwmAuto 10 Raise
+Mouse 1	T	A	Move-or-Raise
+Mouse 1	S	A	Resize-or-Raise
+Mouse 1	I	A	Move-or-Iconify
+Mouse 2	I	A	Iconify
+#Mouse 2	FST	A	Menu Window-Ops2 Nop
+Mouse 3	TSIF	A	RaiseLower
+Mouse 3         TSIF    A       RaiseLower
+Mouse 2         T    A       WindowShade
+######################## Initialization Functions ############################
+AddToFunc InitFunction
+#+			"I"	Module	FvwmPager 0 0
+#+			"I"	Exec	tkdesk
++			"I"	Module  FvwmAuto 400 Raise Nop
+#+			"I"	Module	FvwmTaskBar
+AddToFunc RestartFunction
+#+			"I"	Module	FvwmPager 0 0
++			"I"	Module  FvwmAuto 400 Raise Nop
+#+			"I"	Module	FvwmTaskBar
+#+			"I"	Module	FvwmGtk
+######################## Menus ###################
+AddToMenu RootMenu "Root Menu	"	Title
++ "XTerm	"	Exec	rxvt -fg gray93 -title "" -bg black -fn fixed -fb fixed -sr -sl 10000&
+#+ "ATerm	"	Exec	aterm -tr -trsb -sh 85 -fg gray93 -bg black -fn fixed -title "" -fb fixed -sr -color12 yellow -color4 gray90 -color13  pink1 -color9 lightskyblue -tint lightskyblue  -sl 10000&
++ "ATerm	"	Exec	aterm -tr -trsb -sh 60 -fg gray93 -bg black -fn fixed -title "" -fb fixed -sr -color12 yellow -color4 gray90 -color13  pink1 -color9 lightskyblue -sl 10000&
++ ""					Nop
++ "Nedit	"	Exec	nedit
++ ""					Nop
++ "Netscape	"	Exec	netscape
++ "Courrier	"	Exec	netscape -mail
++ "Top		"		Exec	rxvt -font 7x14 -T Top -n Top -e top
++ "Manual pages	"	Exec	xman
++ ""					Nop
++ "Modules	"	Popup	Module-Popup
++ "Lock Screen	"	Exec	xlock
++ "Refresh	"		Refresh
++ ""					Nop
++ "Exit Fvwm	"	Popup	Quit-Verify
+
+AddToMenu "Network" "Network	"	Title
++ "PPP		"	Exec	ppp-up
++ "PPP redial	"	Exec	/etc/ppp/ppp-redial
++ ""					Nop
++ "ringconnect"				Exec	ringconnect /dev/modem
+
+AddToMenu Window-Ops "Window Ops "	Title		
++ "Identify	"	Module	FvwmIdent
++ "Move		"	Move
++ "Resize	"	Resize
++ "Raise	"	Raise
++ "Lower	"	Lower
++ "(De)Iconify"				Iconify
++ "(Un)Stick"				Stick
++ "(Un)Maximize"			Maximize
++ ""					Nop
++ "Delete	"	Delete
++ "Close"				Close
++ "Destroy	"	Destroy
++ ""					Nop
++ "Refresh	"		RefreshWindow
+
+AddToMenu Window-Ops2
++ "Identify	"	Module	FvwmIdent
++ "&Move	"	Move
++ "&Resize	"	Resize
++ "R&aise	"	Raise
++ "&Lower	"	Lower
++ "(De)&Iconify"			Iconify
++ "(Un)&Stick"				Stick
++ "(Un)Ma&ximize"			Maximize
++ ""					Nop
++ "&Delete	"	Delete
++ "&Close"				Close
++ "Destroy	"	Destroy
++ ""					Nop
++ "ScrollBar"				Module FvwmScroll 2 2
++ "Print"				PrintFunction
++ "Print Reverse"			PrintReverseFunction
+
+AddToMenu Module-Popup	"FvwmModules"	Title
++ "Identify"				Module	FvwmIdent
++ "Talk"  				Module	FvwmTalk
++ ""					Nop
++ "Button-Bar"				Module	FvwmButtons
++ "Pager"				Module  FvwmPager 0 0
++ "WinList"				Module  FvwmWinList
++ ""					Nop
++ "Banner"				Module	FvwmBanner
++ "ScrollBar"				Module  FvwmScroll 50 50
+#+ "Background"				Module  FvwmBacker
++ "AutoRaise"				Module  FvwmAuto 200 Raise Nop
++ "Stop AutoRaise"			KillModule FvwmAuto
++ ""					Nop
++ "IconBox"				Module	FvwmIconBox
++ "IconMan"				Module  FvwmIconMan
++ ""					Nop
++ "Form - Rlogin"			Module FvwmForm Rlogin
++ "Form - MyFvwmTalk"			Module FvwmForm MyFvwmTalk
++ "Form - QuitVerify"			Module FvwmForm QuitVerify
+
+AddToMenu "Quit-Verify"			"Quit?" Title
++ "" 					Nop
++ "Restart	"	Restart fvwm2
++ "" 					Nop
++ "" 					Nop
++ "Quit		"	Module FvwmForm QuitVerify
+#Quit
+#+ "" 					Nop
+#+ "" 					Nop
+#+ "Shutdown	"	Exec halt		
+
+######################## Sample Functions ##########################
+
+AddToFunc MailFunction	   "I" Next [$0] Iconify -1
++		           "I" Next [$0] Focus
++			   "I" None [$0] Exec $0 $1
+
+AddToFunc Move-or-Raise		"I" Raise
++				"M" Move
++				"D" Maximize 100 97
+
+AddToFunc Move-or-Raise2	"M" Raise
++				"M" Move
++  				"D" Lower
+
+AddToFunc Maximize-Func		"M" Maximize	 0 100
++				"C" Maximize	 0 80
++				"D" Maximize	 100 97
+
+AddToFunc Move-or-Iconify	"I" Raise
++				"M" Move
++				"D" Iconify
+
+AddToFunc Resize-or-Raise	"I" Raise
++				"M" Resize
++				"D" Lower
+
+AddToFunc Resize-or-Raise2	"M" Raise
++				"M" Resize
++				"D" Lower
+
+AddToFunc PrintFunction		"I" Raise
++				"I" Exec xdpr -id $w
+
+AddToFunc PrintReverseFunction  "I" Raise
++                               "I" Exec xdpr 1/2 -h -rv -id $w
+
+AddToFunc Iconify-and-Raise     "I" Iconify
++                               "I" Raise
+
+# RLOGIN machine fg bg
+AddToFunc RLOGIN "I" Exec xterm -fg $1 -bg $2 -e rlogin $0 -8
+
+# TELNET machine fg bg
+AddToFunc TELNET "I" Exec xterm -fg $1 -bg $2 -e telnet $0
+
+AddToFunc FocusAndWarp "I" Focus
++                      "I" WarpToWindow 2p 2p
+
+AddToFunc DeiconifyFocusAndWarp "I" Iconify -1
++                               "I" FocusAndWarp
+
+AddToFunc ChangeDefaultFocus "I" Style "*" $0
++                            "I" Recapture
+
+################## FvwmButtons button-bar ################################
+*FvwmButtonsBack bisque3
+*FvwmButtons(Frame 2 Padding 2 2 Container(Rows 2 Frame 1 Padding 10 0 \
+                                           Swallow(Respawn)))
+*FvwmButtons(NoSize Title Close, Icon bomb.xpm, Action Close)
+*FvwmButtons(Title Resize Icon mini.resize.xpm Back bisque4 Action Resize)
+*FvwmButtons(Frame -3 Swallow(Respawn,NoHints) xclock \
+       `Exec exec xclock -bg darkolivegreen -padding 0 -geometry +2000+0`)
+*FvwmButtons(3x1 Back darkolivegreen Fore white Frame 2 Padding 2 2 \
+                 Container(Rows 1 Frame -2 Padding 1 1 Back darkolivegreen))
+*FvwmButtons(Frame 2 Title(Side,Right) Mail Fore white \
+         Swallow(UseOld,NoRespawn)\
+         xbiff `Exec exec xbiff -bg darkolivegreen -geometry +200+200`)
+*FvwmButtons(2x1 Swallow (NoHints) "FvwmTalk" "FvwmTalk")
+*FvwmButtons(End)
+*FvwmButtons(End)
+
+
+########################## Window-Identifier ###############################
+# Just choose colors and a fonts
+*FvwmIdentBack MidnightBlue
+*FvwmIdentFore Yellow
+#*FvwmIdentFont -adobe-helvetica-medium-r-*-*-12-*-*-*-*-*-*-*
+
+########################### Pager #########################################
+*FvwmPagerBack grey60
+*FvwmPagerFore black
+#*FvwmPagerFont -adobe-helvetica-bold-r-*-*-10-*-*-*-*-*-*-*
+*FvwmPagerHilight #c0c0c0
+*FvwmPagerGeometry 74x85+0+0
+*FvwmPagerLabel 0 Desktop
+#*FvwmPagerSmallFont 5x8
+
+##########################FvwmWinList##################################
+*FvwmWinListBack #908090
+*FvwmWinListFore Black
+#*FvwmWinListFont -adobe-helvetica-bold-r-*-*-10-*-*-*-*-*-*-*
+*FvwmWinListAction Click1 Iconify -1,Focus
+*FvwmWinListAction Click2 Iconify
+*FvwmWinListAction Click3 Module "FvwmIdent" FvwmIdent
+*FvwmWinListUseSkipList
+*FvwmWinListGeometry +0-1+500x50
+                                      
+
+*FvwmBackerDesk 0 -solid steelblue
+*FvwmBackerDesk 1 -solid midnightblue
+
+*FvwmScrollBack grey40
+*FvwmScrollFore green
+	
+############################################################
+############################################################
+# Note that icons are shown in the module
+#    only if NoIcon commnand is applied.
+#Style     "*"  NoIcon
+
+############################################################
+*FvwmIconBoxIconBack    #cfcfcf
+*FvwmIconBoxIconHiFore  black
+*FvwmIconBoxIconHiBack  LightSkyBlue
+*FvwmIconBoxBack        #5f9ea0
+#*FvwmIconBoxFore       blue
+*FvwmIconBoxGeometry    5x1+0+0
+*FvwmIconBoxMaxIconSize 64x38
+#*FvwmIconBoxFont        -adobe-helvetica-medium-r-*-*-12-*-*-*-*-*-*-*
+*FvwmIconBoxSortIcons   IconName
+*FvwmIconBoxPadding     4
+*FvwmIconBoxLines       10
+*FvwmIconBoxSBWidth     11
+*FvwmIconBoxPlacement   Left Top
+*FvwmIconBoxPixmap      fvwm.xpm
+#*FvwmIconBoxHideSC Horizontal
+*FvwmIconBoxSetWMIconSize
+*FvwmIconBoxHilightFocusWin
+#*FvwmIconBoxResolution          Desk
+*FvwmIconBoxMouse       1       Click           RaiseLower
+*FvwmIconBoxMouse       1       DoubleClick     Iconify
+*FvwmIconBoxMouse       2       Click           Iconify -1, Focus
+*FvwmIconBoxMouse       3       Click           Module FvwmIdent
+*FvwmIconBoxKey         r       RaiseLower
+*FvwmIconBoxKey         space   Iconify
+*FvwmIconBoxKey         d       Close
+*FvwmIconBoxKey         n       Next
+*FvwmIconBoxKey         p       Prev
+*FvwmIconBoxKey         h       Left
+*FvwmIconBoxKey         j       Down
+*FvwmIconBoxKey         k       Up
+*FvwmIconBoxKey         l       Right
+#
+# Icon file specifications
+#
+# Mostly, you don't have to specify icon files, as FvwmIconBox now
+# reads icon files specified in Style commands.
+#
+*FvwmIconBox            "Fvwm*"         -
+
+# FvwmForm alias - rlogin to host via xterm
+*RloginWarpPointer
+#*RloginFont         *helvetica*m*r*n*14*
+#*RloginButtonFont   *helvetica*m*o*n*14*
+#*RloginInputFont    *cour*m*r*n*14*
+*RloginFore         Black
+*RloginBack         Light Gray
+*RloginItemFore          Wheat
+*RloginItemBack          Gray50
+# begin items
+*RloginLine         center
+*RloginText         "Login to Remote Host"
+*RloginLine         center
+*RloginText         "Host:"
+*RloginInput        HostName  20   ""
+*RloginLine         center
+*RloginSelection    UserSel   single
+*RloginChoice       Default   Default   on   "same user"
+*RloginChoice       Custom    Custom    off  "user:"
+*RloginInput        UserName  10   ""
+*RloginLine         expand
+*RloginButton       quit "Login"
+*RloginCommand Exec xterm  -T xterm@$(HostName) -e rlogin $(HostName) $(Custom?-l $(UserName))
+*RloginButton       restart   "Clear"
+*RloginCommand Beep
+*RloginButton       quit "Cancel"
+*RloginCommand Nop
+
+# FvwmForm alias - query exit ala mwm
+*QuitVerifyGrabServer
+*QuitVerifyWarpPointer
+*QuitVerifyFont          -adobe-helvetica-medium-r-*-*-12-*-*-*-*-*-*-*
+*QuitVerifyButtonFont    -adobe-helvetica-bold-r-*-*-10-*-*-*-*-*-*-*
+*QuitVerifyFore          gray90
+*QuitVerifyBack          royalblue3
+*QuitVerifyItemFore cornflowerblue
+*QuitVerifyItemBack royalblue3
+# begin items
+*QuitVerifyLine          center
+*QuitVerifyText          "Do you really want to Quit ?"
+*QuitVerifyLine          expand
+*QuitVerifyButton   quit      " Yes "
+*QuitVerifyCommand  Quit
+*QuitVerifyButton   quit      " No "
+*QuitVerifyCommand  Nop
+
+
+
+
+# MyTalk & MyFvwmTalk from Dave Goldberg
+# MyTalk Form - dissappears after use
+*MyTalkWarpPointer
+#*MyTalkFont *helvetica*m*r*n*14*
+#*MyTalkButtonFont *helvetica*m*o*n*14*
+#*MyTalkInputFont *cour*m*r*n*14*
+*MyTalkFore Red
+*MyTalkBack Gray
+*MyTalkItemFore Blue
+*MyTalkItemBack Gray
+*MyTalkLine center
+*MyTalkText "Fvwm Function"
+*MyTalkInput Func 40 ""
+*MyTalkLine expand
+*MyTalkButton quit "Run"
+*MyTalkCommand $(Func)
+*MyTalkButton restart "Clear"
+*MyTalkButton quit "Cancel"
+*MyTalkCommand Nop
+# MyFvwmTalk Form - sticks around
+*MyFvwmTalkWarpPointer
+#*MyFvwmTalkFont *helvetica*m*r*n*14*
+#*MyFvwmTalkButtonFont *helvetica*m*o*n*14*
+#*MyFvwmTalkInputFont *cour*m*r*n*14*
+*MyFvwmTalkFore Red
+*MyFvwmTalkBack Gray
+*MyFvwmTalkItemFore Blue
+*MyFvwmTalkItemBack Gray
+*MyFvwmTalkLine center
+*MyFvwmTalkText "Fvwm Function"
+*MyFvwmTalkInput Func 40 ""
+*MyFvwmTalkLine expand
+*MyFvwmTalkButton restart "Run"
+*MyFvwmTalkCommand $(Func)
+*MyFvwmTalkButton restart "Clear"
+*MyFvwmTalkCommand Nop
+*MyFvwmTalkButton restart "Iconify"
+*MyFvwmTalkCommand Next [MyFvwmTalk] Iconify
+*MyFvwmTalkButton quit "Quit"
+*MyFvwmTalkCommand Nop
+
+# to change banner pixmap
+#*FvwmBannerPixmap fvwm3.xpm
+#*FvwmBannerTimeout 2
+
+#------------------ FvwmTaskBar
+Style "FvwmTaskBar" NoTitle,BorderWidth 4,HandleWidth 4,Sticky,StaysOnTop,WindowListSkip,CirculateSkip
+#Style "FvwmTaskBar" NoTitle,BorderWidth 4,HandleWidth 4,Sticky,WindowListSkip,CirculateSkip
+Style "FvwmTaskBar"		Color RoyalBlue4/RoyalBlue4
+*FvwmTaskBarGeometry +0-0
+*FvwmTaskBarFore Black
+*FvwmTaskBarBack RoyalBlue1
+*FvwmTaskBarTipsFore black
+*FvwmTaskBarTipsBack bisque
+#*FvwmTaskBarFont -adobe-helvetica-medium-r-*-*-*-120-*-*-*-*-*-*
+#*FvwmTaskBarSelFont -adobe-helvetica-bold-r-*-*-*-120-*-*-*-*-*-*
+
+*FvwmTaskBarFont -adobe-helvetica-medium-r-normal-*-12-*-*-*-*-*-*-*
+*FvwmTaskBarSelFont -adobe-helvetica-bold-r-normal-*-12-*-*-*-*-*-*-*
+
+*FvwmTaskBarAction Click1 Iconify -1,Raise,Focus
+*FvwmTaskBarAction Click2 Iconify
+#*FvwmTaskBarAction Click3 Module "FvwmIdent" FvwmIdent
+*FvwmTaskBarAction Click3 Iconify
+*FvwmTaskBarUseSkipList
+*FvwmTaskBarAutoStick
+*FvwmTaskBarStartName 
+*FvwmTaskBarStartMenu 
+*FvwmTaskBarStartIcon mineyes2.xpm
+#*FvwmTaskBarShowTips
+*FvwmTaskBarMailBox /var/mail/sabban
+#*FvwmTaskBarIgnoreOldMail
+*FvwmTaskBarBellVolume 20

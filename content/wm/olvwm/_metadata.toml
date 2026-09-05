@@ -1,0 +1,21 @@
+# _metadata.toml describes the files in this directory: each [[entry]] names files and records
+# what is known about them (mtime, contributor, date, text...). Same shape everywhere.
+# Here: the contributed setups, who sent them and when; {{< contributions >}} is one view of it.
+
+[[entry]]
+from = "matt@belgarath.org"
+added = "1996-06"
+files = ["rc/openwin-menu", "rc/olvwm.resources", "screenshots/olvwm-matt.gif"]
+text = "A [menu specification](rc/openwin-menu) file (this should be renamed to <kbd>.openwin-menu</kbd> in your root directory), some [resources](rc/olvwm.resources) and a [screenshot](screenshots/olvwm-matt.gif) (18k)."
+
+[[entry]]
+from = "coyote@info.polymtl.ca"
+added = "1997-01"
+files = ["screenshots/olvwm-coyote.gif", "rc/olvwm-coyote.tar.gz"]
+text = "This [screenshot](screenshots/olvwm-coyote.gif) (160k) shows olvwm running under Linux. This [package](rc/olvwm-coyote.tar.gz) (40k) contains the icons, resources, and menu definition files used by the setup."
+
+[[entry]]
+from = "yetter@dnvr.uswest.net"
+added = "1998-02"
+files = ["screenshots/olvwm-yetter.jpg", "rc/Xdefaults-yetter", "rc/openwin-menu-yetter"]
+text = "This 1280x1024 [screenshot](screenshots/olvwm-yetter.jpg) (321K) is also from Linux. It uses this [.Xdefaults](rc/Xdefaults-yetter) file, and this [.openwin-menu](rc/openwin-menu-yetter) file."

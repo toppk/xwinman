@@ -1,0 +1,531 @@
+borderstyle inactive tiledpixmap wood2.xpm
+borderstyle active tiledpixmap wood1.xpm
+
+XORvalue 23
+OpaqueMoveSize 100
+ButtonStyle 2 pixmap up.xpm
+ButtonStyle 4 pixmap down.xpm 
+ButtonStyle 1 MiniIcon
+
+EdgeResistance 250 50
+WindowFont              -*-postcrypt-*-*-*-*-14-*-80-*-*-*-*-*
+IconFont                fixed
+EdgeScroll 100 100
+
+ModulePath /usr/lib/X11/fvwm2
+PixmapPath /usr/include/X11/pixmaps/
+IconPath   /usr/include/X11/bitmaps/
+
+hilightcolor grey darkred
+DeskTopSize 2x3
+
+MenuStyle  Black Gray41 midnightblue -*-helvetica-bold-r-normal--12-*-120-120-*-*-iso8859-1  next NWSE Gray31 LightGray 20 WEW MidnightBlue White 40
+ClickTime 750
+
+ColormapFocus FollowsMouse
+
+Style "*"           BorderWidth 5, HandleWidth 6, MWMBorder, MWMButtons
+Style "*"           Icon big-x.xpm, Color Black/grey37
+Style "*"           ActivePlacement, SmartPlacement
+Style "*"           MWMFunctions,MWMDecor,HintOverride
+Style "*"           DecorateTransient, IconBox -70 1 -1 -140, StickyIcon
+Style "*"      MiniIcon x.xpm
+Style "Fvwm*"       NoTitle, NoHandles, Sticky, 
+Style "Fvwm*"       BorderWidth 0,
+Style "XPlaymidi"   StartIconic, RandomPlacement
+Style "Fvwm Pager"  StaysOnTop, Title, Handles, BorderWidth 5, Color black/grey
+Style "FvwmPager"   StaysOnTop, Title, Handles, BorderWidth 5, Color black/grey
+Style "FvwmButtons"   StaysOnTop, Handles, BorderWidth 5, Sticky
+Style "Fvwm Talk"  StaysOnTop, Title, Handles, BorderWidth 5, 
+Style "FvwmTalk"   StaysOnTop, Title, Handles, BorderWidth 5, 
+Style "FvwmIdent"   StaysOnTop, Title, Handles, BorderWidth 5
+Style "FvwmBanner"  StaysOnTop
+Style "FvwmButtons" Icon toolbox.xpm
+Style "xload"	    BorderWidth 5, NoTitle, NoHandles, StaysOnTop
+Style "*lock"       NoTitle, NoHandles, Sticky, WindowListSkip
+Style "*lock"	    RandomPlacement
+#Style "xbiff"       NoTitle, Sticky
+#Style "Maker"       StartsOnDesk 1,RandomPlacement,ClickToFocus
+#Style "matlab"      StartsOnDesk 3
+#Style "signal"      StartsOnDesk 3 
+#Style "rxvt"        Icon  term.xpm,SloppyFocus,IconBox -70 1 -1 -140
+Style "Netscape"    Icon netscape3.xpm, MiniIcon mini-scrape.xpm
+Style "UAE"         SmartPlacement, RandomPlacement, Icon amiga.xpm
+Style "Control"     Icon amiga.xpm
+Style "XTerm"       Icon Monitor.xpm, MiniIcon mini.monitor.xpm, IconBox -70 1 -1 -140
+Style "raplayer"    MiniIcon mini.ra.xpm
+Style "Quake II"    MiniIcon mini.quake2.xpm, Icon quake2.xpm
+Style "XEphem"      Icon stars.xpm
+Style "Gimp"        Icon gimp2.xpm
+Style "Wine*"       Icon Crash.xpm
+Style "Fte"         Icon HandPunch.xpm
+Style "AWTapp"        Icon HandPunch.xpm
+Style "vMac"         Icon vMac.xpm
+Style "executor"     Icon Executor.xpm
+Style "IrcII"        Icon HAL-Eye.xpm
+Style "sky"          Icon sky.xpm
+Style "WorkMan"      Icon DiskCD.xpm, MiniIcon mini-cdrom.xpm
+Style "Ghostview"    Icon FilePS.xpm
+Style "ghostscript"    Icon FilePS.xpm
+style "XDosEmu"         icon disc.xpm
+style "CookieJar" RandomPlacement, StartIconic, icon spam.xpm, MiniIcon mini.spam.xpm
+style "syslog" RandomPlacement, StartIconic, icon interface.xpm, MiniIcon mini.interface2.xpm
+style "jukebox" icon ModeledHeadInClouds.xpm
+style "Eskimo" icon GoldenSatelliteDish.xpm
+style "uNF!" icon GoldenSatelliteDish.xpm
+style "Nether" icon GoldenSatelliteDish.xpm
+style "Notes" icon ClipboardWithPencilAndPaper.xpm
+style "timidity" icon TerminalSmiley.xpm
+style "icmpinfo" icon submarine.xpm, StartIconic, RandomPlacement
+
+Key Tab		A	M	Prev [*] focus
+Key Tab		A	C	Next [*] focus
+Key Up 		A	SM	Prev [*] focus
+Key Down	A	SM	Next [*] focus
+Key F1  A	C	exec xlock -mode bob
+Key F1		A	M	Popup "Utilities"
+Key F2	A	M	Popup "Window-Ops"
+Key F3	A	M       Stick
+Key F4	A	M	Iconify
+Key F5	A	M	gotopage 0 0
+Key F6	A	M	gotopage 2 0
+Key F7	A	M	gotopage 0 1
+Key F8	A	M	gotopage 2 1
+Key F9  A       M       gotopage 0 2
+Key F10  A       M       gotopage 2 2
+
+Key F15		FTIWS	A	Raise
+
+Mouse 1	R   	A       Menu Utilities Nop
+Mouse 2	R    	A      	Menu Window-Ops Nop
+Mouse 3	R    	A      	WindowList
+Mouse 0	1    	A      	Menu Window-Ops2 Close
+Mouse 0	2    	A     	Maximize-Func
+Mouse 0	4    	A     	Iconify
+Mouse 1	F	A	Resize-or-Raise
+Mouse 1	TS	A	Move-or-Raise
+Mouse 1	I	A	Move-or-Iconify
+Mouse 2	I	A	Iconify
+Mouse 2	FST	A	Menu Window-Ops2 Nop
+Mouse 3	TSIF	A	RaiseLower
+
+########################Initialization Functions ############################
+AddToFunc InitFunction 	  "I" Module FvwmPager 0 3
++ "I"     Exec rxvt 
++ "I" exec xterm -title "CookieJar" -e cj
++ "I" exec xterm -geometry 80x10 -title "syslog" -e "tail -f /usr/adm/messages" &
++ "I" exec xterm -geometry 80x10 -e "icmpinfo -vv -s"
++ "I" exec xload -geometry 75x75+715+515 -nolabel -update 1 -scale 2 -jumpscroll 1
+AddToFunc RestartFunction "I" Module FvwmPager 0 3
++			  "I" exec xsetroot -solid midnightblue -cursor /usr/X11/include/X11/bitmaps/xcursor.xbm /usr/X11/include/X11/bitmaps/xcursor-m.xbm
++                         "I" exec xv -root -quit /usr/lib/X11/bg/back39.jpg
+AddToMenu Startup	"Startup"	Title 	
++ "%mini.xterm.xpm%Xterm"		Exec  exec xterm &
++ "%mini-calc.xpm%Xcalc"		Exec  exec xcalc 
+########################Menus ########################################
+AddToMenu Utilities	"Utilities"	Title 	
++ "%mini.xterm.xpm%Rxvt"		Exec  exec rxvt &
++ "%mini.xterm.xpm%Xterm"		Exec  exec xterm &
++ "%mini-icq.xpm%ICQ-Java"	exec /opt/bin/icq
++ "%mini.axe.xpm%Kill"		Destroy
++ ""		Nop
++ "%mini-x.xpm%Apps"		Popup Apps-Popup
++ ""              Nop
++ "%mini.amiga.xpm%Emu"				Popup Emu-Popup
++ ""              Nop
++ "%mini-paint.xpm%Graphics"	Popup Graphics-Popup
++ ""              Nop
++ "%mini-cdrom.xpm%Stuff"		Popup Stuff-Popup
++ ""              Nop
++ "%mini.xgal2.xpm%Games"		Popup Games-Popup
++ ""              Nop
++ "%mini-audio.xpm%Audio"               Popup Audio-Popup
++ ""              Nop
++ "%mini-remote.xpm%Remote"			Popup Remote-Popup
++ ""              Nop
++ "%mini-perf.xpm%Stats"		Popup Stats-Popup
++ ""              Nop
++ "%mini-modules.xpm%Modules"	Popup Module-Popup
++ ""		Nop		
++ "%mini-stop.xpm%Exit Fvwm"	Popup Quit-Verify
++ "Refresh" Refresh
+AddToMenu Window-Ops	"Window Ops"	Title		
++ "Move"	Move-or-Raise2
++ "Resize"	Resize-or-Raise2
++ "Raise"	Raise
++ "Lower"	Lower 
++ "(De)Iconify"	Iconify
++ "(Un)Stick"	Stick		
++ "(Un)Maximize"	maximize_func
++ ""		Nop  
++ "Delete"	Delete	 
++ "Close"	Close	 
++ "Destroy"	Destroy
++ ""		Nop		
++ "Refresh Screen" Refresh		
+AddToMenu Window-Ops2	"Move"		Move-or-Raise
++ "Resize"	Resize-or-Raise
++ "Raise"		Raise   	
++ "Lower"		Lower   	
++ "Iconify"	Iconify 	
++ "(Un)Stick"	Stick		
++ ""		Nop     	
++ "Delete"	Delete	
++ "Close"		Close	  	
++ "Destroy"	Destroy 	
++ ""		Nop 		
++ "ScrollBar" 	Module FvwmScroll 2 2	
++ "Print"         PrintFunction
+
+AddToMenu Killem "Destroy" Title
++ "Nope."    Nop
++ "Yep"    Destroy
+
+AddToMenu Remote-Popup "Remote" Title
++ "Eskimo"	  exec rxvt -title "Eskimo" -n "Eskimo" -e slogin -C eskimo.com
+
+AddToMenu Apps-Popup	"Apps"		Title
++ "Lynx"          Exec exec color_xterm -bg black -fg white -e lynx &
++ "NetScape"      exec /opt/bin/nut
++ "NetScape4"	exec /opt/bin/nut4
++  "IrcII"         exec rxvt -title IrcII -n IrcII -fn 7x13 -e su slack -c '/usr/local/bin/pre4 -p 6660 Loki los-angeles.ca.us.undernet.org'
++  "IrcII-EF"         exec rxvt -title IrcII -n IrcII -e su slack -c '/usr/local/bin/pre4 Loki anarchy.tamu.edu'
++ "MTelnet"       exec ansx -e mtelnet
++ "Rxvt"        exec rxvt 
++ "XPdf"       exec xpdf
++ "XCard"         exec xcard /root/txt/phone.cf
++ "Notes"         exec xterm -title "Notes" -e joe /root/txt/notes
++ "Joe"           Exec exec color_xterm -bg black -fg white -e joe &
++ "NEdit"	exec nedit
++ "Xfte"          exec xfte
++ "SkyReader"     exec skyread
++ "XEphem"        exec xephem
++ "Minicom"       exec ansx -e minicom
++ "Seyon"         Exec exec seyon -modems /dev/cua1 -emulator ansi_xterm -- -fn sabvga -fg white -bg black
+
+AddToMenu Emu-Popup    "Emu"          Title
++ "Vice-C64"      exec c64
++ "X48"           exec x48
++ "WINE"          exec xterm -e wine -desktop 640x480 /root/wabi/windows/progman.exe
++ "XDos"          exec xdos
++ "Executor"      exec executor -nodrivesearch
++ "vMac"     exec xterm -iconic -title "vmac" -e /opt/bin/vmac
++ "vMac 68020"	  exec xterm -iconic -title "vmac" -e /opt/bin/vmac68020
++ "UAE"           exec uae -F 2
++ "UAE -F8"     exec uae -F8
++ "Bochs:Minix" exec /opt/bin/.minix.fvwm
++ "Gameboy"       exec /usr/lib/tk/demos/browse2 /usr/games/lib/vgb
++ "Sega"          exec /usr/lib/tk/demos/browse3 /usr/games/lib/sega
++ "Nes"           exec /usr/lib/tk/demos/browse4 /usr/games/lib/nes
++ "WINE:msAccess" exec color_xterm -bg black -fg white -iconic -e wine -desktop 640x480 /root/wabi/access/msaccess.exe
++ "WINE:Groliers" exec color_xterm -bg black -fg white -iconic -e wine -desktop 640x480 /root/wabi/ngmecl/ngmecl.exe
++ "WINE:CoolEdit" exec color_xterm -bg black -fg white -iconic -e wine -managed /root/wabi/cool/cool.exe
+
+AddToMenu Graphics-Popup "Graphics"       Title
++ "Xpaint"        Exec exec xpaint -geometry 250x415 &    
++ "Gimp"          Exec exec /usr/X11/bin/gimp & 
++ "Gimp1"         exec color_xterm -bg black -fg white -iconic -e /usr/local/bin/gimp
++ "Gimp docs"     Exec exec color_xterm -bg black -fg white -e lynx /usr/doc/gimp/gimp_toc.html &
++ "ImageMagick"   Exec exec color_xterm -bg black -fg white -iconic -e display &
++ "Xv"            Exec exec xv &
++ "Xv docs"       Exec exec color_xterm -bg black -fg white -e lynx /usr/doc/xv/index.html &
++ "Xwarp"         exec xwarp
++ "Xfig"          exec xfig
++ "ac3d"          exec /opt/bin/ac3
++ "ac3d2"         exec ac3d2
++ "VrWeb"         exec vrweb
++ "Pixmap"        exec pixmap
++ "Bitmap"        Exec exec bitmap &
++ "XFractint"     Exec exec color_xterm -bg black -fg white -e xfractint &
++ "XFracky"       Exec exec XFracky &
++ "XaoS"          Exec exec color_xterm -bg black -fg white -iconic -e xaos2 &
+			
+AddToMenu Stuff-Popup    "Stuff"          Title
++ "Kill That Damn Midi" exec killall xplaymidi mp timidity
++ "HTTP Proxy"    exec xterm -title "CookieJar" -e cj
++ "Editres"       exec editres
++ "Rocks"         Exec exec xrocks -root -bg black &
++ "Rocks-off" stoprox
++ "Xswarm"        Exec exec xswarm -w blue -c red &
++ "Xearth"        Exec exec xearth &
++ "earth"         Exec exec earth -bg midnightblue -fg darkgreen &
+AddToMenu Audio-Popup    "Audio"          Title
++ "WorkMan"       Exec exec workman &
++ "XWorkbone"     Exec exec xworkbone -q &
++ "Jukebox"       exec jb
++ "XfMix"         exec xfmix
++ "Studio"        Exec exec studio &
++ "RealAudio"     exec raplayer
++ "Streamworks"   exec swplayer
++ "Timidity"      exec timidity .
++ "Snd"           exec snd
++ "SoundStudio"   exec ss
++ "MxV"           exec mxv
+
+AddToMenu Games-Popup    "Games"          Title
++ "QuakeII Hook"  exec color_xterm -bg black -fg white -iconic -e /opt/bin/quake2 +set game hook +exec hook.cfg
++ "Quake"         exec color_xterm -bg black -fg white -iconic -e /opt/bin/quake -winsize 480 310
++ "Quake Hook"         exec color_xterm -bg black -fg white -iconic -e /opt/bin/quake -game hook -winsize 480 310
++ "AlienQuake"  exec color_xterm -bg black -fg white -iconic -e /opt/bin/quake -game aliens -winsize 480 310
++ "AirQuake"      exec color_xterm -bg black -fg white -iconic -e /opt/bin/quake -game air -winsize 480 310 +map air1
++ "MirrorMagic"   exec mirrormagic
++ "RocksNDiamonds" exec rocksndiamonds
++ "XKobo"         exec xkobo
++ "Craft"         exec cd /usr/games/lib/craft;/usr/games/lib/craft/craft
++ "XKoules"       exec xkoules
++ "XLincity"      exec xlincity
++ "XBoard"        exec color_xterm -bg black -fg white -e xboard
++ "XInvaders"     Exec exec xinvaders & 
++ "XBill"         Exec exec xbill &
++ "Xtet"          Exec exec xtet &
++ "Xhextris"	  exec xhextris
++ "Xmahjongg"     Exec exec xmahjongg &
++ "Xshisen"       Exec exec xshisen &
++ "Xvmahjongg"    Exec exec xvmahjongg &
++ "Xpool"         Exec exec xpool &
++ "Xtron"         Exec exec xtron &
++ "Xlander"       Exec exec xlander &
++ "XGalaga"       exec xgal
++ "Sol"           exec sol
+
+
+AddToMenu Stats-Popup    "Stats"          Title
++ "Xload" 	exec xload -geometry 75x75+715+515 -nolabel -update 1 -scale 2 -jumpscroll 1
++ "Xdaliclock"  exec xdaliclock -24 -fn -\*-postcrypt-\*-\*-\*-\*-23-\*-80-\*-\*-\*-\*-\* -bg black -geometry +0+0 -fg red
++ "TkPs"          Exec exec tkps &
++ "XSysinfo"      Exec exec xsysinfo -update 1 &
++ "Xwatch"        Exec exec xwatch -interval 1 /usr/adm/messages &
++ "Syslog"        Exec exec xterm -geometry 80x10 -title "syslog" -e "tail -f /usr/adm/messages" &
++ "Icmpinfo"      Exec exec xterm -geometry 80x10 -e "icmpinfo -vv -s"
++ "Tload"         Exec xterm -geometry 58x24 -fn 5x7 -e 'tload -d1' &
+
+AddToMenu Remote-Logins	"dopey"	 Exec rsh dopey rxvt -display $HOSTDISPLAY &
++ "snoopy" Exec rsh snoopy rxvt -display $HOSTDISPLAY &
++ "grumpy" Exec rsh grumpy rxvt -display $HOSTDISPLAY &
++ "happy"  Exec rsh happy rxvt -display $HOSTDISPLAY &
++ "bailey" Exec rsh bailey rxvt -display $HOSTDISPLAY &
++ "barnum" Exec rsh barnum rxvt -display $HOSTDISPLAY &
++ "joker"	 Exec rsh joker rxvt -display $HOSTDISPLAY &
++ "signal" Exec rxterm signal
+
+AddToMenu Module-Popup	"Modules"	Title	
++ "Button-Bar"	Module	FvwmButtons
++ "Clean-Up"	Module	FvwmClean
++ "Identify"	Module	FvwmIdent
++ "SaveDesktop"	Module  FvwmSave
++ "Debug"		Module	FvwmDebug
++ "Pager"		Module  FvwmPager 0 3
++ "WinList"	Module  FvwmWinList
++ "Background"	Module  FvwmBacker
++ "IconBox"	Module	FvwmIconBox
++ "Banner"	Module	FvwmBanner
++ "Talk"  	Module	FvwmTalk
++ "Prompt"	Module	FvwmPrompt "hello" raise
++ "~/.fvwm2rc"   exec xterm -e joe ~/.fvwm2rc
+
+AddToMenu Quit-Verify 	"Really Quit Fvwm?" Title	
++ "%mini.exit.xpm%Yes, Really Quit"  Exec exec killall X
++ "%mini.restart.xpm%Restart Fvwm2"     Restart fvwm2
++ "Start E"         Restart /usr/local/bin/enlightenment
++ ""		      Nop
++ "No, Don't Quit"    Nop	
+
+########################Functions ########################################
+
+AddToFunc MailFunction	   "I" Next [$0] Iconify -1
++		           "I" Next [$0] focus
++			   "I" None [$0] Exec $0 $1
+
+AddToFunc Move-or-Raise		"I" Raise
++				"M" Move
++  				"D" Lower
+
+AddToFunc Move-or-Raise2	"M" Raise
++				"M" Move
++  				"D" Lower
+
+AddToFunc Maximize-Func		"M" Maximize	 0 100
++				"C" Maximize	 0 80
++				"D" Maximize	 100 100
+
+AddToFunc Move-or-Iconify	"I" Raise
++				"M" Move
++				"D" Iconify
+
+AddToFunc Resize-or-Raise	"I" Raise
++				"M" Resize
++				"D" Lower
+
+AddToFunc Resize-or-Raise2	"M" Raise
++				"M" Resize
++				"D" Lower
+
+AddToFunc PrintFunction		"I" Raise
++				"I" Exec xdpr -id $w
+
+AddToFunc Iconify-and-Raise     "I" Iconify
++                               "I" Raise
+####################### BROKEN ###########################################
+############################ I never use it ##############################
+################## FvwmButtons button-bar ################################
+# Colors
+*FvwmButtonsRows 1
+
+#*FvwmButtonsColumns 6
+# xterm or rxvts on remote machines can be done like this
+# Output re-direction is csh style, not sh style
+# You will want to substitute your own hosts here!
+*FvwmButtons - whatever  Swallow "asclock" Exec asclock&
+*FvwmButtons - whatever Swallow "xload" Exec xload -nolabel -scale 2 -update 2&
+#*FvwmButtons - whatever Swallow "xeyes" Exec xeyes&
+*FvwmButtons - whatever Swallow "NoResource" Exec gears&
+*FvwmButtons - whatever Swallow "ascd" Exec ascd&
+#*FvwmButtons XTerm   rterm.xpm    exec "netscape" netscape -instal
+#*FvwmButtons Grumpy  rterm.xpm	Exec "XTerm" rsh grumpy "exec rxvt -T grumpy -display $HOSTDISPLAY </dev/null >&/dev/null & "&
+#*FvwmButtons Snoopy  rterm.xpm	Exec "XTerm" rsh snoopy "exec rxvt -T snoopy -display $HOSTDISPLAY </dev/null >&/dev/null & "&
+#*FvwmButtons signal rterm.xpm	Exec "XTerm" rxterm signal &
+#*FvwmButtons mail    mail2.xpm    Function MailFunction xmh "-font fixed"
+*FvwmButtons pppd rterm.xpm Exec "PPPD" pppd.new
+#*FvwmButtons atever  clock.xpm   Swallow "rclock" Exec rclock -bg \#908090 -geometry -1500-1500  &
+*FvwmButtons(1x1) - whatever Swallow "FvwmPager" Module FvwmPager 0 0
+*FvwmButtons(7x1) -            crap            Swallow "console" Exec xterm -C -T console -geometry -1500-1500 -e /bin/script/.pagerterm
+#FvwmPagerLabel 1 1
+#*FvwmPagerLabel 1 1
+#*FvwmPagerLabel 2 2
+#*FvwmPagerLabel 3 3
+
+########################## Window-Identifier ###############################
+# Just choose colors and a fonts
+*FvwmIdentBack MidnightBlue
+*FvwmIdentFore Yellow
+*FvwmIdentFont -adobe-helvetica-medium-r-*-*-12-*-*-*-*-*-*-*
+
+########################### Pager #########################################
+*FvwmPagerBack grey60
+#*FvwmPagerBack #908090
+*FvwmPagerFore #484048
+#*FvwmPagerFore #484048
+*FvwmPagerFont -adobe-helvetica-bold-r-*-*-10-*-*-*-*-*-*-*
+*FvwmPagerHilight grey45
+*FvwmPagerGeometry 300x80-1-1
+*FvwmPagerLabel 0 0
+*FvwmPagerLabel 1 1
+*FvwmPagerLabel 2 2
+*FvwmPagerLabel 3 3
+*FvwmPagerSmallFont 5x8
+
+##########################FvwmWinList##################################
+*FvwmWinListBack #908090
+*FvwmWinListFore Black
+*FvwmWinListFont -adobe-helvetica-bold-r-*-*-10-*-*-*-*-*-*-*
+*FvwmWinListAction Click1 Iconify -1,Focus
+*FvwmWinListAction Click2 Iconify
+*FvwmWinListAction Click3 Module "FvwmIdent" FvwmIdent
+*FvwmWinListUseSkipList
+*FvwmWinListGeometry +0-1
+                                      
+
+*FvwmBackerDesk 0 -solid steelblue
+*FvwmBackerDesk 1 -solid midnightblue
+
+*FvwmScrollBack grey40
+*FvwmScrollFore green
+	
+############################################################
+############################################################
+# Note that icons are shown in the module
+#    only if NoIcon commnand is applied.
+#Style     "*"  NoIcon
+
+############################################################
+*FvwmIconBoxIconBack    #cfcfcf
+*FvwmIconBoxIconHiFore  black
+*FvwmIconBoxIconHiBack  LightSkyBlue
+*FvwmIconBoxBack        #5f9ea0
+#*FvwmIconBoxFore       blue
+*FvwmIconBoxGeometry    5x1+0+0
+*FvwmIconBoxMaxIconSize 64x38
+*FvwmIconBoxFont        -adobe-helvetica-medium-r-*-*-12-*-*-*-*-*-*-*
+*FvwmIconBoxSortIcons   IconName
+*FvwmIconBoxPadding     4
+*FvwmIconBoxLines       10
+*FvwmIconBoxSBWidth     11
+*FvwmIconBoxPlacement   Left Top
+*FvwmIconBoxPixmap      fvwm.xpm
+#*FvwmIconBoxHideSC Horizontal
+*FvwmIconBoxSetWMIconSize
+*FvwmIconBoxHilightFocusWin
+#*FvwmIconBoxResolution          Desk
+*FvwmIconBoxMouse       1       Click           RaiseLower
+*FvwmIconBoxMouse       1       DoubleClick     Iconify
+*FvwmIconBoxMouse       2       Click           Iconify -1, Focus
+*FvwmIconBoxMouse       3       Click           Module FvwmIdent
+*FvwmIconBoxKey         r       RaiseLower
+*FvwmIconBoxKey         space   Iconify
+*FvwmIconBoxKey         d       Close
+*FvwmIconBoxKey         n       Next
+*FvwmIconBoxKey         p       Prev
+*FvwmIconBoxKey         h       Left
+*FvwmIconBoxKey         j       Down
+*FvwmIconBoxKey         k       Up
+*FvwmIconBoxKey         l       Right
+#
+# Icon file specifications
+#
+# Mostly, you don't have to specify icon files, as FvwmIconBox now
+# reads icon files specified in Style commands.
+#
+*FvwmIconBox            "Fvwm*"         -
+
+
+#*FvwmAudioPlayCmd /usr/local/bin/bplay
+*FvwmAudioPlayCmd builtin-rplay
+*FvwmAudioDir /sound/wav-au
+*FvwmAudioDelay 1
+*FvwmAudioRplayVolume 120
+*FvwmAudioRplayHost localhost              
+#*FvwmAudio startup TaDa.au
+#*FvwmAudio shutdown Elvis_Left.au
+#*FvwmAudio unknown doh.au
+#*FvwmAudio add_window drip.au
+#*FvwmAudio raise_window swoosh.au
+#*FvwmAudio lower_window swoosh.au
+#*FvwmAudio focus_change boing.au
+*FvwmAudio destroy_window /sound/wav-au/doh1.wav
+*FvwmAudio iconify slack.wav
+*FvwmAudio deiconify fnord.wav
+#*FvwmAudio toggle_paging fwop.au
+#*FvwmAudio new_page beam_trek.au              
+#*FvwmAudio new_desk beam_trek.au
+#*FvwmAudio configure_window huh.au
+#*FvwmAudio window_name beep.au
+#*FvwmAudio icon_name beep.au
+#*FvwmAudio res_class beep.au
+#*FvwmAudio res_name beep.au
+#*FvwmAudio end_windowlist twang.au
+
+
+Style "FvwmTaskBar" NoTitle,BorderWidth 4,HandleWidth 4,Sticky,StaysOnTop,WindowListSkip,CirculateSkip
+
+*FvwmTaskBarGeometry 800x50
+#+0-0
+*FvwmTaskBarFore Black
+*FvwmTaskBarBack #c0c0c0
+*FvwmTaskBarFont -adobe-helvetica-medium-r-*-*-*-120-*-*-*-*-*-*
+*FvwmTaskBarSelFont -adobe-helvetica-bold-r-*-*-*-120-*-*-*-*-*-*
+*FvwmTaskBarStatusFont fixed
+*FvwmTaskBarAction Click1 Iconify -1,Raise,Focus
+*FvwmTaskBarAction Click2 Iconify
+*FvwmTaskBarAction Click3 PopUp Window-Ops2
+*FvwmTaskBarUseSkipList
+#*FvwmTaskBarAutoStick
+*FvwmTaskBarStartName Start
+*FvwmTaskBarStartMenu Utilities
+*FvwmTaskBarStartIcon mini-exp.xpm
+*FvwmTaskBarShowTips
+#*FvwmTaskBarShowTransients
+#*FvwmTaskBarClockFormat %I:%M%p
+#*FvwmTaskBarHighlightFocus
+*FvwmTaskBarMailCommand Exec color_xterm -name Mail -T mail -ls -fn 8x13 -e pine -i 
+#*FvwmTaskBarAutoHide
+#*FvwmTaskBarDeskOnly

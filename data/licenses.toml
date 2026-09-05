@@ -1,0 +1,33 @@
+# The license vocabulary of the Notes page; bundles' `license` fields refer to these by name.
+
+[[license]]
+name = "GPL"
+osi = true
+url = "http://opensource.org/licenses/gpl-license.html"
+
+[[license]]
+name = "LGPL"
+osi = true
+url = "http://opensource.org/licenses/lgpl-license.html"
+
+[[license]]
+name = "BSD"
+osi = true
+url = "http://opensource.org/licenses/bsd-license.html"
+
+[[license]]
+name = "MIT"
+osi = true
+url = "http://opensource.org/licenses/mit-license.html"
+
+[[license]]
+name = "Open Group Public License"
+osi = false
+
+[[license]]
+name = "Custom licenses"
+osi = false
+
+[[license]]
+name = "Commercial licenses"
+osi = false

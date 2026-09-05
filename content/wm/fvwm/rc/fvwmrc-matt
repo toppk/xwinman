@@ -1,0 +1,443 @@
+### Fvwm setup by csuoq@csv.warwick.ac.uk ###
+
+# Some programs called are only available at csv.warwick.ac.uk, through
+# the user group Xcess - type ~csuoq/xcess for more details.
+
+
+### Paths ###
+PixmapPath /home/csuoq/xpm
+ModulePath /home/csuoq/bin/Fvwm
+
+### Colours ###
+HiForeColor         black
+HiBackColor         gold3
+
+MenuForeColor       black
+MenuBackColor       gray65
+
+### Fonts ###
+Font            -adobe-helvetica-*-r-normal-*-12-*
+WindowFont      -adobe-helvetica-*-r-normal-*-12-*
+IconFont        -adobe-helvetica-*-r-normal-*-10-*
+
+### Icons and Placement options ###
+StubbornIconPlacement
+StickyIcons
+IconBox 610 120 718 900
+SmartPlacement
+#StubbornPlacement
+#SuppressIcons
+#RandomPlacement
+#AutoPlaceIcons
+
+### Pager ###
+DeskTopSize 3x3
+DeskTopScale 23
+
+### Other Options ###
+EdgeScroll 100 100
+EdgeResistance 200 0
+OpaqueMove 50
+DecorateTransients
+NoPPosition
+AutoRaise 500
+# define some complex buttons, as a list of points
+ButtonStyle : 1 4 75x25@0 25x25@1 50x75@1 75x20@0
+ButtonStyle : 2 13 20x20@1 40x20@1 50x50@0 60x20@1 80x20@1 60x50@0 80x80@0 60x80@0 50x50@1 40x80@0 20x80@0 40x50@1 20x20@1
+#MWMBorders
+#MWMButtons
+#SloppyFocus
+#ClickTime 150
+
+### Styles ###
+# default style
+Style "*"               Color black/gray40
+
+Style "FvwmPager"       NoTitle,Sticky
+Style "Dali Clock"      NoTitle,NoHandles,Sticky,StaysOnTop
+Style "FvwmBanner"      NoTitle
+Style "GoodStuff"       NoTitle,Sticky,WindowListSkip
+Style "LoadStuff"       NoTitle,Sticky
+Style "xeyes"           NoTitle,NoHandles,Sticky,StaysOnTop
+Style "XFace"           StaysOnTop
+Style "xmailtool"       NoIconTitle,StartIconic
+Style "xlab"            NoTitle,NoIconTitle
+
+Style "*"               Icon smallx.xpm
+Style "xterm"           Icon xterm.xpm
+Style "axe"             Icon xedit_w.xpm
+Style "xcmap"           Icon color_chart_w.xpm
+Style "xco"             Icon colours_w.xpm
+Style "xfontsel"        Icon fonts_w.xpm
+Style "Mosaic"          Icon xmosaic_w.xpm
+Style "Netscape"        Icon N2.xpm
+
+
+### Popups Menus ###
+# the pops are defined before they are called
+Popup "win"
+    Title   "Window Ops"
+    Refresh "Re-draw"
+    Move    "Move"
+    Resize  "Resize"
+    Raise   "Raise"
+    Lower   "Lower"
+    Iconify "(De)Iconify"
+    Stick   "(Un)Stick"
+    Maximize "(Un)Maximize"
+    Maximize "(Un)Maximize Vertical"        0 100
+    Nop     ""
+    Destroy "Destroy"
+    Delete  "Delete"
+EndPopup
+
+Popup "Floppy"
+    Title   "Floppies"
+    Exec    "Eject"         exec eject fd
+    Exec    "Format LD"     exec xterm -bg LightBlue2 -geometry 41x3 -e fdformat -ldU 
+    Exec    "Format HD"     exec xterm -bg LightBlue2 -geometry 41x3 -e fdformat -dU 
+EndPopup
+
+Popup "Games"
+    Title   "Games"
+    Exec    "atoms"         exec atoms
+    Exec    "ishido"        exec ishido
+    Exec    "missileX"      exec missileX
+    Exec    "reve"          exec reve
+    Exec    "spatial"       exec spatial
+    Exec    "spheral"       exec spheral
+    Exec    "spider"        exec spider
+    Exec    "svb"           exec svb
+    Exec    "xbill"         exec xbill
+    Exec    "xbl"           exec xbl
+    Exec    "xblackjack"    exec xblackjack
+    Exec    "xboing"        exec xboing
+    Exec    "xdemineur"     exec xdemineur
+    Exec    "xevil"         exec xevil
+    Exec    "xmhearts"      exec rsh crocus xmhearts
+    Exec    "xpat"          exec xpat
+    Exec    "xplughole"     exec xplughole
+    Exec    "xqunito"       exec xquinto
+    Exec    "xscrabble"     exec xscrabble
+    Exec    "xshogi"        exec xshogi
+    Exec    "xsokoban"      exec xsokoban
+    Exec    "xtet42"        exec xtet42
+    Exec    "xtetris"       exec xtetris
+    Exec    "xvier"         exec xvier  
+EndPopup
+
+Popup "Demos"
+    Title   "Demos"
+    Exec    "xmountains"    exec xmountains -geometry 500x400
+    Exec    "xroach"        exec xroach -rc limegreen -rgc red -speed 1 -squish
+    Exec    "xpanic"        exec xpanic
+    Exec    "blast"         exec blast
+    Exec    "atrraction"    exec attraction -mode lines
+    Exec    "decayscreen"   exec decayscreen
+    Exec    "hypercube"     exec hypercube
+    Exec    "t3d"           exec t3d
+    Exec    "xacursor"      exec xacursor -bg blue -fg green2 -r -demo
+    Exec    "xteddy"        exec xteddy
+    Exec    "xcarol"        exec xcarol
+    Exec    "xdave"         exec xdave
+    Exec    "xhenry"        exec xhenry
+    Exec    "xjohnny"       exec xjohnny
+EndPopup
+
+Popup "Editors"
+    Exec    "asWedit"       exec asWedit
+    Exec    "Framemaker"    exec imaker-4
+    Exec    "nedit"         exec nedit
+    Exec    "xhtml"         exec xhtml
+    Exec    "pixmap"        exec pixmap
+    Exec    "xpaint"        exec xpaint
+EndPopup
+
+Popup "Comms"
+    Exec    "Arena"         exec /home/newwords/bin/solaris2/arena
+    Exec    "Mosaic"        exec /home/newwords/bin/solaris2/mosaic2.6b1
+    Exec    "Netscape"      exec netscape-1.1 -install
+    Exec    "OPAC"          exec xterm -T 'OPAC at the Library' -bg black -fg green -e telnet opac 
+    Exec    "xftp"          exec xftp
+    Exec    "xdir"          exec xdir
+    Exec    "xmailtool"     exec xmailtool
+    Exec    "xword"         exec xword
+EndPopup
+
+Popup "Root"
+    Exec    "black"         exec xsetroot -solid black
+    Exec    "slate"         exec xpmroot /home/csuoq/xpm/textures/slate.xpm
+    Exec    "xcess"         exec xpmroot /home/csuoq/xpm/textures/xcess_bg.xpm.gz
+    Exec    "circles"       exec xpmroot /home/csuoq/xpm/textures/circle_weave.xpm
+    Exec    "cloth"         exec xpmroot /home/csuoq/xpm/textures/cloth.xpm
+    Exec    "concrete"      exec xpmroot /home/csuoq/xpm/textures/concrete.xpm
+    Exec    "stucco"        exec xpmroot /home/csuoq/xpm/textures/gray_stucco.xpm
+    Exec    "honey"         exec xpmroot /home/csuoq/xpm/textures/honey.xpm
+    Exec    "marbled"       exec xpmroot /home/csuoq/xpm/textures/marbled.xpm
+    Exec    "multi 1"       exec xpmroot /home/csuoq/xpm/textures/multicolor1_rock.xpm.gz
+    Exec    "multi 2"       exec xpmroot /home/csuoq/xpm/textures/multicolor3_rock.xpm.gz
+    Exec    "plasma maze"   exec xpmroot /home/csuoq/xpm/textures/plasma_maze.xpm
+    Exec    "raindrops"     exec xpmroot /home/csuoq/xpm/textures/raindrops_dark.xpm.gz
+    Exec    "tan paper"     exec xpmroot /home/csuoq/xpm/textures/tan_paper.xpm.gz
+    Exec    "wood"          exec xpmroot /home/csuoq/xpm/textures/wood.xpm
+    Exec    "yellow weave"  exec xpmroot /home/csuoq/xpm/textures/yellow_weave.xpm
+    Nop     ""
+    Exec    "Browse"        exec xbmbrowser /home/csuoq/xpm/textures    
+EndPopup
+
+Popup "utils"
+    Title   "Utilities"
+    Exec    "Xcess           "  exec /home/csuoq/xcess
+    Nop     ""
+    Popup   "Editors"       Editors
+    Popup   "Comms"         Comms
+    Popup   "Games"         Games
+    Popup   "Demos"         Demos
+    Popup   "Root"          Root
+    Popup   "Floppy"        Floppy
+    Nop     ""
+    Exec    "hman"          exec hman
+    Exec    "mxterm"        exec mxterm
+    Exec    "xclipboard"    exec xclipboard
+    Exec    "xdu"           exec du | xdu
+    Exec    "xlab"          exec xlab
+    Exec    "xman"          exec xman 
+    Exec    "xmb"           exec xmb
+    Exec    "xmcolor"       exec xmcolor
+    Exec    "xtar"          exec xtar
+    Exec    "xzap"          exec xzap
+EndPopup
+
+Popup "Module-Popup"
+    Title   "Modules"
+    Module  "GoodStuff"     GoodStuff
+    Module  "Clean-Up"      FvwmClean
+    Module  "Identify"      FvwmIdent
+    Module  "SaveDesktop"   FvwmSave
+    Module  "Debug"         FvwmDebug
+    Module  "Scroll"        FvwmScroll
+    Module  "Pager"         FvwmPager 0 1
+    Module  "WinList"       FvwmWinList
+    Module  "FileMgr"       FvwmFileMgr
+    Module  "IconBox"       FvwmIconBox
+    Module  "Audio"         FvwmAudio
+EndPopup
+
+Popup "dsk"
+    Title   "Select a desk to use"
+    Desk    "0...." 0 0
+    Desk    "1...." 0 1
+    Desk    "2...." 0 2
+    Desk    "3...." 0 3
+    Title   ""
+    Desk    "next " 1 0
+    Desk    "previous" -1 0
+EndPopup 
+
+Popup "Base"
+    Title       "Fvwm Control"
+    Popup       "Modules"   Module-Popup
+    Popup       "Window Options"        win
+    Popup       "switch desktops"   dsk
+    WindowList  "Window List"
+    Refresh     "Refresh"
+    Restart     "Restart Fvwm"  fvwm    
+    Nop         ""
+    Delete      "Delete"
+    Close       "Close"
+    Destroy     "Destroy"
+    Nop         ""
+    Quit        "Exit"
+    Nop         ""
+EndPopup
+
+Popup "logins"
+    Title   "Logins   "
+    Exec    "Local"             exec mxterm -T local -xrm "MXTerm*background: yellow2"
+    Exec    "Lily"              exec rsh lily mxterm -bg burlywood
+    Exec    "Holly"             exec rsh holly mxterm -bg greenyellow
+    Exec    "Crocus"            exec rsh crocus mxterm -T crocus -bg lightsteelblue
+# put any other logins here, such as DCS accounts
+#   Exec    "matcha@stone"      exec xrsh -l matcha stone xterm -title stone
+    Nop     ""
+EndPopup
+
+### Functions ###
+Function "Move-or-Raise"
+    Raise       "Motion"
+    Move        "Motion"
+    Raise       "Click"
+EndFunction
+
+Function "Move-or-Lower"
+    Move        "Motion"
+    Lower       "Motion"
+    Lower       "Click"
+    RaiseLower  "DoubleClick"
+EndFunction
+
+Function "Resize-or-Raise"
+    Resize      "Motion"
+    Raise       "Motion"
+    Raise       "Click"
+    RaiseLower  "DoubleClick"
+EndFunction
+
+Function "Move-or-Iconify"
+    Move        "Motion"
+    #PopUp      "Click" win
+    Iconify     "Click"
+EndFunction
+
+
+# this is called when fvwm is first run
+Function "InitFunction"
+    Exec    "I"     exec xpmroot /home/csuoq/xpm/textures/xcess_bg.xpm
+    Exec    "I"     exec mxterm -T `hostname` -geometry 80x27+0+113
+    Exec    "I"     exec mxterm -T `hostname` -xrm "MXTerm*background: yellow2" -geometry 80x28+0-0
+    Module  "I"     GoodStuff
+    Wait    "I"     GoodStuff
+    Module  "I"     FvwmPager 0 0
+    Exec    "I"     exec xmb -brief -usercode -geometry -0+113
+    Exec    "I"     exec xlab -geometry -1-1
+    Exec    "I"     exec xdaliclock2 -24 -noseconds -shape -bg gray20 -fg gray20 -font "-*-new century schoolbook-*-r-*-*-24-*" -geometry +497+83
+    Exec    "I"     exec xeyes -geometry 30x15+522+66 -outline gray65
+EndFunction
+
+# this is called when fvwm is restarted
+Function "RestartFunction"
+    Module  "I" GoodStuff
+    Wait    "I" GoodStuff
+EndFunction
+
+### Mouse bindings ###
+# First, for the mouse in the root window.
+# The AnyModifier option is used for the modifier field, so you can hold down
+# any shift-control-whatever combination you want.
+
+#     Button    Context Modifi  Function
+Mouse 1         R       A       PopUp "logins"
+Mouse 2         R       A       PopUp "utils"
+Mouse 3         R       A       PopUp "Base"
+
+# Now the title bar buttons
+#     Button    Context Modifi  Function
+Mouse 0     1       A       Iconify
+Mouse 0     2       A       Close
+
+# Now the rest of the frame
+Mouse 1     FS  A   Function "Resize-or-Raise"
+Mouse 2     FS  A   Function "Resize-or-Raise"
+Mouse 1     T   A   Function "Move-or-Raise"
+Mouse 2     T   A   RaiseLower "Click"
+Mouse 3     T   A   PopUp "win"
+Mouse 1     I   A   Function "Move-or-Iconify"
+Mouse 2     I   A   Function "Move-or-Iconify"
+Mouse 3     I   A   PopUp "win"
+Mouse 1     W       M       Function "Move-or-Raise"
+ 
+### Key bindings ###
+# Arrow Keys
+# press arrow + control anywhere, and scroll by 1 page
+Key Left    A   C   Scroll -100 0
+Key Right   A   C   Scroll +100 +0
+Key Up      A   C   Scroll +0   -100
+Key Down    A   C   Scroll +0   +100
+
+# press shift arrow + control anywhere, and move the pointer by 1% of a page
+Key Left    A   SC  CursorMove -1 0
+Key Right   A   SC  CursorMove +1 +0
+Key Up      A   SC  CursorMove +0   -1
+Key Down    A   SC  CursorMove +0   +1
+
+# press shift arrow + meta key, and move the pointer by 1/10 of a page
+Key Left    A   SM  CursorMove -10 +0
+Key Right   A   SM  CursorMove +10 +0
+Key Up      A   SM  CursorMove +0   -10
+Key Down    A   SM  CursorMove +0   +10
+ 
+# Keyboard accelerators
+Key F1      A   A   GotoPage 0 0
+Key F2      A   A   GotoPage 1 0
+Key F3      A   A   GotoPage 2 0
+Key F4      A   A   GotoPage 0 1
+Key F5      A   A   GotoPage 1 1
+Key F6      A   A   GotoPage 2 1
+Key F7      A   A   GotoPage 0 2
+Key F8      A   A   GotoPage 1 2
+Key F9      A   A   GotoPage 2 2
+Key F10     A   A   Refresh "Refresh"
+
+### GoodStuff ###
+*GoodStuffFore Black
+*GoodStuffBack gray65
+*GoodStuffGeometry 1144x100+0+0
+*GoodStuffRows 2
+*GoodStuffFont -adobe-helvetica-*-r-normal-*-11-*-*-*-*-*-*-*
+
+# the order of these affects their position in the GoodStuff box
+*GoodStuff(10x2) -  junk            Swallow "swxterm" xterm -T swxterm -C -bg gray65 -geometry -1500-1500 +sb
+*GoodStuff Holly    junk1.xpm       Swallow "Holly" xrload_new -name 'Holly' -geometry -1500-1500 -alivecolour greenyellow -update 10 holly
+*GoodStuff(3x2) -   junk.xpm        SwallowModule "FvwmPager" FvwmPager 0 0
+*GoodStuff MXrn     news2.xpm       Exec "" mxrn
+*GoodStuff Lock     snoopy.xpm      Exec "" xlock
+*GoodStuff Xpaint   palette2.xpm    Exec "xpaint" xpaint
+*GoodStuff Editres  editres.xpm     Exec "editres" editres
+*GoodStuff Xarchie  index.xpm       Exec "xarchie" xarchie
+*GoodStuff XFtp     network.xpm     Exec "xftp" xftp 2>/dev/null
+*GoodStuff Netscape N2.xpm          Exec "Netscape" netscape-1.1 -install
+*GoodStuff Fvwmrc   fv.xpm          Exec "nedit" nedit .fvwmrc
+*GoodStuff Xco      colours.xpm     Exec "xco" xco -geometry 400x220 -show 16
+*GoodStuff Cmap     color_chart.xpm Exec "" colormap
+*GoodStuff Xfonts   fonts.xpm       Exec "xfontsel" xfontsel
+*GoodStuff Local    junk1.xpm       Swallow "Local" xrload_new -name 'Local' -geometry -1500-1500 -alivecolour yellow -update 10 `hostname`
+*GoodStuff Crocus   junk1.xpm       Swallow "Crocus" xrload -name 'Crocus' -geometry -1500-1500 -alivecolour deepskyblue -update 10 crocus
+
+### FvwmWinList ###
+*FvwmWinListBack #908090
+*FvwmWinListFore Black
+*FvwmWinListFont -adobe-helvetica-bold-r-*-*-10-*-*-*-*-*-*-*
+*FvwmWinListAction Click1 Iconify -1,Focus
+*FvwmWinListAction Click2 Iconify
+*FvwmWinListAction Click3 Module "FvwmIdent" FvwmIdent
+*FvwmWinListUseSkipList
+*FvwmWinListGeometry +0+0
+
+### Pager ###
+*FvwmPagerBack gray65
+*FvwmPagerFore black
+*FvwmPagerFont none
+*FvwmPagerHilight gray75
+*FvwmPagerGeometry -1500-1500
+*FvwmPagerLabel 0 FvwmPager
+*FvwmPagerLabel 1 Reserve
+*FvwmPagerSmallFont 5x8
+
+### Window-Identifier ###
+*FvwmIdentBack gray65
+*FvwmIdentFore black
+*FvwmIdentFont -adobe-helvetica-medium-r-*-*-12-*-*-*-*-*-*-*
+
+### Icon-Box ###
+*FvwmIconBoxIconBack    #cfcfcf
+*FvwmIconBoxIconHiFore  black
+*FvwmIconBoxIconHiBack  LightSkyBlue
+*FvwmIconBoxBack        #5f9ea0
+*FvwmIconBoxFore       blue
+*FvwmIconBoxGeometry    5x1+0+0
+*FvwmIconBoxMaxIconSize 64x38
+*FvwmIconBoxFont        -adobe-helvetica-medium-r-*-*-11-*-*-*-*-*-*-*
+*FvwmIconBoxSortIcons
+*FvwmIconBoxPadding     4
+*FvwmIconBoxLines       5
+*FvwmIconBoxPlacement   Left Top
+*FvwmIconBoxPixmap      wood.xpm
+
+# mouse bindings
+*FvwmIconBoxMouse       1       Click           RaiseLower
+*FvwmIconBoxMouse       1       DoubleClick     Iconify
+*FvwmIconBoxMouse       2       Click           Iconify -1, Focus
+*FvwmIconBoxMouse       3       Click           Module "FvwmIdent" FvwmIdent
+*FvwmIconBox            "*"     atom.xpm
+*FvwmIconBox            "Fvwm*" fvwm.xpm
+*FvwmIconBox            "xterm" xterm.xpm
